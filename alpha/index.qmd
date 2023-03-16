@@ -5,8 +5,10 @@ title: Alphaviruses (Togaviridae)
 ## Plot
 
 ```{ojs}
+html`<link rel=stylesheet href='${resolve("phylotree@0.1/phylotree.css")}'>`
+
 height = 500
-width = 300
+width = 800
 
 d3 = {
   const d3 = window.d3 = await require("d3@3");
