@@ -24,6 +24,14 @@ html`
     font-weight: bold;
     font-size: 16px!important;
   }
+
+  .phylotree-node-text-info {
+    fill: black;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 20px!important;
+    transform: scale(2, 2);
+  }
 </style>
 `
 height = 900
@@ -56,20 +64,47 @@ renderedTree = tree
     'container': 'svg'
   })
 
+// Simple translation table
+translation = ({
+  "L01442_VEEV IAB": "VEEV",
+  "AF375051_VEEV IC": "Also VEEV ?",
+  "L00930_VEEV ID": "VEEV as well ?!"
+})
+
 rt = renderedTree
   .style_nodes(function(element, data) {
-    element.on('mouseover', function() {
 
-      // deselect all text elements
+    // make sure we override the context menu
+    element.on('contextmenu', (d) => {
+      console.log("contextmenu triggered on " + d);
+
+      d.preventDefault();
+    })
+
+    // hover functionality
+    element.on('mouseover', function() {
+      console.log("hover triggered on " + this);
+
+      // deselect all text elements by giving them the default class
       d3.selectAll("text").attr("selected", null).attr("class", "phylotree-node-text")
 
-      // select the current element
+      // select the current element and update the class
       d3.select(this).select("text").text(data.data.name).attr("class", "phylotree-node-text-selected")
 
+      d3.select('#mouseover-text').text(translation[data.data.name]);
     })
   })
   .layout(true)
   .show()
+
+// Extra popup
+d3.select(rt)
+  .append('text')
+  .attr('id', 'mouseover-text')
+  .attr('class', "phylotree-node-text-info")
+  .attr('transform', 'translate(20, 20)')
+  .text('')
+
 ```
 
 
