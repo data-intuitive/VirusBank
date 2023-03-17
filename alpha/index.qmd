@@ -2,42 +2,86 @@
 title: Alphaviruses (Togaviridae)
 ---
 
-## Plot
-
 ```{ojs}
-html`<link rel=stylesheet href='${resolve("phylotree@0.1/phylotree.css")}'>`
+//| output: none
+//| echo: false
+html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
+html`
+<style type="text/css">
 
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
+
+  .phylotree-node-text {
+    fill: grey;
+    font-family: "Roboto";
+    font-weight: thin;
+    font-size: 16px!important;
+  }
+
+  .phylotree-node-text-selected {
+    fill: black;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 16px!important;
+  }
+</style>
+`
 height = 900
 width = 900
-d3 = await require("d3@7")
+
+d3 = await require("d3@6")
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 nwk = await FileAttachment("togaviridae.newick").text()
 
-new phylotree
+tree = new phylotree
   .phylotree(nwk)
+
+renderedTree = tree
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
-    'is-radial': true,
+    'is-radial': false,
     'selectable': false,  // make nodes and branches not selectable
-    'collapsible': false, // turn off the menu on internal nodes
-    'transitions' : false,
+    'collapsible': false,
+    'transitions' : true,
+    'show-menu': true,
     'show-scale': false,
-    'align-tips': true,
+    'align-tips': false,
     'width': width,
-    'height': height
+    'height': height,
+    'zoom': false,
+    'minimal-per-node-spacing': 20,
+    'minimum-per-level-spacing': 20,
+    'container': 'svg'
   })
+
+rt = renderedTree
+  .style_nodes(function(element, data) {
+    element.on('mouseover', function() {
+
+      // deselect all text elements
+      d3.selectAll("text").attr("selected", null).attr("class", "phylotree-node-text")
+
+      // select the current element
+      d3.select(this).select("text").text(data.data.name).attr("class", "phylotree-node-text-selected")
+
+    })
+  })
+  .layout(true)
   .show()
 ```
+
+
 
 ## Background
 
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) (1). Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
 
-Transmission and epidemiology
+## Transmission and epidemiology
 
 Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods (2, 3). On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes (2).
+
 Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent (3). These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle (3). On the other hand, equids are the key reservoir host for VEEV  because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes (3).
 
 ![](images/figure1.png)
@@ -112,7 +156,6 @@ We have animal models for CHIKV and RRV to test the efficacy of antiviral compou
 
 - AG129 mice: Lethal model (with neurological symptoms)
 - C57BL/6 mice: footpad arthritis model
-
 
 
 ## References
