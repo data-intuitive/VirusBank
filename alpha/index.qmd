@@ -42,12 +42,29 @@ html`
     font-weight: bold;
     font-size: 28px!important;
   }
+
+  .contextMenu {
+    stroke: #00557d;
+    fill: #ffffff;
+  }
+
+  .menuEntry {
+    cursor: pointer;
+    width: 150;
+    height: 20;
+  }
+
+  .menuEntry text {
+    font-size: 12px;
+    stroke: #00557d;
+  }
 </style>
 `
 height = 700
 width = 700
 
-d3 = await require("d3@6")
+d3 = await require("d3@7")
+// https://unpkg.com/phylotree@1.1.0/dist/phylotree.js
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 nwk = await FileAttachment("test.newick").text();
@@ -58,12 +75,75 @@ tree = new phylotree.phylotree(nwk)
 <!-- json = await FileAttachment("copy.json").text() -->
 <!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->
 
-console.log(tree);
+function drawMenu(data, items, svgDomID, event) {
+  var bbox = svgDomID.firstChild.getBBox();
+  console.log(bbox);
+  console.log(data);
 
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+  drawMenuDomElements(bbox.width+20, -bbox.height/2, [
+    {
+      title: annotationsMap[data.data.name].name,
+      action: (d) => {
+        console.log("what is d" + d);
+      }
+    },
+    {
+      title: 'test',
+      action: (d) => {
+        console.log(d);
+      }
+    }
+  ], data, svgDomID);
+  event.preventDefault();
+}
 
-console.log(annotations);
-console.log(annotationsMap);
+menuItems = [
+  {
+    title: 'some title',
+    action: (d) => {
+      console.log("what is d" + d);
+    }
+  },
+  {
+    title: 'test',
+    action: (d) => {
+      console.log(d);
+    }
+  }
+];
+
+function drawMenuDomElements(x, y, menuItems, d, svgDomID) {
+  console.log("Drawing menu on" + svgDomID);
+
+  d3.select(".contextMenu").remove();
+
+  // Draw the menu
+    d3.select(svgDomID)
+        .append('g').attr('class', "contextMenu")
+        .selectAll('tmp')
+        .data(menuItems).enter()
+        .append('g').attr('class', "menuEntry")
+        .style({'cursor': 'pointer'});
+
+    // Draw menu entries
+    d3.selectAll('.menuEntry')
+        .append('rect')
+        .attr('x', x)
+        .attr('y', (d, i) => { return y + (i * 30); })
+        .attr('rx', 2)
+        .attr('width', 150)
+        .attr('height', 30)
+        .on('click', (d) => { d.action(d) });
+
+    d3.selectAll(".menuEntry")
+        .append('text')
+        .text((d) => { return d.title; })
+        .attr('x', x)
+        .attr('y', (d, i) => { return y + (i * 30); })
+        .attr('dy', 20)
+        .attr('dx', 45)
+        .on('click', (d) => { d.action(d) });
+}
 
 toolbox = await FileAttachment("test-toolbox.js").json();
 console.log(toolbox);
@@ -74,9 +154,10 @@ renderedTree = tree
     'top-bottom-spacing': 'fit-to-size',
     'is-radial': true,
     'selectable': false,  // make nodes and branches not selectable
+    'binary-selectable': false,
     'collapsible': false,
     'transitions' : true,
-    'show-menu': true,
+    'show-menu': false,
     'show-scale': false,
     'align-tips': true,
     'width': width,
@@ -85,62 +166,22 @@ renderedTree = tree
     'minimal-per-node-spacing': 20,
     'minimum-per-level-spacing': 20,
     'container': 'svg'
-  })
-
-rt = renderedTree
-  .style_nodes(function(element, data) {
-
+  }).layout(true).style_nodes(function(element, data) {
+    // Implement functionality for each node
+    // DOM objects can be selected using d3.select (or selectAll)
     // make sure we override the context menu
-    element.on('contextmenu', (d) => {
-      console.log("contextmenu triggered on " + d);
-
-      d.preventDefault();
-    })
-
+    // element.on('contextmenu', (d) => {
+    //   console.log("contextmenu triggered on " + d);
+    //   d.preventDefault();
+    // })
+  
     // hover functionality
-    element.on('mouseover', function() {
+    element.on('mouseover', function(event, d) {
       console.log("hover triggered on " + this);
+      drawMenu(data, menuItems, this, event);
+    });
+  }).show();
 
-      // deselect all text elements by giving them the default class
-      d3.selectAll("text").attr("selected", null).attr("class", "phylotree-node-text")
-
-      // select the current element and update the class
-      d3.select(this).select("text").text(data.data.name).attr("class", "phylotree-node-text-selected")
-
-      d3.select('#mouseover-text').text(annotationsMap[data.data.name].name);
-    })
-  })
-  .layout(true)
-  .show()
-
-// Extra popup
-d3.select(rt)
-  .append('text')
-  .attr('id', 'mouseover-text')
-  .attr('class', "phylotree-node-text-info")
-  .attr('transform', 'translate(20, 20)')
-  .text('')
-
-// This variable contains the selection from the table below
-console.log(selection)
-```
-
-## Table
-
-```{ojs}
-//| echo: false
-viewof selection = Inputs.table(annotations, {
-  columns: [
-    "id",
-    "name",
-    "description"
-  ],
-  header: {
-    id: "ID",
-    description: "Description",
-    name: "Name"
-  }
-})
 ```
 
 ## Background
