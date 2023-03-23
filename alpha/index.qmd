@@ -75,26 +75,6 @@ tree = new phylotree.phylotree(nwk)
 <!-- json = await FileAttachment("copy.json").text() -->
 <!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->
 
-renderedTree = tree
-  .render({
-    'left-right-spacing': 'fit-to-size',
-    'top-bottom-spacing': 'fit-to-size',
-    'is-radial': true,
-    'selectable': false,  // make nodes and branches not selectable
-    'binary-selectable': false,
-    'collapsible': false,
-    'transitions' : true,
-    'show-menu': false,
-    'show-scale': false,
-    'align-tips': true,
-    'width': width,
-    'height': height,
-    'zoom': false,
-    'minimal-per-node-spacing': 20,
-    'minimum-per-level-spacing': 20,
-    'container': 'svg'
-  }).layout(true)
-
 function drawMenu(data, items, svgDomID, event) {
   var bbox = svgDomID.firstChild.getBBox();
   console.log(bbox);
@@ -149,7 +129,26 @@ menuItems = [
     }
   }
 ];
-renderedTree.style_nodes(function(element, data) {
+
+renderedTree = tree
+  .render({
+    'left-right-spacing': 'fit-to-size',
+    'top-bottom-spacing': 'fit-to-size',
+    'is-radial': true,
+    'selectable': false,  // make nodes and branches not selectable
+    'binary-selectable': false,
+    'collapsible': false,
+    'transitions' : true,
+    'show-menu': false,
+    'show-scale': false,
+    'align-tips': true,
+    'width': width,
+    'height': height,
+    'zoom': false,
+    'minimal-per-node-spacing': 20,
+    'minimum-per-level-spacing': 20,
+    'container': 'svg'
+  }).layout(true).style_nodes(function(element, data) {
     // Implement functionality for each node
     // DOM objects can be selected using d3.select (or selectAll)
     // make sure we override the context menu
@@ -163,9 +162,7 @@ renderedTree.style_nodes(function(element, data) {
       console.log("hover triggered on " + this);
       drawMenu(data, menuItems, this, event);
     });
-  })
-
-rt = renderedTree.show();
+  }).show();
 
 ```
 
