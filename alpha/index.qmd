@@ -72,20 +72,20 @@ annotations = await FileAttachment("test-annotation.json").json();
 
 tree = new phylotree.phylotree(nwk)
 
-function drawMenu(data, items, svgDomID, event) {
-  var bbox = svgDomID.firstChild.getBBox();
+function drawMenu(data, items, element, event) {
+  var bbox = d3.pointer(event, element.node().parentNode);
   console.log(bbox);
-  drawMenuDomElements(bbox.width+20, -bbox.height/2, menuItems, data, svgDomID);
+  drawMenuDomElements(bbox[0], bbox[1], menuItems, data, element.node().parentNode);
   event.preventDefault();
 }
 
-function drawMenuDomElements(x, y, menuItems, d, svgDomID) {
-  console.log("Drawing menu on" + svgDomID);
+function drawMenuDomElements(x, y, menuItems, d, node) {
+  console.log("Drawing menu on" + node);
 
   d3.select(".contextMenu").remove();
 
   // Draw the menu
-    d3.select(svgDomID)
+  d3.select(node)
         .append('g').attr('class', "contextMenu")
         .selectAll('tmp')
         .data(menuItems).enter()
@@ -156,7 +156,7 @@ renderedTree = tree
     // hover functionality
     element.on('mouseover', function(event, d) {
       console.log("hover triggered on " + this);
-      drawMenu(data, menuItems, this, event);
+      drawMenu(data, menuItems, element, event);
     });
   }).layout(true).show();
 
