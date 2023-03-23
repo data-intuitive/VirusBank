@@ -152,11 +152,14 @@ renderedTree = tree
     //   console.log("contextmenu triggered on " + d);
     //   d.preventDefault();
     // })
-  
+
     // hover functionality
     element.on('mouseover', function(event, d) {
       console.log("hover triggered on " + this);
-      drawMenu(data, menuItems, element, event);
+
+      if (!d.hasOwnProperty("children")) {
+        drawMenu(data, menuItems, element, event);
+      }
     });
   }).layout(true).show();
 
