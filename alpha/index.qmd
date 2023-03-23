@@ -125,7 +125,7 @@ function drawMenuDomElements(x, y, menuItems, d, svgDomID) {
         .attr('height', 30)
         .on('click', (d) => { d.action(d) });
 
-    d3.selectAll("menuEntry")
+    d3.selectAll(".menuEntry")
         .append('text')
         .text((d) => { return d.title; })
         .attr('x', x)
