@@ -266,58 +266,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="68" data-source-offset="-1334"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 67;"><span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'svg'</span></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> renderedTree</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">style_nodes</span>(<span class="kw">function</span>(element<span class="op">,</span> data) {</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    <span class="co">// make sure we override the context menu</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'contextmenu'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"contextmenu triggered on "</span> <span class="op">+</span> d)<span class="op">;</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>      d<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>    <span class="co">// hover functionality</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"hover triggered on "</span> <span class="op">+</span> <span class="kw">this</span>)<span class="op">;</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>      <span class="co">// deselect all text elements by giving them the default class</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"selected"</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text"</span>)</span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>      <span class="co">// select the current element and update the class</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text-selected"</span>)</span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#mouseover-text'</span>)<span class="op">.</span><span class="fu">text</span>(annotationsMap[data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">show</span>()</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="co">// Extra popup</span></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(rt)</span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">'text'</span>)</span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'id'</span><span class="op">,</span> <span class="st">'mouseover-text'</span>)</span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"phylotree-node-text-info"</span>)</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'transform'</span><span class="op">,</span> <span class="st">'translate(20, 20)'</span>)</span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">text</span>(<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="68" data-source-offset="-1334"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 67;"><span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-toolbox.js"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(toolbox)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-14" data-nodetype="declaration">
@@ -327,22 +277,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-15" data-nodetype="declaration">
+<div id="ojs-cell-1-15" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="71" data-source-offset="-1415"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 70;"><span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'svg'</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> renderedTree</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">style_nodes</span>(<span class="kw">function</span>(element<span class="op">,</span> data) {</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>    <span class="co">// make sure we override the context menu</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'contextmenu'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"contextmenu triggered on "</span> <span class="op">+</span> d)<span class="op">;</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>      d<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>    <span class="co">// hover functionality</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"hover triggered on "</span> <span class="op">+</span> <span class="kw">this</span>)<span class="op">;</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>      <span class="co">// deselect all text elements by giving them the default class</span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"selected"</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text"</span>)</span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>      <span class="co">// select the current element and update the class</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">text</span>(data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text-selected"</span>)</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#mouseover-text'</span>)<span class="op">.</span><span class="fu">text</span>(annotationsMap[data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">show</span>()</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="co">// Extra popup</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(rt)</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">'text'</span>)</span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'id'</span><span class="op">,</span> <span class="st">'mouseover-text'</span>)</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"phylotree-node-text-info"</span>)</span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">'transform'</span><span class="op">,</span> <span class="st">'translate(20, 20)'</span>)</span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">text</span>(<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-16" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-16" data-nodetype="expression">
+<div id="ojs-cell-1-17" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="122" data-source-offset="-2852"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 121;"><span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(selection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-17" data-nodetype="expression">
+<div id="ojs-cell-1-18" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="125" data-source-offset="-2933"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 124;"><span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(selection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-19" data-nodetype="expression">
 
 </div>
 </div>
@@ -351,18 +367,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="table" class="level2">
 <h2 class="anchored" data-anchor-id="table">Table</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="128" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 127;"><span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>viewof selection <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(annotations<span class="op">,</span> {</span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
-<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
-<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
-<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
-<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
-<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
-<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
-<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span></span>
-<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="131" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 130;"><span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>viewof selection <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(annotations<span class="op">,</span> {</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -487,7 +503,7 @@ Summary of known arthritogenic alphavirus outbreaks, with geographical distribut
 <!-- /main column -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Roboto\";\n    font-weight: thin;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n</style>\n`\nheight = 700\nwidth = 700\n\nd3 = await require(\"d3@6\")\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\n\ntree = new phylotree.phylotree(nwk)\n\n<!-- json = await FileAttachment(\"copy.json\").text() -->\n<!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->\n\nconsole.log(tree);\n\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\n\nconsole.log(annotations);\nconsole.log(annotationsMap);\n\nrenderedTree = tree\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'collapsible': false,\n    'transitions' : true,\n    'show-menu': true,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 20,\n    'minimum-per-level-spacing': 20,\n    'container': 'svg'\n  })\n\nrt = renderedTree\n  .style_nodes(function(element, data) {\n\n    // make sure we override the context menu\n    element.on('contextmenu', (d) => {\n      console.log(\"contextmenu triggered on \" + d);\n\n      d.preventDefault();\n    })\n\n    // hover functionality\n    element.on('mouseover', function() {\n      console.log(\"hover triggered on \" + this);\n\n      // deselect all text elements by giving them the default class\n      d3.selectAll(\"text\").attr(\"selected\", null).attr(\"class\", \"phylotree-node-text\")\n\n      // select the current element and update the class\n      d3.select(this).select(\"text\").text(data.data.name).attr(\"class\", \"phylotree-node-text-selected\")\n\n      d3.select('#mouseover-text').text(annotationsMap[data.data.name].name);\n    })\n  })\n  .layout(true)\n  .show()\n\n// Extra popup\nd3.select(rt)\n  .append('text')\n  .attr('id', 'mouseover-text')\n  .attr('class', \"phylotree-node-text-info\")\n  .attr('transform', 'translate(20, 20)')\n  .text('')\n\n// This variable contains the selection from the table below\nconsole.log(selection)\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof selection = Inputs.table(annotations, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\"\n  }\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('selection')"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Roboto\";\n    font-weight: thin;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n</style>\n`\nheight = 700\nwidth = 700\n\nd3 = await require(\"d3@6\")\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\n\ntree = new phylotree.phylotree(nwk)\n\n<!-- json = await FileAttachment(\"copy.json\").text() -->\n<!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->\n\nconsole.log(tree);\n\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\n\nconsole.log(annotations);\nconsole.log(annotationsMap);\n\ntoolbox = await FileAttachment(\"test-toolbox.js\").json();\nconsole.log(toolbox);\n\nrenderedTree = tree\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'collapsible': false,\n    'transitions' : true,\n    'show-menu': true,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 20,\n    'minimum-per-level-spacing': 20,\n    'container': 'svg'\n  })\n\nrt = renderedTree\n  .style_nodes(function(element, data) {\n\n    // make sure we override the context menu\n    element.on('contextmenu', (d) => {\n      console.log(\"contextmenu triggered on \" + d);\n\n      d.preventDefault();\n    })\n\n    // hover functionality\n    element.on('mouseover', function() {\n      console.log(\"hover triggered on \" + this);\n\n      // deselect all text elements by giving them the default class\n      d3.selectAll(\"text\").attr(\"selected\", null).attr(\"class\", \"phylotree-node-text\")\n\n      // select the current element and update the class\n      d3.select(this).select(\"text\").text(data.data.name).attr(\"class\", \"phylotree-node-text-selected\")\n\n      d3.select('#mouseover-text').text(annotationsMap[data.data.name].name);\n    })\n  })\n  .layout(true)\n  .show()\n\n// Extra popup\nd3.select(rt)\n  .append('text')\n  .attr('id', 'mouseover-text')\n  .attr('class', \"phylotree-node-text-info\")\n  .attr('transform', 'translate(20, 20)')\n  .text('')\n\n// This variable contains the selection from the table below\nconsole.log(selection)\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof selection = Inputs.table(annotations, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\"\n  }\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('selection')"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

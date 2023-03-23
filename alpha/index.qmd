@@ -65,6 +65,9 @@ annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { i
 console.log(annotations);
 console.log(annotationsMap);
 
+toolbox = await FileAttachment("test-toolbox.js").json();
+console.log(toolbox);
+
 renderedTree = tree
   .render({
     'left-right-spacing': 'fit-to-size',
