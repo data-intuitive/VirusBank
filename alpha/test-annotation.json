@@ -1,0 +1,84 @@
+[
+  { 
+    "id": "EEEV",
+    "name": "The Eastern Equine Encephalitis virus"
+  },
+  { 
+    "id": "BFV"
+  },
+  { 
+    "id": "CHIKV"
+  },
+  {
+    "id": "ONNV"
+  },
+  {
+    "id": "MIDV"
+  },
+  { 
+    "id": "SFV"
+  },
+  {
+    "id": "UNAV"
+  },
+  { 
+    "id": "BEBV"
+  },
+  { 
+    "id": "RRV"
+  },
+  {
+    "id": "GETV"
+  },
+  {
+    "id": "MAYV",
+    "name": "Mayaro virus"
+  },
+  {
+    "id": "NDUV"
+  },
+  {
+    "id": "SPDV"
+  },
+  {
+    "id": "AURUV"
+  },
+  { 
+    "id": "FMV"
+  },
+  {
+    "id": "WEEV"
+  },
+  {
+    "id": "HJV"
+  },
+  {
+    "id": "SINV"
+  },
+  {
+    "id": "TROV"
+  },
+  {
+    "id": "RNV"
+  },
+  {
+    "id": "MDPV"
+  },
+  {
+    "id": "VEEV",
+    "name": "Venezuelan Equine Encephalitis virus",
+    "description": "Description for the VEEV Virus"
+  },
+  {
+    "id": "EVEV"
+  },
+  {
+    "id": "CABV"
+  },
+  {
+    "id": "TONV"
+  },
+  {
+    "id": "MUCV"
+  }
+]

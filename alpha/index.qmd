@@ -1,6 +1,17 @@
 ---
 title: Alphaviruses (Togaviridae)
+toc: true
+var: one
+tree:
+  - title: First item
+    content: First content
+  - title: Second item
+    content: Second content
 ---
+
+# Tree
+
+&nbsp;
 
 ```{ojs}
 //| output: none
@@ -15,47 +26,56 @@ html`
     fill: grey;
     font-family: "Roboto";
     font-weight: thin;
-    font-size: 16px!important;
+    font-size: 24px!important;
   }
 
   .phylotree-node-text-selected {
     fill: black;
     font-family: "Roboto";
     font-weight: bold;
-    font-size: 16px!important;
+    font-size: 28px!important;
   }
 
   .phylotree-node-text-info {
     fill: black;
     font-family: "Roboto";
     font-weight: bold;
-    font-size: 20px!important;
-    transform: scale(2, 2);
+    font-size: 28px!important;
   }
 </style>
 `
-height = 900
-width = 900
+height = 700
+width = 700
 
 d3 = await require("d3@6")
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
-nwk = await FileAttachment("togaviridae.newick").text()
+nwk = await FileAttachment("test.newick").text();
+annotations = await FileAttachment("test-annotation.json").json();
 
-tree = new phylotree
-  .phylotree(nwk)
+tree = new phylotree.phylotree(nwk)
+
+<!-- json = await FileAttachment("copy.json").text() -->
+<!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->
+
+console.log(tree);
+
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+
+console.log(annotations);
+console.log(annotationsMap);
 
 renderedTree = tree
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
-    'is-radial': false,
+    'is-radial': true,
     'selectable': false,  // make nodes and branches not selectable
     'collapsible': false,
     'transitions' : true,
     'show-menu': true,
     'show-scale': false,
-    'align-tips': false,
+    'align-tips': true,
     'width': width,
     'height': height,
     'zoom': false,
@@ -63,13 +83,6 @@ renderedTree = tree
     'minimum-per-level-spacing': 20,
     'container': 'svg'
   })
-
-// Simple translation table
-translation = ({
-  "L01442_VEEV IAB": "VEEV",
-  "AF375051_VEEV IC": "Also VEEV ?",
-  "L00930_VEEV ID": "VEEV as well ?!"
-})
 
 rt = renderedTree
   .style_nodes(function(element, data) {
@@ -91,7 +104,7 @@ rt = renderedTree
       // select the current element and update the class
       d3.select(this).select("text").text(data.data.name).attr("class", "phylotree-node-text-selected")
 
-      d3.select('#mouseover-text').text(translation[data.data.name]);
+      d3.select('#mouseover-text').text(annotationsMap[data.data.name].name);
     })
   })
   .layout(true)
@@ -105,9 +118,27 @@ d3.select(rt)
   .attr('transform', 'translate(20, 20)')
   .text('')
 
+// This variable contains the selection from the table below
+console.log(selection)
 ```
 
+## Table
 
+```{ojs}
+//| echo: false
+viewof selection = Inputs.table(annotations, {
+  columns: [
+    "id",
+    "name",
+    "description"
+  ],
+  header: {
+    id: "ID",
+    description: "Description",
+    name: "Name"
+  }
+})
+```
 
 ## Background
 
@@ -144,7 +175,7 @@ The change in mosquito vectors distribution, caused by global warming, virus ada
 
 Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate (2). 
 
-Selection of viruses for VirusBank platform
+## Selection of viruses for VirusBank platform
 The primary viruses of interest for VirusBank are CHIKV, MAYV, RRV and VEEV due to their epidemic potential and severity of disease caused by these viruses as described before in the clinical relevance. SFV and SINV will be included as tool viruses for screening for broad spectrum activity.
 
 ## Available assays/tools
