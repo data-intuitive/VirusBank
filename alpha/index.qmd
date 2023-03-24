@@ -82,24 +82,18 @@ console.log(annotationsMap);
 
 tree = new phylotree.phylotree(nwk)
 
-function drawMenu(data, items, element, event) {
-  var bbox = d3.pointer(event, element.node().parentNode);
-  console.log(bbox);
-  drawMenuDomElements(bbox[0], bbox[1], menuItems, data, element.node().parentNode);
-  event.preventDefault();
-}
+<!-- function drawMenu(data, items, element, event) { -->
+<!--   var bbox = d3.pointer(event, element.node().parentNode); -->
+<!--   console.log(bbox); -->
+<!--   drawMenuDomElements(bbox[0], bbox[1], menuItems, data, element.node().parentNode); -->
+<!--   event.preventDefault(); -->
+<!-- } -->
 
-// Turn the menuItems datastructure into a generator
-// Fill with the name from the annotationsMap
-menuItems = (data) => {
-  return [
+menu = [
     {
-      id: data.data.name,
-      title: annotationsMap[data.data.name].name,
-      menuItem: "name",
-      action: () => {
-        console.log("what is d?");
-        console.log(data)
+      title: 'item 1',
+      action: (d) => {
+        console.log("what is d?", d);
       }
     },
     {
@@ -109,7 +103,6 @@ menuItems = (data) => {
       }
     }
   ]
-}
 
 function drawMenuDomElements(x, y, menuItems, d, node) {
   console.log("Drawing menu on" + node);
@@ -144,7 +137,7 @@ function drawMenuDomElements(x, y, menuItems, d, node) {
     // Problem here is:
     //   1. event does not contain much information about what is clicked
     //   2. d contains the node, but that still doesn't tell us what item was clicked.
-    .on('click', (event) => { console.log(event.target.id); console.log(d); menuItems(d).filter(el => el.menuItem == event.target) });
+    <!-- .on('click', (event) => { console.log(event.target.id); console.log(d); menuItems(d).filter(el => el.menuItem == event.target) }); -->
 }
 
 toolbox = await FileAttachment("test-toolbox.js").json();
@@ -171,19 +164,16 @@ renderedTree = tree
     // Implement functionality for each node
     // DOM objects can be selected using d3.select (or selectAll)
     // make sure we override the context menu
-    // element.on('contextmenu', (d) => {
-    //   console.log("contextmenu triggered on " + d);
-    //   d.preventDefault();
-    // })
+    element.on('contextmenu', d3.contextMenu(menu))
 
-    // hover functionality
-    element.on('mouseover', function(event, d) {
-      console.log("hover triggered on " + this);
+    <!-- // hover functionality -->
+    <!-- element.on('mouseover', function(event, d) { -->
+    <!--   console.log("hover triggered on " + this); -->
 
-      if (!d.hasOwnProperty("children")) {
-        drawMenu(data, menuItems, element, event);
-      }
-    });
+    <!--   if (!d.hasOwnProperty("children")) { -->
+    <!--     drawMenu(data, menuItems, element, event); -->
+    <!--   } -->
+    <!-- }); -->
   }).layout(true).show();
 
 ```
