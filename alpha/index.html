@@ -194,84 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>nwk <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test.newick"</span>)<span class="op">.</span><span class="fu">text</span>()<span class="op">;</span></span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>annotations <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-annotation.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> json <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"copy.json"</span>)<span class="op">.</span><span class="fu">text</span>() <span class="op">--&gt;</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(json<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> (input<span class="op">,</span> options) <span class="kw">=&gt;</span> ({ <span class="dt">json</span><span class="op">:</span> input<span class="op">,</span> <span class="dt">error</span><span class="op">:</span> <span class="kw">null</span> }) }) <span class="op">--&gt;</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawMenu</span>(data<span class="op">,</span> items<span class="op">,</span> svgDomID<span class="op">,</span> <span class="bu">event</span>) {</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> bbox <span class="op">=</span> svgDomID<span class="op">.</span><span class="at">firstChild</span><span class="op">.</span><span class="fu">getBBox</span>()<span class="op">;</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(bbox)<span class="op">;</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data)<span class="op">;</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drawMenuDomElements</span>(bbox<span class="op">.</span><span class="at">width</span><span class="op">+</span><span class="dv">20</span><span class="op">,</span> <span class="op">-</span>bbox<span class="op">.</span><span class="at">height</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> [</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> annotationsMap[data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span><span class="op">,</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"what is d"</span> <span class="op">+</span> d)<span class="op">;</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span> data<span class="op">,</span> svgDomID)<span class="op">;</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>menuItems <span class="op">=</span> [</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'some title'</span><span class="op">,</span></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"what is d"</span> <span class="op">+</span> d)<span class="op">;</span></span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawMenuDomElements</span>(x<span class="op">,</span> y<span class="op">,</span> menuItems<span class="op">,</span> d<span class="op">,</span> svgDomID) {</span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Drawing menu on"</span> <span class="op">+</span> svgDomID)<span class="op">;</span></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">".contextMenu"</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Draw the menu</span></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">select</span>(svgDomID)</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'g'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"contextMenu"</span>)</span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">'tmp'</span>)</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(menuItems)<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'g'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"menuEntry"</span>)</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>({<span class="st">'cursor'</span><span class="op">:</span> <span class="st">'pointer'</span>})<span class="op">;</span></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Draw menu entries</span></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">'.menuEntry'</span>)</span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'rect'</span>)</span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'x'</span><span class="op">,</span> x)</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'y'</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> { <span class="cf">return</span> y <span class="op">+</span> (i <span class="op">*</span> <span class="dv">30</span>)<span class="op">;</span> })</span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'rx'</span><span class="op">,</span> <span class="dv">2</span>)</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'width'</span><span class="op">,</span> <span class="dv">150</span>)</span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'height'</span><span class="op">,</span> <span class="dv">30</span>)</span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> { d<span class="op">.</span><span class="fu">action</span>(d) })<span class="op">;</span></span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">".menuEntry"</span>)</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'text'</span>)</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">text</span>((d) <span class="kw">=&gt;</span> { <span class="cf">return</span> d<span class="op">.</span><span class="at">title</span><span class="op">;</span> })</span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'x'</span><span class="op">,</span> x)</span>
-<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'y'</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> { <span class="cf">return</span> y <span class="op">+</span> (i <span class="op">*</span> <span class="dv">30</span>)<span class="op">;</span> })</span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'dy'</span><span class="op">,</span> <span class="dv">20</span>)</span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'dx'</span><span class="op">,</span> <span class="dv">45</span>)</span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> { d<span class="op">.</span><span class="fu">action</span>(d) })<span class="op">;</span></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-toolbox.js"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(toolbox)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>annotationsMap <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> <span class="op">...</span>(annotations<span class="op">.</span><span class="fu">map</span>(item <span class="kw">=&gt;</span> ({ [item<span class="op">.</span><span class="at">id</span>]<span class="op">:</span> { <span class="dt">id</span><span class="op">:</span> item<span class="op">.</span><span class="at">id</span><span class="op">,</span> <span class="dt">description</span><span class="op">:</span> item<span class="op">.</span><span class="at">description</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> item<span class="op">.</span><span class="at">name</span> } }) )))</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(annotations)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-3" data-nodetype="declaration">
@@ -323,18 +248,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-10" data-nodetype="declaration">
+<div id="ojs-cell-1-10" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="75" data-source-offset="-1337"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 74;"><span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(annotationsMap)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-11" data-nodetype="declaration">
+<div id="ojs-cell-1-11" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="77" data-source-offset="-1367"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 76;"><span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> json <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"copy.json"</span>)<span class="op">.</span><span class="fu">text</span>() <span class="op">--&gt;</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!--</span> tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(json<span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> (input<span class="op">,</span> options) <span class="kw">=&gt;</span> ({ <span class="dt">json</span><span class="op">:</span> input<span class="op">,</span> <span class="dt">error</span><span class="op">:</span> <span class="kw">null</span> }) }) <span class="op">--&gt;</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawMenu</span>(data<span class="op">,</span> items<span class="op">,</span> svgDomID<span class="op">,</span> <span class="bu">event</span>) {</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> bbox <span class="op">=</span> svgDomID<span class="op">.</span><span class="at">firstChild</span><span class="op">.</span><span class="fu">getBBox</span>()<span class="op">;</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(bbox)<span class="op">;</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data)<span class="op">;</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drawMenuDomElements</span>(bbox<span class="op">.</span><span class="at">width</span><span class="op">+</span><span class="dv">20</span><span class="op">,</span> <span class="op">-</span>bbox<span class="op">.</span><span class="at">height</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> [</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> annotationsMap[data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span><span class="op">,</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"what is d"</span> <span class="op">+</span> d)<span class="op">;</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span> data<span class="op">,</span> svgDomID)<span class="op">;</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>menuItems <span class="op">=</span> [</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'some title'</span><span class="op">,</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"what is d"</span> <span class="op">+</span> d)<span class="op">;</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>    <span class="dt">action</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawMenuDomElements</span>(x<span class="op">,</span> y<span class="op">,</span> menuItems<span class="op">,</span> d<span class="op">,</span> svgDomID) {</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Drawing menu on"</span> <span class="op">+</span> svgDomID)<span class="op">;</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">".contextMenu"</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Draw the menu</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">select</span>(svgDomID)</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'g'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"contextMenu"</span>)</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">'tmp'</span>)</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(menuItems)<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'g'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"menuEntry"</span>)</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>({<span class="st">'cursor'</span><span class="op">:</span> <span class="st">'pointer'</span>})<span class="op">;</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Draw menu entries</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">'.menuEntry'</span>)</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'rect'</span>)</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'x'</span><span class="op">,</span> x)</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'y'</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> { <span class="cf">return</span> y <span class="op">+</span> (i <span class="op">*</span> <span class="dv">30</span>)<span class="op">;</span> })</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'rx'</span><span class="op">,</span> <span class="dv">2</span>)</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'width'</span><span class="op">,</span> <span class="dv">150</span>)</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'height'</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> { d<span class="op">.</span><span class="fu">action</span>(d) })<span class="op">;</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">".menuEntry"</span>)</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">'text'</span>)</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">text</span>((d) <span class="kw">=&gt;</span> { <span class="cf">return</span> d<span class="op">.</span><span class="at">title</span><span class="op">;</span> })</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'x'</span><span class="op">,</span> x)</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'y'</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> { <span class="cf">return</span> y <span class="op">+</span> (i <span class="op">*</span> <span class="dv">30</span>)<span class="op">;</span> })</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'dy'</span><span class="op">,</span> <span class="dv">20</span>)</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">'dx'</span><span class="op">,</span> <span class="dv">45</span>)</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> (d) <span class="kw">=&gt;</span> { d<span class="op">.</span><span class="fu">action</span>(d) })<span class="op">;</span></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-toolbox.js"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(toolbox)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-12" data-nodetype="declaration">
@@ -351,47 +354,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-14" data-nodetype="expression">
+<div id="ojs-cell-1-14" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="151" data-source-offset="-3041"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 150;"><span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree</span>
-<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
-<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
-<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>    <span class="st">'binary-selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
-<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
-<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
-<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'svg'</span></span>
-<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)<span class="op">.</span><span class="fu">style_nodes</span>(<span class="kw">function</span>(element<span class="op">,</span> data) {</span>
-<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Implement functionality for each node</span></span>
-<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DOM objects can be selected using d3.select (or selectAll)</span></span>
-<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>    <span class="co">// make sure we override the context menu</span></span>
-<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a>    <span class="co">// element.on('contextmenu', (d) =&gt; {</span></span>
-<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>    <span class="co">//   console.log("contextmenu triggered on " + d);</span></span>
-<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>    <span class="co">//   d.preventDefault();</span></span>
-<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>    <span class="co">// })</span></span>
-<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>    <span class="co">// hover functionality</span></span>
-<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>(<span class="bu">event</span><span class="op">,</span> d) {</span>
-<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"hover triggered on "</span> <span class="op">+</span> <span class="kw">this</span>)<span class="op">;</span></span>
-<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>      <span class="fu">drawMenu</span>(data<span class="op">,</span> menuItems<span class="op">,</span> <span class="kw">this</span><span class="op">,</span> <span class="bu">event</span>)<span class="op">;</span></span>
-<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">show</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-15" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-16" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-17" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="155" data-source-offset="-3245"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 154;"><span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>    <span class="st">'binary-selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'svg'</span></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)<span class="op">.</span><span class="fu">style_nodes</span>(<span class="kw">function</span>(element<span class="op">,</span> data) {</span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Implement functionality for each node</span></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DOM objects can be selected using d3.select (or selectAll)</span></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>    <span class="co">// make sure we override the context menu</span></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>    <span class="co">// element.on('contextmenu', (d) =&gt; {</span></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>    <span class="co">//   console.log("contextmenu triggered on " + d);</span></span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>    <span class="co">//   d.preventDefault();</span></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    <span class="co">// })</span></span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    <span class="co">// hover functionality</span></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>(<span class="bu">event</span><span class="op">,</span> d) {</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"hover triggered on "</span> <span class="op">+</span> <span class="kw">this</span>)<span class="op">;</span></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>      <span class="fu">drawMenu</span>(data<span class="op">,</span> menuItems<span class="op">,</span> <span class="kw">this</span><span class="op">,</span> <span class="bu">event</span>)<span class="op">;</span></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">show</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-18" data-nodetype="declaration">
 
 </div>
 </div>
@@ -514,7 +538,7 @@ Summary of known arthritogenic alphavirus outbreaks, with geographical distribut
 <!-- /main column -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Roboto\";\n    font-weight: thin;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .contextMenu {\n    stroke: #00557d;\n    fill: #ffffff;\n  }\n\n  .menuEntry {\n    cursor: pointer;\n    width: 150;\n    height: 20;\n  }\n\n  .menuEntry text {\n    font-size: 12px;\n    stroke: #00557d;\n  }\n</style>\n`\nheight = 700\nwidth = 700\n\nd3 = await require(\"d3@7\")\n// https://unpkg.com/phylotree@1.1.0/dist/phylotree.js\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\n\ntree = new phylotree.phylotree(nwk)\n\n<!-- json = await FileAttachment(\"copy.json\").text() -->\n<!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->\n\nfunction drawMenu(data, items, svgDomID, event) {\n  var bbox = svgDomID.firstChild.getBBox();\n  console.log(bbox);\n  console.log(data);\n\n  drawMenuDomElements(bbox.width+20, -bbox.height/2, [\n    {\n      title: annotationsMap[data.data.name].name,\n      action: (d) => {\n        console.log(\"what is d\" + d);\n      }\n    },\n    {\n      title: 'test',\n      action: (d) => {\n        console.log(d);\n      }\n    }\n  ], data, svgDomID);\n  event.preventDefault();\n}\n\nmenuItems = [\n  {\n    title: 'some title',\n    action: (d) => {\n      console.log(\"what is d\" + d);\n    }\n  },\n  {\n    title: 'test',\n    action: (d) => {\n      console.log(d);\n    }\n  }\n];\n\nfunction drawMenuDomElements(x, y, menuItems, d, svgDomID) {\n  console.log(\"Drawing menu on\" + svgDomID);\n\n  d3.select(\".contextMenu\").remove();\n\n  // Draw the menu\n    d3.select(svgDomID)\n        .append('g').attr('class', \"contextMenu\")\n        .selectAll('tmp')\n        .data(menuItems).enter()\n        .append('g').attr('class', \"menuEntry\")\n        .style({'cursor': 'pointer'});\n\n    // Draw menu entries\n    d3.selectAll('.menuEntry')\n        .append('rect')\n        .attr('x', x)\n        .attr('y', (d, i) => { return y + (i * 30); })\n        .attr('rx', 2)\n        .attr('width', 150)\n        .attr('height', 30)\n        .on('click', (d) => { d.action(d) });\n\n    d3.selectAll(\".menuEntry\")\n        .append('text')\n        .text((d) => { return d.title; })\n        .attr('x', x)\n        .attr('y', (d, i) => { return y + (i * 30); })\n        .attr('dy', 20)\n        .attr('dx', 45)\n        .on('click', (d) => { d.action(d) });\n}\n\ntoolbox = await FileAttachment(\"test-toolbox.js\").json();\nconsole.log(toolbox);\n\nrenderedTree = tree\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'binary-selectable': false,\n    'collapsible': false,\n    'transitions' : true,\n    'show-menu': false,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 20,\n    'minimum-per-level-spacing': 20,\n    'container': 'svg'\n  }).layout(true).style_nodes(function(element, data) {\n    // Implement functionality for each node\n    // DOM objects can be selected using d3.select (or selectAll)\n    // make sure we override the context menu\n    // element.on('contextmenu', (d) => {\n    //   console.log(\"contextmenu triggered on \" + d);\n    //   d.preventDefault();\n    // })\n  \n    // hover functionality\n    element.on('mouseover', function(event, d) {\n      console.log(\"hover triggered on \" + this);\n      drawMenu(data, menuItems, this, event);\n    });\n  }).show();\n\n"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Roboto\";\n    font-weight: thin;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Roboto\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .contextMenu {\n    stroke: #00557d;\n    fill: #ffffff;\n  }\n\n  .menuEntry {\n    cursor: pointer;\n    width: 150;\n    height: 20;\n  }\n\n  .menuEntry text {\n    font-size: 12px;\n    stroke: #00557d;\n  }\n</style>\n`\nheight = 700\nwidth = 700\n\nd3 = await require(\"d3@7\")\n// https://unpkg.com/phylotree@1.1.0/dist/phylotree.js\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\n\nconsole.log(annotations);\nconsole.log(annotationsMap);\n\ntree = new phylotree.phylotree(nwk)\n\n<!-- json = await FileAttachment(\"copy.json\").text() -->\n<!-- tree = new phylotree.phylotree(json, { type: (input, options) => ({ json: input, error: null }) }) -->\n\nfunction drawMenu(data, items, svgDomID, event) {\n  var bbox = svgDomID.firstChild.getBBox();\n  console.log(bbox);\n  console.log(data);\n\n  drawMenuDomElements(bbox.width+20, -bbox.height/2, [\n    {\n      title: annotationsMap[data.data.name].name,\n      action: (d) => {\n        console.log(\"what is d\" + d);\n      }\n    },\n    {\n      title: 'test',\n      action: (d) => {\n        console.log(d);\n      }\n    }\n  ], data, svgDomID);\n  event.preventDefault();\n}\n\nmenuItems = [\n  {\n    title: 'some title',\n    action: (d) => {\n      console.log(\"what is d\" + d);\n    }\n  },\n  {\n    title: 'test',\n    action: (d) => {\n      console.log(d);\n    }\n  }\n];\n\nfunction drawMenuDomElements(x, y, menuItems, d, svgDomID) {\n  console.log(\"Drawing menu on\" + svgDomID);\n\n  d3.select(\".contextMenu\").remove();\n\n  // Draw the menu\n    d3.select(svgDomID)\n        .append('g').attr('class', \"contextMenu\")\n        .selectAll('tmp')\n        .data(menuItems).enter()\n        .append('g').attr('class', \"menuEntry\")\n        .style({'cursor': 'pointer'});\n\n    // Draw menu entries\n    d3.selectAll('.menuEntry')\n        .append('rect')\n        .attr('x', x)\n        .attr('y', (d, i) => { return y + (i * 30); })\n        .attr('rx', 2)\n        .attr('width', 150)\n        .attr('height', 30)\n        .on('click', (d) => { d.action(d) });\n\n    d3.selectAll(\".menuEntry\")\n        .append('text')\n        .text((d) => { return d.title; })\n        .attr('x', x)\n        .attr('y', (d, i) => { return y + (i * 30); })\n        .attr('dy', 20)\n        .attr('dx', 45)\n        .on('click', (d) => { d.action(d) });\n}\n\ntoolbox = await FileAttachment(\"test-toolbox.js\").json();\nconsole.log(toolbox);\n\nrenderedTree = tree\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'binary-selectable': false,\n    'collapsible': false,\n    'transitions' : true,\n    'show-menu': false,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 20,\n    'minimum-per-level-spacing': 20,\n    'container': 'svg'\n  }).layout(true).style_nodes(function(element, data) {\n    // Implement functionality for each node\n    // DOM objects can be selected using d3.select (or selectAll)\n    // make sure we override the context menu\n    // element.on('contextmenu', (d) => {\n    //   console.log(\"contextmenu triggered on \" + d);\n    //   d.preventDefault();\n    // })\n  \n    // hover functionality\n    element.on('mouseover', function(event, d) {\n      console.log(\"hover triggered on \" + this);\n      drawMenu(data, menuItems, this, event);\n    });\n  }).show();\n\n"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

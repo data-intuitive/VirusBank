@@ -69,6 +69,10 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 nwk = await FileAttachment("test.newick").text();
 annotations = await FileAttachment("test-annotation.json").json();
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+
+console.log(annotations);
+console.log(annotationsMap);
 
 tree = new phylotree.phylotree(nwk)
 
