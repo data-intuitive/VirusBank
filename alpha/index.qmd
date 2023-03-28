@@ -64,14 +64,11 @@ annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { i
 
 menu = [
     {
-      title: (d) => { return d.data.name },
+      title: (d) => { return "<a href='#transmission-and-epidemiology'>" + d.data.name + "</a>"},
       action: (elm, d, event) => {
         console.log("what is d?", d);
         console.log("even?", event);
       }
-    },
-    {
-      divider: true
     },
     {
       title: 'test',
@@ -83,18 +80,51 @@ menu = [
 
 toolbox = await FileAttachment("test-toolbox.js").json();
 
-// Initialize a container
-html`<div id="tree-container"/>`
+// Initialize a container to contain the containers for the tree and 
+html`
+<div id="container">
+  <div id="tree-container" style="position:relative"/>
+  <div id="menu-container" class="card bg-light" style="position:relative;width:700px;">
+    <!-- <div class="d3-context-menu d3-context-menu-theme"/> -->
+  </div>
+</div>
+`
+
+clearPopup = () => {
+  const ct = d3.select('#menu-container')
+  ct.selectAll("*").remove()
+}
+
+initPopup = () => {
+  const ct = d3.select('#menu-container')
+  ct.selectAll("*").remove()
+  const ctBody = ct.append("div").attr("class", "card-body")
+  ctBody.append('h5').attr('class', "card-title").text("Please hover over a virus to get more information");
+  ctBody.append('p').attr("class", "card-text").text("...");
+}
+
+fillPopup = (d) => {
+  const ct = d3.select('#menu-container');
+  const ctBody = ct.append("div").attr("class", "card-body")
+  ctBody.append('h5').attr('class', "card-title").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);
+  ctBody.append('p').attr("class", "card-text").text("This is a strange virus... ");
+}
+
+init = initPopup()
+
+s1 = d3.select("body").on('click', initPopup )
+
+s2 = d3.select(".menu-container").on('click', () => { d3.event. soptPropagation() })
 
 renderedTree = new phylotree.phylotree(nwk)
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
     'is-radial': true,
-    'selectable': true,  // make nodes and branches not selectable
+    'selectable': false,  // make nodes and branches not selectable
     'collapsible': true,
     'transitions' : true,
-    'show-menu': true,
+    'show-menu': false,
     'show-scale': false,
     'align-tips': true,
     'width': width,
@@ -106,18 +136,22 @@ renderedTree = new phylotree.phylotree(nwk)
   })
 
 rt = renderedTree
-  <!-- .style_nodes( (element, data) => { -->
-  <!--   element.on('click', d3.contextMenu(menu, { -->
-  <!--     onClose: (data, event) => { -->
-  <!--       // Add the div again to container the 'menu' -->
-  <!--       d3.select("#menu-container").append("div").attr("class", "d3-context-menu d3-context-menu-theme") -->
-  <!--     } -->
-  <!--   })) -->
-  <!-- }) -->
+  .style_nodes( (element, data) => {
+    <!-- element.on('contextmenu', d3.contextMenu(menu, { -->
+    <!--   onClose: (data, event) => { -->
+    <!--     // Add the div again to container the 'menu' -->
+    <!--     d3.select("#menu-container").append("div").attr("class", "d3-context-menu d3-context-menu-theme") -->
+    <!--   } -->
+    <!-- })) -->
+    element.on('mouseover', function() {
+      clearPopup();
+      fillPopup(data);
+      element.preventDefault()
+    });
+  })
   .layout(true)
   .show()
 
-// html`<div id="menu-container"><div class="d3-context-menu d3-context-menu-theme"/></div>`
 ```
 
 ## Background

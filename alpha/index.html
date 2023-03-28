@@ -188,27 +188,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> [</span>
 <span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> { <span class="cf">return</span> d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span> }<span class="op">,</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> { <span class="cf">return</span> <span class="st">"&lt;a href='#transmission-and-epidemiology'&gt;"</span> <span class="op">+</span> d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span> <span class="op">+</span> <span class="st">"&lt;/a&gt;"</span>}<span class="op">,</span></span>
 <span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (elm<span class="op">,</span> d<span class="op">,</span> <span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"what is d?"</span><span class="op">,</span> d)<span class="op">;</span></span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"even?"</span><span class="op">,</span> <span class="bu">event</span>)<span class="op">;</span></span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>      }</span>
 <span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
 <span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>      <span class="dt">divider</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (elm<span class="op">,</span> d<span class="op">,</span> <span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-toolbox.js"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co">// Initialize a container</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;div id="tree-container"/&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>      <span class="dt">title</span><span class="op">:</span> <span class="st">'test'</span><span class="op">,</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>      <span class="dt">action</span><span class="op">:</span> (elm<span class="op">,</span> d<span class="op">,</span> <span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(d)<span class="op">;</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test-toolbox.js"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="co">// Initialize a container to contain the containers for the tree and </span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div id="container"&gt;</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div id="tree-container" style="position:relative"/&gt;</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div id="menu-container" class="card bg-light" style="position:relative;width:700px;"&gt;</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;!-- &lt;div class="d3-context-menu d3-context-menu-theme"/&gt; --&gt;</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-3" data-nodetype="declaration">
@@ -279,36 +283,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="89" data-source-offset="-1769"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 88;"><span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'#tree-container'</span></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> renderedTree</span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> <span class="op">.</span><span class="fu">style_nodes</span>( (element<span class="op">,</span> data) <span class="kw">=&gt;</span> { <span class="op">--&gt;</span></span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>   element<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> d3<span class="op">.</span><span class="fu">contextMenu</span>(menu<span class="op">,</span> { <span class="op">--&gt;</span></span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>     <span class="dt">onClose</span><span class="op">:</span> (data<span class="op">,</span> <span class="bu">event</span>) <span class="kw">=&gt;</span> { <span class="op">--&gt;</span></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>       <span class="co">// Add the div again to container the 'menu' --&gt;</span></span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>       d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#menu-container"</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"d3-context-menu d3-context-menu-theme"</span>) <span class="op">--&gt;</span></span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>     } <span class="op">--&gt;</span></span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span>   })) <span class="op">--&gt;</span></span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;!--</span> }) <span class="op">--&gt;</span></span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="93" data-source-offset="-2056"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 92;"><span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>clearPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#menu-container'</span>)</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>initPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#menu-container'</span>)</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">"Please hover over a virus to get more information"</span>)<span class="op">;</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">"..."</span>)<span class="op">;</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>fillPopup <span class="op">=</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#menu-container'</span>)<span class="op">;</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">'a'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'href'</span><span class="op">,</span> <span class="st">'http://localhost:4397/#clinical-relevance'</span>)<span class="op">.</span><span class="fu">text</span>(d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">"This is a strange virus... "</span>)<span class="op">;</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>init <span class="op">=</span> <span class="fu">initPopup</span>()</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"body"</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> initPopup )</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">".menu-container"</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> () <span class="kw">=&gt;</span> { d3<span class="op">.</span><span class="at">event</span><span class="op">.</span> <span class="fu">soptPropagation</span>() })</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">'#tree-container'</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>rt <span class="op">=</span> renderedTree</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">style_nodes</span>( (element<span class="op">,</span> data) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span> element<span class="op">.</span><span class="fu">on</span>(<span class="st">'contextmenu'</span><span class="op">,</span> d3<span class="op">.</span><span class="fu">contextMenu</span>(menu<span class="op">,</span> { <span class="op">--&gt;</span></span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span>   <span class="dt">onClose</span><span class="op">:</span> (data<span class="op">,</span> <span class="bu">event</span>) <span class="kw">=&gt;</span> { <span class="op">--&gt;</span></span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span>     <span class="co">// Add the div again to container the 'menu' --&gt;</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span>     d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#menu-container"</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"d3-context-menu d3-context-menu-theme"</span>) <span class="op">--&gt;</span></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span>   } <span class="op">--&gt;</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;!--</span> })) <span class="op">--&gt;</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>      <span class="fu">clearPopup</span>()<span class="op">;</span></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fillPopup</span>(data)<span class="op">;</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>      element<span class="op">.</span><span class="fu">preventDefault</span>()</span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-13" data-nodetype="declaration">
@@ -319,6 +354,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-14" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-15" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-16" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-17" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-18" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-19" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-20" data-nodetype="declaration">
 
 </div>
 </div>
@@ -441,7 +518,7 @@ Summary of known arthritogenic alphavirus outbreaks, with geographical distribut
 <!-- /main column -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Chakra Petch\";\n    font-weight: bold;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 700;\n    font-size: 28px!important;\n  }\n\n</style>\n`\n\nheight = 700\nwidth = 700\n\nd3 = {\n  const d3 = window.d3 = await require(\"d3@7\");\n  await require(\"d3-context-menu@2.1.0/js/d3-context-menu.js\").catch(() => {});\n  return d3;\n}\n\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\n\nmenu = [\n    {\n      title: (d) => { return d.data.name },\n      action: (elm, d, event) => {\n        console.log(\"what is d?\", d);\n        console.log(\"even?\", event);\n      }\n    },\n    {\n      divider: true\n    },\n    {\n      title: 'test',\n      action: (elm, d, event) => {\n        console.log(d);\n      }\n    }\n  ]\n\ntoolbox = await FileAttachment(\"test-toolbox.js\").json();\n\n// Initialize a container\nhtml`<div id=\"tree-container\"/>`\n\nrenderedTree = new phylotree.phylotree(nwk)\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': true,  // make nodes and branches not selectable\n    'collapsible': true,\n    'transitions' : true,\n    'show-menu': true,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 2,\n    'minimum-per-level-spacing': 2,\n    'container': '#tree-container'\n  })\n\nrt = renderedTree\n  <!-- .style_nodes( (element, data) => { -->\n  <!--   element.on('click', d3.contextMenu(menu, { -->\n  <!--     onClose: (data, event) => { -->\n  <!--       // Add the div again to container the 'menu' -->\n  <!--       d3.select(\"#menu-container\").append(\"div\").attr(\"class\", \"d3-context-menu d3-context-menu-theme\") -->\n  <!--     } -->\n  <!--   })) -->\n  <!-- }) -->\n  .layout(true)\n  .show()\n\n// html`<div id=\"menu-container\"><div class=\"d3-context-menu d3-context-menu-theme\"/></div>`\n"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Chakra Petch\";\n    font-weight: bold;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: bold;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 700;\n    font-size: 28px!important;\n  }\n\n</style>\n`\n\nheight = 700\nwidth = 700\n\nd3 = {\n  const d3 = window.d3 = await require(\"d3@7\");\n  await require(\"d3-context-menu@2.1.0/js/d3-context-menu.js\").catch(() => {});\n  return d3;\n}\n\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"test-annotation.json\").json();\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\n\nmenu = [\n    {\n      title: (d) => { return \"<a href='#transmission-and-epidemiology'>\" + d.data.name + \"</a>\"},\n      action: (elm, d, event) => {\n        console.log(\"what is d?\", d);\n        console.log(\"even?\", event);\n      }\n    },\n    {\n      title: 'test',\n      action: (elm, d, event) => {\n        console.log(d);\n      }\n    }\n  ]\n\ntoolbox = await FileAttachment(\"test-toolbox.js\").json();\n\n// Initialize a container to contain the containers for the tree and \nhtml`\n<div id=\"container\">\n  <div id=\"tree-container\" style=\"position:relative\"/>\n  <div id=\"menu-container\" class=\"card bg-light\" style=\"position:relative;width:700px;\">\n    <!-- <div class=\"d3-context-menu d3-context-menu-theme\"/> -->\n  </div>\n</div>\n`\n\nclearPopup = () => {\n  const ct = d3.select('#menu-container')\n  ct.selectAll(\"*\").remove()\n}\n\ninitPopup = () => {\n  const ct = d3.select('#menu-container')\n  ct.selectAll(\"*\").remove()\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\")\n  ctBody.append('h5').attr('class', \"card-title\").text(\"Please hover over a virus to get more information\");\n  ctBody.append('p').attr(\"class\", \"card-text\").text(\"...\");\n}\n\nfillPopup = (d) => {\n  const ct = d3.select('#menu-container');\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\")\n  ctBody.append('h5').attr('class', \"card-title\").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);\n  ctBody.append('p').attr(\"class\", \"card-text\").text(\"This is a strange virus... \");\n}\n\ninit = initPopup()\n\ns1 = d3.select(\"body\").on('click', initPopup )\n\ns2 = d3.select(\".menu-container\").on('click', () => { d3.event. soptPropagation() })\n\nrenderedTree = new phylotree.phylotree(nwk)\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'collapsible': true,\n    'transitions' : true,\n    'show-menu': false,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 2,\n    'minimum-per-level-spacing': 2,\n    'container': '#tree-container'\n  })\n\nrt = renderedTree\n  .style_nodes( (element, data) => {\n    <!-- element.on('contextmenu', d3.contextMenu(menu, { -->\n    <!--   onClose: (data, event) => { -->\n    <!--     // Add the div again to container the 'menu' -->\n    <!--     d3.select(\"#menu-container\").append(\"div\").attr(\"class\", \"d3-context-menu d3-context-menu-theme\") -->\n    <!--   } -->\n    <!-- })) -->\n    element.on('mouseover', function() {\n      clearPopup();\n      fillPopup(data);\n      element.preventDefault()\n    });\n  })\n  .layout(true)\n  .show()\n\n"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
