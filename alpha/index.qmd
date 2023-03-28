@@ -21,170 +21,32 @@ html`
 <style type="text/css">
 
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');
 
   .phylotree-node-text {
     fill: grey;
-    font-family: "Roboto";
-    font-weight: thin;
+    font-family: "Chakra Petch";
+    font-weight: bold;
     font-size: 24px!important;
   }
 
   .phylotree-node-text-selected {
     fill: black;
-    font-family: "Roboto";
+    font-family: "Chakra Petch";
     font-weight: bold;
     font-size: 28px!important;
   }
 
   .phylotree-node-text-info {
     fill: black;
-    font-family: "Roboto";
-    font-weight: bold;
+    font-family: "Chakra Petch";
+    font-weight: 700;
     font-size: 28px!important;
-  }
-
-  // temp pasted the complete CSS file here
-  .d3-context-menu {
-    position: absolute;
-    min-width: 700px;
-    z-index: 1200;
-  }
-
-  .d3-context-menu ul,
-  .d3-context-menu ul li {
-    margin: 0;
-    padding: 0;
-  }
-
-  .d3-context-menu ul {
-    list-style-type: none;
-    cursor: default;
-  }
-
-  .d3-context-menu ul li {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;
-  }
-
-  /*
-    Disabled
-  */
-
-  .d3-context-menu ul li.is-disabled,
-  .d3-context-menu ul li.is-disabled:hover {
-    cursor: not-allowed;
-  }
-
-  .d3-context-menu ul li.is-divider {
-    padding: 0;
-  }
-
-  /* Theming
-  ------------ */
-
-  .d3-context-menu-theme {
-    background-color: #f2f2f2;
-    border-radius: 4px;
-
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: bold;
-    border: 1px solid #d4d4d4;
-  }
-
-  .d3-context-menu-theme ul {
-    margin: 4px 0;
-  }
-
-  .d3-context-menu-theme ul li {
-    padding: 4px 16px;
-  }
-
-  .d3-context-menu-theme ul li:hover {
-    background-color: #4677f8;
-    color: #fefefe;
-  }
-
-  /*
-    Header
-  */
-
-  .d3-context-menu-theme ul li.is-header,
-  .d3-context-menu-theme ul li.is-header:hover {
-    background-color: #f2f2f2;
-    color: #444;
-    font-weight: bold;
-    font-style: italic;
-  }
-
-  /*
-    Disabled
-  */
-
-  .d3-context-menu-theme ul li.is-disabled,
-  .d3-context-menu-theme ul li.is-disabled:hover {
-    background-color: #f2f2f2;
-    color: #888;
-  }
-
-  /*
-    Divider
-  */
-
-  .d3-context-menu-theme ul li.is-divider:hover {
-    background-color: #f2f2f2;
-  }
-
-  .d3-context-menu-theme ul hr {
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /*
-    Nested Menu
-  */
-  .d3-context-menu-theme ul li.is-parent:after {
-    border-left: 7px solid transparent;
-    border-top: 7px solid red;
-    content: "";
-    height: 0;
-    position: absolute;
-    right: 8px;
-    top: 35%;
-    transform: rotate(45deg);
-    width: 0;
-  }
-
-  .d3-context-menu-theme ul li.is-parent {
-    padding-right: 20px;
-    position: relative;
-  }
-
-  .d3-context-menu-theme ul.is-children {
-    background-color: #f2f2f2;
-    border: 1px solid #d4d4d4;
-    color: black;
-    display: none;
-    left: 100%;
-    margin: -5px 0;
-    padding: 4px 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .d3-context-menu-theme li.is-parent:hover > ul.is-children {
-    display: block;
   }
 
 </style>
 `
+
 height = 700
 width = 700
 
@@ -200,37 +62,31 @@ nwk = await FileAttachment("test.newick").text();
 annotations = await FileAttachment("test-annotation.json").json();
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
 
-console.log(annotations);
-console.log(annotationsMap);
-
-tree = new phylotree.phylotree(nwk)
-
-<!-- function drawMenu(data, items, element, event) { -->
-<!--   var bbox = d3.pointer(event, element.node().parentNode); -->
-<!--   console.log(bbox); -->
-<!--   drawMenuDomElements(bbox[0], bbox[1], menuItems, data, element.node().parentNode); -->
-<!--   event.preventDefault(); -->
-<!-- } -->
-
 menu = [
     {
-      title: (d) => { console.log(d); return d.data.name },
-      action: (d) => {
+      title: (d) => { return d.data.name },
+      action: (elm, d, event) => {
         console.log("what is d?", d);
+        console.log("even?", event);
       }
     },
     {
+      divider: true
+    },
+    {
       title: 'test',
-      action: (d) => {
+      action: (elm, d, event) => {
         console.log(d);
       }
     }
   ]
 
 toolbox = await FileAttachment("test-toolbox.js").json();
-console.log(toolbox);
 
-renderedTree = tree
+// Initialize a container
+html`<div id="tree-container"/>`
+
+renderedTree = new phylotree.phylotree(nwk)
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
@@ -244,25 +100,24 @@ renderedTree = tree
     'width': width,
     'height': height,
     'zoom': false,
-    'minimal-per-node-spacing': 20,
-    'minimum-per-level-spacing': 20,
-    'container': 'svg'
+    'minimal-per-node-spacing': 2,
+    'minimum-per-level-spacing': 2,
+    'container': '#tree-container'
   })
 
-renderedTree
-  .style_nodes( (element, data) => {
-    element.on('click', d3.contextMenu(menu, {
-      onClose: (data, event) => {
-        // Add the div again to container the 'menu'
-        d3.select("#menu-container").append("div").attr("class", "d3-context-menu d3-context-menu-theme")
-      }
-    }))
-  })
-  .layout(true).show();
+rt = renderedTree
+  <!-- .style_nodes( (element, data) => { -->
+  <!--   element.on('click', d3.contextMenu(menu, { -->
+  <!--     onClose: (data, event) => { -->
+  <!--       // Add the div again to container the 'menu' -->
+  <!--       d3.select("#menu-container").append("div").attr("class", "d3-context-menu d3-context-menu-theme") -->
+  <!--     } -->
+  <!--   })) -->
+  <!-- }) -->
+  .layout(true)
+  .show()
 
-// Initialize a container
-html`<div id="menu-container"><div class="d3-context-menu d3-context-menu-theme"/></div>`
-
+// html`<div id="menu-container"><div class="d3-context-menu d3-context-menu-theme"/></div>`
 ```
 
 ## Background
