@@ -1,12 +1,7 @@
 ---
-title: Alphaviruses (Togaviridae)
+title: Alphaviruses
 toc: true
 var: one
-tree:
-  - title: First item
-    content: First content
-  - title: Second item
-    content: Second content
 ---
 
 # Tree
@@ -16,6 +11,24 @@ tree:
 ```{ojs}
 //| output: none
 //| echo: false
+//| column: page
+
+// Initialize a container to contain the containers for the tree and annotation window
+html`
+<div class="container">
+  <div class="grid">
+    <div id="tree-container" class="tree-container g-col-7"></div>
+    <div id="annotation-container" class="annotation-container card g-col-5"></div>
+  </div>
+</div>
+`
+```
+
+- - -
+
+```{ojs}
+//| output: none
+//| echo: true
 html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
 html`
 <style type="text/css">
@@ -48,7 +61,7 @@ html`
 `
 
 height = 700
-width = 700
+width = 600
 
 d3 = {
   const d3 = window.d3 = await require("d3@7");
@@ -61,62 +74,37 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 nwk = await FileAttachment("test.newick").text();
 annotations = await FileAttachment("test-annotation.json").json();
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
-
-menu = [
-    {
-      title: (d) => { return "<a href='#transmission-and-epidemiology'>" + d.data.name + "</a>"},
-      action: (elm, d, event) => {
-        console.log("what is d?", d);
-        console.log("even?", event);
-      }
-    },
-    {
-      title: 'test',
-      action: (elm, d, event) => {
-        console.log(d);
-      }
-    }
-  ]
-
+console.log(annotationsMap)
 toolbox = await FileAttachment("test-toolbox.js").json();
 
-// Initialize a container to contain the containers for the tree and 
-html`
-<div id="container">
-  <div id="tree-container" style="position:relative"/>
-  <div id="menu-container" class="card bg-light" style="position:relative;width:700px;">
-    <!-- <div class="d3-context-menu d3-context-menu-theme"/> -->
-  </div>
-</div>
-`
-
 clearPopup = () => {
-  const ct = d3.select('#menu-container')
+  const ct = d3.select('#annotation-container')
   ct.selectAll("*").remove()
 }
 
 initPopup = () => {
-  const ct = d3.select('#menu-container')
+  const ct = d3.select('#annotation-container')
   ct.selectAll("*").remove()
   const ctBody = ct.append("div").attr("class", "card-body")
   ctBody.append('h5').attr('class', "card-title").text("Please hover over a virus to get more information");
-  ctBody.append('p').attr("class", "card-text").text("...");
+  ctBody.append('p').attr("class", "card-text").append("...");
 }
 
 fillPopup = (d) => {
-  const ct = d3.select('#menu-container');
-  const ctBody = ct.append("div").attr("class", "card-body")
+  const ct = d3.select('#annotation-container');
+  const ctBody = ct.append("div").attr("class", "card-body");
   ctBody.append('h5').attr('class', "card-title").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);
-  ctBody.append('p').attr("class", "card-text").text("This is a strange virus... ");
+  ctBody.append('p').attr("class", "card-text").text(annotationsMap[d.data.name].name);
 }
 
 init = initPopup()
 
 s1 = d3.select("body").on('click', initPopup )
 
-s2 = d3.select(".menu-container").on('click', () => { d3.event. soptPropagation() })
+tree = new phylotree.phylotree(nwk)   // class Phylotree
+                                      // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
 
-renderedTree = new phylotree.phylotree(nwk)
+renderedTree = tree                   // class TreeRender
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
@@ -124,7 +112,7 @@ renderedTree = new phylotree.phylotree(nwk)
     'selectable': false,  // make nodes and branches not selectable
     'collapsible': true,
     'transitions' : true,
-    'show-menu': false,
+    'show-menu': true,
     'show-scale': false,
     'align-tips': true,
     'width': width,
@@ -132,25 +120,17 @@ renderedTree = new phylotree.phylotree(nwk)
     'zoom': false,
     'minimal-per-node-spacing': 2,
     'minimum-per-level-spacing': 2,
-    'container': '#tree-container'
+    'container': "#tree-container"
   })
-
-rt = renderedTree
   .style_nodes( (element, data) => {
-    <!-- element.on('contextmenu', d3.contextMenu(menu, { -->
-    <!--   onClose: (data, event) => { -->
-    <!--     // Add the div again to container the 'menu' -->
-    <!--     d3.select("#menu-container").append("div").attr("class", "d3-context-menu d3-context-menu-theme") -->
-    <!--   } -->
-    <!-- })) -->
     element.on('mouseover', function() {
       clearPopup();
       fillPopup(data);
-      element.preventDefault()
     });
   })
   .layout(true)
-  .show()
+
+tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
 
