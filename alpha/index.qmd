@@ -72,10 +72,10 @@ d3 = {
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 nwk = await FileAttachment("test.newick").text();
-annotations = await FileAttachment("test-annotation.json").json();
+annotations = await FileAttachment("annotations.json").json();
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
 console.log(annotationsMap)
-toolbox = await FileAttachment("test-toolbox.js").json();
+toolbox = await FileAttachment("toolbox.json").json();
 
 clearPopup = () => {
   const ct = d3.select('#annotation-container')

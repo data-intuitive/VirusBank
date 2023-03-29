@@ -1,12 +1,12 @@
 [
-  { 
+  {
     "id": "EEEV",
     "name": "The Eastern Equine Encephalitis virus"
   },
-  { 
+  {
     "id": "BFV"
   },
-  { 
+  {
     "id": "CHIKV"
   },
   {
@@ -15,16 +15,16 @@
   {
     "id": "MIDV"
   },
-  { 
+  {
     "id": "SFV"
   },
   {
     "id": "UNAV"
   },
-  { 
+  {
     "id": "BEBV"
   },
-  { 
+  {
     "id": "RRV"
   },
   {
@@ -43,7 +43,7 @@
   {
     "id": "AURUV"
   },
-  { 
+  {
     "id": "FMV"
   },
   {
