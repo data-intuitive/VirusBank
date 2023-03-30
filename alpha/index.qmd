@@ -2,16 +2,20 @@
 title: Alphaviruses
 toc: true
 var: one
+theme: superhero
 ---
 
-# Tree
+Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) (1). Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
+
+::: {.column-page}
+
+## Tree
 
 &nbsp;
 
 ```{ojs}
 //| output: none
 //| echo: false
-//| column: page
 
 // Initialize a container to contain the containers for the tree and annotation window
 html`
@@ -24,11 +28,62 @@ html`
 `
 ```
 
+&nbsp;
+
+## Viruses
+
+```{ojs}
+//| echo: false
+
+viewof selection = Inputs.table(annotations, {
+  columns: [
+    "id",
+    "name",
+    "description"
+  ],
+  header: {
+    id: "ID",
+    description: "Description",
+    name: "Name"
+  }
+})
+```
+
+&nbsp;
+
+## Toolbox
+
+```{ojs}
+//| echo: false
+
+viewof toolboxSel = Inputs.table(toolbox, {
+  columns: [
+    "id",
+    "name",
+    "available",
+    "optimization",
+    "description"
+  ],
+  header: {
+    id: "ID",
+    description: "Description",
+    name: "Name",
+    available: "Available",
+    optimization: "Optimized"
+  },
+  format: {
+    available: available => available.join(", "),
+    optimization: optimization => optimization.join(", ")
+  }
+})
+```
 - - -
+
+:::
 
 ```{ojs}
 //| output: none
-//| echo: true
+//| echo: false
 html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
 html`
 <style type="text/css">
@@ -39,14 +94,21 @@ html`
   .phylotree-node-text {
     fill: grey;
     font-family: "Chakra Petch";
-    font-weight: bold;
+    font-weight: 300;
     font-size: 24px!important;
   }
 
   .phylotree-node-text-selected {
     fill: black;
     font-family: "Chakra Petch";
-    font-weight: bold;
+    font-weight: 300;
+    font-size: 28px!important;
+  }
+
+  .phylotree-node-text-hl {
+    fill: black;
+    font-family: "Chakra Petch";
+    font-weight: "bold";
     font-size: 28px!important;
   }
 
@@ -74,7 +136,6 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 nwk = await FileAttachment("test.newick").text();
 annotations = await FileAttachment("annotations.json").json();
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
-console.log(annotationsMap)
 toolbox = await FileAttachment("toolbox.json").json();
 
 clearPopup = () => {
@@ -87,7 +148,14 @@ initPopup = () => {
   ct.selectAll("*").remove()
   const ctBody = ct.append("div").attr("class", "card-body")
   ctBody.append('h5').attr('class', "card-title").text("Please hover over a virus to get more information");
-  ctBody.append('p').attr("class", "card-text").append("...");
+}
+
+availableTools = (virus_id) => 
+  toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)
+
+
+optimizedTools = (virus_id) => {
+  toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
 }
 
 fillPopup = (d) => {
@@ -95,6 +163,7 @@ fillPopup = (d) => {
   const ctBody = ct.append("div").attr("class", "card-body");
   ctBody.append('h5').attr('class', "card-title").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);
   ctBody.append('p').attr("class", "card-text").text(annotationsMap[d.data.name].name);
+  ctBody.append('p').attr("class", "card-text").text(availableTools(d.data.name).join(", "));
 }
 
 init = initPopup()
@@ -123,6 +192,8 @@ renderedTree = tree                   // class TreeRender
     'container': "#tree-container"
   })
   .style_nodes( (element, data) => {
+    const inToolbox = (availableTools(data.data.name).length > 0)
+    const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
     element.on('mouseover', function() {
       clearPopup();
       fillPopup(data);
@@ -133,10 +204,6 @@ renderedTree = tree                   // class TreeRender
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
-
-## Background
-
-Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) (1). Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
 
 ## Transmission and epidemiology
 

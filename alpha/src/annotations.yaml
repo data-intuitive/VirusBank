@@ -1,30 +1,53 @@
 - id: EEEV
   name: The Eastern Equine Encephalitis virus
 - id: BFV
+  name: Barmah forest virus
 - id: CHIKV
+  name: Chikungunya virus
 - id: ONNV
+  name: O’nyong’nyong virus
 - id: MIDV
+  name: ???
 - id: SFV
+  name: ???
 - id: UNAV
+  name: ???
 - id: BEBV
+  name: ???
 - id: RRV
+  name: Ross River virus
 - id: GETV
+  name: ???
 - id: MAYV
   name: Mayaro virus
 - id: NDUV
+  name: ???
 - id: SPDV
+  name: ???
 - id: AURUV
+  name: ???
 - id: FMV
+  name: ???
 - id: WEEV
+  name: West Equine Encephalitis virus
 - id: HJV
+  name: ???
 - id: SINV
+  name: Sindbis virus
 - id: TROV
+  name: ???
 - id: RNV
+  name: ???
 - id: MDPV
+  name: ???
 - id: VEEV
   name: Venezuelan Equine Encephalitis virus
   description: Description for the VEEV Virus
 - id: EVEV
+  name: ???
 - id: CABV
+  name: ???
 - id: TONV
+  name: ???
 - id: MUCV
+  name: ???
