@@ -2,7 +2,6 @@
 title: Alphaviruses
 toc: true
 var: one
-theme: superhero
 ---
 
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) (1). Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
@@ -85,42 +84,6 @@ viewof toolboxSel = Inputs.table(toolbox, {
 //| output: none
 //| echo: false
 html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
-html`
-<style type="text/css">
-
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
-  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');
-
-  .phylotree-node-text {
-    fill: grey;
-    font-family: "Chakra Petch";
-    font-weight: 300;
-    font-size: 24px!important;
-  }
-
-  .phylotree-node-text-selected {
-    fill: black;
-    font-family: "Chakra Petch";
-    font-weight: 300;
-    font-size: 28px!important;
-  }
-
-  .phylotree-node-text-hl {
-    fill: black;
-    font-family: "Chakra Petch";
-    font-weight: "bold";
-    font-size: 28px!important;
-  }
-
-  .phylotree-node-text-info {
-    fill: black;
-    font-family: "Chakra Petch";
-    font-weight: 700;
-    font-size: 28px!important;
-  }
-
-</style>
-`
 
 height = 700
 width = 600

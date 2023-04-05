@@ -30,13 +30,12 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
-          path: alpha/index.qmd
+          path: alpha/
 
       - name: Move rendered html
         run: |
           tree
-          mkdir _site
-          mv alpha/index.html _site
+          mv alpha/_site _site
   
       - name: Deploy to Netlify 🚀
         uses: data-intuitive/netlify-deploy-site@v1
