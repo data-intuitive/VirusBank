@@ -28,6 +28,11 @@ jobs:
           to: html
           path: alpha/index.qmd
 
+      - name: Move rendered html
+        run: |
+          mkdir _site
+          mv index.html _site
+
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
