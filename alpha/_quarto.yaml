@@ -12,3 +12,4 @@ format:
     theme: superhero
     css: styles.css
     toc: false
+    resources: ['./tree.newick', 'annotations.json', 'toolbox.json']
