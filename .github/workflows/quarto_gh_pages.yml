@@ -30,6 +30,7 @@ jobs:
 
       - name: Move rendered html
         run: |
+          tree
           mkdir _site
           mv index.html _site
 
