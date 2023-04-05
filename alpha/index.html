@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.247">
+<meta name="generator" content="quarto-1.3.299">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -119,23 +138,290 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g.&nbsp;ticks and mosquitoes) (1). Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="39" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 38;"><span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;link rel=stylesheet href='</span><span class="sc">${</span><span class="fu">resolve</span>(<span class="st">"phylotree@1.1.0/dist/phylotree.css"</span>)<span class="sc">}</span><span class="vs">'&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="40" data-source-offset="-84"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 39;"><span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;style type="text/css"&gt;</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="vs">  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="vs">  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&amp;display=swap');</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text {</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: grey;</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 300;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 24px!important;</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-selected {</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: black;</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 300;</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-hl {</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: white;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: "bold";</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-info {</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: black;</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 700;</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/style&gt;</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="77" data-source-offset="-959"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 76;"><span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">700</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> {</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d3 <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">d3</span> <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)<span class="op">;</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3-context-menu@2.1.0/js/d3-context-menu.js"</span>)<span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> {})<span class="op">;</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> d3<span class="op">;</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>phylotree <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"phylotree@1.1/dist/phylotree.js"</span>)<span class="op">;</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>FA <span class="op">=</span> FileAttachment</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>nwk <span class="op">=</span> <span class="cf">await</span> <span class="fu">FA</span>(<span class="st">"tree.newick"</span>)<span class="op">.</span><span class="fu">text</span>()<span class="op">;</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>annotations <span class="op">=</span> <span class="cf">await</span> <span class="fu">FA</span>(<span class="st">"annotations.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>annotationsMap <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> <span class="op">...</span>(annotations<span class="op">.</span><span class="fu">map</span>(item <span class="kw">=&gt;</span> ({ [item<span class="op">.</span><span class="at">id</span>]<span class="op">:</span> { <span class="dt">id</span><span class="op">:</span> item<span class="op">.</span><span class="at">id</span><span class="op">,</span> <span class="dt">description</span><span class="op">:</span> item<span class="op">.</span><span class="at">description</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> item<span class="op">.</span><span class="at">name</span> } }) )))</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FA</span>(<span class="st">"toolbox.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>clearPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>initPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">"Please hover over a virus to get more information"</span>)<span class="op">;</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>availableTools <span class="op">=</span> (virus_id) <span class="kw">=&gt;</span> </span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>  toolbox<span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">available</span><span class="op">.</span><span class="fu">includes</span>(virus_id))<span class="op">.</span><span class="fu">map</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">name</span>)</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>optimizedTools <span class="op">=</span> (virus_id) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>  toolbox<span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">optimized</span><span class="op">.</span><span class="fu">includes</span>(virus_id))<span class="op">.</span><span class="fu">map</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">name</span>)</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>fillPopup <span class="op">=</span> (d) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)<span class="op">;</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)<span class="op">;</span></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">'a'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'href'</span><span class="op">,</span> <span class="st">'http://localhost:4397/#clinical-relevance'</span>)<span class="op">.</span><span class="fu">text</span>(d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(annotationsMap[d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="fu">availableTools</span>(d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>))<span class="op">;</span></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>init <span class="op">=</span> <span class="fu">initPopup</span>()</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"body"</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> initPopup )</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)   <span class="co">// class Phylotree</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>                                      <span class="co">// https://github.com/veg/phylotree.js/blob/master/src/main.js#L90</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree                   <span class="co">// class TreeRender</span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">"#tree-container"</span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">style_nodes</span>( (element<span class="op">,</span> data) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> inToolbox <span class="op">=</span> (<span class="fu">availableTools</span>(data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> updtElement <span class="op">=</span> inToolbox <span class="op">?</span> element<span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text-hl"</span>) <span class="op">:</span> element</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>      <span class="fu">clearPopup</span>()<span class="op">;</span></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fillPopup</span>(data)<span class="op">;</span></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>tmp <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#tree-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="fu">appendChild</span>(renderedTree<span class="op">.</span><span class="at">svg</span><span class="op">.</span><span class="fu">node</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-8" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-9" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-10" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-11" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-12" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-13" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-14" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-15" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-16" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-17" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-18" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-19" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-20" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-21" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p>Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g.&nbsp;ticks and mosquitoes) <span class="citation" data-cites="ABDELNABI2020113777">(<a href="#ref-ABDELNABI2020113777" role="doc-biblioref">Abdelnabi et al. 2020</a>)</span>. Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.</p>
 <div class="column-page">
 <section id="tree" class="level2">
 <h2 class="anchored" data-anchor-id="tree">Tree</h2>
 <p>&nbsp;</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="18" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 17;"><span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Initialize a container to contain the containers for the tree and annotation window</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="container"&gt;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div class="grid"&gt;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div id="tree-container" class="tree-container g-col-7"&gt;&lt;/div&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div id="annotation-container" class="annotation-container card g-col-5"&gt;&lt;/div&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="57" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 56;"><span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co">// Initialize a container to contain the containers for the tree and annotation window</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="container"&gt;</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div class="grid"&gt;</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div id="tree-container" class="tree-container g-col-7"&gt;&lt;/div&gt;</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div id="annotation-container" class="annotation-container card g-col-5"&gt;&lt;/div&gt;</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-1" data-nodetype="expression">
+<div id="ojs-cell-2" data-nodetype="expression">
 
 </div>
 </div>
@@ -145,20 +431,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="viruses" class="level2">
 <h2 class="anchored" data-anchor-id="viruses">Viruses</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="36" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 35;"><span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>viewof selection <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(annotations<span class="op">,</span> {</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="77" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 76;"><span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>viewof selection <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(annotations<span class="op">,</span> {</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-2" data-nodetype="declaration">
+<div id="ojs-cell-3" data-nodetype="declaration">
 
 </div>
 </div>
@@ -168,28 +454,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="toolbox" class="level2">
 <h2 class="anchored" data-anchor-id="toolbox">Toolbox</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="57" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 56;"><span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>viewof toolboxSel <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(toolbox<span class="op">,</span> {</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="st">"available"</span><span class="op">,</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="st">"optimization"</span><span class="op">,</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span><span class="op">,</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="dt">available</span><span class="op">:</span> <span class="st">"Available"</span><span class="op">,</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="dt">optimization</span><span class="op">:</span> <span class="st">"Optimized"</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="dt">format</span><span class="op">:</span> {</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="dt">available</span><span class="op">:</span> available <span class="kw">=&gt;</span> available<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)<span class="op">,</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    <span class="dt">optimization</span><span class="op">:</span> optimization <span class="kw">=&gt;</span> optimization<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="0" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -1;"><span id="cb6-0"><a href="#cb6-0" aria-hidden="true" tabindex="-1"></a>viewof toolboxSel <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">table</span>(toolbox<span class="op">,</span> {</span>
+<span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="dt">columns</span><span class="op">:</span> [</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span><span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="op">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"available"</span><span class="op">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"optimization"</span><span class="op">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">header</span><span class="op">:</span> {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">id</span><span class="op">:</span> <span class="st">"ID"</span><span class="op">,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> <span class="st">"Description"</span><span class="op">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Name"</span><span class="op">,</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">available</span><span class="op">:</span> <span class="st">"Available"</span><span class="op">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">optimization</span><span class="op">:</span> <span class="st">"Optimized"</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">format</span><span class="op">:</span> {</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">available</span><span class="op">:</span> available <span class="kw">=&gt;</span> available<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)<span class="op">,</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">optimization</span><span class="op">:</span> optimization <span class="kw">=&gt;</span> optimization<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-3" data-nodetype="declaration">
+<div id="ojs-cell-4" data-nodetype="declaration">
 
 </div>
 </div>
@@ -197,269 +483,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="87" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 86;"><span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;link rel=stylesheet href='</span><span class="sc">${</span><span class="fu">resolve</span>(<span class="st">"phylotree@1.1.0/dist/phylotree.css"</span>)<span class="sc">}</span><span class="vs">'&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="88" data-source-offset="-84"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 87;"><span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;style type="text/css"&gt;</span></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="vs">  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="vs">  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&amp;display=swap');</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text {</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: grey;</span></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 300;</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 24px!important;</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-selected {</span></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: black;</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 300;</span></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-hl {</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: black;</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: "bold";</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="vs">  .phylotree-node-text-info {</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="vs">    fill: black;</span></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-family: "Chakra Petch";</span></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-weight: 700;</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="vs">    font-size: 28px!important;</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="vs">  }</span></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/style&gt;</span></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="125" data-source-offset="-959"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 124;"><span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">700</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">600</span></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> {</span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d3 <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">d3</span> <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)<span class="op">;</span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"d3-context-menu@2.1.0/js/d3-context-menu.js"</span>)<span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> {})<span class="op">;</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> d3<span class="op">;</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>phylotree <span class="op">=</span> <span class="cf">await</span> <span class="pp">require</span>(<span class="st">"phylotree@1.1/dist/phylotree.js"</span>)<span class="op">;</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>nwk <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"test.newick"</span>)<span class="op">.</span><span class="fu">text</span>()<span class="op">;</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>annotations <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"annotations.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>annotationsMap <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> <span class="op">...</span>(annotations<span class="op">.</span><span class="fu">map</span>(item <span class="kw">=&gt;</span> ({ [item<span class="op">.</span><span class="at">id</span>]<span class="op">:</span> { <span class="dt">id</span><span class="op">:</span> item<span class="op">.</span><span class="at">id</span><span class="op">,</span> <span class="dt">description</span><span class="op">:</span> item<span class="op">.</span><span class="at">description</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> item<span class="op">.</span><span class="at">name</span> } }) )))</span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>toolbox <span class="op">=</span> <span class="cf">await</span> <span class="fu">FileAttachment</span>(<span class="st">"toolbox.json"</span>)<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>clearPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)</span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>initPopup <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>  ct<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">"Please hover over a virus to get more information"</span>)<span class="op">;</span></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>availableTools <span class="op">=</span> (virus_id) <span class="kw">=&gt;</span> </span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>  toolbox<span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">available</span><span class="op">.</span><span class="fu">includes</span>(virus_id))<span class="op">.</span><span class="fu">map</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">name</span>)</span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>optimizedTools <span class="op">=</span> (virus_id) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>  toolbox<span class="op">.</span><span class="fu">filter</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">optimized</span><span class="op">.</span><span class="fu">includes</span>(virus_id))<span class="op">.</span><span class="fu">map</span>(t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">name</span>)</span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>fillPopup <span class="op">=</span> (d) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ct <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#annotation-container'</span>)<span class="op">;</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctBody <span class="op">=</span> ct<span class="op">.</span><span class="fu">append</span>(<span class="st">"div"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-body"</span>)<span class="op">;</span></span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'h5'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">"card-title"</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">'a'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">'href'</span><span class="op">,</span> <span class="st">'http://localhost:4397/#clinical-relevance'</span>)<span class="op">.</span><span class="fu">text</span>(d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(annotationsMap[d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>]<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>  ctBody<span class="op">.</span><span class="fu">append</span>(<span class="st">'p'</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"card-text"</span>)<span class="op">.</span><span class="fu">text</span>(<span class="fu">availableTools</span>(d<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">", "</span>))<span class="op">;</span></span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>init <span class="op">=</span> <span class="fu">initPopup</span>()</span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"body"</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> initPopup )</span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> <span class="kw">new</span> phylotree<span class="op">.</span><span class="fu">phylotree</span>(nwk)   <span class="co">// class Phylotree</span></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>                                      <span class="co">// https://github.com/veg/phylotree.js/blob/master/src/main.js#L90</span></span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>renderedTree <span class="op">=</span> tree                   <span class="co">// class TreeRender</span></span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">render</span>({</span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>    <span class="st">'left-right-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>    <span class="st">'top-bottom-spacing'</span><span class="op">:</span> <span class="st">'fit-to-size'</span><span class="op">,</span></span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    <span class="st">'is-radial'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>    <span class="st">'selectable'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span>  <span class="co">// make nodes and branches not selectable</span></span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    <span class="st">'collapsible'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transitions'</span> <span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-menu'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>    <span class="st">'show-scale'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    <span class="st">'align-tips'</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span><span class="op">:</span> width<span class="op">,</span></span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span><span class="op">:</span> height<span class="op">,</span></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>    <span class="st">'zoom'</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimal-per-node-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>    <span class="st">'minimum-per-level-spacing'</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>    <span class="st">'container'</span><span class="op">:</span> <span class="st">"#tree-container"</span></span>
-<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">style_nodes</span>( (element<span class="op">,</span> data) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> inToolbox <span class="op">=</span> (<span class="fu">availableTools</span>(data<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">name</span>)<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> updtElement <span class="op">=</span> inToolbox <span class="op">?</span> element<span class="op">.</span><span class="fu">select</span>(<span class="st">"text"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"phylotree-node-text-hl"</span>) <span class="op">:</span> element</span>
-<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>    element<span class="op">.</span><span class="fu">on</span>(<span class="st">'mouseover'</span><span class="op">,</span> <span class="kw">function</span>() {</span>
-<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>      <span class="fu">clearPopup</span>()<span class="op">;</span></span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fillPopup</span>(data)<span class="op">;</span></span>
-<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">layout</span>(<span class="kw">true</span>)</span>
-<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>tmp <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#tree-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="fu">appendChild</span>(renderedTree<span class="op">.</span><span class="at">svg</span><span class="op">.</span><span class="fu">node</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-6" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-7" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-8" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-9" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-10" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-11" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-12" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-13" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-14" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-15" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-16" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-17" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-18" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-19" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-20" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
 <section id="transmission-and-epidemiology" class="level2">
 <h2 class="anchored" data-anchor-id="transmission-and-epidemiology">Transmission and epidemiology</h2>
-<p>Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods (2, 3). On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes (2).</p>
-<p>Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent (3). These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle (3). On the other hand, equids are the key reservoir host for VEEV because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes (3).</p>
+<p>Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods ( <span class="citation" data-cites="microorganisms7050133">(<a href="#ref-microorganisms7050133" role="doc-biblioref">Levi and Vignuzzi 2019</a>)</span>, 3). On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes <span class="citation" data-cites="microorganisms7050133">(<a href="#ref-microorganisms7050133" role="doc-biblioref">Levi and Vignuzzi 2019</a>)</span>.</p>
+<p>Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent [^3]. These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle [^3]. On the other hand, equids are the key reservoir host for VEEV because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes [^3].</p>
 <dl>
 <dt><img src="images/figure1.png" class="img-fluid"></dt>
 <dd>
@@ -476,17 +503,17 @@ Summary of known arthritogenic alphavirus outbreaks, with geographical distribut
 </section>
 <section id="disease-symptoms" class="level2">
 <h2 class="anchored" data-anchor-id="disease-symptoms">Disease symptoms</h2>
-<p>Infection with encephalitic alphaviruses (EEV, WEEV, VEEV) cause symptoms ranging from mild febrile illness (such as fever, chills, malaise, severe headache, myalgia) to severe encephalitis that can lead to death (4). Children are more likely to suffer permanent neurological damage. Infections with arthritogenic alphaviruses such as chikungunya virus (CHIKV), Mayaro virus (MAYV) and Ross River virus (RRV) mainly result in rheumatic disease that causes debilitating pain in the joints (2). The symptoms of acute disease caused by arthritogenic viruses include fever, bilateral symmetrical arthritis and sometimes skin rash. Although acute infections by arthritogenic alphaviruses are self-limiting, several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage (9). Recent outbreaks of arthritogenic alphaviruses such as CHIKV have also been associated with neurological manifestations, e.g.&nbsp;myelopathy, Guillain-Barré syndrome and meningoencephalitis, especially in elderly patients with comorbidities and neonates (11).</p>
+<p>Infection with encephalitic alphaviruses (EEV, WEEV, VEEV) cause symptoms ranging from mild febrile illness (such as fever, chills, malaise, severe headache, myalgia) to severe encephalitis that can lead to death (4). Children are more likely to suffer permanent neurological damage. Infections with arthritogenic alphaviruses such as chikungunya virus (CHIKV), Mayaro virus (MAYV) and Ross River virus (RRV) mainly result in rheumatic disease that causes debilitating pain in the joints <span class="citation" data-cites="microorganisms7050133">(<a href="#ref-microorganisms7050133" role="doc-biblioref">Levi and Vignuzzi 2019</a>)</span>. The symptoms of acute disease caused by arthritogenic viruses include fever, bilateral symmetrical arthritis and sometimes skin rash. Although acute infections by arthritogenic alphaviruses are self-limiting, several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage (9). Recent outbreaks of arthritogenic alphaviruses such as CHIKV have also been associated with neurological manifestations, e.g.&nbsp;myelopathy, Guillain-Barré syndrome and meningoencephalitis, especially in elderly patients with comorbidities and neonates (11).</p>
 </section>
 <section id="clinical-relevance" class="level2">
 <h2 class="anchored" data-anchor-id="clinical-relevance">Clinical relevance</h2>
-<p>The Eastern Equine Encephalitis virus (EEEV) and the Venezuelan Equine Encephalitis virus (VEEV) are rare causes of encephalitis. Approximately 30% of people with EEE die and many survivors have ongoing neurologic problems. For VEEV, the mortality in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. Both viruses have shown the ability to be disseminated via aerosols in laboratory settings (12) and have been classified as Select Agents as they may potentially be used as a bio-weapon (2).</p>
+<p>The Eastern Equine Encephalitis virus (EEEV) and the Venezuelan Equine Encephalitis virus (VEEV) are rare causes of encephalitis. Approximately 30% of people with EEE die and many survivors have ongoing neurologic problems. For VEEV, the mortality in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. Both viruses have shown the ability to be disseminated via aerosols in laboratory settings (12) and have been classified as Select Agents as they may potentially be used as a bio-weapon <span class="citation" data-cites="microorganisms7050133">(<a href="#ref-microorganisms7050133" role="doc-biblioref">Levi and Vignuzzi 2019</a>)</span>.</p>
 <p>CHIKV presents a significant global health threat because of its high disease burden, widespread (re-)emergence, and the lack of vaccines and therapeutics. In the last decades, CHIKV re-emerged in many parts of Africa and Asia, causing large-scale epidemics. Also other alphaviruses, including Mayaro virus, and Ross River capable of inducing severe disease (2, 8). Although these viruses have not yet been associated with large epidemics, it cannot be excluded that this will happen in the future. The Mayaro virus (MAYV) is a neglected virus similar to CHIKV which can cause long-term debilitating arthralgia that can last for weeks. This virus has been suggested to have the potential to cause the next arbovirus epidemic. The Ross River virus (RRV) is endemic in Australia and Papua New Guinea and can result in joint pain, fever, tiredness, and rash.</p>
 <p>The change in mosquito vectors distribution, caused by global warming, virus adaptation to new mosquito species and the increase in the international travel could result in expansion of alphaviruses in the future.</p>
 </section>
 <section id="current-treatment" class="level2">
 <h2 class="anchored" data-anchor-id="current-treatment">Current treatment</h2>
-<p>Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate (2).</p>
+<p>Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate <span class="citation" data-cites="microorganisms7050133">(<a href="#ref-microorganisms7050133" role="doc-biblioref">Levi and Vignuzzi 2019</a>)</span>.</p>
 </section>
 <section id="selection-of-viruses-for-virusbank-platform" class="level2">
 <h2 class="anchored" data-anchor-id="selection-of-viruses-for-virusbank-platform">Selection of viruses for VirusBank platform</h2>
@@ -547,34 +574,28 @@ Summary of known arthritogenic alphavirus outbreaks, with geographical distribut
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<ol type="1">
-<li>R. Abdelnabi, S. Jacobs, L. Delang, J. Neyts, Antiviral drug discovery against arthritogenic alphaviruses: Tools and molecular targetsBiochem. Pharmacol. 174 (2020), doi:10.1016/j.bcp.2019.113777.</li>
-<li>L. I. Levi, M. Vignuzzi, Arthritogenic Alphaviruses: A Worldwide Emerging Threat? Microorganisms 7, 133 (2019).</li>
-<li>M. Barba, E. L. Fairbanks, J. M. Daly, Equine viral encephalitis: prevalence, impact, and management strategies. Vet. Med. Res. Reports 10, 99–110 (2019).</li>
-<li>C. Guzmán-Terán, A. Calderón-Rangel, A. Rodriguez-Morales, S. Mattar, Venezuelan equine encephalitis virus: the problem is not over for tropical America. Ann. Clin. Microbiol. Antimicrob. 19, 19 (2020).</li>
-<li>X. Liu, K. Tharmarajah, A. Taylor, Ross River virus disease clinical presentation, pathogenesis and current therapeutic strategiesMicrobes Infect. 19, 496–504 (2017).</li>
-<li>N. Kurucz, P. Markey, A. Draper, L. Melville, R. Weir, S. Davis, A. Warchot, R. Boyd, D. Stokeld, Investigation into High Barmah Forest Virus Disease Case Numbers Reported in the Northern Territory, Australia in 2012–2013. Vector-Borne Zoonotic Dis. 16, 110–116 (2016).</li>
-<li>G. Rezza, R. Chen, S. C. Weaver, O’nyong-nyong fever: a neglected mosquito-borne viral disease. Pathog. Glob. Health 111, 271–275 (2017).</li>
-<li>Y. Acosta-Ampudia, D. M. Monsalve, Y. Rodríguez, Y. Pacheco, J. M. Anaya, C. Ramírez-Santana, Mayaro: an emerging viral threat? Emerg. Microbes Infect. 7, 1–11 (2018).</li>
-<li>G. Rezza, S. C. Weaver, Chikungunya as a paradigm for emerging viral diseases: Evaluating disease impact and hurdles to vaccine development. PLoS Negl. Trop. Dis. 13, 1–12 (2019).</li>
-<li>A. Zaid, Intravital imaging of skin infections. Cell. Immunol. , [Epub ahead of print] (2019).</li>
-<li>R. Mehta, P. Gerardin, C. A. A. de Brito, C. N. Soares, M. L. B. Ferreira, T. Solomon, The neurological complications of chikungunya virus: A systematic reviewRev. Med. Virol. 28 (2018), doi:10.1002/rmv.1978.</li>
-<li>E. B. Hayes, J. E. Staples, in S. S. B. T.-P. and P. of P. I. D. (Fourth E. Long, Ed. (Elsevier, London, 2012), pp.&nbsp;1097-1099.e2.</li>
-<li>N. J. MacLachlan, E. J. B. T.-F. V. V. (Fifth E. Dubovi, Eds., in (Academic Press, Boston, 2017), pp.&nbsp;511–524.</li>
-</ol>
+<p>[^3] M. Barba, E. L. Fairbanks, J. M. Daly, Equine viral encephalitis: prevalence, impact, and management strategies. Vet. Med. Res. Reports 10, 99–110 (2019). 4. C. Guzmán-Terán, A. Calderón-Rangel, A. Rodriguez-Morales, S. Mattar, Venezuelan equine encephalitis virus: the problem is not over for tropical America. Ann. Clin. Microbiol. Antimicrob. 19, 19 (2020). 5. X. Liu, K. Tharmarajah, A. Taylor, Ross River virus disease clinical presentation, pathogenesis and current therapeutic strategiesMicrobes Infect. 19, 496–504 (2017). 6. N. Kurucz, P. Markey, A. Draper, L. Melville, R. Weir, S. Davis, A. Warchot, R. Boyd, D. Stokeld, Investigation into High Barmah Forest Virus Disease Case Numbers Reported in the Northern Territory, Australia in 2012–2013. Vector-Borne Zoonotic Dis. 16, 110–116 (2016). 7. G. Rezza, R. Chen, S. C. Weaver, O’nyong-nyong fever: a neglected mosquito-borne viral disease. Pathog. Glob. Health 111, 271–275 (2017). 8. Y. Acosta-Ampudia, D. M. Monsalve, Y. Rodríguez, Y. Pacheco, J. M. Anaya, C. Ramírez-Santana, Mayaro: an emerging viral threat? Emerg. Microbes Infect. 7, 1–11 (2018). 9. G. Rezza, S. C. Weaver, Chikungunya as a paradigm for emerging viral diseases: Evaluating disease impact and hurdles to vaccine development. PLoS Negl. Trop. Dis. 13, 1–12 (2019). 10. A. Zaid, Intravital imaging of skin infections. Cell. Immunol. , [Epub ahead of print] (2019). 11. R. Mehta, P. Gerardin, C. A. A. de Brito, C. N. Soares, M. L. B. Ferreira, T. Solomon, The neurological complications of chikungunya virus: A systematic reviewRev. Med. Virol. 28 (2018), doi:10.1002/rmv.1978. 12. E. B. Hayes, J. E. Staples, in S. S. B. T.-P. and P. of P. I. D. (Fourth E. Long, Ed. (Elsevier, London, 2012), pp.&nbsp;1097-1099.e2. 13. N. J. MacLachlan, E. J. B. T.-F. V. V. (Fifth E. Dubovi, Eds., in (Academic Press, Boston, 2017), pp.&nbsp;511–524.</p>
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ABDELNABI2020113777" class="csl-entry" role="listitem">
+Abdelnabi, Rana, Sofie Jacobs, Leen Delang, and Johan Neyts. 2020. <span>“Antiviral Drug Discovery Against Arthritogenic Alphaviruses: Tools and Molecular Targets.”</span> <em>Biochemical Pharmacology</em> 174: 113777. https://doi.org/<a href="https://doi.org/10.1016/j.bcp.2019.113777">https://doi.org/10.1016/j.bcp.2019.113777</a>.
+</div>
+<div id="ref-microorganisms7050133" class="csl-entry" role="listitem">
+Levi, Laura I., and Marco Vignuzzi. 2019. <span>“Arthritogenic Alphaviruses: A Worldwide Emerging Threat?”</span> <em>Microorganisms</em> 7 (5). <a href="https://doi.org/10.3390/microorganisms7050133">https://doi.org/10.3390/microorganisms7050133</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\n// Initialize a container to contain the containers for the tree and annotation window\nhtml`\n<div class=\"container\">\n  <div class=\"grid\">\n    <div id=\"tree-container\" class=\"tree-container g-col-7\"></div>\n    <div id=\"annotation-container\" class=\"annotation-container card g-col-5\"></div>\n  </div>\n</div>\n`\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nviewof selection = Inputs.table(annotations, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\"\n  }\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nviewof toolboxSel = Inputs.table(toolbox, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"available\",\n    \"optimization\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\",\n    available: \"Available\",\n    optimization: \"Optimized\"\n  },\n  format: {\n    available: available => available.join(\", \"),\n    optimization: optimization => optimization.join(\", \")\n  }\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Chakra Petch\";\n    font-weight: 300;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 300;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-hl {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: \"bold\";\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 700;\n    font-size: 28px!important;\n  }\n\n</style>\n`\n\nheight = 700\nwidth = 600\n\nd3 = {\n  const d3 = window.d3 = await require(\"d3@7\");\n  await require(\"d3-context-menu@2.1.0/js/d3-context-menu.js\").catch(() => {});\n  return d3;\n}\n\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nnwk = await FileAttachment(\"test.newick\").text();\nannotations = await FileAttachment(\"annotations.json\").json();\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\ntoolbox = await FileAttachment(\"toolbox.json\").json();\n\nclearPopup = () => {\n  const ct = d3.select('#annotation-container')\n  ct.selectAll(\"*\").remove()\n}\n\ninitPopup = () => {\n  const ct = d3.select('#annotation-container')\n  ct.selectAll(\"*\").remove()\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\")\n  ctBody.append('h5').attr('class', \"card-title\").text(\"Please hover over a virus to get more information\");\n}\n\navailableTools = (virus_id) => \n  toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)\n\n\noptimizedTools = (virus_id) => {\n  toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)\n}\n\nfillPopup = (d) => {\n  const ct = d3.select('#annotation-container');\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\");\n  ctBody.append('h5').attr('class', \"card-title\").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);\n  ctBody.append('p').attr(\"class\", \"card-text\").text(annotationsMap[d.data.name].name);\n  ctBody.append('p').attr(\"class\", \"card-text\").text(availableTools(d.data.name).join(\", \"));\n}\n\ninit = initPopup()\n\ns1 = d3.select(\"body\").on('click', initPopup )\n\ntree = new phylotree.phylotree(nwk)   // class Phylotree\n                                      // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90\n\nrenderedTree = tree                   // class TreeRender\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'collapsible': true,\n    'transitions' : true,\n    'show-menu': true,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 2,\n    'minimum-per-level-spacing': 2,\n    'container': \"#tree-container\"\n  })\n  .style_nodes( (element, data) => {\n    const inToolbox = (availableTools(data.data.name).length > 0)\n    const updtElement = inToolbox ? element.select(\"text\").attr(\"class\", \"phylotree-node-text-hl\") : element\n    element.on('mouseover', function() {\n      clearPopup();\n      fillPopup(data);\n    });\n  })\n  .layout(true)\n\ntmp = d3.select(\"#tree-container\").node().appendChild(renderedTree.svg.node())\n\n"},{"methodName":"interpretQuiet","source":"shinyInput('selection')"},{"methodName":"interpretQuiet","source":"shinyInput('toolboxSel')"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"html`<link rel=stylesheet href='${resolve(\"phylotree@1.1.0/dist/phylotree.css\")}'>`\nhtml`\n<style type=\"text/css\">\n\n  @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');\n  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,500;0,600;0,700;1,300;1,400&display=swap');\n\n  .phylotree-node-text {\n    fill: grey;\n    font-family: \"Chakra Petch\";\n    font-weight: 300;\n    font-size: 24px!important;\n  }\n\n  .phylotree-node-text-selected {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 300;\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-hl {\n    fill: white;\n    font-family: \"Chakra Petch\";\n    font-weight: \"bold\";\n    font-size: 28px!important;\n  }\n\n  .phylotree-node-text-info {\n    fill: black;\n    font-family: \"Chakra Petch\";\n    font-weight: 700;\n    font-size: 28px!important;\n  }\n\n</style>\n`\n\nheight = 700\nwidth = 600\n\nd3 = {\n  const d3 = window.d3 = await require(\"d3@7\");\n  await require(\"d3-context-menu@2.1.0/js/d3-context-menu.js\").catch(() => {});\n  return d3;\n}\n\nphylotree = await require(\"phylotree@1.1/dist/phylotree.js\");\n\nFA = FileAttachment\nnwk = await FA(\"tree.newick\").text();\nannotations = await FA(\"annotations.json\").json();\nannotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))\ntoolbox = await FA(\"toolbox.json\").json();\n\nclearPopup = () => {\n  const ct = d3.select('#annotation-container')\n  ct.selectAll(\"*\").remove()\n}\n\ninitPopup = () => {\n  const ct = d3.select('#annotation-container')\n  ct.selectAll(\"*\").remove()\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\")\n  ctBody.append('h5').attr('class', \"card-title\").text(\"Please hover over a virus to get more information\");\n}\n\navailableTools = (virus_id) => \n  toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)\n\n\noptimizedTools = (virus_id) => {\n  toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)\n}\n\nfillPopup = (d) => {\n  const ct = d3.select('#annotation-container');\n  const ctBody = ct.append(\"div\").attr(\"class\", \"card-body\");\n  ctBody.append('h5').attr('class', \"card-title\").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);\n  ctBody.append('p').attr(\"class\", \"card-text\").text(annotationsMap[d.data.name].name);\n  ctBody.append('p').attr(\"class\", \"card-text\").text(availableTools(d.data.name).join(\", \"));\n}\n\ninit = initPopup()\n\ns1 = d3.select(\"body\").on('click', initPopup )\n\ntree = new phylotree.phylotree(nwk)   // class Phylotree\n                                      // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90\n\nrenderedTree = tree                   // class TreeRender\n  .render({\n    'left-right-spacing': 'fit-to-size',\n    'top-bottom-spacing': 'fit-to-size',\n    'is-radial': true,\n    'selectable': false,  // make nodes and branches not selectable\n    'collapsible': true,\n    'transitions' : true,\n    'show-menu': true,\n    'show-scale': false,\n    'align-tips': true,\n    'width': width,\n    'height': height,\n    'zoom': false,\n    'minimal-per-node-spacing': 2,\n    'minimum-per-level-spacing': 2,\n    'container': \"#tree-container\"\n  })\n  .style_nodes( (element, data) => {\n    const inToolbox = (availableTools(data.data.name).length > 0)\n    const updtElement = inToolbox ? element.select(\"text\").attr(\"class\", \"phylotree-node-text-hl\") : element\n    element.on('mouseover', function() {\n      clearPopup();\n      fillPopup(data);\n    });\n  })\n  .layout(true)\n\ntmp = d3.select(\"#tree-container\").node().appendChild(renderedTree.svg.node())\n\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\n// Initialize a container to contain the containers for the tree and annotation window\nhtml`\n<div class=\"container\">\n  <div class=\"grid\">\n    <div id=\"tree-container\" class=\"tree-container g-col-7\"></div>\n    <div id=\"annotation-container\" class=\"annotation-container card g-col-5\"></div>\n  </div>\n</div>\n`\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nviewof selection = Inputs.table(annotations, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\"\n  }\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"\nviewof toolboxSel = Inputs.table(toolbox, {\n  columns: [\n    \"id\",\n    \"name\",\n    \"available\",\n    \"optimization\",\n    \"description\"\n  ],\n  header: {\n    id: \"ID\",\n    description: \"Description\",\n    name: \"Name\",\n    available: \"Available\",\n    optimization: \"Optimized\"\n  },\n  format: {\n    available: available => available.join(\", \"),\n    optimization: optimization => optimization.join(\", \")\n  }\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('selection')"},{"methodName":"interpretQuiet","source":"shinyInput('toolboxSel')"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
 window._ojs.paths.runtimeToDoc = "../../..";
-window._ojs.paths.runtimeToRoot = "../../..";
-window._ojs.paths.docToRoot = "";
+window._ojs.paths.runtimeToRoot = "../../../..";
+window._ojs.paths.docToRoot = "..";
 window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>
