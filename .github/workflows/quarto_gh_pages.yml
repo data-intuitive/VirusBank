@@ -7,20 +7,24 @@ on:
       - reopened
       - synchronize
       - closed
-  # to be able to trigger a manual build
-  workflow_dispatch:
 
-name: Render project
+name: Render and deploy to Netlify
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      NETLIFY_SITE_ID: 284ddce0-61dd-40b7-ab79-8b5ac77ed457
+
     steps:
       - uses: actions/checkout@v3
-          
+
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
@@ -33,21 +37,38 @@ jobs:
           tree
           mkdir _site
           mv alpha/index.html _site
-
-      - name: Deploy 🚀
+  
+      - name: Deploy to Netlify 🚀
+        uses: data-intuitive/netlify-deploy-site@v1
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: _site
-          branch: gh-pages
-          force: false
-          clean-exclude: pr-preview/
+          auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          site: ${{ env.NETLIFY_SITE_ID }}
+          dir: '_site'
+          prod: true
+          message: 'Deploy production ${{ github.ref }}'
 
       - name: Deploy preview
+        id: deploy_preview
         if: github.event_name == 'pull_request'
-        uses: rossjrw/pr-preview-action@v1
+        uses: data-intuitive/netlify-deploy-site@v1
         with:
-          source-dir: _site
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          action: auto
+          auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          site: ${{ env.NETLIFY_SITE_ID }}
+          dir: '_site'
+          alias: "${{ env.BRANCH_NAME }}"
+          message: 'Deploy prooduction ${{ github.ref }}'
+
+      - uses: thollander/actions-comment-pull-request@v2
+        if: github.event_name == 'pull_request'
+        with:
+          message: |
+            [![Deploy: success](https://img.shields.io/badge/Deploy-success-success)](${{ steps.deploy_preview.outputs.deploy-url }})
+          comment_tag: deploy_status
+
+      - uses: thollander/actions-comment-pull-request@v2
+        if: github.event_name == 'pull_request' && failure()
+        with:
+          message: |
+            [![Deploy: failure](https://img.shields.io/badge/Deploy-failure-critical)]${{ steps.deploy_preview.outputs.logs }})
+          comment_tag: deploy_status
