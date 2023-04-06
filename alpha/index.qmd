@@ -131,7 +131,7 @@ The change in mosquito vectors distribution, caused by global warming, virus ada
 
 ## Current treatment
 
-Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate [@microorganisms7050133]. 
+Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate (2). 
 
 ## Selection of viruses for VirusBank platform
 The primary viruses of interest for VirusBank are CHIKV, MAYV, RRV and VEEV due to their epidemic potential and severity of disease caused by these viruses as described before in the clinical relevance. SFV and SINV will be included as tool viruses for screening for broad spectrum activity.

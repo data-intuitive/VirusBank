@@ -1,0 +1,5 @@
+---
+title: VirusBank
+---
+
+- [Alpha virus](alpha/index.qmd)
