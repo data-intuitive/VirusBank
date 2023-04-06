@@ -16,6 +16,13 @@
   font-size: 20px!important;
 }
 
+.phylotree-node-text-inactive {
+  fill: black;
+  font-family: "Chakra Petch";
+  font-weight: 300;
+  font-size: 20px!important;
+}
+
 .phylotree-node-text-hl {
   fill: white;
   font-family: "Chakra Petch";

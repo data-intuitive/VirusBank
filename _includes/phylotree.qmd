@@ -35,10 +35,12 @@ initPopup = () => {
 availableTools = (virus_id) => 
   toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)
 
-
 optimizedTools = (virus_id) => {
   toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
 }
+
+availableVirusInfo = (virus_id) =>
+  annotationsMap[virus_id] != undefined
 
 fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
@@ -75,11 +77,18 @@ renderedTree = tree                   // class TreeRender
   })
   .style_nodes( (element, data) => {
     const inToolbox = (availableTools(data.data.name).length > 0)
+    const availableInfo = availableVirusInfo(data.data.name) 
+    const updtElement1 =
+      availableInfo
+        ? element.select("text").attr("class", "phylotree-node-text")
+        : element.select("text").attr("class", "phylotree-node-text-inactive")
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
-    element.on('mouseover', function() {
-      clearPopup();
-      fillPopup(data);
-    });
+    if (availableInfo) { 
+      element.on('mouseover', function() {
+        clearPopup();
+        fillPopup(data);
+      });
+    }
   })
   .layout(true)
 

@@ -3,12 +3,12 @@ title: Alphaviruses
 theme: superhero
 sidebar: false
 bibliography: references.bib
-format:
-  html:
-    fig-align: center
+toc: true
 ---
 
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) [@ABDELNABI2020113777]. Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
+
+{{< include ../_includes/phylotree.qmd >}}
 
 ::: {.column-page}
 
@@ -165,7 +165,4 @@ We have animal models for CHIKV and RRV to test the efficacy of antiviral compou
 - C57BL/6 mice: footpad arthritis model
 
 
-
-
-{{< include ../_includes/phylotree.qmd >}}
 
