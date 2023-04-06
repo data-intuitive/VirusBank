@@ -3,10 +3,19 @@ project:
 
 website:
   title: "VirusBank"
+  site-url: https://phylotree.data-intuitive.app
+  repo-url: https://github.com/data-intuitive/VirusBank
+  page-footer: "Copyright 2023, Data Intuitive"
+  repo-actions: [edit, issue] 
   sidebar:
     contents:
       - index.qmd
       - auto: generic
 format:
   html:
-    theme: superhero 
+    theme: superhero
+    mainfont: "Chakra Petch"
+    font-size: 16em
+    css: styles.css
+    toc: false
+    resources: [ 'virus.png', './tree.newick', 'annotations.json', 'toolbox.json' ]

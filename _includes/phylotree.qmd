@@ -3,8 +3,8 @@
 //| echo: false
 html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
 
-height = 700
-width = 600
+height = 500
+width = 500
 
 d3 = {
   const d3 = window.d3 = await require("d3@7");

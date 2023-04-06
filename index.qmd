@@ -1,5 +1,37 @@
 ---
 title: VirusBank
+sidebar: false
 ---
 
-- [Alpha virus](alpha/index.qmd)
+&nbsp;
+
+::: {.grid}
+
+::: {.card .g-col-4 .p-2}
+::: {.card-img-top}
+[![](alpha/virus.png)](alpha/index.qmd)
+:::
+::: {.card-body}
+::: {.card-title }
+### Alpha
+:::
+::: {.card-text}
+Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae.
+:::
+:::
+:::
+
+::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card-img-top}
+:::
+::: {.card-body}
+::: {.card-title }
+### Other
+:::
+::: {.card-text}
+This is some text for the next virus.
+:::
+:::
+:::
+
+:::

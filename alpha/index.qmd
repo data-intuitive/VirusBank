@@ -1,29 +1,12 @@
 ---
 title: Alphaviruses
-toc: true
 theme: superhero
+sidebar: false
 bibliography: references.bib
-references:
-  - type: article-journal
-    id: Abdelnabi2020
-    author: 
-    - family: Abdelnabi
-      given: J. D.
-    - family: Jacobs
-      given: S.
-    - family: Delang
-      given: L.,
-    - family: Neyts
-      given: J.
-    title: "Antiviral drug discovery against arthritogenic alphaviruses: Tools and molecular targetsBiochem."
-    container-title: Pharmacol.
-    volume: 174
-    issued:
-      year: 2020
-    DOI: 10.1016/j.bcp.2019.113777.
+format:
+  html:
+    fig-align: center
 ---
-
-{{< include ../_includes/phylotree.qmd >}}
 
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) [@ABDELNABI2020113777]. Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
 
@@ -41,7 +24,7 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 html`
 <div class="container">
   <div class="grid">
-    <div id="tree-container" class="tree-container g-col-7"></div>
+    <div id="tree-container" class="tree-container g-col-7 text-center rounded"></div>
     <div id="annotation-container" class="annotation-container card g-col-5"></div>
   </div>
 </div>
@@ -104,26 +87,26 @@ viewof toolboxSel = Inputs.table(toolbox, {
 
 ## Transmission and epidemiology
 
-Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods ( [@microorganisms7050133], 3). On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes [@microorganisms7050133].
+Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods  [@microorganisms7050133 barba2019equine]. On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes [@microorganisms7050133].
 
-Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent [^3]. These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle [^3]. On the other hand, equids are the key reservoir host for VEEV  because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes [^3].
+Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent [@barba2019equine]. These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle [@barba2019equine]. On the other hand, equids are the key reservoir host for VEEV  because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes [@barba2019equine].
 
 ![](images/figure1.png)
-: Geographical distribution of the equine encephalitis: Venezuelan (VEEV), East (EEEV) and West (WEEV) in the Americas (4).
+: Geographical distribution of the equine encephalitis: Venezuelan (VEEV), East (EEEV) and West (WEEV) in the Americas [@guzman2020venezuelan].
 
-The majority of arthritogenic alphaviruses are currently endemic to specific geographical regions or continent. Ross River virus (RRV) (5) and Barmah forest virus (BFV) (6) are endemic in Australia, ONNV in Sub-Saharan Africa (7), and  Mayaro virus (MAYV) in the South and the Central Americas (8). In contrast, Chikungunya virus (CHIKV)  is endemic in several continents. To date, only CHIKV showed the ability to be transmitted in urban cycles i.e. human-mosquito-human, similar to some flaviviruses (4). In 2004, CHIKV has re-emerged in South East Asia and the Indian ocean islands and from there it spread to other countries resulting in massive outbreaks with high morbidity rates (9). In December 2013, local transmission of CHIKV has been reported for the first time in the Americas. Since then, millions of CHIKV cases have been reported in the Caribbean region and several countries of Central and South America (9). 
+The majority of arthritogenic alphaviruses are currently endemic to specific geographical regions or continent. Ross River virus (RRV) [@liu2017ross] and Barmah forest virus (BFV) [@kurucz2016investigation] are endemic in Australia, ONNV in Sub-Saharan Africa [@rezza2017onyong], and  Mayaro virus (MAYV) in the South and the Central Americas [@acosta2018mayaro]. In contrast, Chikungunya virus (CHIKV)  is endemic in several continents. To date, only CHIKV showed the ability to be transmitted in urban cycles i.e. human-mosquito-human, similar to some flaviviruses [@guzman2020venezuelan]. In 2004, CHIKV has re-emerged in South East Asia and the Indian ocean islands and from there it spread to other countries resulting in massive outbreaks with high morbidity rates [@rezza2019chikungunya]. In December 2013, local transmission of CHIKV has been reported for the first time in the Americas. Since then, millions of CHIKV cases have been reported in the Caribbean region and several countries of Central and South America [@rezza2019chikungunya]. 
 
 ![](images/figure2.png)
-: Summary of known arthritogenic alphavirus outbreaks, with geographical distribution of most prominent arthritogenic alphaviruses and main mosquito vectors (BFV: Barmah Forest virus, ONNV: O’nyong’nyong virus, SINV: Sindbis virus) (10).
+: Summary of known arthritogenic alphavirus outbreaks, with geographical distribution of most prominent arthritogenic alphaviruses and main mosquito vectors (BFV: Barmah Forest virus, ONNV: O’nyong’nyong virus, SINV: Sindbis virus) [@zaid2019intravital].
 
 ## Disease symptoms
 
-Infection with encephalitic alphaviruses (EEV, WEEV, VEEV) cause symptoms ranging from mild febrile illness (such as fever, chills, malaise, severe headache, myalgia) to severe encephalitis that can lead to death (4). Children are more likely to suffer permanent neurological damage.
-Infections with arthritogenic alphaviruses such as chikungunya virus (CHIKV), Mayaro virus (MAYV) and Ross River virus (RRV) mainly result in rheumatic disease that causes debilitating pain in the joints [@microorganisms7050133]. The symptoms of acute disease caused by arthritogenic viruses include fever, bilateral symmetrical arthritis and sometimes skin rash. Although acute infections by arthritogenic alphaviruses are self-limiting, several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage (9). Recent outbreaks of arthritogenic alphaviruses such as CHIKV have also been associated with neurological manifestations, e.g. myelopathy, Guillain-Barré syndrome and meningoencephalitis, especially in elderly patients with comorbidities and neonates (11). 
+Infection with encephalitic alphaviruses (EEV, WEEV, VEEV) cause symptoms ranging from mild febrile illness (such as fever, chills, malaise, severe headache, myalgia) to severe encephalitis that can lead to death [@guzman2020venezuelan]. Children are more likely to suffer permanent neurological damage.
+Infections with arthritogenic alphaviruses such as chikungunya virus (CHIKV), Mayaro virus (MAYV) and Ross River virus (RRV) mainly result in rheumatic disease that causes debilitating pain in the joints [@microorganisms7050133]. The symptoms of acute disease caused by arthritogenic viruses include fever, bilateral symmetrical arthritis and sometimes skin rash. Although acute infections by arthritogenic alphaviruses are self-limiting, several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage [@rezza2019chikungunya]. Recent outbreaks of arthritogenic alphaviruses such as CHIKV have also been associated with neurological manifestations, e.g. myelopathy, Guillain-Barré syndrome and meningoencephalitis, especially in elderly patients with comorbidities and neonates [@mehta2018neurological]. 
 
 ## Clinical relevance 
 
-The Eastern Equine Encephalitis virus (EEEV) and the Venezuelan Equine Encephalitis virus (VEEV) are rare causes of encephalitis. Approximately 30% of people with EEE die and many survivors have ongoing neurologic problems. For VEEV, the mortality in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. Both viruses have shown the ability to be disseminated via aerosols in laboratory settings (12) and have been classified as Select Agents as they may potentially be used as a bio-weapon [@microorganisms7050133]. 
+The Eastern Equine Encephalitis virus (EEEV) and the Venezuelan Equine Encephalitis virus (VEEV) are rare causes of encephalitis. Approximately 30% of people with EEE die and many survivors have ongoing neurologic problems. For VEEV, the mortality in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. Both viruses have shown the ability to be disseminated via aerosols in laboratory settings [@hayes2012in] and have been classified as Select Agents as they may potentially be used as a bio-weapon [@microorganisms7050133]. 
 
 CHIKV presents a significant global health threat because of its high disease burden, widespread (re-)emergence, and the lack of vaccines and therapeutics. In the last decades, CHIKV re-emerged in many parts of Africa and Asia, causing large-scale epidemics. Also other alphaviruses, including Mayaro virus, and Ross River capable of inducing severe disease (2, 8). Although these viruses have not yet been associated with large epidemics, it cannot be excluded that this will happen in the future. The Mayaro virus (MAYV) is a neglected virus similar to CHIKV which can cause long-term debilitating arthralgia that can last for weeks. This virus has been suggested to have the potential to cause the next arbovirus epidemic. The Ross River virus (RRV) is endemic in Australia and Papua New Guinea and can result in joint pain, fever, tiredness, and rash. 
 
@@ -182,16 +165,7 @@ We have animal models for CHIKV and RRV to test the efficacy of antiviral compou
 - C57BL/6 mice: footpad arthritis model
 
 
-## References
 
-[^3] M. Barba, E. L. Fairbanks, J. M. Daly, Equine viral encephalitis: prevalence, impact, and management strategies. Vet. Med. Res. Reports 10, 99–110 (2019).
-4. C. Guzmán-Terán, A. Calderón-Rangel, A. Rodriguez-Morales, S. Mattar, Venezuelan equine encephalitis virus: the problem is not over for tropical America. Ann. Clin. Microbiol. Antimicrob. 19, 19 (2020).
-5. X. Liu, K. Tharmarajah, A. Taylor, Ross River virus disease clinical presentation, pathogenesis and current therapeutic strategiesMicrobes Infect. 19, 496–504 (2017).
-6. N. Kurucz, P. Markey, A. Draper, L. Melville, R. Weir, S. Davis, A. Warchot, R. Boyd, D. Stokeld, Investigation into High Barmah Forest Virus Disease Case Numbers Reported in the Northern Territory, Australia in 2012–2013. Vector-Borne Zoonotic Dis. 16, 110–116 (2016).
-7. G. Rezza, R. Chen, S. C. Weaver, O’nyong-nyong fever: a neglected mosquito-borne viral disease. Pathog. Glob. Health 111, 271–275 (2017).
-8. Y. Acosta-Ampudia, D. M. Monsalve, Y. Rodríguez, Y. Pacheco, J. M. Anaya, C. Ramírez-Santana, Mayaro: an emerging viral threat? Emerg. Microbes Infect. 7, 1–11 (2018).
-9. G. Rezza, S. C. Weaver, Chikungunya as a paradigm for emerging viral diseases: Evaluating disease impact and hurdles to vaccine development. PLoS Negl. Trop. Dis. 13, 1–12 (2019).
-10. A. Zaid, Intravital imaging of skin infections. Cell. Immunol. , [Epub ahead of print] (2019).
-11. R. Mehta, P. Gerardin, C. A. A. de Brito, C. N. Soares, M. L. B. Ferreira, T. Solomon, The neurological complications of chikungunya virus: A systematic reviewRev. Med. Virol. 28 (2018), doi:10.1002/rmv.1978.
-12. E. B. Hayes, J. E. Staples, in S. S. B. T.-P. and P. of P. I. D. (Fourth E. Long, Ed. (Elsevier, London, 2012), pp. 1097-1099.e2.
-13. N. J. MacLachlan, E. J. B. T.-F. V. V. (Fifth E. Dubovi, Eds., in (Academic Press, Boston, 2017), pp. 511–524.
+
+{{< include ../_includes/phylotree.qmd >}}
+
