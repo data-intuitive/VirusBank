@@ -1,4 +1,4 @@
----
+--- 
 title: Alphaviruses
 theme: superhero
 sidebar: false
@@ -38,7 +38,7 @@ html`
 ```{ojs}
 //| echo: false
 
-viewof selection = Inputs.table(annotations, {
+viewof selection = Inputs.table(filteredAnnotations, {
   columns: [
     "id",
     "name",

@@ -8,6 +8,10 @@
     "name": "Barmah forest virus"
   },
   {
+    "id": "SFV",
+    "name": "Semliki Forest virus"
+  },
+  {
     "id": "CHIKV",
     "name": "Chikungunya virus"
   },
@@ -26,6 +30,10 @@
   {
     "id": "SINV",
     "name": "Sindbis virus"
+  },
+  {
+    "id": "RRV",
+    "name": "Ross River virus"
   },
   {
     "id": "VEEV",

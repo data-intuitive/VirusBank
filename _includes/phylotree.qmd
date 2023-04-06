@@ -14,10 +14,16 @@ d3 = {
 
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
+availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
+
 FA = FileAttachment
 nwk = await FA("/alpha/tree.newick").text();
 annotations = await FA("/alpha/annotations.json").json();
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+
+filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
+filteredAnnotations = annotations.filter(v => v.name != undefined)
+
 toolbox = await FA("/alpha/toolbox.json").json();
 
 clearPopup = () => {
@@ -39,8 +45,6 @@ optimizedTools = (virus_id) => {
   toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
 }
 
-availableVirusInfo = (virus_id) =>
-  annotationsMap[virus_id] != undefined
 
 fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
@@ -83,12 +87,14 @@ renderedTree = tree                   // class TreeRender
         ? element.select("text").attr("class", "phylotree-node-text")
         : element.select("text").attr("class", "phylotree-node-text-inactive")
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
-    if (availableInfo) { 
-      element.on('mouseover', function() {
-        clearPopup();
-        fillPopup(data);
-      });
-    }
+    availableInfo
+      ? element.on('mouseover', function() {
+          clearPopup();
+          fillPopup(data);
+        })
+      : element.on('mouseover', function() {
+          clearPopup();
+        })
   })
   .layout(true)
 
