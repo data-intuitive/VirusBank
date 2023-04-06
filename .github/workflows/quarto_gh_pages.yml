@@ -30,7 +30,6 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
-          path: alpha/
   
       - name: Deploy to Netlify 🚀
         uses: data-intuitive/netlify-deploy-site@v1
@@ -38,7 +37,7 @@ jobs:
         with:
           auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site: ${{ env.NETLIFY_SITE_ID }}
-          dir: 'alpha/_site'
+          dir: '_site'
           prod: true
           message: 'Deploy production ${{ github.ref }}'
 
@@ -49,7 +48,7 @@ jobs:
         with:
           auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site: ${{ env.NETLIFY_SITE_ID }}
-          dir: 'alpha/_site'
+          dir: '_site'
           alias: "${{ env.BRANCH_NAME }}"
           message: 'Deploy prooduction ${{ github.ref }}'
 
