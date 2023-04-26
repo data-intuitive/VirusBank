@@ -41,6 +41,7 @@ jobs:
           ls -al
           pwd
           tree
+          cat _site/alpha/toolbox.json
 
       - name: Deploy to Netlify 🚀
         uses: data-intuitive/netlify-deploy-site@v1
