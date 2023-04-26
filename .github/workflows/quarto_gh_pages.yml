@@ -21,11 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Assemble alpha/toolbox.json 
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq -P '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > alpha/toolbox.json
-
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -36,6 +31,11 @@ jobs:
         with:
           to: html
   
+      - name: Assemble alpha/toolbox.json 
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq -P '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > _site/alpha/toolbox.json
+
       - name: Deploy to Netlify 🚀
         uses: data-intuitive/netlify-deploy-site@v1
         if: github.event_name != 'pull_request'
