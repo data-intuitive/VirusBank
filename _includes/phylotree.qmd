@@ -38,13 +38,18 @@ initPopup = () => {
   ctBody.append('h5').attr('class', "card-title").text("Please hover over a virus to get more information");
 }
 
+toolToVirus = (tool_id) => 
+  toolbox.filter(t => t.id == tool_id).map(t => t.available)[0]
+
+optimizationToVirus = (tool_id) => 
+  toolbox.filter(t => t.id == tool_id).map(t => (t.optimization != undefined) ? t.optimization : [ "/" ])[0]
+
 availableTools = (virus_id) => 
   toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)
 
 optimizedTools = (virus_id) => {
   toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
 }
-
 
 fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
