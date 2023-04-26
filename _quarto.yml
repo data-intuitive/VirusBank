@@ -14,7 +14,7 @@ website:
 format:
   html:
     theme: superhero
-    mainfont: "Chakra Petch"
+    mainfont: "Montserrat"
     font-size: 16em
     css: styles.css
     toc: false
