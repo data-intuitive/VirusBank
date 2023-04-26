@@ -1,7 +1,5 @@
 ---
 title: Alphaviruses
-theme: superhero
-sidebar: false
 bibliography: references.bib
 toc: true
 ---
@@ -125,7 +123,7 @@ models_available_string = toolToViruses("models")
 models_optimization_string = optimizationToViruses("models")
 ```
 
-### CPE reduction assay (96 well format)
+### CPE reduction assay (96 well format) {#cpe}
 
 {{< include ../_includes/cpe.qmd >}}
 
@@ -139,7 +137,7 @@ Note:
 
 - under optimization for SINV and SFV on Vero or Vero E6 cells
 
-### Virus yield assay
+### Virus yield assay {#yield}
 
 {{< include ../_includes/yield.qmd >}}
 
@@ -149,7 +147,7 @@ Note:
 | ${yield_available_string} | ${yield_optimization_string} |
 +---------------------------+------------------------------+
 
-### Delay of treatment assay (Time-of-addition)
+### Delay of treatment assay (Time-of-addition) {#delay}
 
 {{< include ../_includes/delay.qmd >}}
 
@@ -159,7 +157,7 @@ Note:
 | ${delay_available_string} | ${delay_optimization_string} |
 +---------------------------+------------------------------+
 
-### Plaque assay
+### Plaque assay {#plaque}
 
 {{< include ../_includes/plaque.qmd >}}
 
@@ -171,7 +169,7 @@ Note:
 
 - We have it for CHIKV, RRV, SINV, SFV and MAYV 
 
-### Quantitative reverse-transcriptase PCR (qRT-PCR)
+### Quantitative reverse-transcriptase PCR (qRT-PCR) {#pcr}
 
 {{< include ../_includes/pcr.qmd >}}
 
@@ -183,7 +181,7 @@ Note:
 
 - We have it for CHIKV, RRV, SINV, SFV and MAYV 
 
-### Reverse genetics system
+### Reverse genetics system {#reverse}
 
 {{< include ../_includes/reverse.qmd >}}
 
@@ -195,16 +193,16 @@ Note:
 
 - We have infectious plasmids for CHIKV with or without reporter and we have an infectious mCherry plasmid for SFV.
 
-## Animal models
+## Animal models {#models}
 
 {{< include ../_includes/models.qmd >}}
-
+ 
 +----------------------------+-------------------------------+
 | Available                  | Under optimization            |
 +============================+===============================+
 | ${models_available_string} | ${models_optimization_string} |
 +----------------------------+-------------------------------+
-
+ 
 ## Transmission and epidemiology
 
 Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods  [@microorganisms7050133 barba2019equine]. On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes [@microorganisms7050133].

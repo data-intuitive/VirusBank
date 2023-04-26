@@ -13,6 +13,9 @@ website:
       - auto: generic
 format:
   html:
+    anchor-sections: true
+    smooth-scroll: true
+    sidebar: false
     theme: superhero
     mainfont: "Montserrat"
     font-size: 16em
