@@ -2,6 +2,8 @@
   name: The Eastern Equine Encephalitis virus
 - id: BFV
   name: Barmah forest virus
+- id: SFV
+  name: Semliki Forest virus
 - id: CHIKV
   name: Chikungunya virus
 - id: ONNV

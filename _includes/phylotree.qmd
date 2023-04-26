@@ -45,18 +45,25 @@ optimizationToVirus = (tool_id) =>
   toolbox.filter(t => t.id == tool_id).map(t => (t.optimization != undefined) ? t.optimization : [ "/" ])[0]
 
 availableTools = (virus_id) => 
-  toolbox.filter(t => t.available.includes(virus_id)).map(t => t.name)
+  toolbox.filter(t => t.available.includes(virus_id)).map(t => ({ id: t.id, name: t.name}))
 
 optimizedTools = (virus_id) => {
   toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
 }
 
 fillPopup = (d) => {
+  console.log(d);
   const ct = d3.select('#annotation-container');
   const ctBody = ct.append("div").attr("class", "card-body");
-  ctBody.append('h5').attr('class', "card-title").append('a').attr('href', 'http://localhost:4397/#clinical-relevance').text(d.data.name);
-  ctBody.append('p').attr("class", "card-text").text(annotationsMap[d.data.name].name);
-  ctBody.append('p').attr("class", "card-text").text(availableTools(d.data.name).join(", "));
+  ctBody.append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
+  ctBody.append('h4').attr("class", "card-text").text(d.data.name);
+  const card = ctBody.append('div').attr("class", "card-text");
+  if (availableTools(d.data.name).length > 0) {
+    card.append("p").text("Tools:")
+    const ul = card.append("ul");
+    console.log(availableTools(d.data.name))
+    const lis = availableTools(d.data.name).map(el => ul.append("li").append("a").attr("href", "/alpha/#" + el.id).text(el.name));
+  }
 }
 
 init = initPopup()
