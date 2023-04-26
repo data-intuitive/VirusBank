@@ -34,7 +34,7 @@ jobs:
       - name: Assemble alpha/toolbox.json 
         uses: mikefarah/yq@master
         with:
-          cmd: yq -P '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > _site/alpha/toolbox.json
+          cmd: yq -M -o=json '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > _site/alpha/toolbox.json
 
       - name: Fetch info from build environment
         run: |
