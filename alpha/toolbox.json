@@ -38,7 +38,19 @@
     "optimization": []
   },
   {
-    "id": "qrt-pcr",
+    "id": "plaque",
+    "name": "Plaque assay",
+    "description": "This assay is a standard method to quantify infectious virus titers in a sample. Briefly, the test sample is serially diluted then aliquot of each dilution is added to a well in a cell culture plate with incubation to allow virus attachment followed by removal of the viral input and adding overlay of agarose or similar viscous material that limit the spread of viral infection. Under this condition, the attached virion will start to replicate producing more virions that will kill surrounding cells to generate a hole or plaque in the cell monolayer. By removal of the overlay and staining the live cells for e.g. by Crystal violet or methylene blue, this will provide a dark background for clear visualization of plaques. By counting the plaques at certain dilution(s), the plaque forming units (PFU)/mL can be calculated.",
+    "available": [
+      "CHIKV",
+      "RRV",
+      "SINV",
+      "SFV",
+      "MAYV"
+    ]
+  },
+  {
+    "id": "pcr",
     "name": "Quantitatie reverse-transcriptase PCR (qRT-PCR)",
     "description": "This technique is used for quantification of genome copies for RNA viruses in samples of interest for e.g. virus stock, clinical samples, compound-treated cells or tissues. First, a targeted region of the viral RNA is transcribed into complementary DNA (cDNA) by reverse transcriptase from total RNA. The cDNA is then used as the template for the quantitative PCR reaction where DNA binding fluorescent dye such as SYBR green or a labelled virus specific probe such as TaqMan® probes is used to detect the DNA amplification and hence enable quantification of the genome copies in the original samples (by including serial dilutions of a standard material with known genome copies in the same run).",
     "available": [
@@ -51,24 +63,21 @@
     "optimization": []
   },
   {
-    "id": "animal",
+    "id": "reverse",
+    "name": "Reverse genetics system",
+    "description": "The reverse genetic system is mostly a plasmid-based system that can be used to insert the desired mutations in the viral genome to study the effect of these mutations on viral replication, virulence, sensitivity to antiviral compounds and etc in vitro and in vivo. Such systems can also be used to engineer viruses carrying reporter genes for development of high throughput antiviral assays or easily detection method for in vivo replication.",
+    "available": [
+      "CHIKV",
+      "SFV"
+    ]
+  },
+  {
+    "id": "models",
     "name": "Animal models",
     "description": "",
     "available": [
       "CHIKV",
       "RRV"
-    ],
-    "models": [
-      {
-        "id": "AG129",
-        "species": "mice",
-        "name": "Lethal model (with neurological symptoms)"
-      },
-      {
-        "id": "C57BL/6",
-        "species": "mice",
-        "name": "Footpad arthritis model"
-      }
     ]
   }
 ]
