@@ -1,0 +1,1 @@
+This antiviral assay measures the ability of a tested compound to protect infected cells from virus-induced cytopathic effects (mostly virus-induced cell death). The cell viability can be determined in a colorimetric assay using MTS/PMS method.
