@@ -20,6 +20,10 @@
     "name": "O’nyong’nyong virus"
   },
   {
+    "id": "RRV",
+    "name": "Ross River virus"
+  },
+  {
     "id": "MAYV",
     "name": "Mayaro virus"
   },
@@ -30,10 +34,6 @@
   {
     "id": "SINV",
     "name": "Sindbis virus"
-  },
-  {
-    "id": "RRV",
-    "name": "Ross River virus"
   },
   {
     "id": "VEEV",

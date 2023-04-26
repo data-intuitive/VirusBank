@@ -18,7 +18,6 @@
   available:
     - CHIKV
     - MAYV
-  optimization: []
 - id: plaque
   available:
     - CHIKV
@@ -33,7 +32,6 @@
     - SINV
     - SFV
     - MAYV
-  optimization: []
 - id: reverse
   available:
     - CHIKV
