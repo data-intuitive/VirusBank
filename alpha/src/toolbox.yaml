@@ -10,6 +10,7 @@
   available:
     - CHIKV
     - MAYV
+    - SOME_VIRUS
   optimization:
     - RRV
     - SINV
@@ -36,6 +37,7 @@
   available:
     - CHIKV
     - SFV
+    - SOME_VIRUS
 - id: models 
   available:
     - CHIKV
