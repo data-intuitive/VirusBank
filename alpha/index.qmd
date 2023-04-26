@@ -55,7 +55,9 @@ viewof selection = Inputs.table(filteredAnnotations, {
 
 &nbsp;
 
-## Available assays/tools
+## Selection of viruses for VirusBank platform
+
+The primary viruses of interest for VirusBank are CHIKV, MAYV, RRV and VEEV due to their epidemic potential and severity of disease caused by these viruses [as described in the clinical relevance](#clinical-relevance). SFV and SINV will be included as tool viruses for screening for broad spectrum activity.
 
 ```{ojs}
 //| echo: false
@@ -193,7 +195,7 @@ Note:
 
 - We have infectious plasmids for CHIKV with or without reporter and we have an infectious mCherry plasmid for SFV.
 
-## Animal models {#models}
+### Animal models {#models}
 
 {{< include ../_includes/models.qmd >}}
  
@@ -233,8 +235,5 @@ The change in mosquito vectors distribution, caused by global warming, virus ada
 ## Current treatment
 
 Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate (2). 
-
-## Selection of viruses for VirusBank platform
-The primary viruses of interest for VirusBank are CHIKV, MAYV, RRV and VEEV due to their epidemic potential and severity of disease caused by these viruses as described before in the clinical relevance. SFV and SINV will be included as tool viruses for screening for broad spectrum activity.
 
 
