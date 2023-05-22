@@ -6,7 +6,7 @@ toc: true
 
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) [@ABDELNABI2020113777]. Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
 
-{{< include ../_includes/phylotree.qmd >}}
+<!-- {{< include ../_includes/phylotree.qmd >}} -->
 
 ::: {.column-page}
 
@@ -31,6 +31,125 @@ html`
 :::
 
 &nbsp;
+
+## Code
+
+```{ojs}
+//| output: none
+//| echo: false
+html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
+
+height = 500
+width = 500
+
+d3 = {
+  const d3 = window.d3 = await require("d3@7");
+  await require("d3-context-menu@2.1.0/js/d3-context-menu.js").catch(() => {});
+  return d3;
+}
+
+phylotree = await require("phylotree@1.1/dist/phylotree.js");
+
+availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
+
+FA = FileAttachment
+nwk = await FA("/alpha/tree.newick").text();
+annotations = await FA("/alpha/annotations.json").json();
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+
+filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
+filteredAnnotations = annotations.filter(v => v.name != undefined)
+
+toolbox = await FA("/alpha/toolbox.json").json();
+
+clearPopup = () => {
+  const ct = d3.select('#annotation-container')
+  ct.selectAll("*").remove()
+}
+
+initPopup = () => {
+  const ct = d3.select('#annotation-container')
+  ct.selectAll("*").remove()
+  const ctBody = ct.append("div").attr("class", "card-body")
+  ctBody.append('h5').attr('class', "card-title").text("Please hover over a virus to get more information");
+}
+
+toolToVirus = (tool_id) => 
+  toolbox.filter(t => t.id == tool_id).map(t => t.available)[0]
+
+optimizationToVirus = (tool_id) => 
+  toolbox.filter(t => t.id == tool_id).map(t => (t.optimization != undefined) ? t.optimization : [ "/" ])[0]
+
+availableTools = (virus_id) => 
+  toolbox.filter(t => t.available.includes(virus_id)).map(t => ({ id: t.id, name: t.name}))
+
+optimizedTools = (virus_id) => {
+  toolbox.filter(t => t.optimized.includes(virus_id)).map(t => t.name)
+}
+
+fillPopup = (d) => {
+  console.log(d);
+  const ct = d3.select('#annotation-container');
+  const ctBody = ct.append("div").attr("class", "card-body");
+  ctBody.append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
+  ctBody.append('h4').attr("class", "card-text").text(d.data.name);
+  const card = ctBody.append('div').attr("class", "card-text");
+  if (availableTools(d.data.name).length > 0) {
+    card.append("p").text("Tools:")
+    const ul = card.append("ul");
+    console.log(availableTools(d.data.name))
+    const lis = availableTools(d.data.name).map(el => ul.append("li").append("a").attr("href", "/alpha/#" + el.id).text(el.name));
+  }
+}
+
+// init = initPopup()
+// s1 = d3.select("body").on('click', initPopup )
+
+tree = new phylotree.phylotree(nwk)   // class Phylotree
+                                      // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
+
+renderedTree = tree                   // class TreeRender
+  .render({
+    'left-right-spacing': 'fit-to-size',
+    'top-bottom-spacing': 'fit-to-size',
+    'is-radial': true,
+    'selectable': false,  // make nodes and branches not selectable
+    'collapsible': true,
+    'transitions' : true,
+    'show-menu': false,
+    'show-scale': false,
+    'align-tips': true,
+    'width': width,
+    'height': height,
+    'zoom': false,
+    'minimal-per-node-spacing': 2,
+    'minimum-per-level-spacing': 2,
+    'container': "#tree-container"
+  })
+  .style_nodes( (element, data) => {
+    const inToolbox = (availableTools(data.data.name).length > 0)
+    const availableInfo = availableVirusInfo(data.data.name) 
+    const updtElement1 =
+      availableInfo
+        ? element.select("text").attr("class", "phylotree-node-text")
+        : element.select("text").attr("class", "phylotree-node-text-inactive")
+    const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
+    availableInfo
+      ? element.on('click', function() {
+          clearPopup();
+          fillPopup(data);
+        })
+      : element.on('click', function() {
+          clearPopup();
+        })
+  })
+  .layout(true)
+
+tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
+
+```
+
+
 
 ## Strains
 
