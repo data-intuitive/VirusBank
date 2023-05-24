@@ -1,0 +1,25 @@
+[
+  {
+    "id": "cp"
+  },
+  {
+    "id": "yield"
+  },
+  {
+    "id": "delay"
+  },
+  {
+    "id": "plaque"
+  },
+  {
+    "id": "pcr"
+  },
+  {
+    "id": "reverse"
+  },
+  {
+    "id": "model",
+    "title": "Animal models",
+    "icon": "img/model.png"
+  }
+]

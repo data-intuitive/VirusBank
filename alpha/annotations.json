@@ -1,0 +1,51 @@
+[
+  {
+    "id": "EEEV",
+    "name": "The Eastern Equine Encephalitis virus"
+  },
+  {
+    "id": "BFV",
+    "name": "Barmah forest virus"
+  },
+  {
+    "id": "SFV",
+    "name": "Semliki Forest virus"
+  },
+  {
+    "id": "CHIKV",
+    "name": "Chikungunya virus",
+    "toolbox": [
+      {
+        "tool": "model",
+        "details": [
+          "AG129 mice (Lethal model with neurological symptoms)",
+          "C57BL/6 mice (footpad arthritis model)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ONNV",
+    "name": "O’nyong’nyong virus"
+  },
+  {
+    "id": "RRV",
+    "name": "Ross River virus"
+  },
+  {
+    "id": "MAYV",
+    "name": "Mayaro virus"
+  },
+  {
+    "id": "WEEV",
+    "name": "West Equine Encephalitis virus"
+  },
+  {
+    "id": "SINV",
+    "name": "Sindbis virus"
+  },
+  {
+    "id": "VEEV",
+    "name": "Venezuelan Equine Encephalitis virus"
+  }
+]
