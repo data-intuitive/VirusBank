@@ -4,10 +4,11 @@ title-block-banner: virus-banner.png
 format:
   html:
     page-layout: full
+    anchor-sections: true
+    section-divs: true
 ---
 
 <!-- {{< include ../_includes/phylotree.qmd >}} -->
-
 
 ```{ojs}
 //| output: none
@@ -30,6 +31,8 @@ html`
 
 ::: {.panel-tabset}
 
+{{< include CHIKV.qmd >}}
+
 ## CHIKV {.chikv}
 
 ```{=html}
@@ -40,6 +43,46 @@ html`
 
 :::
 
+
+
+```{ojs}
+//| output: none
+//| echo: false
+
+// Initialize a container to contain the containers for the tree and annotation window
+html`
+
+<button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
+    Launch modal iframe
+</button>
+
+<div
+    class="modal container"
+    id="exampleModal"
+    data-backdrop="false"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+        <iframe
+            width="800"
+            height="600"
+            src="/alpha/CHIKV.html"
+            frameborder="1"></iframe>
+        </div>
+    </div>
+    </div>
+</div>
+`
+
+```
 &nbsp;
 
 ```{ojs}
@@ -108,7 +151,7 @@ function renderToolbox(parent, toolbox) {
 fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
   const ctBody = ct.append("div").attr("class", "card-body");
-  ctBody.append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
+  ctBody.append("a").attr("href", "/alpha/" + annotationsMap[d.data.name].id + ".html").append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
   const card = ctBody.append('div').attr("class", "card-text");
 
     card.append("h4").text("Toolbox contents:")
