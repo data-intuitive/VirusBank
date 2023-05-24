@@ -1,42 +1,17 @@
 - id: cpe
-  available:
-    - CHIKV
-    - RRV
-    - MAYV
-  optimization:
-    - SINV
-    - SFV
+  name: CPE reducation assay (96 well format)
 - id: yield
-  available:
-    - CHIKV
-    - MAYV
-  optimization:
-    - RRV
-    - SINV
-    - SFV
+  name: Virus yield assay
 - id: delay
-  available:
-    - CHIKV
-    - MAYV
+  name: Delay of treatment assay
 - id: plaque
-  available:
-    - CHIKV
-    - RRV
-    - SINV
-    - SFV
-    - MAYV
+  name: Plaque assay
 - id: pcr
-  available:
-    - CHIKV
-    - RRV
-    - SINV
-    - SFV
-    - MAYV
+  name: Quantitative reverse-transcriptase PCR (qRT-PCR)
 - id: reverse
-  available:
-    - CHIKV
-    - SFV
-- id: models 
-  available:
-    - CHIKV
-    - RRV
+  name: Reverse genetics system
+- id: reporter
+  name: Reporter viruses
+- id: model
+  name: Animal models
+  icon: img/model.png
