@@ -1,13 +1,8 @@
 ---
 title: Alphaviruses
+title-block-banner: virus.png
 bibliography: references.bib
-toc: true
 ---
-
-Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae. Alphaviruses are mainly transmitted by the bite of hematophagous arthropods (e.g. ticks and mosquitoes) [@ABDELNABI2020113777]. Based on the disease presentation, alphaviruses are divided into encephalitic and arthritogenic.
-
-<!-- {{< include ../_includes/phylotree.qmd >}} -->
-
 ::: {.column-page}
 
 ## Tree
@@ -55,7 +50,9 @@ availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 FA = FileAttachment
 nwk = await FA("/alpha/tree.newick").text();
 annotations = await FA("/alpha/annotations.json").json();
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name } }) )))
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, description: item.description, name: item.name, transmission: item.transmission } }) )))
+
+console.log(annotationsMap)
 
 filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
 filteredAnnotations = annotations.filter(v => v.name != undefined)
@@ -92,14 +89,18 @@ fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
   const ctBody = ct.append("div").attr("class", "card-body");
   ctBody.append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
-  ctBody.append('h4').attr("class", "card-text").text(d.data.name);
   const card = ctBody.append('div').attr("class", "card-text");
-  if (availableTools(d.data.name).length > 0) {
-    card.append("p").text("Tools:")
-    const ul = card.append("ul");
-    console.log(availableTools(d.data.name))
-    const lis = availableTools(d.data.name).map(el => ul.append("li").append("a").attr("href", "/alpha/#" + el.id).text(el.name));
-  }
+
+    card.append("h4").text("Transmission and epidemiology")
+    const this_div = card.append("div");
+
+    console.log(annotationsMap[d.data.name])
+
+    annotationsMap[d.data.name].transmission.map(el => this_div.append("p").text(el));
+
+    //const ul = card.append("ul");
+    // console.log(availableTools(d.data.name))
+    // const lis = availableTools(d.data.name).map(el => ul.append("li").append("a").attr("href", "/alpha/#" + el.id).text(el.name));
 }
 
 // init = initPopup()
