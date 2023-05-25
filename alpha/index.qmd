@@ -1,8 +1,6 @@
 ---
 title: Alphaviruses
 title-block-banner: virus-banner.png
-filters:
-  - fontawesome
 format:
   html:
     page-layout: full
@@ -64,6 +62,8 @@ html`
 
 - - -
 
+<!-- ::: {.panel-tabset .bg-black} -->
+
 ## Chikungunya virus
 
 {{< include CHIKV.qmd >}}
@@ -75,6 +75,8 @@ html`
 {{< include RRV.qmd >}}
 
 [open page](/alpha/RRV.qmd)
+
+<!-- ::: -->
 
 <!-- - - - -->
 
@@ -239,6 +241,11 @@ fillPopup = (d) => {
 // init = initPopup()
 // s1 = d3.select("body").on('click', clearPopup )
 
+<!-- virusToTab = { -->
+<!--     CHIVK: "tabset-3-1-tab", -->
+<!--     RRV: "tabset-3-2-tab" -->
+<!-- } -->
+
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
 
@@ -270,7 +277,7 @@ renderedTree = tree                   // class TreeRender
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
     availableInfo
       ? element.on('click', function() {
-          //document.getElementsByClassName("chikv").click();
+          // document.getElementById(virusToTab[data.data.name]).click();
           clearPopup();
           updateToolbox(data);
         })
