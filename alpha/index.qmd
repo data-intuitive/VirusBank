@@ -62,7 +62,7 @@ html`
 
 - - -
 
-<!-- ::: {.panel-tabset .bg-black} -->
+::: {.panel-tabset .bg-black}
 
 ## Chikungunya virus
 
@@ -76,7 +76,7 @@ html`
 
 [open page](/alpha/RRV.qmd)
 
-<!-- ::: -->
+:::
 
 <!-- - - - -->
 
@@ -176,6 +176,10 @@ clearPopup = () => {
     d3.select("#plaque").attr("class", "g-col-6 border card card-body tool opacity-25")
     d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-25")
     d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-25")
+
+  const virusInfo = document.getElementById("tabset-3-1-tab").parentNode.parentNode.parentNode
+  virusInfo.style.display = "none"
+
 }
 
 initPopup = () => {
@@ -238,13 +242,13 @@ fillPopup = (d) => {
 
 }
 
-// init = initPopup()
+init = clearPopup()
 // s1 = d3.select("body").on('click', clearPopup )
 
-<!-- virusToTab = { -->
-<!--     CHIVK: "tabset-3-1-tab", -->
-<!--     RRV: "tabset-3-2-tab" -->
-<!-- } -->
+virusToTab = ({
+    CHIKV: "tabset-3-1-tab",
+    RRV: "tabset-3-2-tab"
+})
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
@@ -277,8 +281,13 @@ renderedTree = tree                   // class TreeRender
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
     availableInfo
       ? element.on('click', function() {
-          // document.getElementById(virusToTab[data.data.name]).click();
           clearPopup();
+          // Select the first tab in order to get to the root of the tabset
+          const virusInfo = document.getElementById("tabset-3-1-tab").parentNode.parentNode.parentNode
+          virusInfo.style.display = "block"
+          // Now get the proper tab
+          const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
+          thisVirusInfo.click();
           updateToolbox(data);
         })
       : element.on('click', function() {
