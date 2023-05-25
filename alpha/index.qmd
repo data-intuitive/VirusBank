@@ -10,6 +10,10 @@ format:
 
 <!-- {{< include ../_includes/phylotree.qmd >}} -->
 
+- - -
+
+&nbsp;
+
 ```{ojs}
 //| output: none
 //| echo: false
@@ -29,19 +33,31 @@ html`
 
 &nbsp;
 
-::: {.panel-tabset}
+- - -
+
+## Chikungunya virus
 
 {{< include CHIKV.qmd >}}
 
-## CHIKV {.chikv}
-
-```{=html}
-<iframe width="100%" height="600" src="/alpha/CHIKV.html"></iframe>
-```
+[open page](/alpha/CHIKV.qmd)
 
 ## SINV
 
-:::
+TODO
+
+<!-- - - - -->
+
+<!-- ::: {.panel-tabset} -->
+
+<!-- ## CHIKV {.chikv} -->
+
+<!-- ```{=html} -->
+<!-- <iframe width="100%" height="600" src="/alpha/CHIKV.html"></iframe> -->
+<!-- ``` -->
+
+<!-- ## SINV -->
+
+<!-- ::: -->
 
 
 
@@ -52,34 +68,34 @@ html`
 // Initialize a container to contain the containers for the tree and annotation window
 html`
 
-<button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal">
-    Launch modal iframe
-</button>
+<!-- <button -->
+<!--     type="button" -->
+<!--     class="btn btn-primary" -->
+<!--     data-bs-toggle="modal" -->
+<!--     data-bs-target="#exampleModal"> -->
+<!--     Launch modal iframe -->
+<!-- </button> -->
 
-<div
-    class="modal container"
-    id="exampleModal"
-    data-backdrop="false"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-        <iframe
-            width="800"
-            height="600"
-            src="/alpha/CHIKV.html"
-            frameborder="1"></iframe>
-        </div>
-    </div>
-    </div>
-</div>
+<!-- <div -->
+<!--     class="modal container" -->
+<!--     id="exampleModal" -->
+<!--     data-backdrop="false" -->
+<!--     tabindex="-1" -->
+<!--     role="dialog" -->
+<!--     aria-labelledby="exampleModalLabel" -->
+<!--     aria-hidden="true"> -->
+<!--     <div class="modal-dialog" role="document"> -->
+<!--     <div class="modal-content"> -->
+<!--         <div class="modal-body"> -->
+<!--         <iframe -->
+<!--             width="800" -->
+<!--             height="600" -->
+<!--             src="/alpha/CHIKV.html" -->
+<!--             frameborder="1"></iframe> -->
+<!--         </div> -->
+<!--     </div> -->
+<!--     </div> -->
+<!-- </div> -->
 `
 
 ```
