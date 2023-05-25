@@ -1,6 +1,8 @@
 ---
 title: Alphaviruses
 title-block-banner: virus-banner.png
+filters:
+  - fontawesome
 format:
   html:
     page-layout: full
@@ -22,13 +24,40 @@ format:
 html`
 <div class="container">
   <div class="grid">
-    <div id="tree-container" class="tree-container g-col-7 text-center rounded"></div>
-    <div id="annotation-container" class="annotation-container card g-col-5">
-      <p>test</p>
+    <div id="tree-container" class="tree-container g-col-9 text-center rounded"></div>
+    <div id="annotation-container" class="annotation-container">
+      <div class="container g-col-3">
+        <div class="grid small align-items-center" align="center">
+          <div class="g-col-12 border card bg-light card-body tool-header opacity-100" id="virus">Please click on a virus</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="cpe"><b>CPE reduction assay</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="yield"><b>Virus yield assay</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="delay"><b>Delay of treatment assay</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="plaque"><b>Plaque assay</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="pcr"><b>qRT-PCR</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="reverse"><b>Reverse genetics system</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="model"><b>Animal models</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="reporter"><b>Reporter virus</b></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+.tool {
+  display:inline-block;
+  height:90px;
+}
+</style>
 `
+
+// cpeIn = d3.select("#cpe").on("mouseover",
+//     () => { d3.select("#cpe").attr("class", "g-col-6 border-white card card-body tool opacity-50") }
+//   )
+// cpeOut = d3.select("#cpe").on("mouseout",
+//     () => d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-25")
+//   )
+
 ```
 
 &nbsp;
@@ -41,9 +70,11 @@ html`
 
 [open page](/alpha/CHIKV.qmd)
 
-## SINV
+## River Ross virus
 
-TODO
+{{< include RRV.qmd >}}
+
+[open page](/alpha/RRV.qmd)
 
 <!-- - - - -->
 
@@ -106,8 +137,8 @@ html`
 //| echo: false
 html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
 
-height = 500
-width = 500
+height = 550
+width = 550
 
 d3 = {
   const d3 = window.d3 = await require("d3@7");
@@ -129,9 +160,20 @@ toolbox = await FA("/alpha/toolbox.json").json();
 
 availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 
+<!-- clearPopup = () => { -->
+<!--   const ct = d3.select('#annotation-container') -->
+<!--   ct.selectAll("*").remove() -->
+<!-- } -->
+
 clearPopup = () => {
-  const ct = d3.select('#annotation-container')
-  ct.selectAll("*").remove()
+    d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#model").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#yield").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#reverse").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#pcr").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#plaque").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-25")
 }
 
 initPopup = () => {
@@ -164,6 +206,23 @@ function renderToolbox(parent, toolbox) {
 
 }
 
+updateToolbox = (d) => {
+  
+  d3.select("#virus").html("<b><a class='link-secondary' style='font-size:1.5rem' href='/alpha/" + d.data.name + ".html'>" + d.data.name + "</a></b>")
+  console.log(annotationsMap)
+  const toolbox = availableTools(d.data.name)
+  toolbox.map(el => {
+    if (el.tool == "cpe") d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "model") d3.select("#model").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "yield") d3.select("#yield").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "reverse") d3.select("#reverse").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "pcr") d3.select("#pcr").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "plaque") d3.select("#plaque").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "delay") d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-100")
+  })
+}
+
 fillPopup = (d) => {
   const ct = d3.select('#annotation-container');
   const ctBody = ct.append("div").attr("class", "card-body");
@@ -177,8 +236,8 @@ fillPopup = (d) => {
 
 }
 
-init = initPopup()
-s1 = d3.select("body").on('load', initPopup )
+// init = initPopup()
+// s1 = d3.select("body").on('click', clearPopup )
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
@@ -213,7 +272,7 @@ renderedTree = tree                   // class TreeRender
       ? element.on('click', function() {
           //document.getElementsByClassName("chikv").click();
           clearPopup();
-          fillPopup(data);
+          updateToolbox(data);
         })
       : element.on('click', function() {
           clearPopup();

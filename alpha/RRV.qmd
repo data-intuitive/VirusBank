@@ -1,5 +1,5 @@
 ---
-title: Chikungunya virus (CHIKV)
+title: Ross River virus (RRV)
 format:
   html:
     page-layout: full
@@ -12,13 +12,7 @@ format:
 ::: {.grid}
 
 ::: {.g-col-8}
-Acute disease include fever, joint pain, and sometimes skin rash. 
-
-Several patients also suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage. 
-
-Recent outbreaks of CHIKV have also been associated with neurological manifestations.
-
-Death from chikungunya is rare.
+Similar to [chikungunya virus (CHIKV)](CHIKV.qmd), RRV results in rheumatic disease symptoms with febrile illness and joint pain. Some patients also can suffer from  a chronic long-term disease, characterized by a debilitating arthralgia that can persist for weeks to months.
 :::
 
 ::: {.g-col-4}
@@ -36,11 +30,11 @@ Death from chikungunya is rare.
 ::: {.grid}
 
 ::: {.g-col-6}
-CHIKV is maintained in the wild via Slylvatic/rural transmission cycles between an arthropod vector (mainly Aedes mosquitoes ) and animal reservoirs. Human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes. This can be followed by urban cycles of CHIKV transmission i.e. human-mosquito-human transmission.
+RRV circulates in a sylvatic cycle between animal reservoirs (e.g. kangaroos and wallabies) and various mosquito species, such as those belonging to the genera of Culex, Aedes, Anopheles, and Mansonia. Accidental spillover to humans via the bite of infected mosquitoes occurs leading to outbreaks of infection.
 :::
 
 ::: {.g-col-6}
-![](CHIKV-transmission.png)
+![](RRV-transmission.png)
 :::
 
 :::
@@ -57,7 +51,7 @@ There are no approved vaccines or antivirals available at the moment for the pre
 :::
 
 ::: {.g-col-6}
-![<https://www.cdc.gov/chikungunya/geo/index.html>](CHIKV-map.png)
+![](RRV-map.png)
 :::
 
 :::
@@ -70,11 +64,8 @@ To be updated, should be rendered based on the annotations data
 
 - CPE reduction assay (96 well format)
 - Virus yield assay
-- Delay of treatment assay (Time-of-addition)
 - Plaque assay
 - Quantitative reverse-transcriptase PCR (qRT-PCR)
-- Reverse genetics system
-- Reporter viruses
-- Animal models: AG129 mice (Lethal model with neurological symptoms), C57BL/6 mice (footpad arthritis model)
+- Animal models: AG129 mice (Lethal model with neurological symptoms), C57BL/6 mice (footpad arthritis model)   
 
 :::
