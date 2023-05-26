@@ -33,8 +33,18 @@ html`
           <div class="g-col-6 border card card-body tool opacity-25"  id="plaque"><b>Plaque assay</b></div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="pcr"><b>qRT-PCR</b></div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="reverse"><b>Reverse genetics system</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="model"><b>Animal models</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="reporter"><b>Reporter virus</b></div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="model">
+              <img class="card-img" src="/img/model-copy.png" style="height:100%;"/>
+              <div class="card-img-overlay">
+                <b>Animal models</b>
+              </div>
+          </div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="reporter">
+              <img class="card-img" src="/img/reporter.png" style="height:100%;"/>
+              <div class="card-img-overlay">
+                <b>Reporter virus</b>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +55,14 @@ html`
 .tool {
   display:inline-block;
   height:90px;
+}
+
+.card-body:hover  {
+  opacity:80% !important;
+}
+
+.card-body:hover .card-img {
+  opacity:0%;
 }
 </style>
 `
