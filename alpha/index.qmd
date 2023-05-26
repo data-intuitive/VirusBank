@@ -21,11 +21,18 @@ format:
 // Initialize a container to contain the containers for the tree and annotation window
 html`
 <div class="container">
-  <div class="grid">
+  <div class="grid" style="--bs-gap: 0;">
+    <!-- <div id="pointer-container" class="tree-container g-col-1 text-center rounded"> -->
+    <!--   <div class="grid"> -->
+    <!--     <div class="g-col-12"> -->
+    <!--       <i class="bi bi-skip-backward"></i> -->
+    <!--       <i class="fa fa-github"></i> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
     <div id="tree-container" class="tree-container g-col-9 text-center rounded"></div>
-    <div id="annotation-container" class="annotation-container">
-      <div class="container g-col-3">
-        <div class="grid small align-items-center" align="center">
+    <div id="annotation-container" class="g-col-3">
+      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;">
           <div class="g-col-12 border card bg-light card-body tool-header opacity-100" id="virus">Please click on a virus</div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="cpe"><b>CPE reduction assay</b></div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="yield"><b>Virus yield assay</b></div>
@@ -45,7 +52,6 @@ html`
                 <b>Reporter virus</b>
               </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
