@@ -101,6 +101,13 @@ html`
 
 [open page](/alpha/RRV.qmd)
 
+## Mayaro virus
+
+{{< include _MAYV.qmd >}}
+
+[open page](/alpha/RRV.qmd)
+
+
 :::
 
 &nbsp;
@@ -148,7 +155,7 @@ clearPopup = () => {
     d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-25")
     d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-25")
 
-  const virusInfo = document.getElementById("tabset-3-1-tab").parentNode.parentNode.parentNode
+  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
   virusInfo.style.display = "none"
 
 }
@@ -217,8 +224,9 @@ init = clearPopup()
 // s1 = d3.select("body").on('click', clearPopup )
 
 virusToTab = ({
-    CHIKV: "tabset-3-1-tab",
-    RRV: "tabset-3-2-tab"
+    CHIKV: "tabset-4-1-tab",
+    RRV: "tabset-4-2-tab",
+    MAYV: "tabset-4-3-tab"
 })
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
@@ -252,9 +260,9 @@ renderedTree = tree                   // class TreeRender
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
     availableInfo
       ? element.on('click', function() {
-          // clearPopup();
+          clearPopup();
           // Select the first tab in order to get to the root of the tabset
-          const virusInfo = document.getElementById("tabset-3-1-tab").parentNode.parentNode.parentNode
+          const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
           // Now get the proper tab
           const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
