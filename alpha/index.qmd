@@ -30,28 +30,29 @@ html`
     <!--     </div> -->
     <!--   </div> -->
     <!-- </div> -->
-    <div id="tree-container" class="tree-container g-col-9 text-center rounded"></div>
-    <div id="annotation-container" class="g-col-3">
+    <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
+    <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;">
-          <div class="g-col-12 border card bg-light card-body tool-header opacity-100" id="virus">Please click on a virus</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="cpe"><b>CPE reduction assay</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="yield"><b>Virus yield assay</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="delay"><b>Delay of treatment assay</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="plaque"><b>Plaque assay</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="pcr"><b>qRT-PCR</b></div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="reverse"><b>Reverse genetics system</b></div>
+          <div class="g-col-md-12 g-col-sm-12 border card bg-light card-body tool-header opacity-100" id="virus">Please click on a virus</div>
+          <div class="g-col-6 border card card-body tool opacity-25 text-wrap"  id="cpe">CPE reduction assay</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="yield">Virus yield assay</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="delay">Delay of treatment assay</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="plaque">Plaque assay</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="pcr">qRT-PCR</div>
+          <div class="g-col-6 border card card-body tool opacity-25"  id="reverse">Reverse genetics system</div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="model">
               <img class="card-img" src="/img/model-copy.png" style="height:100%;"/>
               <div class="card-img-overlay">
-                <b>Animal models</b>
+                Animal models
               </div>
           </div>
           <div class="g-col-6 border card card-body tool opacity-25"  id="reporter">
               <img class="card-img" src="/img/reporter.png" style="height:100%;"/>
               <div class="card-img-overlay">
-                <b>Reporter virus</b>
+                Reporter virus
               </div>
           </div>
+          <!-- <a>clear</a> -->
       </div>
     </div>
   </div>
@@ -90,72 +91,18 @@ html`
 
 ## Chikungunya virus
 
-{{< include CHIKV.qmd >}}
+{{< include _CHIKV.qmd >}}
 
 [open page](/alpha/CHIKV.qmd)
 
 ## River Ross virus
 
-{{< include RRV.qmd >}}
+{{< include _RRV.qmd >}}
 
 [open page](/alpha/RRV.qmd)
 
 :::
 
-<!-- - - - -->
-
-<!-- ::: {.panel-tabset} -->
-
-<!-- ## CHIKV {.chikv} -->
-
-<!-- ```{=html} -->
-<!-- <iframe width="100%" height="600" src="/alpha/CHIKV.html"></iframe> -->
-<!-- ``` -->
-
-<!-- ## SINV -->
-
-<!-- ::: -->
-
-
-
-```{ojs}
-//| output: none
-//| echo: false
-
-// Initialize a container to contain the containers for the tree and annotation window
-html`
-
-<!-- <button -->
-<!--     type="button" -->
-<!--     class="btn btn-primary" -->
-<!--     data-bs-toggle="modal" -->
-<!--     data-bs-target="#exampleModal"> -->
-<!--     Launch modal iframe -->
-<!-- </button> -->
-
-<!-- <div -->
-<!--     class="modal container" -->
-<!--     id="exampleModal" -->
-<!--     data-backdrop="false" -->
-<!--     tabindex="-1" -->
-<!--     role="dialog" -->
-<!--     aria-labelledby="exampleModalLabel" -->
-<!--     aria-hidden="true"> -->
-<!--     <div class="modal-dialog" role="document"> -->
-<!--     <div class="modal-content"> -->
-<!--         <div class="modal-body"> -->
-<!--         <iframe -->
-<!--             width="800" -->
-<!--             height="600" -->
-<!--             src="/alpha/CHIKV.html" -->
-<!--             frameborder="1"></iframe> -->
-<!--         </div> -->
-<!--     </div> -->
-<!--     </div> -->
-<!-- </div> -->
-`
-
-```
 &nbsp;
 
 ```{ojs}
@@ -266,7 +213,7 @@ fillPopup = (d) => {
 
 }
 
-init = clearPopup()
+// init = clearPopup()
 // s1 = d3.select("body").on('click', clearPopup )
 
 virusToTab = ({
@@ -323,208 +270,3 @@ renderedTree = tree                   // class TreeRender
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
-
-<!--
-
-## Strains
-
-The following table shows the virus strains of interest for which tools are available in the toolbox:
-
-```{ojs}
-//| echo: false
-
-viewof selection = Inputs.table(filteredAnnotations, {
-  columns: [
-    "id",
-    "name"
-  ],
-  header: {
-    id: "ID",
-    name: "Name"
-  }
-})
-```
-
-&nbsp;
-
-## Selection of viruses for VirusBank platform
-
-The primary viruses of interest for VirusBank are CHIKV, MAYV, RRV and VEEV due to their epidemic potential and severity of disease caused by these viruses [as described in the clinical relevance](#clinical-relevance). SFV and SINV will be included as tool viruses for screening for broad spectrum activity.
-
-```{ojs}
-//| echo: false
-
-// Augment the toolbox table with string representations of the viruses
-toolbox_plus = toolbox.map( tool => {
-    const is_available = toolToVirus(tool.id)
-    const is_optimization = optimizationToVirus(tool.id)
-
-    const available_string = (is_available.length > 0) ? is_available.join(" - ") : "/"
-    const optimization_string = (is_optimization.length > 0) ? is_optimization.join(" - ") : "/"
-
-    return {...tool, available_string: available_string, optimization_string: optimization_string }
-
-})
-
-toolToViruses = (tool_id) => 
-  toolbox_plus.filter(t => t.id == tool_id).map(t => t.available_string)
-
-optimizationToViruses = (tool_id) => 
-  toolbox_plus.filter(t => t.id == tool_id).map(t => t.optimization_string)
-
-// viewof toolboxSel = Inputs.table(toolbox, {
-//   columns: [
-//     "id",
-//     "name",
-//     "available",
-//     "optimization"
-//   ],
-//   header: {
-//     id: "ID",
-//     name: "Name",
-//     available: "Available",
-//     optimization: "Under optimization"
-//   },
-//   format: {
-//     available: available => available.join(", "),
-//     optimization: optimization => optimization.join(", ")
-//   }
-// })
-```
-```{ojs}
-//| echo: false
-
-cpe_available_string = toolToViruses("cpe")
-cpe_optimization_string = optimizationToViruses("cpe")
-
-yield_available_string = toolToViruses("yield")
-yield_optimization_string = optimizationToViruses("yield")
-
-pcr_available_string = toolToViruses("pcr")
-pcr_optimization_string = optimizationToViruses("pcr")
-
-delay_available_string = toolToViruses("delay")
-delay_optimization_string = optimizationToViruses("delay")
-
-plaque_available_string = toolToViruses("plaque")
-plaque_optimization_string = optimizationToViruses("plaque")
-
-reverse_available_string = toolToViruses("reverse")
-reverse_optimization_string = optimizationToViruses("reverse")
-
-models_available_string = toolToViruses("models")
-models_optimization_string = optimizationToViruses("models")
-```
-
-### CPE reduction assay (96 well format) {#cpe}
-
-{{< include ../_includes/cpe.qmd >}}
-
-+-------------------------+----------------------------+
-| Available               | Under optimization         |
-+=========================+============================+
-| ${cpe_available_string} | ${cpe_optimization_string} |
-+-------------------------+----------------------------+
-
-Note:
-
-- under optimization for SINV and SFV on Vero or Vero E6 cells
-
-### Virus yield assay {#yield}
-
-{{< include ../_includes/yield.qmd >}}
-
-+---------------------------+------------------------------+
-| Available                 | Under optimization           |
-+===========================+==============================+
-| ${yield_available_string} | ${yield_optimization_string} |
-+---------------------------+------------------------------+
-
-### Delay of treatment assay (Time-of-addition) {#delay}
-
-{{< include ../_includes/delay.qmd >}}
-
-+---------------------------+------------------------------+
-| Available                 | Under optimization           |
-+===========================+==============================+
-| ${delay_available_string} | ${delay_optimization_string} |
-+---------------------------+------------------------------+
-
-### Plaque assay {#plaque}
-
-{{< include ../_includes/plaque.qmd >}}
-
-+----------------------------+-------------------------------+
-| Available                  | Under optimization            |
-+============================+===============================+
-| ${plaque_available_string} | ${plaque_optimization_string} |
-+----------------------------+-------------------------------+
-
-- We have it for CHIKV, RRV, SINV, SFV and MAYV 
-
-### Quantitative reverse-transcriptase PCR (qRT-PCR) {#pcr}
-
-{{< include ../_includes/pcr.qmd >}}
-
-+-------------------------+----------------------------+
-| Available               | Under optimization         |
-+=========================+============================+
-| ${pcr_available_string} | ${pcr_optimization_string} |
-+-------------------------+----------------------------+
-
-- We have it for CHIKV, RRV, SINV, SFV and MAYV 
-
-### Reverse genetics system {#reverse}
-
-{{< include ../_includes/reverse.qmd >}}
-
-+-----------------------------+--------------------------------+
-| Available                   | Under optimization             |
-+=============================+================================+
-| ${reverse_available_string} | ${reverse_optimization_string} |
-+-----------------------------+--------------------------------+
-
-- We have infectious plasmids for CHIKV with or without reporter and we have an infectious mCherry plasmid for SFV.
-
-### Animal models {#models}
-
-{{< include ../_includes/models.qmd >}}
- 
-+----------------------------+-------------------------------+
-| Available                  | Under optimization            |
-+============================+===============================+
-| ${models_available_string} | ${models_optimization_string} |
-+----------------------------+-------------------------------+
- 
-## Transmission and epidemiology
-
-Alphaviruses are generally maintained in the wild via enzootic/epizootic transmission cycles between an arthropod vector (mostly mosquitoes) and animal reservoirs such as primates, forest birds, horses and macropods  [@microorganisms7050133 barba2019equine]. On certain occasions, human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes [@microorganisms7050133].
-
-Encephalitic alphaviruses such as Venezuelan Equine Encephalitis virus (VEEV), East (EEEV) and West (WEEV) are predominant mainly in the American continent [@barba2019equine]. These viruses are transmitted by mosquitoes bites and wild birds are the main reservoir host. Horses and humans are considered dead-end hosts for EEEV and WEEV viruses they do not develop enough viremia to infect mosquitoes and maintain the transmission cycle [@barba2019equine]. On the other hand, equids are the key reservoir host for VEEV  because they develop high titer viremia that can act as source of infection for subsequent feeding mosquitoes [@barba2019equine].
-
-![](images/figure1.png)
-: Geographical distribution of the equine encephalitis: Venezuelan (VEEV), East (EEEV) and West (WEEV) in the Americas [@guzman2020venezuelan].
-
-The majority of arthritogenic alphaviruses are currently endemic to specific geographical regions or continent. Ross River virus (RRV) [@liu2017ross] and Barmah forest virus (BFV) [@kurucz2016investigation] are endemic in Australia, ONNV in Sub-Saharan Africa [@rezza2017onyong], and  Mayaro virus (MAYV) in the South and the Central Americas [@acosta2018mayaro]. In contrast, Chikungunya virus (CHIKV)  is endemic in several continents. To date, only CHIKV showed the ability to be transmitted in urban cycles i.e. human-mosquito-human, similar to some flaviviruses [@guzman2020venezuelan]. In 2004, CHIKV has re-emerged in South East Asia and the Indian ocean islands and from there it spread to other countries resulting in massive outbreaks with high morbidity rates [@rezza2019chikungunya]. In December 2013, local transmission of CHIKV has been reported for the first time in the Americas. Since then, millions of CHIKV cases have been reported in the Caribbean region and several countries of Central and South America [@rezza2019chikungunya]. 
-
-![](images/figure2.png)
-: Summary of known arthritogenic alphavirus outbreaks, with geographical distribution of most prominent arthritogenic alphaviruses and main mosquito vectors (BFV: Barmah Forest virus, ONNV: O’nyong’nyong virus, SINV: Sindbis virus) [@zaid2019intravital].
-
-## Disease symptoms
-
-Infection with encephalitic alphaviruses (EEV, WEEV, VEEV) cause symptoms ranging from mild febrile illness (such as fever, chills, malaise, severe headache, myalgia) to severe encephalitis that can lead to death [@guzman2020venezuelan]. Children are more likely to suffer permanent neurological damage.
-Infections with arthritogenic alphaviruses such as chikungunya virus (CHIKV), Mayaro virus (MAYV) and Ross River virus (RRV) mainly result in rheumatic disease that causes debilitating pain in the joints [@microorganisms7050133]. The symptoms of acute disease caused by arthritogenic viruses include fever, bilateral symmetrical arthritis and sometimes skin rash. Although acute infections by arthritogenic alphaviruses are self-limiting, several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage [@rezza2019chikungunya]. Recent outbreaks of arthritogenic alphaviruses such as CHIKV have also been associated with neurological manifestations, e.g. myelopathy, Guillain-Barré syndrome and meningoencephalitis, especially in elderly patients with comorbidities and neonates [@mehta2018neurological]. 
-
-## Clinical relevance 
-
-The Eastern Equine Encephalitis virus (EEEV) and the Venezuelan Equine Encephalitis virus (VEEV) are rare causes of encephalitis. Approximately 30% of people with EEE die and many survivors have ongoing neurologic problems. For VEEV, the mortality in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. Both viruses have shown the ability to be disseminated via aerosols in laboratory settings [@hayes2012in] and have been classified as Select Agents as they may potentially be used as a bio-weapon [@microorganisms7050133]. 
-
-CHIKV presents a significant global health threat because of its high disease burden, widespread (re-)emergence, and the lack of vaccines and therapeutics. In the last decades, CHIKV re-emerged in many parts of Africa and Asia, causing large-scale epidemics. Also other alphaviruses, including Mayaro virus, and Ross River capable of inducing severe disease (2, 8). Although these viruses have not yet been associated with large epidemics, it cannot be excluded that this will happen in the future. The Mayaro virus (MAYV) is a neglected virus similar to CHIKV which can cause long-term debilitating arthralgia that can last for weeks. This virus has been suggested to have the potential to cause the next arbovirus epidemic. The Ross River virus (RRV) is endemic in Australia and Papua New Guinea and can result in joint pain, fever, tiredness, and rash. 
-
-The change in mosquito vectors distribution, caused by global warming, virus adaptation to new mosquito species and the increase in the international travel could result in expansion of alphaviruses in the future.
-
-## Current treatment
-
-Several alphaviruses have (re-)emerged worldwide and became a major public health threat. However, there is no approved antiviral drug for the treatment of these viral infections. The current treatment depends on symptomatic relief by using analgesics, antipyretics, non-steroidal anti-inflammatory drugs and, in severe cases, methotrexate (2). 
-
--->

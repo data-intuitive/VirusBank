@@ -1,0 +1,75 @@
+
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-8}
+Acute disease include fever, joint pain, and sometimes skin rash. 
+
+Several patients also suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage. 
+
+Recent outbreaks of CHIKV have also been associated with neurological manifestations.
+
+Death from chikungunya is rare.
+:::
+
+::: {.g-col-4}
+{{< var symptoms.fever >}}
+
+{{< var symptoms.joint_pain >}}
+
+{{< var symptoms.rash >}}
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-6}
+CHIKV is maintained in the wild via Slylvatic/rural transmission cycles between an arthropod vector (mainly Aedes mosquitoes ) and animal reservoirs. Human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes. This can be followed by urban cycles of CHIKV transmission i.e. human-mosquito-human transmission.
+:::
+
+::: {.g-col-6}
+![](CHIKV-transmission.png)
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+CHIKV was first identified in the United Republic of Tanzania in 1952. In 2004, CHIKV re-emerged in South East Asia and the Indian ocean islands and, from there, it spread to other countries, resulting in massive outbreaks with high morbidity rates. In December 2013, local transmission of CHIKV was reported for the first time in the Americas. Since then, millions of CHIKV cases have been reported in the Caribbean region and several countries of Central and South America. Local transmission cases have been also reported in Europe (e.g. Italy and France).
+
+Despite being rarely fatal, CHIKV infections have high socioeconomic impact due to the chronic painful incapacitating phase of the disease.
+There are no approved vaccines or antivirals available at the moment for the prevention or treatment of CHIKV infection.
+:::
+
+::: {.g-col-6}
+![<https://www.cdc.gov/chikungunya/geo/index.html>](CHIKV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+::: {.callout-note}
+To be updated, should be rendered based on the annotations data
+:::
+
+- CPE reduction assay (96 well format)
+- Virus yield assay
+- Delay of treatment assay (Time-of-addition)
+- Plaque assay
+- Quantitative reverse-transcriptase PCR (qRT-PCR)
+- Reverse genetics system
+- Reporter viruses
+- Animal models: AG129 mice (Lethal model with neurological symptoms), C57BL/6 mice (footpad arthritis model)
+
+:::
+
