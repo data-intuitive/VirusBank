@@ -213,7 +213,7 @@ fillPopup = (d) => {
 
 }
 
-// init = clearPopup()
+init = clearPopup()
 // s1 = d3.select("body").on('click', clearPopup )
 
 virusToTab = ({
@@ -252,7 +252,7 @@ renderedTree = tree                   // class TreeRender
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
     availableInfo
       ? element.on('click', function() {
-          clearPopup();
+          // clearPopup();
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById("tabset-3-1-tab").parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
