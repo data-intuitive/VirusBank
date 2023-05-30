@@ -10,10 +10,6 @@ format:
 
 <!-- {{< include ../_includes/phylotree.qmd >}} -->
 
-- - -
-
-
-&nbsp;
 
 ```{ojs}
 //| output: none
@@ -22,7 +18,6 @@ format:
 // Initialize a container to contain the containers for the tree and annotation window
 html`
 <div class="container">
-  <div></div>
   <div class="grid" style="--bs-gap: 0;">
     <!-- <div id="pointer-container" class="tree-container g-col-1 text-center rounded"> -->
     <!--   <div class="grid"> -->
@@ -32,6 +27,16 @@ html`
     <!--     </div> -->
     <!--   </div> -->
     <!-- </div> -->
+    <div id="info-container" class="g-col-md-9 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
+      <div class="grid">
+        <div id="name" class="g-col-md-12 bold">
+          name
+        </div>
+        <div id="toolbox" class="g-col-md-12">
+          no tools yet for this virus
+        </div>
+      </div>
+    </div>
     <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;">
@@ -73,6 +78,11 @@ html`
 .card-body:hover .card-img {
   opacity:0%;
 }
+
+#name {
+  font-weight: 500;
+  font-size: 20pt;
+}
 </style>
 `
 
@@ -86,8 +96,6 @@ html`
 ```
 
 &nbsp;
-
-- - -
 
 ::: {.panel-tabset .bg-black}
 
@@ -253,14 +261,25 @@ renderedTree = tree                   // class TreeRender
     'container': "#tree-container"
   })
   .style_nodes( (element, data) => {
+
     const inToolbox = (availableTools(data.data.name).length > 0)
     const availableInfo = availableVirusInfo(data.data.name) 
+
+    // Styling based on available information
     const updtElement1 =
       availableInfo
         ? element.select("text").attr("class", "phylotree-node-text")
         : element.select("text").attr("class", "phylotree-node-text-inactive")
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
-    availableInfo
+
+    // Hover functionality - Virus name
+    if (availableInfo)
+      element
+        .on("mouseover", virus_hover_in(data, inToolbox))
+        .on("mouseout", virus_hover_out)
+
+    // Click functionality - Toolbox
+    inToolbox
       ? element.on('click', function() {
           clearPopup();
           // Select the first tab in order to get to the root of the tabset
@@ -274,9 +293,26 @@ renderedTree = tree                   // class TreeRender
       : element.on('click', function() {
           clearPopup();
         })
+
   })
   .layout(true)
 
+// Show small virus information box on hover
+virus_hover_in = (data, is_available) => () => {
+  // First, populate the content
+  d3.select("#name").text(annotationsMap[data.data.name].name)
+  if (is_available)
+    d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
+  else
+     d3.select("#toolbox").text("No viral tools have been developed yet")
+  // ... then show the content
+  d3.select("#info-container").attr("style", "visibility:visible;")
+}
+virus_hover_out = () => {
+  d3.select("#info-container").attr("style", "visibility:hidden;")
+}
+
+// Add SVG to the DOM
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
