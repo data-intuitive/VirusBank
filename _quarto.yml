@@ -17,7 +17,7 @@ format:
     smooth-scroll: true
     sidebar: false
     theme: superhero
-    mainfont: "Montserrat"
+    mainfont: "Mukta"
     font-size: 16em
     css: styles.css
     toc: false
