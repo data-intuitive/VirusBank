@@ -1,6 +1,6 @@
 ---
 title: Alphaviruses
-title-block-banner: virus-banner.png
+title-block-banner: Togaviridae-banner.jpg
 format:
   html:
     page-layout: full
@@ -12,6 +12,7 @@ format:
 
 - - -
 
+
 &nbsp;
 
 ```{ojs}
@@ -21,6 +22,7 @@ format:
 // Initialize a container to contain the containers for the tree and annotation window
 html`
 <div class="container">
+  <div></div>
   <div class="grid" style="--bs-gap: 0;">
     <!-- <div id="pointer-container" class="tree-container g-col-1 text-center rounded"> -->
     <!--   <div class="grid"> -->
