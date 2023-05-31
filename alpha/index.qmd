@@ -7,7 +7,7 @@ format:
     anchor-sections: true
     section-divs: true
 ---
- 
+
 ```{ojs}
 //| output: none
 //| echo: false
@@ -129,17 +129,14 @@ html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}
 height = 550
 width = 550
 
-d3 = {
-  const d3 = window.d3 = await require("d3@7");
-  await require("d3-context-menu@2.1.0/js/d3-context-menu.js").catch(() => {});
-  return d3;
-}
-
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 ```
 
+{{< include _ojs_d3.qmd >}}
+
 {{< include _ojs_data.qmd >}}
+
 
 ```{ojs}
 //| output: none

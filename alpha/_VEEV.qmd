@@ -55,10 +55,6 @@ Vaccinating equines during an outbreak is considered effective to reduce VEE epi
 
 ## Toolbox
 
-::: {.callout-note}
-To be updated, should be rendered based on the annotations data
-:::
-
 To be developed
 
 :::

@@ -53,28 +53,24 @@ There are no approved vaccines or antivirals available at the moment for the pre
 
 ## Toolbox
 
-
-::: {.callout-note}
-To be updated, should include a better and more complete description.
-:::
-
-<ul id="tools-SFV">
-</ul>
-
 ```{ojs}
 //| output: none
 //| echo: false
 
-SFVul = document.getElementById("tools-SFV")
+{
+  const thisVirus = "SFV"
 
-lis = annotationsMap["SFV"]
-  .toolbox
-  .map(tool => {
-    const li = document.createElement("li")
-    li.appendChild(document.createTextNode(toolboxMap[tool.tool].name))
-    SFVul.appendChild(li)
-  })
+  const div = html`<div class="my_special_class"></div>`
+  const d = d3.select(div).attr("id", thisVirus)
+  annotationsMap[thisVirus]
+    .toolbox
+    .map(tool => {
+      d.append("h4").text(toolboxMap[tool.tool].name)
+      d.append("p").text(toolboxMap[tool.tool].description)
+    })
 
+  return div
+}
 ```
-:::
 
+:::
