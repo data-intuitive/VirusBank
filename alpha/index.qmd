@@ -8,8 +8,6 @@ format:
     section-divs: true
 ---
  
-<!-- {{< include ../_includes/phylotree.qmd >}} -->
-
 ```{ojs}
 //| output: none
 //| echo: false
@@ -139,23 +137,13 @@ d3 = {
 
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
-// The next section should be made generic
-// TODO
-// --------------------------------------------
- 
-FA = FileAttachment
+```
 
-nwk = await FA("/alpha/tree.newick").text()
+{{< include _ojs_data.qmd >}}
 
-annotations = await FileAttachment("/alpha/annotations.json").json()
-
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
-
-toolbox = await FileAttachment("/alpha/toolbox.json").json()
-
-toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
-
-// --------------------------------------------
+```{ojs}
+//| output: none
+//| echo: false
 
 availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 
