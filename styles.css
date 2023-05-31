@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* General */
 body {
   font-weight: 300;
 }
@@ -14,6 +15,7 @@ h1 {
   font-weight: 400 !important;
 }
 
+/* Styling of phylogenetic tree */
 .phylotree-node-text {
   fill: black;
   opacity: 20%;
@@ -65,3 +67,56 @@ svg .internal-node circle {
   fill: black;
   stroke-width:0px;
 }
+
+/* Toolbox */
+.tool {
+  display:inline-block;
+  height:90px;
+  opacity:50%;
+}
+
+.tool-selected {
+  display:inline-block;
+  height:90px;
+  opacity:100%;
+}
+
+.tool-header {
+  border: none;
+  font-size: 1.7em;
+}
+
+.bg-tool {
+  background: radial-gradient(ellipse at 50% 30%, rgb(84, 130, 166, .3), rgb(84, 130, 166, .8)) !important; /*#F7F3FA, #B8B5BA) !important; */
+  color: black;
+  border: none !important;
+  border-radius: 10px;
+}
+
+.card-img {
+  height: 100%;
+  opacity: 50%;
+}
+
+.card-body:hover  {
+  opacity:70% !important;
+}
+
+.card-body:hover .card-img {
+  opacity:20%;
+}
+
+/* Virus information */
+#name {
+  font-weight: 500;
+  font-size: 20pt;
+}
+
+/* Tabset styling, nested */
+.panel-tabset {
+  background-color: rgb(241, 243, 245);
+}
+.panel-tabset .panel-tabset {
+  background-color: white;
+}
+

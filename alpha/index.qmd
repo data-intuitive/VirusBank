@@ -39,22 +39,24 @@ html`
     </div>
     <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
-      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;">
-          <div class="g-col-md-12 g-col-sm-12 border bg-light card card-body tool-header opacity-100" id="virus">Please click on a virus</div>
-          <div class="g-col-6 border card card-body tool opacity-50 text-wrap"  id="cpe">CPE reduction assay</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="yield">Virus yield assay</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="plaque">Plaque assay</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="pcr">qRT-PCR</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="reverse">Reverse genetics system</div>
-          <div class="g-col-6 border card card-body tool opacity-50" id="model">
-              <img class="card-img" src="/img/model-copy.png" style="height:100%;"/>
+      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
+          <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+            Viral Toolbox
+          </div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">CPE reduction assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">Plaque assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="model">
+              <img class="card-img" src="/img/model-copy.png"/>
               <div class="card-img-overlay">
                 Animal models
               </div>
           </div>
-          <div class="g-col-6 border card card-body tool opacity-50"  id="reporter">
-              <img class="card-img" src="/img/reporter.png" style="height:100%;"/>
+          <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
+              <img class="card-img" src="/img/reporter.png"/>
               <div class="card-img-overlay">
                 Reporter virus
               </div>
@@ -64,35 +66,6 @@ html`
     </div>
   </div>
 </div>
-
-<style>
-.tool {
-  display:inline-block;
-  height:90px;
-}
-
-.card-body:hover  {
-  opacity:80% !important;
-}
-
-.card-body:hover .card-img {
-  opacity:0%;
-}
-
-#name {
-  font-weight: 500;
-  font-size: 20pt;
-}
-
-.panel-tabset {
-  background-color: rgb(241, 243, 245);
-}
-
-.panel-tabset .panel-tabset {
-  background-color: white;
-}
-
-</style>
 `
 
 ```
@@ -157,21 +130,6 @@ availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 <!--   ct.selectAll("*").remove() -->
 <!-- } -->
 
-clearPopup = () => {
-    d3.select("#cpe").attr("class",      "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#model").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#yield").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#reverse").attr("class",  "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#pcr").attr("class",      "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#plaque").attr("class",   "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#delay").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
-    d3.select("#reporter").attr("class", "g-col-6 border round bg-dark card card-body tool opacity-25")
-
-  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
-  virusInfo.style.display = "none"
-
-}
-
 initPopup = () => {
   const ct = d3.select('#annotation-container')
   ct.selectAll("*").remove()
@@ -202,38 +160,41 @@ function renderToolbox(parent, toolbox) {
 
 }
 
+// Reset the tools in the Toolbox
+clearToolbox = () => {
+
+  d3.select("#cpe").attr("class",      "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#model").attr("class",    "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#yield").attr("class",    "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#reverse").attr("class",  "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#pcr").attr("class",      "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#plaque").attr("class",   "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#delay").attr("class",    "g-col-6 border round bg-tool card card-body tool")
+  d3.select("#reporter").attr("class", "g-col-6 border round bg-tool card card-body tool")
+
+  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
+  virusInfo.style.display = "none"
+
+}
+
+// Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
   
-  d3.select("#virus").html("<b><a class='link-secondary' style='font-size:1.5rem' href='/alpha/" + d.data.name + ".html'>" + d.data.name + "</a></b>")
-  console.log(annotationsMap)
   const toolbox = availableTools(d.data.name)
+
   toolbox.map(el => {
-    if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border bg-dark card card-body tool opacity-100")
-    if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "yield") d3.select("#yield").attr("class",       "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "reverse") d3.select("#reverse").attr("class",   "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "pcr") d3.select("#pcr").attr("class",           "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "plaque") d3.select("#plaque").attr("class",     "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "delay") d3.select("#delay").attr("class",       "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "yield") d3.select("#yield").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "reverse") d3.select("#reverse").attr("class",   "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "pcr") d3.select("#pcr").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "plaque") d3.select("#plaque").attr("class",     "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "delay") d3.select("#delay").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
+    if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body bg-tool tool-selected")
   })
 }
 
-fillPopup = (d) => {
-  const ct = d3.select('#annotation-container');
-  const ctBody = ct.append("div").attr("class", "card-body");
-  ctBody.append("a").attr("href", "/alpha/" + annotationsMap[d.data.name].id + ".html").append('h3').attr('class', "card-title").text(annotationsMap[d.data.name].name);
-  const card = ctBody.append('div').attr("class", "card-text");
-
-    card.append("h4").text("Toolbox contents:")
-    const this_div = card.append("div");
-
-    renderToolbox(this_div, annotationsMap[d.data.name].toolbox)
-
-}
-
-init = clearPopup()
-// s1 = d3.select("body").on('click', clearPopup )
+init = clearToolbox()
 
 virusToTab = ({
     CHIKV: "tabset-4-1-tab",
@@ -283,7 +244,7 @@ renderedTree = tree                   // class TreeRender
     // Click functionality - Toolbox
     inToolbox
       ? element.on('click', function() {
-          clearPopup();
+          clearToolbox();
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
@@ -293,7 +254,7 @@ renderedTree = tree                   // class TreeRender
           updateToolbox(data);
         })
       : element.on('click', function() {
-          clearPopup();
+          clearToolbox();
         })
 
   })
