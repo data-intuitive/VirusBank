@@ -71,7 +71,15 @@ html`
               Reporter virus
             </div>
           </div>
-          <!-- <a>clear</a> -->
+      </div>
+    </div>
+    <div id="legend-container" class="g-col-md-9 g-col-sm-12 text-center mb-2">
+      <div class="grid p-2">
+        <div class="g-col-md-12 small">
+          <span class="phylotree-node-text" style="font-size:15px !important;">HOVER</span> for more information /
+          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> can be selected /
+          <span class="phylotree-node-text-inactive" style="font-size:15px !important;">INACTIVE NODES</span> are for reference
+        </div>
       </div>
     </div>
   </div>
