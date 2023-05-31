@@ -9,7 +9,7 @@ sidebar: false
 
 ::: {.card .g-col-4 .p-2 .rounded}
 ::: {.card-img-top}
-[![](alpha/togaviridae.jpg)](alpha/index.qmd)
+[![](alpha/virus.jpg)](alpha/index.qmd)
 :::
 ::: {.card-body}
 ::: {.card-title }

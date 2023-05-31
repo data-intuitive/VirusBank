@@ -1,6 +1,6 @@
 ---
 title: Alphaviruses
-title-block-banner: Togaviridae-banner.jpg
+title-block-banner: virus-banner.jpg
 format:
   html:
     page-layout: full
@@ -10,13 +10,13 @@ format:
 
 <!-- {{< include ../_includes/phylotree.qmd >}} -->
 
-
 ```{ojs}
 //| output: none
 //| echo: false
 
 // Initialize a container to contain the containers for the tree and annotation window
 html`
+
 <div class="container">
   <div class="grid" style="--bs-gap: 0;">
     <!-- <div id="pointer-container" class="tree-container g-col-1 text-center rounded"> -->
@@ -40,20 +40,20 @@ html`
     <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;">
-          <div class="g-col-md-12 g-col-sm-12 border card bg-light card-body tool-header opacity-100" id="virus">Please click on a virus</div>
-          <div class="g-col-6 border card card-body tool opacity-25 text-wrap"  id="cpe">CPE reduction assay</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="yield">Virus yield assay</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="plaque">Plaque assay</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="pcr">qRT-PCR</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="reverse">Reverse genetics system</div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="model">
+          <div class="g-col-md-12 g-col-sm-12 border bg-light card card-body tool-header opacity-100" id="virus">Please click on a virus</div>
+          <div class="g-col-6 border card card-body tool opacity-50 text-wrap"  id="cpe">CPE reduction assay</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="yield">Virus yield assay</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="delay">Delay of treatment assay</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="plaque">Plaque assay</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="pcr">qRT-PCR</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="reverse">Reverse genetics system</div>
+          <div class="g-col-6 border card card-body tool opacity-50" id="model">
               <img class="card-img" src="/img/model-copy.png" style="height:100%;"/>
               <div class="card-img-overlay">
                 Animal models
               </div>
           </div>
-          <div class="g-col-6 border card card-body tool opacity-25"  id="reporter">
+          <div class="g-col-6 border card card-body tool opacity-50"  id="reporter">
               <img class="card-img" src="/img/reporter.png" style="height:100%;"/>
               <div class="card-img-overlay">
                 Reporter virus
@@ -83,21 +83,23 @@ html`
   font-weight: 500;
   font-size: 20pt;
 }
+
+.panel-tabset {
+  background-color: rgb(241, 243, 245);
+}
+
+.panel-tabset .panel-tabset {
+  background-color: white;
+}
+
 </style>
 `
-
-// cpeIn = d3.select("#cpe").on("mouseover",
-//     () => { d3.select("#cpe").attr("class", "g-col-6 border-white card card-body tool opacity-50") }
-//   )
-// cpeOut = d3.select("#cpe").on("mouseout",
-//     () => d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-25")
-//   )
 
 ```
 
 &nbsp;
 
-::: {.panel-tabset .bg-black}
+::: {.panel-tabset}
 
 ## Chikungunya virus
 
@@ -156,14 +158,14 @@ availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 <!-- } -->
 
 clearPopup = () => {
-    d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#model").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#yield").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#reverse").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#pcr").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#plaque").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-25")
-    d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-25")
+    d3.select("#cpe").attr("class",      "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#model").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#yield").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#reverse").attr("class",  "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#pcr").attr("class",      "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#plaque").attr("class",   "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#delay").attr("class",    "g-col-6 border round bg-dark card card-body tool opacity-25")
+    d3.select("#reporter").attr("class", "g-col-6 border round bg-dark card card-body tool opacity-25")
 
   const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
   virusInfo.style.display = "none"
@@ -206,13 +208,13 @@ updateToolbox = (d) => {
   console.log(annotationsMap)
   const toolbox = availableTools(d.data.name)
   toolbox.map(el => {
-    if (el.tool == "cpe") d3.select("#cpe").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "model") d3.select("#model").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "yield") d3.select("#yield").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "reverse") d3.select("#reverse").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "pcr") d3.select("#pcr").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "plaque") d3.select("#plaque").attr("class", "g-col-6 border card card-body tool opacity-100")
-    if (el.tool == "delay") d3.select("#delay").attr("class", "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border bg-dark card card-body tool opacity-100")
+    if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "yield") d3.select("#yield").attr("class",       "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "reverse") d3.select("#reverse").attr("class",   "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "pcr") d3.select("#pcr").attr("class",           "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "plaque") d3.select("#plaque").attr("class",     "g-col-6 border card card-body tool opacity-100")
+    if (el.tool == "delay") d3.select("#delay").attr("class",       "g-col-6 border card card-body tool opacity-100")
     if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body tool opacity-100")
   })
 }
@@ -246,19 +248,19 @@ renderedTree = tree                   // class TreeRender
   .render({
     'left-right-spacing': 'fit-to-size',
     'top-bottom-spacing': 'fit-to-size',
-    'is-radial': true,
-    'selectable': false,  // make nodes and branches not selectable
-    'collapsible': true,
-    'transitions' : true,
-    'show-menu': false,
-    'show-scale': false,
-    'align-tips': true,
-    'width': width,
-    'height': height,
-    'zoom': false,
-    'minimal-per-node-spacing': 2,
-    'minimum-per-level-spacing': 2,
-    'container': "#tree-container"
+    'is-radial':          true,
+    'selectable':         false,
+    'collapsible':        false,
+    'transitions' :       true,
+    'show-menu':          false,
+    'show-scale':         false,
+    'align-tips':         true,
+    'width':              width,
+    'height':             height,
+    'zoom':               false,
+    'minimal-per-node-spacing':  4,
+    'minimum-per-level-spacing': 4,
+    'container':          "#tree-container"
   })
   .style_nodes( (element, data) => {
 
@@ -316,3 +318,12 @@ virus_hover_out = () => {
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
+
+<svg>
+    <linearGradient id="Gradient">
+      <stop stop-color="white" offset="0%" />
+      <stop stop_color="white" offset="50%" />
+    </linearGradient>
+</svg>
+
+
