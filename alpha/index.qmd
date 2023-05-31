@@ -85,37 +85,49 @@ html`
 
 {{< include _CHIKV.qmd >}}
 
-[open page](/alpha/CHIKV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/CHIKV.qmd) / [reload family page](/alpha/)
+:::
 
 ## River Ross virus
 
 {{< include _RRV.qmd >}}
 
-[open page](/alpha/RRV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/RRV.qmd) / [reload family page](/alpha/)
+:::
 
 ## Mayaro virus
 
 {{< include _MAYV.qmd >}}
 
-[open page](/alpha/MAYV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/MAYV.qmd) / [reload family page](/alpha/)
+:::
 
 ## Venezuelan Equine Encephalitis virus
 
 {{< include _VEEV.qmd >}}
 
-[open page](/alpha/VEEV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/VEEV.qmd) / [reload family page](/alpha/)
+:::
 
 ## Sindbis virus
 
 {{< include _SINV.qmd >}}
 
-[open page](/alpha/SINV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/SINV.qmd) / [reload family page](/alpha/)
+:::
 
 ## Semliki Forest virus
 
 {{< include _SFV.qmd >}}
 
-[open page](/alpha/SFV.qmd)
+:::{ style="text-align:center;font-weight:500" }
+[open page](/alpha/SFV.qmd) / [reload family page](/alpha/)
+:::
 
 ::::
 
