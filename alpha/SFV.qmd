@@ -1,0 +1,9 @@
+---
+title: Semliki Forest virus (SFV)
+title-block-banner: true
+format:
+  html:
+    page-layout: full
+---
+
+{{< include _SFV.qmd >}}

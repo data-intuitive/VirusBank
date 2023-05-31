@@ -108,13 +108,26 @@ html`
 
 {{< include _MAYV.qmd >}}
 
-[open page](/alpha/RRV.qmd)
+[open page](/alpha/MAYV.qmd)
 
 ## Venezuelan Equine Encephalitis virus
 
 {{< include _VEEV.qmd >}}
 
-[open page](/alpha/RRV.qmd)
+[open page](/alpha/VEEV.qmd)
+
+## Sindbis virus
+
+{{< include _SINV.qmd >}}
+
+[open page](/alpha/SINV.qmd)
+
+## Semliki Forest virus
+
+{{< include _SFV.qmd >}}
+
+[open page](/alpha/SFV.qmd)
+
 
 
 :::
@@ -198,19 +211,22 @@ updateToolbox = (d) => {
   })
 }
 
+tabsetAnchor = 'tabset-7-1-tab'
+virusToTab = ({
+    CHIKV: "tabset-7-1-tab",
+    RRV: "tabset-7-2-tab",
+    MAYV: "tabset-7-3-tab",
+    VEEV: "tabset-7-4-tab",
+    SINV: "tabset-7-5-tab",
+    SFV: "tabset-7-6-tab"
+})
+
 // Hide virus information tabset
 // Wrap in closure to keep ojs happy
 hide_tabset = {
-  const virusInfo = document.getElementById("tabset-5-1-tab").parentNode.parentNode.parentNode
+  const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
   virusInfo.style.display = "none"
 }
-
-virusToTab = ({
-    CHIKV: "tabset-5-1-tab",
-    RRV: "tabset-5-2-tab",
-    MAYV: "tabset-5-3-tab",
-    VEEV: "tabset-5-4-tab"
-})
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
@@ -256,7 +272,7 @@ renderedTree = tree                   // class TreeRender
       ? element.on('click', function() {
           clearToolbox();
           // Select the first tab in order to get to the root of the tabset
-          const virusInfo = document.getElementById("tabset-5-1-tab").parentNode.parentNode.parentNode
+          const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
           // Now get the proper tab
           const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
@@ -289,12 +305,3 @@ virus_hover_out = () => {
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
-
-<svg>
-    <linearGradient id="Gradient">
-      <stop stop-color="white" offset="0%" />
-      <stop stop_color="white" offset="50%" />
-    </linearGradient>
-</svg>
-
-

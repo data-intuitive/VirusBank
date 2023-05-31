@@ -1,0 +1,67 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-8}
+SFV infections in humans are not frequent with mild febrile disease symptoms. In mice, some strains of SFV have been reported to be neuroinvasive causing demyelinating meningoencephalomyelitis. 
+:::
+
+::: {.g-col-4}
+{{< var symptoms.fever >}}
+
+{{< var symptoms.joint_pain >}}
+
+{{< var symptoms.rash >}}
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-6}
+SFV is transmitted by usually mosquitoes of the Aedes subspecies among small wild animals, birds, and nonhuman primates. Human cases are not common and can occur via spillover (Through bite of infected mosquitoes).
+:::
+
+::: {.g-col-6}
+![](SFV-transmission.png)
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+SFV was first isolated from in the Semliki Forest in 1942. The virus is found mainly in central, eastern, and southern Africa.
+
+SFV is a useful research tool to study virus-induced encephalitis.
+Due to its broad host range and efficient replication, it has also been developed as a vector for genes encoding vaccines and anti-cancer agents, and as a tool in gene therapy.
+
+There are no approved vaccines or antivirals available at the moment for the prevention or treatment of SFV infection. 
+:::
+
+::: {.g-col-6}
+<!-- ![](SFV-map.png) -->
+:::
+
+:::
+
+## Toolbox
+
+::: {.callout-note}
+To be updated, should be rendered based on the annotations data
+:::
+
+- CPE reduction assay (96 well format)
+- Virus yield assay
+- Plaque assay
+- Reporter viruses
+- Quantitative reverse-transcriptase PCR (qRT-PCR)
+
+:::
+

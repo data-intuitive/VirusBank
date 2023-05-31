@@ -1,0 +1,65 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-8}
+Although many SINV infections are asymptomatic, SINV can result in a febrile illness associated with maculopapular rash and joint pain.
+:::
+
+::: {.g-col-4}
+{{< var symptoms.fever >}}
+
+{{< var symptoms.joint_pain >}}
+
+{{< var symptoms.rash >}}
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-6}
+SINV is transmitted by Culex mosquitoes among different species of birds. Sporadic spillover to humans occurs through bite of infected Culex and occasionally Aedes mosquitoes.
+:::
+
+::: {.g-col-6}
+![](SINV-transmission.png)
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+SINV was first isolated from Culex mosquitoes collected in Cairo, Egypt in 1952. The virus is widely distributed throughout the world including Europe, Africa, Asia, and Australia.
+
+SINV is used as tool to study alphaviruses at lower biosafety level.
+
+There are no approved vaccines or antivirals available at the moment for the prevention or treatment of SINV infection. 
+:::
+
+::: {.g-col-6}
+![](SINV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+::: {.callout-note}
+To be updated, should be rendered based on the annotations data
+:::
+
+- CPE reduction assay (96 well format)
+- Virus yield assay
+- Plaque assay
+- Quantitative reverse-transcriptase PCR (qRT-PCR)
+
+:::
+
