@@ -56,32 +56,35 @@ There are no approved vaccines or antivirals available at the moment for the pre
 To be updated, should include a better and more complete description.
 :::
 
-<ul id="tools">
+<ul id="tools-RRV">
 </ul>
 
 ```{ojs}
 //| output: none
 //| echo: false
 
-thisVirus = "RRV"
+//     FA = FileAttachment
+// 
+//     nwk = await FA("/alpha/tree.newick").text()
+// 
+//     annotations = await FileAttachment("/alpha/annotations.json").json()
+// 
+//     annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
+// 
+//     toolbox = await FileAttachment("/alpha/toolbox.json").json()
+// 
+//     toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
 
+RRVul = document.getElementById("tools-RRV")
 
-if (typeof FA === "undefined") {
-    FA = FileAttachment
-
-    nwk = await FA("/alpha/tree.newick").text()
-
-    annotations = await FileAttachment("/alpha/annotations.json").json()
-
-    annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
-
-    toolbox = await FileAttachment("/alpha/toolbox.json").json()
-
-    toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
-}
+RRVlis = annotationsMap["RRV"]
+  .toolbox
+  .map(tool => {
+    const li = document.createElement("li")
+    li.appendChild(document.createTextNode(toolboxMap[tool.tool].name))
+    RRVul.appendChild(li)
+  })
 
 ```
-
-{{< include _thisTool.qmd >}}
 
 :::
