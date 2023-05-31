@@ -8,15 +8,15 @@ a {
   text-decoration: none;
 }
 
-.phylotree-node-text {
-  fill: grey;
-  font-family: "Mukta";
-  font-weight: 300;
-  font-size: 20px!important;
+h1 {
+  color: steelblue !important;
+  font-size: 3em;
+  font-weight: 400 !important;
 }
 
-.phylotree-node-text-selected {
-  fill: blue;
+.phylotree-node-text {
+  fill: black;
+  opacity: 20%;
   font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
@@ -24,21 +24,44 @@ a {
 
 .phylotree-node-text-inactive {
   fill: black;
+  opacity: 60%;
   font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
 }
 
 .phylotree-node-text-hl {
-  fill: white;
+  fill: black;
   font-family: "Mukta";
-  font-weight: "bold";
+  font-weight: 500;
   font-size: 20px!important;
 }
 
-.phylotree-node-text-info {
+svg .branch {
+  stroke: #3A7598 !important;
+  opacity: 80%;
+  stroke-width: 8px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 600px;
+  stroke-dashoffset: 600px;
+  animation: draw-stroke 2s linear forwards;
+}
+
+@keyframes draw-stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+svg .branch-tracer {
+  stroke: black !important;
+  opacity: 20%;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+svg .internal-node circle {
   fill: black;
-  font-family: "Mukta";
-  font-weight: 700;
-  font-size: 20px!important;
+  stroke-width:0px;
 }
