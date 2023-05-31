@@ -18,7 +18,7 @@ h1 {
 /* Styling of phylogenetic tree */
 .phylotree-node-text {
   fill: black;
-  opacity: 20%;
+  opacity: 60%;
   font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
@@ -26,7 +26,7 @@ h1 {
 
 .phylotree-node-text-inactive {
   fill: black;
-  opacity: 60%;
+  opacity: 20%;
   font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
