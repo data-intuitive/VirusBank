@@ -90,7 +90,7 @@ html`
 
 &nbsp;
 
-::: {.panel-tabset}
+:::: {.panel-tabset}
 
 ## Chikungunya virus
 
@@ -128,9 +128,7 @@ html`
 
 [open page](/alpha/SFV.qmd)
 
-
-
-:::
+::::
 
 &nbsp;
 
