@@ -15,6 +15,7 @@ format:
     title-block-banner: virus.jpg
     anchor-sections: true
     smooth-scroll: true
+    fontcolor: "rgb(35, 70, 106)"
     sidebar: false
     page-layout: full
     theme: pulse # sandstone # yeti # spacelab

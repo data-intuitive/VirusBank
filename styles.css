@@ -2,7 +2,7 @@
 
 /* General */
 body {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 a {
@@ -42,11 +42,9 @@ h1 {
 svg .branch {
   stroke: #3A7598 !important;
   opacity: 80%;
-  stroke-width: 8px;
+  stroke-width: 6px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  stroke-dasharray: 600px;
-  stroke-dashoffset: 600px;
   animation: draw-stroke 2s linear forwards;
 }
 
