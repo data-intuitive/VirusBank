@@ -1,9 +1,5 @@
 ---
 title: Sindbis virus (SINV)
-title-block-banner: true
-format:
-  html:
-    page-layout: full
 ---
 
 {{< include _SINV.qmd >}}

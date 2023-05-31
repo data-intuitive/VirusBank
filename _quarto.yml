@@ -12,9 +12,11 @@ website:
       - auto: generic
 format:
   html:
+    title-block-banner: virus.jpg
     anchor-sections: true
     smooth-scroll: true
     sidebar: false
+    page-layout: full
     theme: pulse # sandstone # yeti # spacelab
     mainfont: "Mukta"
     font-size: 16em

@@ -1,9 +1,5 @@
 ---
 title: Chikungunya virus (CHIKV)
-title-block-banner: true
-format:
-  html:
-    page-layout: full
 ---
 
 {{< include _CHIKV.qmd >}}

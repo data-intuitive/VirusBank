@@ -1,9 +1,5 @@
 ---
 title: Ross River virus (RRV)
-title-block-banner: true
-format:
-  html:
-    page-layout: full
 ---
 
 {{< include _RRV.qmd >}}
