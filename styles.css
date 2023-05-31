@@ -72,8 +72,20 @@ svg .internal-node circle {
 .tool {
   display:inline-block;
   height:90px;
-  opacity:50%;
+  opacity:40%;
 }
+
+/* fade in toolbox */
+/*
+.card {
+  animation: fadeIn 2s linear forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0%; }
+  100% { visibility: 100%; }
+}
+*/
 
 .tool-selected {
   display:inline-block;
@@ -95,7 +107,7 @@ svg .internal-node circle {
 
 .card-img {
   height: 100%;
-  opacity: 50%;
+  opacity: 70%;
 }
 
 .card-body:hover  {

@@ -43,23 +43,33 @@ html`
           <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
             Viral Toolbox
           </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">CPE reduction assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
+            <img class="card-img" src="/img/cpe-copy.png"/>
+            <div class="card-img-overlay">
+              CPE reduction assay
+            </div>
+          </div>
           <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">Plaque assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
+            <img class="card-img" src="/img/plaque-copy.png"/>
+            <div class="card-img-overlay">
+              Plaque assay
+            </div>
+          </div>
           <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="model">
-              <img class="card-img" src="/img/model-copy.png"/>
-              <div class="card-img-overlay">
-                Animal models
-              </div>
+            <img class="card-img" src="/img/model-copy.png"/>
+            <div class="card-img-overlay">
+              Animal models
+            </div>
           </div>
           <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
-              <img class="card-img" src="/img/reporter.png"/>
-              <div class="card-img-overlay">
-                Reporter virus
-              </div>
+            <img class="card-img" src="/img/reporter.png"/>
+            <div class="card-img-overlay">
+              Reporter virus
+            </div>
           </div>
           <!-- <a>clear</a> -->
       </div>
@@ -130,16 +140,6 @@ availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 <!--   ct.selectAll("*").remove() -->
 <!-- } -->
 
-initPopup = () => {
-  const ct = d3.select('#annotation-container')
-  ct.selectAll("*").remove()
-  const ctBody = ct.append("div").attr("class", "card-body")
-  ctBody.append('h5').attr('class', "card-title").text("Please click on a virus to get more information");
-}
-
-toolToVirus = (tool_id) => 
-  toolbox.filter(t => t.id == tool_id).map(t => t.available)[0]
-
 availableTools = (virus_id) =>
     (annotationsMap[virus_id] != undefined)
     ? ( annotationsMap[virus_id].toolbox != undefined )
@@ -172,9 +172,6 @@ clearToolbox = () => {
   d3.select("#delay").attr("class",    "g-col-6 border round bg-tool card card-body tool")
   d3.select("#reporter").attr("class", "g-col-6 border round bg-tool card card-body tool")
 
-  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
-  virusInfo.style.display = "none"
-
 }
 
 // Update the tools in the toolbox based on the current virus
@@ -194,7 +191,12 @@ updateToolbox = (d) => {
   })
 }
 
-init = clearToolbox()
+// Hide virus information tabset
+// Wrap in closure to keep ojs happy
+hide_tabset = {
+  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
+  virusInfo.style.display = "none"
+}
 
 virusToTab = ({
     CHIKV: "tabset-4-1-tab",
