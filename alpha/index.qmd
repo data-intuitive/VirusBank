@@ -77,7 +77,6 @@ html`
   </div>
 </div>
 `
-
 ```
 
 &nbsp;
@@ -123,7 +122,7 @@ html`
 ::::
 
 &nbsp;
-
+ 
 ```{ojs}
 //| output: none
 //| echo: false
@@ -140,15 +139,23 @@ d3 = {
 
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
+// The next section should be made generic
+// TODO
+// --------------------------------------------
+ 
 FA = FileAttachment
-nwk = await FA("/alpha/tree.newick").text();
-annotations = await FA("/alpha/annotations.json").json();
+
+nwk = await FA("/alpha/tree.newick").text()
+
+annotations = await FileAttachment("/alpha/annotations.json").json()
+
 annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
 
-// filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
-// filteredAnnotations = annotations.filter(v => v.name != undefined)
+toolbox = await FileAttachment("/alpha/toolbox.json").json()
 
-toolbox = await FA("/alpha/toolbox.json").json();
+toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
+
+// --------------------------------------------
 
 availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 

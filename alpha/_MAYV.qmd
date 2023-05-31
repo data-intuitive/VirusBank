@@ -54,14 +54,36 @@ There are no approved vaccines or antivirals available at the moment for the pre
 ## Toolbox
 
 ::: {.callout-note}
-To be updated, should be rendered based on the annotations data
+To be updated, should include a better and more complete description.
 :::
 
-- CPE reduction assay (96 well format)
-- Virus yield assay
-- Plaque assay
-- Quantitative reverse-transcriptase PCR (qRT-PCR)
-- Animal models: AG129 mice (Lethal model with neurological symptoms), C57BL/6 mice (footpad arthritis model)   
+<ul id="tools">
+</ul>
+
+```{ojs}
+//| output: none
+//| echo: false
+
+thisVirus = "MAYV"
+
+if (typeof FA === "undefined") {
+    FA = FileAttachment
+
+    nwk = await FA("/alpha/tree.newick").text()
+
+    annotations = await FileAttachment("/alpha/annotations.json").json()
+
+    annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
+
+    toolbox = await FileAttachment("/alpha/toolbox.json").json()
+
+    toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
+}
+
+```
+
+{{< include _thisTool.qmd >}}
+
 
 :::
 
