@@ -1,0 +1,65 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-8}
+VEEV infections cause mainly influenza-like symptoms including fever, headache, myalgia, fatigue, vomiting, nausea. However, minor cases may develop neurological complications i.e. convulsions, confusion, photophobia, and coma.
+:::
+
+::: {.g-col-4}
+{{< var symptoms.fever >}}
+
+{{< var symptoms.joint_pain >}}
+
+{{< var symptoms.rash >}}
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-6}
+VEEV circulates in a sylvatic cycle between animal reservoirs (such as horses) and various mosquitoes. Accidental spillover to humans via the bite of infected mosquitoes occurs leading to outbreaks of infection. Several mosquito vectors are involved in VEEV transmission such as Psorophora and Aedes species.
+:::
+
+::: {.g-col-6}
+![](VEEV-transmission.png)
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+VEEV was first isolated in 1938 from the brain of a horse that died of encephalitis. In 1950, the virus was isolated from human cases in Colombia. The virus is endemic to Central and South America where outbreaks in humans and equids have been reported in at least 12 countries.
+
+The mortality of VEEV in humans is lower than 1%, but neurological symptoms are seen in up to 14% of the infected persons. 
+VEEV has shown the ability to be disseminated via aerosols in laboratory settings has been classified as Select Agents as they may potentially be used as a bio-weapon.
+
+Currently, there is no approved antiviral or vaccine for treatment or prevention of VEEV infections in humans.
+
+Vaccinating equines during an outbreak is considered effective to reduce VEE epidemic. 
+:::
+
+::: {.g-col-6}
+![](VEEV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+::: {.callout-note}
+To be updated, should be rendered based on the annotations data
+:::
+
+To be developed
+
+:::
+

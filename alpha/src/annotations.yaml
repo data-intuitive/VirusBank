@@ -56,4 +56,5 @@
     - tool: pcr
 - id: VEEV
   name: Venezuelan Equine Encephalitis virus
+  show: true
   toolbox: []

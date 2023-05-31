@@ -102,6 +102,12 @@ html`
 
 [open page](/alpha/RRV.qmd)
 
+## Venezuelan Equine Encephalitis virus
+
+{{< include _VEEV.qmd >}}
+
+[open page](/alpha/RRV.qmd)
+
 
 :::
 
@@ -126,10 +132,10 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 FA = FileAttachment
 nwk = await FA("/alpha/tree.newick").text();
 annotations = await FA("/alpha/annotations.json").json();
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox } }) )))
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
 
-filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
-filteredAnnotations = annotations.filter(v => v.name != undefined)
+// filteredAnnotationsMap = Object.fromEntries(Object.entries(annotationsMap).filter(([k,v]) => v.name != undefined));
+// filteredAnnotations = annotations.filter(v => v.name != undefined)
 
 toolbox = await FA("/alpha/toolbox.json").json();
 
@@ -147,18 +153,11 @@ availableTools = (virus_id) =>
         : []
     : []
 
-function renderToolbox(parent, toolbox) {
-
-    toolbox.map(el => {
-        if (el.tool == "model") {
-            parent.append("img").attr("src", "/img/model-copy.png").attr("width", "70px")
-            parent.append("span").text("Animal models")
-            const l = parent.append("ul")
-            el.details.map(m => l.append("li").text(m))
-        }
-    });
-
-}
+// If not tools are available yet, but the virus is important:
+showAnyway = (virus_id) =>
+    (annotationsMap[virus_id] != undefined)
+    ? annotationsMap[virus_id].show
+    : false
 
 // Reset the tools in the Toolbox
 clearToolbox = () => {
@@ -194,14 +193,15 @@ updateToolbox = (d) => {
 // Hide virus information tabset
 // Wrap in closure to keep ojs happy
 hide_tabset = {
-  const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
+  const virusInfo = document.getElementById("tabset-5-1-tab").parentNode.parentNode.parentNode
   virusInfo.style.display = "none"
 }
 
 virusToTab = ({
-    CHIKV: "tabset-4-1-tab",
-    RRV: "tabset-4-2-tab",
-    MAYV: "tabset-4-3-tab"
+    CHIKV: "tabset-5-1-tab",
+    RRV: "tabset-5-2-tab",
+    MAYV: "tabset-5-3-tab",
+    VEEV: "tabset-5-4-tab"
 })
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
@@ -227,7 +227,7 @@ renderedTree = tree                   // class TreeRender
   })
   .style_nodes( (element, data) => {
 
-    const inToolbox = (availableTools(data.data.name).length > 0)
+    const inToolbox = (availableTools(data.data.name).length > 0) || showAnyway(data.data.name)
     const availableInfo = availableVirusInfo(data.data.name) 
 
     // Styling based on available information
@@ -240,7 +240,7 @@ renderedTree = tree                   // class TreeRender
     // Hover functionality - Virus name
     if (availableInfo)
       element
-        .on("mouseover", virus_hover_in(data, inToolbox))
+        .on("mouseover", virus_hover_in(data, availableTools(data.data.name).length > 0))
         .on("mouseout", virus_hover_out)
 
     // Click functionality - Toolbox
@@ -248,7 +248,7 @@ renderedTree = tree                   // class TreeRender
       ? element.on('click', function() {
           clearToolbox();
           // Select the first tab in order to get to the root of the tabset
-          const virusInfo = document.getElementById("tabset-4-1-tab").parentNode.parentNode.parentNode
+          const virusInfo = document.getElementById("tabset-5-1-tab").parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
           // Now get the proper tab
           const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
