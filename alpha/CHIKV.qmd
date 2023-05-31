@@ -3,3 +3,5 @@ title: Chikungunya virus (CHIKV)
 ---
 
 {{< include _CHIKV.qmd >}}
+
+{{< include _ojs_data.qmd >}}
