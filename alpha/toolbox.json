@@ -32,13 +32,11 @@
   {
     "id": "reporter",
     "name": "Reporter viruses",
-    "description": "No description yet",
-    "icon": "/img/reporter-copy.png"
+    "description": "No description yet"
   },
   {
     "id": "model",
     "name": "Animal models",
-    "description": "No description yet",
-    "icon": "/img/model-copy.png"
+    "description": "No description yet"
   }
 ]

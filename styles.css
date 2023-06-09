@@ -62,6 +62,11 @@ svg .branch-tracer {
   stroke-linecap: round;
 }
 
+svg .branch:hover {
+  stroke-width: 0px;
+}
+
+
 svg .internal-node circle {
   fill: black;
   stroke-width:0px;

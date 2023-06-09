@@ -34,7 +34,6 @@ html`
             Viral Toolbox
           </div>
           <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
-            <img class="card-img" src="/img/cpe-copy.png"/>
             <div class="card-img-overlay">
               CPE reduction assay
             </div>
@@ -42,7 +41,6 @@ html`
           <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
-            <img class="card-img" src="/img/plaque-copy.png"/>
             <div class="card-img-overlay">
               Plaque assay
             </div>
@@ -50,13 +48,11 @@ html`
           <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
           <div class="g-col-6 border card bg-tool card-body tool" id="model">
-            <img class="card-img" src="/img/model-copy.png"/>
             <div class="card-img-overlay">
               Animal models
             </div>
           </div>
           <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
-            <img class="card-img" src="/img/reporter.png"/>
             <div class="card-img-overlay">
               Reporter virus
             </div>
