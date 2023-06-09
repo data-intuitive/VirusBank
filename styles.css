@@ -61,6 +61,7 @@ svg .branch-tracer {
   stroke-width: 4px;
   stroke-linecap: round;
 }
+
 svg .branch:hover {
   stroke-width: 0px;
 }
