@@ -28,7 +28,3 @@ format:
       - tree.newick
       - annotations.json
       - toolbox.json
-      - img/model-copy.png
-      - img/reporter.png
-      - img/cpe-copy.png
-      - img/plaque-copy.png
