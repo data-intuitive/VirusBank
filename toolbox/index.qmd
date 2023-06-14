@@ -10,6 +10,43 @@ This section renders the availability of tools per family/virus in a table.
 ```{ojs}
 //| echo: false
 
+html`
+      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
+          <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+            Viral Toolbox
+          </div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
+            <div class="card-img-overlay">
+              CPE reduction assay
+            </div>
+          </div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
+            <div class="card-img-overlay">
+              Plaque assay
+            </div>
+          </div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
+          <div class="g-col-6 border card bg-tool card-body tool" id="model">
+            <div class="card-img-overlay">
+              Animal models
+            </div>
+          </div>
+          <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
+            <div class="card-img-overlay">
+              Reporter virus
+            </div>
+          </div>
+      </div>
+`
+```
+
+
+```{ojs}
+//| echo: false
+
 // Create a denormalized list of tools -> family -> virus
 
 denormalized_list = 
@@ -82,9 +119,6 @@ html`<table class="table table-striped">
 ## Using Tabulator
 
 <style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
-<!-- <style> -->
-<!-- <link href="/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet"> -->
-<!-- </style> -->
 
 ```{ojs}
 //| output: none

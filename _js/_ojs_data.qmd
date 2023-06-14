@@ -22,7 +22,7 @@ annotations = await Promise.all(
   }))
 
 // Load the toolbox
-toolbox = await FileAttachment("/alpha/toolbox.json").json()
+toolbox = await FileAttachment("/toolbox/toolbox.json").json()
 
 // console.log(nwks)
 // console.log(annotations)

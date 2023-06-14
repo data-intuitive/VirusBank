@@ -26,4 +26,4 @@ format:
       - virus.png
       - tree.newick
       - annotations.json
-      - toolbox.json
+      - toolbox/toolbox.json
