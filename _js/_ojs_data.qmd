@@ -1,0 +1,36 @@
+```{ojs}
+//| echo: false
+
+// The families to load
+families = [ "alpha", "beta" ]
+
+
+FA = FileAttachment
+
+// Load all Newick tree file and create a list of objects `family : tree`
+nwks = await Promise.all(
+  families.map(async (family) => { 
+    let tree = await FA("/"+ family + "/tree.newick").text()
+    return ({ [family]: tree });
+  }))
+
+// Load all annotations as a list of objects
+annotations = await Promise.all(
+  families.map(async (family) => { 
+    const _annotations = await FA("/"+ family + "/annotations.json").json()
+    return ({ family: family, info: _annotations });
+  }))
+
+// Load the toolbox
+toolbox = await FileAttachment("/alpha/toolbox.json").json()
+
+// console.log(nwks)
+// console.log(annotations)
+// console.log(toolbox)
+
+
+
+// annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
+
+// toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
+```
