@@ -24,7 +24,7 @@ jobs:
       - name: Assemble alpha/toolbox.json 
         uses: mikefarah/yq@master
         with:
-          cmd: yq -M -o=json '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > alpha/toolbox.json
+          cmd: yq -M -o=json src/toolbox.yaml > toolbox/toolbox.json
 
       - name: Assemble alpha/annotations.json
         uses: mikefarah/yq@master
