@@ -5,6 +5,8 @@ sidebar: false
 
 &nbsp;
 
+[Toolbox](toolbox/index.qmd)
+
 ::: {.grid}
 
 ::: {.card .g-col-4 .p-2 .rounded}

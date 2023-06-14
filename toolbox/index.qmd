@@ -1,0 +1,159 @@
+---
+title: Toolbox
+toc: true
+---
+
+## Table
+
+This section renders the availability of tools per family/virus in a table.
+
+```{ojs}
+//| echo: false
+
+// Create a denormalized list of tools -> family -> virus
+
+denormalized_list = 
+  toolbox 
+    .flatMap(tool => {
+      return annotations.flatMap(family => {
+        return family.info.map( virus => {
+          console.log(virus)
+          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
+            return ({
+              family: family.family,
+              virus: virus.name,
+              tool: tool.name,
+            })
+          }
+        })
+      })
+    })
+  .filter(el => el != undefined)
+
+console.log(denormalized_list)
+
+viewof checkbox = Inputs.checkbox(
+  d3.group(denormalized_list, (d) => d.family),
+  { key: ["alpha"]}
+)
+
+filtered = checkbox.flat()
+
+// viewof selection = Inputs.table(filtered, {
+//   columns: [
+//     "key",
+//     "value"
+//   ],
+//   header: {
+//     id: "ID",
+//     description: "Description"
+//   }
+// })
+```
+
+## Auto-generated using ojs
+
+```{ojs}
+//| output: none
+//| echo: false
+
+<!-- toolsByFamily = d3.group(filtered, d => d.tool, d => d.family) -->
+
+<!-- console.log(toolsByFamily) -->
+
+html`<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Tool</th>
+      <th>Virus Family</th>
+      <th>Virus</th>
+    </tr>
+  </thead>
+  <tbody>${Array.from(filtered, row => html`
+    <tr>
+      <td>${row.tool}</td>
+      <td>${row.family}</td>
+      <td>${row.virus}</td>
+    </tr>`)}</tbody>
+</table>`
+```
+
+## Using Tabulator
+
+<style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
+<!-- <style> -->
+<!-- <link href="/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet"> -->
+<!-- </style> -->
+
+```{ojs}
+//| output: none
+//| echo: false
+
+Tabulator = require("tabulator-tables@5")
+
+viewof t = {
+  const data = denormalized_list;
+  const table = new Tabulator(document.createElement("DIV"), {
+    data,
+    height: 400,
+    layout: "fitColumns",
+    autoColumns: true,
+    autoColumnsDefinitions: (columns) =>
+      columns.map((d) => ({ ...d, editor: true })),
+    editor: true,
+    pagination: "local"
+  });
+
+  table.element.value = data;
+
+  table.on("dataChanged", (data) => {
+    table.element.value = data;
+    table.element.dispatchEvent(new CustomEvent("input"));
+  });
+
+  return table.element;
+}
+
+
+```
+
+## Auto-generated content
+
+This section is auto-generated based on the available information in data files.
+                                                    
+```{ojs}
+//| output: none
+//| echo: false
+
+{
+  const div = html`<div class="my_special_class"></div>`
+  const d = d3.select(div).attr("id", "toolbox")
+  toolbox 
+    .map(tool => {
+      d.append("h2").text(tool.name)
+      d.append("p").text(tool.description)
+      annotations.map(family => {
+
+        d.append("h3").text(family.family)
+        d.append("p").text("This tool is available for the following viruses:")
+        const family_ul = d.append("ul")
+        
+
+        family.info.map( virus => {
+          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
+            family_ul.append("li").text(virus.name + " (" + virus.id + ")")
+          }
+        })
+      })
+    })    
+
+  return div
+}
+```
+
+{{< include /_js/_ojs_data.qmd >}}
+                     
+{{< include /alpha/_ojs_d3.qmd >}}
+

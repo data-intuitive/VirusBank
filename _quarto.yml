@@ -9,7 +9,6 @@ website:
   sidebar:
     contents:
       - index.qmd
-      - auto: generic
 format:
   html:
     title-block-banner: virus.jpg
