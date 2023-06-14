@@ -1,7 +1,7 @@
 [
   {
     "id": "cpe",
-    "name": "CPE reducation assay (96 well format)",
+    "name": "CPE reducation assay",
     "description": "This antiviral assay measures the ability of a tested compound to protect infected cells from virus-induced cytopathic effects (mostly virus-induced cell death). The cell viability can be determined in a colorimetric assay using MTS/PMS method."
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "id": "pcr",
-    "name": "Quantitative reverse-transcriptase PCR (qRT-PCR)",
+    "name": "Quantitative reverse-transcriptase PCR",
     "description": "This technique is used for quantification of genome copies for RNA viruses in samples of interest for e.g. virus stock, clinical samples, compound-treated cells or tissues. First, a targeted region of the viral RNA is transcribed into complementary DNA (cDNA) by reverse transcriptase from total RNA. The cDNA is then used as the template for the quantitative PCR reaction where DNA binding fluorescent dye such as SYBR green or a labelled virus specific probe such as TaqMan® probes is used to detect the DNA amplification and hence enable quantification of the genome copies in the original samples (by including serial dilutions of a standard material with known genome copies in the same run)."
   },
   {

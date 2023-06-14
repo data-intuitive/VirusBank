@@ -1,46 +1,72 @@
----
-title: Toolbox
-toc: true
----
-
-## Table
-
-This section renders the availability of tools per family/virus in a table.
 
 ```{ojs}
 //| echo: false
 
 html`
+  <div class="col-xs-12" style="height:20px;"></div>
+  <div class="container grid">
+    <div class="g-col-8 jumbotron">
+      <h1 class="display-4">Viral Toolbox</h1>
+      <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
+      <p>Please scroll down or click on the tool of interest on the right</p>
+    </div>
+    <div class="g-col-4">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
-          <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
-            Viral Toolbox
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
-            <div class="card-img-overlay">
-              CPE reduction assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
-            <div class="card-img-overlay">
-              Plaque assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="model">
-            <div class="card-img-overlay">
-              Animal models
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
-            <div class="card-img-overlay">
-              Reporter virus
-            </div>
-          </div>
+        ${toolbox.map(tool => 
+          html`
+            <a href="#${tool.id}-section" class="g-col-6 border card bg-tool card-body tool">
+              ${tool.name}
+            </a>
+            
+          `
+        )}
       </div>
+    </div>
+  </div>
 `
+```
+
+```{ojs}
+//| echo: false
+
+html`
+  ${toolbox.map(tool => 
+    html`
+      <h2 id="${tool.id}-section">${tool.name}</h2>
+      <div class="container grid" style="width:100%;">
+        <div class="g-col-8">
+          <p>${tool.description}</p>
+        </div>
+        <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
+          ${tool.name}
+        </div>
+      </div>
+      <div class="col-xs-12" style="height:20px;"></div>
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Virus Family</th>
+            <th>Virus</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${denormalized_list.filter( virus => (virus.tool_id == tool.id)).map(row =>
+            html`
+              <tr>
+                <td><a href="/${row.family}/index.html">${row.family}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.64 7.025h-3.622v-2h7v7h-2v-3.55l-4.914 4.914l-1.414-1.414l4.95-4.95Z"/><path d="M10.982 6.975h-6v12h12v-6h-2v4h-8v-8h4v-2Z"/></g></svg>
+                </a></td>
+                <td><a href="/${row.family}/${row.virus_id}.html">${row.virus}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.64 7.025h-3.622v-2h7v7h-2v-3.55l-4.914 4.914l-1.414-1.414l4.95-4.95Z"/><path d="M10.982 6.975h-6v12h12v-6h-2v4h-8v-8h4v-2Z"/></g></svg>
+                </a></td>
+              </tr>
+            `)}
+        </tbody>
+      </table>
+    `
+  )}
+`
+
 ```
 
 
@@ -48,27 +74,6 @@ html`
 //| echo: false
 
 // Create a denormalized list of tools -> family -> virus
-
-denormalized_list = 
-  toolbox 
-    .flatMap(tool => {
-      return annotations.flatMap(family => {
-        return family.info.map( virus => {
-          console.log(virus)
-          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
-            return ({
-              family: family.family,
-              virus: virus.name,
-              tool: tool.name,
-            })
-          }
-        })
-      })
-    })
-  .filter(el => el != undefined)
-
-console.log(denormalized_list)
 
 viewof checkbox = Inputs.checkbox(
   d3.group(denormalized_list, (d) => d.family),
@@ -126,6 +131,27 @@ html`<table class="table table-striped">
 
 Tabulator = require("tabulator-tables@5")
 
+denormalized_list = 
+  toolbox 
+    .flatMap(tool => {
+      return annotations.flatMap(family => {
+        return family.info.map( virus => {
+          console.log(virus)
+          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
+            return ({
+              family: family.family,
+              virus: virus.name,
+              virus_id: virus.id,
+              tool: tool.name,
+              tool_id: tool.id
+            })
+          }
+        })
+      })
+    })
+  .filter(el => el != undefined)
+
 viewof t = {
   const data = denormalized_list;
   const table = new Tabulator(document.createElement("DIV"), {
@@ -159,7 +185,7 @@ This section is auto-generated based on the available information in data files.
 ```{ojs}
 //| output: none
 //| echo: false
-
+ 
 {
   const div = html`<div class="my_special_class"></div>`
   const d = d3.select(div).attr("id", "toolbox")
