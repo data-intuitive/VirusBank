@@ -17,7 +17,7 @@ html`
 
 <div class="container">
   <div class="grid" style="--bs-gap: 0;">
-    <div id="info-container" class="g-col-md-9 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
+    <div id="info-container" class="g-col-md-8 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
       <div class="grid">
         <div id="name" class="g-col-md-12 bold">
           name
@@ -27,8 +27,8 @@ html`
         </div>
       </div>
     </div>
-    <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
-    <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
+    <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
+    <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
           <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
             Viral Toolbox
