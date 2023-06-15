@@ -1,3 +1,9 @@
+---
+formt:
+  html:
+    anchor-sections: true
+    section-divs: true
+---
 
 <style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
 
