@@ -2,7 +2,7 @@
 //| echo: false
 
 // The families to load
-families = [ "alpha", "beta" ]
+families = [ "alpha" ]
 
 
 FA = FileAttachment
