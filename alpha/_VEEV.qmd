@@ -4,16 +4,14 @@
 
 ::: {.grid}
 
-::: {.g-col-8}
+::: {.g-col-4}
 VEEV infections cause mainly influenza-like symptoms including fever, headache, myalgia, fatigue, vomiting, nausea. However, minor cases may develop neurological complications i.e. convulsions, confusion, photophobia, and coma.
 :::
 
-::: {.g-col-4}
-{{< var symptoms.fever >}}
+::: {.g-col-8}
 
-{{< var symptoms.joint_pain >}}
+![](VEEV disease.png)
 
-{{< var symptoms.rash >}}
 :::
 
 :::
@@ -22,12 +20,14 @@ VEEV infections cause mainly influenza-like symptoms including fever, headache, 
 
 ::: {.grid}
 
-::: {.g-col-6}
+::: {.g-col-4}
 VEEV circulates in a sylvatic cycle between animal reservoirs (such as horses) and various mosquitoes. Accidental spillover to humans via the bite of infected mosquitoes occurs leading to outbreaks of infection. Several mosquito vectors are involved in VEEV transmission such as Psorophora and Aedes species.
 :::
 
-::: {.g-col-6}
-![](VEEV-transmission.png)
+::: {.g-col-8}
+
+![](VEEV transmission.png)
+
 :::
 
 :::

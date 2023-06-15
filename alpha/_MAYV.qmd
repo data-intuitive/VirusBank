@@ -5,16 +5,18 @@
 
 ::: {.grid}
 
-::: {.g-col-8}
-MAYV-induced disease consists of an acute and a chronic phase. Common symptoms during the acute phase are fever, maculopapular rash, headache, dizziness, chills, retro-orbital pain, myalgia, vomiting and diarrhea. More than 50% of the infected patients develop a chronic, long-term disease, characterized by a debilitating arthralgia that can persist for weeks to months.
+::: {.g-col-4}
+
+More than 50% of the infected patients develop a chronic, long-term disease, characterized by a debilitating arthralgia that can persist for weeks to months.
+
+Death from MAYV is rare.
+
 :::
 
-::: {.g-col-4}
-{{< var symptoms.fever >}}
+::: {.g-col-8}
 
-{{< var symptoms.joint_pain >}}
+![](MAYV disease.png)
 
-{{< var symptoms.rash >}}
 :::
 
 :::
@@ -23,12 +25,12 @@ MAYV-induced disease consists of an acute and a chronic phase. Common symptoms d
 
 ::: {.grid}
 
-::: {.g-col-6}
+::: {.g-col-4}
 MAYV circulates in a sylvatic cycle between non-human primates and forest canopy mosquitoes, including Mansonia sp., Psorophora sp. and Haemagogus sp. (mainly Haemagogus janthinomys). Accidental spillover to humans who are working or walking in the forests has been reported. Experimental studies have shown that the anthropophilic Aedes aegypti, Aedes albopictus and Anopheles sp. might be competent vectors of MAYV as well, which could cause a spillover to the urban cycle in the future, resulting in more human cases similar to Chikungunya virus.
 :::
 
-::: {.g-col-6}
-![](MAYV-transmission.png)
+::: {.g-col-8}
+![](MAYV transmission.png)
 :::
 
 :::
@@ -57,21 +59,10 @@ There are no approved vaccines or antivirals available at the moment for the pre
 //| output: none
 //| echo: false
 
-{
-  const thisVirus = "MAYV"
+virus_toolbox("alpha", "MAYV")
 
-  const div = html`<div class="my_special_class"></div>`
-  const d = d3.select(div).attr("id", thisVirus)
-  annotationsMap[thisVirus]
-    .toolbox
-    .map(tool => {
-      d.append("h4").text(toolboxMap[tool.tool].name)
-      d.append("p").text(toolboxMap[tool.tool].description)
-    })
-
-  return div
-}
 ```
+
 
 :::
 

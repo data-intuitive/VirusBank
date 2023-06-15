@@ -4,22 +4,18 @@
 
 ::: {.grid}
 
-::: {.g-col-8}
-Acute disease include fever, joint pain, and sometimes skin rash. 
+::: {.g-col-4}
 
-Several patients also suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks and even up to several years after the acute stage. 
-
-Recent outbreaks of CHIKV have also been associated with neurological manifestations.
+Several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks up to several years after the acute stage. 
 
 Death from chikungunya is rare.
+
 :::
 
-::: {.g-col-4}
-{{< var symptoms.fever >}}
+::: {.g-col-8}
 
-{{< var symptoms.joint_pain >}}
+![](CHIKV disease.png)
 
-{{< var symptoms.rash >}}
 :::
 
 :::
@@ -28,12 +24,14 @@ Death from chikungunya is rare.
 
 ::: {.grid}
 
-::: {.g-col-6}
+::: {.g-col-4}
 CHIKV is maintained in the wild via Slylvatic/rural transmission cycles between an arthropod vector (mainly Aedes mosquitoes ) and animal reservoirs. Human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes. This can be followed by urban cycles of CHIKV transmission i.e. human-mosquito-human transmission.
 :::
 
-::: {.g-col-6}
-![](CHIKV-transmission.png)
+::: {.g-col-8}
+
+![](CHIKV transmission.png)
+
 :::
 
 :::
@@ -57,30 +55,12 @@ There are no approved vaccines or antivirals available at the moment for the pre
 
 ## Toolbox
 
-
 ```{ojs}
 //| output: none
 //| echo: false
 
-import { denormalized_list } from "/toolbox/index.qmd"
+virus_toolbox("alpha", "CHIKV")
 
-html`
-  ${toolbox.map(tool => 
-    html`
-      <h2 id="${tool.id}-section">${tool.name}</h2>
-      <div class="container grid" style="width:100%;">
-        <div class="g-col-8">
-          <p>${tool.description}</p>
-        </div>
-        <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
-          ${tool.name}
-        </div>
-      </div>
-      <div class="col-xs-12" style="height:20px;"></div>
-      </table>
-    `
-  )}
-`
 ```
 
 :::

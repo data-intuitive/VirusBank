@@ -1,7 +1,0 @@
----
-title: Venezuelan Equine Encephalitis virus (VEEV)
----
-
-{{< include _VEEV.qmd >}}
-
-{{< include _ojs_data.qmd >}}

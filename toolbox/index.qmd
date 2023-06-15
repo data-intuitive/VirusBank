@@ -46,7 +46,6 @@ denormalized_list =
     .flatMap(tool => {
       return annotations.flatMap(family => {
         return family.info.map( virus => {
-          console.log(virus)
           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
           if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
             return ({

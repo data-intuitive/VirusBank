@@ -8,7 +8,7 @@ format:
     section-divs: true
 params: na
 ---
- 
+  
 ```{ojs}
 //| output: none
 //| echo: false
@@ -128,6 +128,7 @@ import { d3 } from "./ojs_d3.qmd"
 import { nwk } from "./ojs_data.qmd"
 import { annotationsMap } from "./ojs_data.qmd"
 import { toolbox } from "./ojs_data.qmd"
+import { virus_toolbox } from "./ojs_data.qmd"
 ```
 
 <!-- {{< include _ojs_data.qmd >}} -->
