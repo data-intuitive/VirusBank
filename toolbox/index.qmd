@@ -62,14 +62,39 @@ Tabulator = require("tabulator-tables@5")
 function tool_table(tool_id) {
 
   const data = denormalized_list.filter( virus => (virus.tool_id == tool_id));
-  const table = new Tabulator(document.createElement("DIV"), {
+  const table = new Tabulator(document.createElement("div"), {
     data,
     height: 400,
+    columns: [
+      {
+        title: "Virus Family",
+        field: "family",
+        sorter: "string",
+        formatter:"link",
+        formatterParams: {
+          url: cell => { 
+            const family = cell.getRow()._row.data.family
+            const virus = cell.getRow()._row.data.virus
+            return "/" + family + "/" + "index.html"
+          }
+        }
+      },
+      {
+        title: "Virus",
+        field: "virus",
+        sorter: "string",
+        formatter:"link",
+        formatterParams: {
+          url: cell => { 
+            const family = cell.getRow()._row.data.family
+            const virus = cell.getRow()._row.data.virus_id
+            return "/" + family + "/" + virus + ".html"
+          }
+        }
+      }
+    ],
     layout: "fitColumns",
-    autoColumns: true,
-    autoColumnsDefinitions: (columns) =>
-      columns.map((d) => ({ ...d, editor: true })),
-    editor: true,
+    editor: false,
     pagination: "local"
   });
 
