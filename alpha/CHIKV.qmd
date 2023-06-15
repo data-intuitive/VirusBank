@@ -1,9 +1,14 @@
 ---
-title: Chikungunya virus (CHIKV)
+title:  Chikungunya Virus (${virus})
+params:
+  virus: CHIKV
 ---
+ 
+```{r}
+#| echo: false
+ojs_define(virus = params$virus)
+```
 
 {{< include _CHIKV.qmd >}}
 
-{{< include _ojs_data.qmd >}}
-                     
-{{< include _ojs_d3.qmd >}}
+{{< include ojs_data.qmd >}}

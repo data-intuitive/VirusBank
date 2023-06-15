@@ -6,8 +6,9 @@ format:
     page-layout: full
     anchor-sections: true
     section-divs: true
+params: na
 ---
-
+ 
 ```{ojs}
 //| output: none
 //| echo: false
@@ -30,33 +31,16 @@ html`
     <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
-          <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
-            Viral Toolbox
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
-            <div class="card-img-overlay">
-              CPE reduction assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
-            <div class="card-img-overlay">
-              Plaque assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="model">
-            <div class="card-img-overlay">
-              Animal models
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
-            <div class="card-img-overlay">
-              Reporter virus
-            </div>
-          </div>
+        <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+          Viral Toolbox
+        </div>
+        ${toolbox.map(tool => 
+          html`
+            <a href="/toolbox/index.html#${tool.id}-section" id="${tool.id}" class="g-col-6 border card bg-tool card-body tool">
+              ${tool.name}
+            </a>
+          `
+        )}
       </div>
     </div>
     <div id="legend-container" class="g-col-md-9 g-col-sm-12 text-center mb-2">
@@ -139,11 +123,14 @@ width = 550
 
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
+import { d3 } from "./ojs_d3.qmd"
+
+import { nwk } from "./ojs_data.qmd"
+import { annotationsMap } from "./ojs_data.qmd"
+import { toolbox } from "./ojs_data.qmd"
 ```
 
-{{< include _ojs_d3.qmd >}}
-
-{{< include _ojs_data.qmd >}}
+<!-- {{< include _ojs_data.qmd >}} -->
 
 
 ```{ojs}
