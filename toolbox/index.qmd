@@ -1,4 +1,6 @@
 
+<style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
+
 ```{ojs}
 //| echo: false
 
@@ -54,6 +56,34 @@ denormalized_list =
     })
   .filter(el => el != undefined)
 
+// Use Tabulator for the tables
+Tabulator = require("tabulator-tables@5")
+
+function tool_table(tool_id) {
+
+  const data = denormalized_list.filter( virus => (virus.tool_id == tool_id));
+  const table = new Tabulator(document.createElement("DIV"), {
+    data,
+    height: 400,
+    layout: "fitColumns",
+    autoColumns: true,
+    autoColumnsDefinitions: (columns) =>
+      columns.map((d) => ({ ...d, editor: true })),
+    editor: true,
+    pagination: "local"
+  });
+
+  table.element.value = data;
+
+  table.on("dataChanged", (data) => {
+    table.element.value = data;
+    table.element.dispatchEvent(new CustomEvent("input"));
+  });
+
+  return table.element;
+}
+
+
 html`
   ${toolbox.map(tool => 
     html`
@@ -67,26 +97,7 @@ html`
         </div>
       </div>
       <div class="col-xs-12" style="height:20px;"></div>
-      <table class="table table-striped">
-        <thead class="thead-light">
-          <tr>
-            <th>Virus Family</th>
-            <th>Virus</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${denormalized_list.filter( virus => (virus.tool_id == tool.id)).map(row =>
-            html`
-              <tr>
-                <td><a href="/${row.family}/index.html">${row.family}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.64 7.025h-3.622v-2h7v7h-2v-3.55l-4.914 4.914l-1.414-1.414l4.95-4.95Z"/><path d="M10.982 6.975h-6v12h12v-6h-2v4h-8v-8h4v-2Z"/></g></svg>
-                </a></td>
-                <td><a href="/${row.family}/${row.virus_id}.html">${row.virus}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.64 7.025h-3.622v-2h7v7h-2v-3.55l-4.914 4.914l-1.414-1.414l4.95-4.95Z"/><path d="M10.982 6.975h-6v12h12v-6h-2v4h-8v-8h4v-2Z"/></g></svg>
-                </a></td>
-              </tr>
-            `)}
-        </tbody>
+      ${tool_table(tool.id)}
       </table>
     `
   )}
