@@ -23,17 +23,23 @@ function virus_toolbox(_family, _virus) {
   return html`
     ${toolbox.filter(tool => denormalized_sublist.filter(t => t.tool_id == tool.id).length > 0 ).map(tool => 
       html`
-        <h2 id="${tool.id}-section">${tool.name}</h2>
-        <div class="container grid" style="width:100%;">
-          <div class="g-col-8">
-            <p>${tool.description}</p>
-          </div>
-          <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
-            ${tool.name}
+      <h2 id="${tool.id}-section">${tool.name}</h2>
+      <div class="container grid">
+        <div class="g-col-2 toolbox" style="text-align:center;">
+          <div class="tool-container">
+            <div class="tool-selected" style="text-align:center;padding:70px 0;font-weight:500" >
+              <p>${tool.id}</p>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12" style="height:20px;"></div>
-        </table>
+        <div class="g-col-1"></div>
+        <div class="g-col-7">
+          <p>${tool.description}</p>
+        </div>
+        <div class="g-col-1" style="text-align:center;">
+        </div>
+      </div>
+      <div class="col-xs-12" style="height:30px;"></div>
       `
     )}
   `

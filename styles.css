@@ -46,7 +46,7 @@ svg .branch {
   stroke-width: 6px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  animation: draw-stroke 2s linear forwards;
+  animation: draw-stroke 6s linear forwards;
 }
 
 @keyframes draw-stroke {
@@ -74,8 +74,9 @@ svg .internal-node circle {
 
 /* Toolbox */
 .tool {
-  display:inline-block;
-  height:90px;
+  /* display:inline-block;
+  height:90px; */
+  color: white;
   opacity:40%;
 }
 
@@ -95,6 +96,7 @@ svg .internal-node circle {
   display:inline-block;
   height:90px;
   opacity:100%;
+  color: white;
 }
 
 .tool-header {
@@ -103,10 +105,8 @@ svg .internal-node circle {
 }
 
 .bg-tool {
-  background: radial-gradient(ellipse at 50% 30%, rgb(84, 130, 166, .3), rgb(84, 130, 166, .8)) !important; /*#F7F3FA, #B8B5BA) !important; */
-  color: black;
+  background-color: #111F42;
   border: none !important;
-  border-radius: 10px;
 }
 
 .card-img {
@@ -136,3 +136,33 @@ svg .internal-node circle {
   background-color: white;
 }
 
+/* Attempt with hexagons */
+.toolbox {
+  display:flex;
+  --s: 140px;  /* size  */
+  --m: 4px;    /* margin */
+  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
+}
+
+.tool-container {
+  font-size: 0; /* disable white space between inline block element */
+}
+
+.tool-container div {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+  background-color: #111F42;
+}
+
+.tool-container::before {
+  content: "";
+  width: calc(var(--s) / 2 + var(--m));
+  float: left;
+  height: 120%; 
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+}

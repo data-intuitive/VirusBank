@@ -6,7 +6,6 @@ format:
     page-layout: full
     anchor-sections: true
     section-divs: true
-params: na
 ---
 
 ```{ojs}
@@ -21,37 +20,6 @@ import { toolbox } from "./ojs_data.qmd"
 import { virus_toolbox } from "./ojs_data.qmd"
 ````
  
-<style>
-.hex-main {
-  display:flex;
-  --s: 100px;  /* size  */
-  --m: 4px;    /* margin */
-  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
-}
-
-.hex-container {
-  font-size: 0; /* disable white space between inline block element */
-}
-
-.hex-container div {
-  width: var(--s);
-  margin: var(--m);
-  height: calc(var(--s) * 1.1547);
-  display: inline-block;
-  font-size:initial;
-  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
-}
-
-.hex-container::before {
-  content: "";
-  width: calc(var(--s) / 2 + var(--m));
-  float: left;
-  height: 120%; 
-  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
-}
-</style>
-
 ```{ojs}
 //| output: none
 //| echo: false
@@ -71,11 +39,17 @@ html`
         </div>
       </div>
     </div>
-    <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
+    <div id="tree-container" class="tree-container g-col-md-7 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
-        <div id="toolbox-contents" class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+        <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
           Viral Toolbox
+        </div>
+      </div>
+      <div class="g-col-12 container">
+        <div class="toolbox">
+            <div id="toolbox-contents" class="tool-container">
+            </div>
         </div>
       </div>
     </div>
@@ -134,21 +108,21 @@ showAnyway = (virus_id) =>
 
 // Initialize the toolbox when the data is loaded
 init_toolbox =
-  toolbox.map(tool => 
-    d3.select("#toolbox-contents").node().parentNode.append(
+  toolbox.map(tool =>
+    d3.select("#toolbox-contents").node().append(
       html`
-        <a href="/toolbox/index.html#${tool.id}-section" id="${tool.id}" class="g-col-6 border card bg-tool card-body tool">
-          ${tool.name}
-        </a>
+      <div id="${tool.id}" class="tool" style="text-align:center;padding:70px 0;font-weight:500" >
+          <p>${tool.id}</p>
+        </div>
       `
     )
   )
 
 // Reset the tools in the Toolbox
 clearToolbox = () => {
-  toolbox.map(tool => 
-    d3.select("#" + tool.id).attr("class", "g-col-6 border round bg-tool card card-body tool")
-  )
+  toolbox.map(tool => {
+    d3.select("#" + tool.id).attr("class", "tool")
+  })
 }
 
 // Update the tools in the toolbox based on the current virus
@@ -159,7 +133,7 @@ updateToolbox = (d) => {
   toolbox
     .filter(tool => this_toolbox.includes(tool.id))
     .map(tool =>
-      d3.select("#" + tool.id).attr("class", "g-col-6 border card card-body bg-tool tool-selected")
+      d3.select("#" + tool.id).attr("class", "bg-tool tool-selected")
     )
 }
 

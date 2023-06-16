@@ -1,6 +1,7 @@
 ---
-formt:
+format:
   html:
+    page-layout: full
     anchor-sections: true
     section-divs: true
 ---
@@ -12,26 +13,29 @@ formt:
 
 html`
   <div class="col-xs-12" style="height:20px;"></div>
-  <div class="container grid">
-    <div class="g-col-8 jumbotron">
+  <div class="container grid" style="--bs-gap: 0;">
+    <div class="g-col-md-8 jumbotron">
       <h1 class="display-4">Viral Toolbox</h1>
       <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
       <p>Please scroll down or click on the tool of interest on the right</p>
     </div>
-    <div class="g-col-4">
-      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
-        ${toolbox.map(tool => 
-          html`
-            <a href="#${tool.id}-section" class="g-col-6 border card bg-tool card-body tool">
-              ${tool.name}
-            </a>
-            
-          `
-        )}
+    <div class="g-col-md-4">
+      <div class="g-col-12 container">
+        <div class="toolbox">
+            <div id="toolbox-contents" class="tool-container">
+              ${toolbox.map(tool => 
+                html`
+                  <div class="tool" style="text-align:center;padding:70px 0;font-weight:500" >
+                    <p>${tool.id}</p>
+                  </div>
+                `
+              )}
+            </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-12" style="height:20px;"></div>
+  <div class="col-xs-12" style="height:40px;"></div>
 `
 ```
 
@@ -118,17 +122,24 @@ html`
   ${toolbox.map(tool => 
     html`
       <h2 id="${tool.id}-section">${tool.name}</h2>
-      <div class="container grid" style="width:100%;">
-        <div class="g-col-8">
-          <p>${tool.description}</p>
+      <div class="container grid">
+        <div class="g-col-2 toolbox" style="text-align:center;">
+          <div class="tool-container">
+            <div class="tool-selected" style="text-align:center;padding:70px 0;font-weight:500" >
+              <p>${tool.id}</p>
+            </div>
+          </div>
         </div>
-        <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
-          ${tool.name}
+        <div class="g-col-1"></div>
+        <div class="g-col-7">
+          <p>${tool.description}</p>
+          <div class="col-xs-12" style="height:30px;"></div>
+          ${tool_table(tool.id)}
+        </div>
+        <div class="g-col-1" style="text-align:center;">
         </div>
       </div>
-      <div class="col-xs-12" style="height:20px;"></div>
-      ${tool_table(tool.id)}
-      </table>
+      <div class="col-xs-12" style="height:30px;"></div>
     `
   )}
 `
