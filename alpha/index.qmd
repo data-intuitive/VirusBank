@@ -134,47 +134,33 @@ showAnyway = (virus_id) =>
 
 // Initialize the toolbox when the data is loaded
 init_toolbox =
-          toolbox.map(tool => 
-            d3.select("#toolbox-contents").node().parentNode.append(
-              html`
-                <a href="/toolbox/index.html#${tool.id}-section" id="${tool.id}" class="g-col-6 border card bg-tool card-body tool">
-                  ${tool.name}
-                </a>
-              `
-            )
-          )
+  toolbox.map(tool => 
+    d3.select("#toolbox-contents").node().parentNode.append(
+      html`
+        <a href="/toolbox/index.html#${tool.id}-section" id="${tool.id}" class="g-col-6 border card bg-tool card-body tool">
+          ${tool.name}
+        </a>
+      `
+    )
+  )
 
 // Reset the tools in the Toolbox
 clearToolbox = () => {
-
-  // TODO: make dynamic
-  d3.select("#cpe").attr("class",      "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#model").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#yield").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#reverse").attr("class",  "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#pcr").attr("class",      "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#plaque").attr("class",   "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#delay").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#reporter").attr("class", "g-col-6 border round bg-tool card card-body tool")
-
+  toolbox.map(tool => 
+    d3.select("#" + tool.id).attr("class", "g-col-6 border round bg-tool card card-body tool")
+  )
 }
 
 // Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
   
-  const toolbox = availableTools(d.data.name)
+  const this_toolbox = availableTools(d.data.name).map(t => t.tool)
 
-  // TODO: make dynamic
-  toolbox.map(el => {
-    if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "yield") d3.select("#yield").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "reverse") d3.select("#reverse").attr("class",   "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "pcr") d3.select("#pcr").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "plaque") d3.select("#plaque").attr("class",     "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "delay") d3.select("#delay").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body bg-tool tool-selected")
-  })
+  toolbox
+    .filter(tool => this_toolbox.includes(tool.id))
+    .map(tool =>
+      d3.select("#" + tool.id).attr("class", "g-col-6 border card card-body bg-tool tool-selected")
+    )
 }
 
 tabsetAnchor = 'tabset-7-1-tab'
