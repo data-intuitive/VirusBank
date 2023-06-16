@@ -8,6 +8,18 @@ format:
     section-divs: true
 params: na
 ---
+
+```{ojs}
+//| output: none
+//| echo: false
+
+import { d3 } from "./ojs_d3.qmd"
+
+import { nwk } from "./ojs_data.qmd"
+import { annotationsMap } from "./ojs_data.qmd"
+import { toolbox } from "./ojs_data.qmd"
+import { virus_toolbox } from "./ojs_data.qmd"
+````
   
 ```{ojs}
 //| output: none
@@ -56,62 +68,6 @@ html`
 </div>
 `
 ```
-
-&nbsp;
-
-:::: {.panel-tabset}
-
-## Chikungunya virus
-
-{{< include _CHIKV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/CHIKV.qmd) / [reload family page](/alpha/)
-:::
-
-## River Ross virus
-
-{{< include _RRV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/RRV.qmd) / [reload family page](/alpha/)
-:::
-
-## Mayaro virus
-
-{{< include _MAYV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/MAYV.qmd) / [reload family page](/alpha/)
-:::
-
-## Venezuelan Equine Encephalitis virus
-
-{{< include _VEEV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/VEEV.qmd) / [reload family page](/alpha/)
-:::
-
-## Sindbis virus
-
-{{< include _SINV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/SINV.qmd) / [reload family page](/alpha/)
-:::
-
-## Semliki Forest virus
-
-{{< include _SFV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open page](/alpha/SFV.qmd) / [reload family page](/alpha/)
-:::
-
-::::
-
-&nbsp;
  
 ```{ojs}
 //| output: none
@@ -123,12 +79,6 @@ width = 550
 
 phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
-import { d3 } from "./ojs_d3.qmd"
-
-import { nwk } from "./ojs_data.qmd"
-import { annotationsMap } from "./ojs_data.qmd"
-import { toolbox } from "./ojs_data.qmd"
-import { virus_toolbox } from "./ojs_data.qmd"
 ```
 
 <!-- {{< include _ojs_data.qmd >}} -->
@@ -161,6 +111,7 @@ showAnyway = (virus_id) =>
 // Reset the tools in the Toolbox
 clearToolbox = () => {
 
+  // TODO: make dynamic
   d3.select("#cpe").attr("class",      "g-col-6 border round bg-tool card card-body tool")
   d3.select("#model").attr("class",    "g-col-6 border round bg-tool card card-body tool")
   d3.select("#yield").attr("class",    "g-col-6 border round bg-tool card card-body tool")
@@ -177,6 +128,7 @@ updateToolbox = (d) => {
   
   const toolbox = availableTools(d.data.name)
 
+  // TODO: make dynamic
   toolbox.map(el => {
     if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
     if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
@@ -283,3 +235,57 @@ virus_hover_out = () => {
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
+
+&nbsp;
+
+:::: {.panel-tabset}
+
+## Chikungunya virus
+
+{{< include _CHIKV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/CHIKV.qmd) / [reload family page](/alpha/)
+:::
+
+## River Ross virus
+
+{{< include _RRV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/RRV.qmd) / [reload family page](/alpha/)
+:::
+
+## Mayaro virus
+
+{{< include _MAYV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/MAYV.qmd) / [reload family page](/alpha/)
+:::
+
+## Venezuelan Equine Encephalitis virus
+
+{{< include _VEEV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/VEEV.qmd) / [reload family page](/alpha/)
+:::
+
+## Sindbis virus
+
+{{< include _SINV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/SINV.qmd) / [reload family page](/alpha/)
+:::
+
+## Semliki Forest virus
+
+{{< include _SFV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open page](/alpha/SFV.qmd) / [reload family page](/alpha/)
+:::
+
+::::
