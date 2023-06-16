@@ -1,0 +1,42 @@
+```{ojs}
+//| echo: false
+
+FA = FileAttachment
+
+nwk = await FA("/alpha/tree.newick").text()
+
+annotations = await FileAttachment("/alpha/annotations.json").json()
+
+annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
+
+toolbox = await FileAttachment("/toolbox/toolbox.json").json()
+
+toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
+
+import { denormalized_list } from "/toolbox/index.qmd"
+
+function virus_toolbox(_family, _virus) {
+
+  const denormalized_sublist =
+    denormalized_list.filter(row => row.virus_id == _virus && row.family == _family)
+ 
+  return html`
+    ${toolbox.filter(tool => denormalized_sublist.filter(t => t.tool_id == tool.id).length > 0 ).map(tool => 
+      html`
+        <h2 id="${tool.id}-section">${tool.name}</h2>
+        <div class="container grid" style="width:100%;">
+          <div class="g-col-8">
+            <p>${tool.description}</p>
+          </div>
+          <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
+            ${tool.name}
+          </div>
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        </table>
+      `
+    )}
+  `
+}
+
+```
