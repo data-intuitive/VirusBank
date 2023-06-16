@@ -4,16 +4,16 @@
 
 ::: {.grid}
 
-::: {.g-col-8}
+::: {.g-col-4}
+
 Although many SINV infections are asymptomatic, SINV can result in a febrile illness associated with maculopapular rash and joint pain.
+
 :::
 
-::: {.g-col-4}
-{{< var symptoms.fever >}}
+::: {.g-col-8}
 
-{{< var symptoms.joint_pain >}}
+![](SINV disease.png)
 
-{{< var symptoms.rash >}}
 :::
 
 :::
@@ -22,12 +22,14 @@ Although many SINV infections are asymptomatic, SINV can result in a febrile ill
 
 ::: {.grid}
 
-::: {.g-col-6}
+::: {.g-col-4}
 SINV is transmitted by Culex mosquitoes among different species of birds. Sporadic spillover to humans occurs through bite of infected Culex and occasionally Aedes mosquitoes.
 :::
 
-::: {.g-col-6}
-![](SINV-transmission.png)
+::: {.g-col-8}
+
+![](SINV transmission.png)
+
 :::
 
 :::
@@ -56,20 +58,8 @@ There are no approved vaccines or antivirals available at the moment for the pre
 //| output: none
 //| echo: false
 
-{
-  const thisVirus = "SINV"
+virus_toolbox("alpha", "SINV")
 
-  const div = html`<div class="my_special_class"></div>`
-  const d = d3.select(div).attr("id", thisVirus)
-  annotationsMap[thisVirus]
-    .toolbox
-    .map(tool => {
-      d.append("h4").text(toolboxMap[tool.tool].name)
-      d.append("p").text(toolboxMap[tool.tool].description)
-    })
-
-  return div
-}
 ```
 
 :::

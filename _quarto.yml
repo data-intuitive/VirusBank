@@ -9,7 +9,6 @@ website:
   sidebar:
     contents:
       - index.qmd
-      - auto: generic
 format:
   html:
     title-block-banner: virus.jpg
@@ -27,4 +26,4 @@ format:
       - virus.png
       - tree.newick
       - annotations.json
-      - toolbox.json
+      - toolbox/toolbox.json

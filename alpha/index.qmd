@@ -6,7 +6,51 @@ format:
     page-layout: full
     anchor-sections: true
     section-divs: true
+params: na
 ---
+
+```{ojs}
+//| output: none
+//| echo: false
+
+import { d3 } from "./ojs_d3.qmd"
+
+import { nwk } from "./ojs_data.qmd"
+import { annotationsMap } from "./ojs_data.qmd"
+import { toolbox } from "./ojs_data.qmd"
+import { virus_toolbox } from "./ojs_data.qmd"
+````
+ 
+<style>
+.hex-main {
+  display:flex;
+  --s: 100px;  /* size  */
+  --m: 4px;    /* margin */
+  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
+}
+
+.hex-container {
+  font-size: 0; /* disable white space between inline block element */
+}
+
+.hex-container div {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+}
+
+.hex-container::before {
+  content: "";
+  width: calc(var(--s) / 2 + var(--m));
+  float: left;
+  height: 120%; 
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+}
+</style>
 
 ```{ojs}
 //| output: none
@@ -17,7 +61,7 @@ html`
 
 <div class="container">
   <div class="grid" style="--bs-gap: 0;">
-    <div id="info-container" class="g-col-md-9 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
+    <div id="info-container" class="g-col-md-8 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
       <div class="grid">
         <div id="name" class="g-col-md-12 bold">
           name
@@ -27,36 +71,12 @@ html`
         </div>
       </div>
     </div>
-    <div id="tree-container" class="tree-container g-col-md-9 g-col-sm-12 text-center rounded"></div>
-    <div id="annotation-container" class="g-col-md-3 g-col-sm-12 no-gutter">
+    <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
+    <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
-          <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
-            Viral Toolbox
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="cpe">
-            <div class="card-img-overlay">
-              CPE reduction assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="yield">Virus yield assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="delay">Delay of treatment assay</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="plaque">
-            <div class="card-img-overlay">
-              Plaque assay
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="pcr">qRT-PCR</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="reverse">Reverse genetics system</div>
-          <div class="g-col-6 border card bg-tool card-body tool" id="model">
-            <div class="card-img-overlay">
-              Animal models
-            </div>
-          </div>
-          <div class="g-col-6 border card bg-tool card-body tool"  id="reporter">
-            <div class="card-img-overlay">
-              Reporter virus
-            </div>
-          </div>
+        <div id="toolbox-contents" class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+          Viral Toolbox
+        </div>
       </div>
     </div>
     <div id="legend-container" class="g-col-md-9 g-col-sm-12 text-center mb-2">
@@ -72,62 +92,6 @@ html`
 </div>
 `
 ```
-
-&nbsp;
-
-:::: {.panel-tabset}
-
-## Chikungunya virus
-
-{{< include _CHIKV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/CHIKV.qmd) / [reload family page](/alpha/)
-:::
-
-## River Ross virus
-
-{{< include _RRV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/RRV.qmd) / [reload family page](/alpha/)
-:::
-
-## Mayaro virus
-
-{{< include _MAYV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/MAYV.qmd) / [reload family page](/alpha/)
-:::
-
-## Venezuelan Equine Encephalitis virus
-
-{{< include _VEEV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/VEEV.qmd) / [reload family page](/alpha/)
-:::
-
-## Sindbis virus
-
-{{< include _SINV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open virus page](/alpha/SINV.qmd) / [reload family page](/alpha/)
-:::
-
-## Semliki Forest virus
-
-{{< include _SFV.qmd >}}
-
-:::{ style="text-align:center;font-weight:500" }
-[open page](/alpha/SFV.qmd) / [reload family page](/alpha/)
-:::
-
-::::
-
-&nbsp;
  
 ```{ojs}
 //| output: none
@@ -141,9 +105,7 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 ```
 
-{{< include _ojs_d3.qmd >}}
-
-{{< include _ojs_data.qmd >}}
+<!-- {{< include _ojs_data.qmd >}} -->
 
 
 ```{ojs}
@@ -170,35 +132,35 @@ showAnyway = (virus_id) =>
     ? annotationsMap[virus_id].show
     : false
 
+// Initialize the toolbox when the data is loaded
+init_toolbox =
+  toolbox.map(tool => 
+    d3.select("#toolbox-contents").node().parentNode.append(
+      html`
+        <a href="/toolbox/index.html#${tool.id}-section" id="${tool.id}" class="g-col-6 border card bg-tool card-body tool">
+          ${tool.name}
+        </a>
+      `
+    )
+  )
+
 // Reset the tools in the Toolbox
 clearToolbox = () => {
-
-  d3.select("#cpe").attr("class",      "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#model").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#yield").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#reverse").attr("class",  "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#pcr").attr("class",      "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#plaque").attr("class",   "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#delay").attr("class",    "g-col-6 border round bg-tool card card-body tool")
-  d3.select("#reporter").attr("class", "g-col-6 border round bg-tool card card-body tool")
-
+  toolbox.map(tool => 
+    d3.select("#" + tool.id).attr("class", "g-col-6 border round bg-tool card card-body tool")
+  )
 }
 
 // Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
   
-  const toolbox = availableTools(d.data.name)
+  const this_toolbox = availableTools(d.data.name).map(t => t.tool)
 
-  toolbox.map(el => {
-    if (el.tool == "cpe") d3.select("#cpe").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "model") d3.select("#model").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "yield") d3.select("#yield").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "reverse") d3.select("#reverse").attr("class",   "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "pcr") d3.select("#pcr").attr("class",           "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "plaque") d3.select("#plaque").attr("class",     "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "delay") d3.select("#delay").attr("class",       "g-col-6 border card card-body bg-tool tool-selected")
-    if (el.tool == "reporter") d3.select("#reporter").attr("class", "g-col-6 border card card-body bg-tool tool-selected")
-  })
+  toolbox
+    .filter(tool => this_toolbox.includes(tool.id))
+    .map(tool =>
+      d3.select("#" + tool.id).attr("class", "g-col-6 border card card-body bg-tool tool-selected")
+    )
 }
 
 tabsetAnchor = 'tabset-7-1-tab'
@@ -295,3 +257,57 @@ virus_hover_out = () => {
 tmp = d3.select("#tree-container").node().appendChild(renderedTree.svg.node())
 
 ```
+
+&nbsp;
+
+:::: {.panel-tabset}
+
+## Chikungunya virus
+
+{{< include _CHIKV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/CHIKV.qmd) / [reload family page](/alpha/)
+:::
+
+## River Ross virus
+
+{{< include _RRV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/RRV.qmd) / [reload family page](/alpha/)
+:::
+
+## Mayaro virus
+
+{{< include _MAYV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/MAYV.qmd) / [reload family page](/alpha/)
+:::
+
+## Venezuelan Equine Encephalitis virus
+
+{{< include _VEEV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/VEEV.qmd) / [reload family page](/alpha/)
+:::
+
+## Sindbis virus
+
+{{< include _SINV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alpha/SINV.qmd) / [reload family page](/alpha/)
+:::
+
+## Semliki Forest virus
+
+{{< include _SFV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open page](/alpha/SFV.qmd) / [reload family page](/alpha/)
+:::
+
+::::

@@ -1,0 +1,139 @@
+---
+formt:
+  html:
+    anchor-sections: true
+    section-divs: true
+---
+
+<style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
+
+```{ojs}
+//| echo: false
+
+html`
+  <div class="col-xs-12" style="height:20px;"></div>
+  <div class="container grid">
+    <div class="g-col-8 jumbotron">
+      <h1 class="display-4">Viral Toolbox</h1>
+      <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
+      <p>Please scroll down or click on the tool of interest on the right</p>
+    </div>
+    <div class="g-col-4">
+      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
+        ${toolbox.map(tool => 
+          html`
+            <a href="#${tool.id}-section" class="g-col-6 border card bg-tool card-body tool">
+              ${tool.name}
+            </a>
+            
+          `
+        )}
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12" style="height:20px;"></div>
+`
+```
+
+- - -
+
+```{ojs}
+//| echo: false
+
+// Create a denormalized list of tools -> family -> virus
+denormalized_list = 
+  toolbox 
+    .flatMap(tool => {
+      return annotations.flatMap(family => {
+        return family.info.map( virus => {
+          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
+            return ({
+              family: family.family,
+              virus: virus.name,
+              virus_id: virus.id,
+              tool: tool.name,
+              tool_id: tool.id
+            })
+          }
+        })
+      })
+    })
+  .filter(el => el != undefined)
+
+// Use Tabulator for the tables
+Tabulator = require("tabulator-tables@5")
+
+function tool_table(tool_id) {
+
+  const data = denormalized_list.filter( virus => (virus.tool_id == tool_id));
+  const table = new Tabulator(document.createElement("div"), {
+    data,
+    height: 400,
+    columns: [
+      {
+        title: "Virus Family",
+        field: "family",
+        sorter: "string",
+        formatter:"link",
+        formatterParams: {
+          url: cell => { 
+            const family = cell.getRow()._row.data.family
+            const virus = cell.getRow()._row.data.virus
+            return "/" + family + "/" + "index.html"
+          }
+        }
+      },
+      {
+        title: "Virus",
+        field: "virus",
+        sorter: "string",
+        formatter:"link",
+        formatterParams: {
+          url: cell => { 
+            const family = cell.getRow()._row.data.family
+            const virus = cell.getRow()._row.data.virus_id
+            return "/" + family + "/" + virus + ".html"
+          }
+        }
+      }
+    ],
+    layout: "fitColumns",
+    editor: false,
+    pagination: "local"
+  });
+
+  table.element.value = data;
+
+  table.on("dataChanged", (data) => {
+    table.element.value = data;
+    table.element.dispatchEvent(new CustomEvent("input"));
+  });
+
+  return table.element;
+}
+
+
+html`
+  ${toolbox.map(tool => 
+    html`
+      <h2 id="${tool.id}-section">${tool.name}</h2>
+      <div class="container grid" style="width:100%;">
+        <div class="g-col-8">
+          <p>${tool.description}</p>
+        </div>
+        <div align="center" class="g-col-4 border card bg-tool card-body tool opacity-100" id="${tool.id}">
+          ${tool.name}
+        </div>
+      </div>
+      <div class="col-xs-12" style="height:20px;"></div>
+      ${tool_table(tool.id)}
+      </table>
+    `
+  )}
+`
+
+```
+
+{{< include /_js/_ojs_data.qmd >}}
+                     
