@@ -5,11 +5,30 @@ sidebar: false
 
 &nbsp;
 
-[Toolbox](toolbox/index.qmd)
+<!-- - - - -->
+
+<!-- :::{ .g-col-md-8 .jumbotron } -->
+<!-- ::::{ .display-1} -->
+<!-- VirusBank -->
+<!-- :::: -->
+<!-- ::::{ .display-4} -->
+<!-- Toolbox and virus info -->
+<!-- :::: -->
+<!-- ::: -->
+
+<!-- - - - -->
+
+## Toolbox
+
+Please click here for information about the toolbox: [Toolbox](toolbox/index.qmd)
+
+## Virus info
+
+Click on the family in the table for more information.
 
 ::: {.grid}
 
-::: {.card .g-col-4 .p-2 .rounded}
+::: {.card .g-col-4 .p-0 .rounded}
 ::: {.card-img-top}
 [![](alpha/virus.jpg)](alpha/index.qmd)
 :::
