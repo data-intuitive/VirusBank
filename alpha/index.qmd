@@ -130,6 +130,8 @@ updateToolbox = (d) => {
   
   const this_toolbox = availableTools(d.data.name).map(t => t.tool)
 
+  d3.select("#virus").text(annotationsMap[d.data.name].name)
+
   toolbox
     .filter(tool => this_toolbox.includes(tool.id))
     .map(tool =>
@@ -200,9 +202,10 @@ renderedTree = tree                   // class TreeRender
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
-          // Now get the proper tab
+          // Now get the proper tab and open it
           const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
           thisVirusInfo.click();
+          // Render the toolbox for this virus
           updateToolbox(data);
         })
       : element.on('click', function() {
@@ -223,6 +226,7 @@ virus_hover_in = (data, is_available) => () => {
   // ... then show the content
   d3.select("#info-container").attr("style", "visibility:visible;")
 }
+
 virus_hover_out = () => {
   d3.select("#info-container").attr("style", "visibility:hidden;")
 }
