@@ -27,8 +27,8 @@ function virus_toolbox(_family, _virus) {
       <div class="container grid">
         <div class="g-col-2 toolbox" style="text-align:center;">
           <div class="tool-container">
-            <div class="tool-selected" style="text-align:center;padding:70px 0;font-weight:500" >
-              <p>${tool.id}</p>
+            <div class="tool-selected">
+              <img class="tool-icon" src="${tool.icon}" />
             </div>
           </div>
         </div>
