@@ -73,6 +73,27 @@ svg .internal-node circle {
 }
 
 /* Toolbox */
+
+/* tool-wrapper contains tool and tooltip */
+.tool-wrapper {
+  display: inline-block;
+}
+
+.tool-tooltip-text {
+  display: none;
+  position: absolute;
+  text-align: center;
+  font-weight: 500;
+  padding: 70px 10px;
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  font-size:initial;
+  color: white;
+  z-index: 2;
+
+}
+
 .tool {
   background: linear-gradient(to right top, #0F1B37, #142552); 
   color: white;
@@ -81,6 +102,20 @@ svg .internal-node circle {
   padding: 40px 0;
   font-weight:500;
   animation: fadeOut 1s linear forwards;
+  vertical-align: middle;
+}
+
+.tool-wrapper:hover .tool-tooltip-text {
+  display: inline
+}
+
+.tool-wrapper:hover .tool-icon {
+  opacity: 20%;
+}
+
+.tool .tool-icon {
+  height: 100%;
+  vertical-align: middle;
 }
 
 @keyframes fadeOut {
@@ -89,24 +124,21 @@ svg .internal-node circle {
 }
 
 .tool-selected {
-  background: linear-gradient(to right top, #0F1B37, #142552); 
-  height:90px;
   opacity:100%;
-  color: white;
-  text-align:center;
-  padding: 40px 0;
-  font-weight:500;
   animation: fadeIn 1s linear forwards;
+}
+
+.tool-wrapper:hover .tool-tooltip-text {
+  display: inline
+}
+
+.tool-wrapper:hover .tool-icon {
+  opacity: 20%;
 }
 
 @keyframes fadeIn {
   0% { opacity: 40%; }
   100% { visibility: 100%; }
-}
-
-.tool-icon {
-  height: 100%;
-  vertical-align: middle;
 }
 
 .tool-header {
@@ -128,29 +160,6 @@ svg .internal-node circle {
   background-color: white;
 }
 
-/* Tooltips toolbox */
-.tool-tooltip {
-  position: relative;
-}
-
-.tool-tooltip-text {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-.tool-tooltip:hover .tool-tooltip-text {
-  visibility: visible;
-}
-
 /* Toolbox */
 
 /* Hexagons nicely layed out in a containing div */
@@ -166,7 +175,7 @@ svg .internal-node circle {
   font-size: 0; /* disable white space between inline block element */
 }
 
-.tool-container div {
+.tool-container div .tool {
   width: var(--s);
   margin: var(--m);
   height: calc(var(--s) * 1.1547);
@@ -183,14 +192,3 @@ svg .internal-node circle {
   height: 120%; 
   shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
-
-.tb-one {
-  display: inline;
-  height: 40px;
-}
-
-.tb-two {
-  display: inline;
-  height: 40px;
-}
-

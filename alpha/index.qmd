@@ -88,11 +88,6 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
 
-<!-- clearPopup = () => { -->
-<!--   const ct = d3.select('#annotation-container') -->
-<!--   ct.selectAll("*").remove() -->
-<!-- } -->
-
 availableTools = (virus_id) =>
     (annotationsMap[virus_id] != undefined)
     ? ( annotationsMap[virus_id].toolbox != undefined )
@@ -111,9 +106,14 @@ init_toolbox =
   toolbox.map(tool =>
     d3.select("#toolbox-contents").node().append(
       html`
-        <div id="${tool.id}" class="tool">
-          <img class="tool-icon" src="${tool.icon}" />
-        </div>
+        <a href="/toolbox/index.html#${tool.id}-section">
+          <div class="tool-wrapper">
+            <div class="tool-tooltip-text">${tool.name}</div>
+            <div id="${tool.id}" class="tool">
+              <img class="tool-icon" src="${tool.icon}"/>
+            </div>
+          </div>
+        </a>
       `
     )
   )
@@ -133,7 +133,7 @@ updateToolbox = (d) => {
   toolbox
     .filter(tool => this_toolbox.includes(tool.id))
     .map(tool =>
-      d3.select("#" + tool.id).attr("class", "bg-tool tool-selected")
+      d3.select("#" + tool.id).attr("class", "tool tool-selected")
     )
 }
 
