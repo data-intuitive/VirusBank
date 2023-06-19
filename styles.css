@@ -74,52 +74,43 @@ svg .internal-node circle {
 
 /* Toolbox */
 .tool {
-  /* display:inline-block;
-  height:90px; */
+  background: linear-gradient(to right top, #0F1B37, #142552); 
   color: white;
   opacity:40%;
+  text-align:center;
+  padding:50px 0;
+  font-weight:500;
+  animation: fadeOut 1s linear forwards;
 }
 
-/* fade in toolbox */
-/*
-.card {
-  animation: fadeIn 2s linear forwards;
+@keyframes fadeOut {
+  0% { opacity: 100%; }
+  100% { visibility: 40%; }
 }
-
-@keyframes fadeIn {
-  0% { opacity: 0%; }
-  100% { visibility: 100%; }
-}
-*/
 
 .tool-selected {
-  display:inline-block;
+  background: linear-gradient(to right top, #0F1B37, #142552); 
   height:90px;
   opacity:100%;
   color: white;
+  text-align:center;
+  padding:50px 0;
+  font-weight:500;
+  animation: fadeIn 1s linear forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 40%; }
+  100% { visibility: 100%; }
+}
+
+.tool-icon {
+  height: 70px;
 }
 
 .tool-header {
   border: none;
   font-size: 1.7em;
-}
-
-.bg-tool {
-  background-color: #111F42;
-  border: none !important;
-}
-
-.card-img {
-  height: 100%;
-  opacity: 70%;
-}
-
-.card-body:hover  {
-  opacity:70% !important;
-}
-
-.card-body:hover .card-img {
-  opacity:20%;
 }
 
 /* Virus information */
@@ -136,7 +127,8 @@ svg .internal-node circle {
   background-color: white;
 }
 
-/* Attempt with hexagons */
+/* Hexagons nicely layed out in a containing div */
+/* Derived from https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
 .toolbox {
   display:flex;
   --s: 140px;  /* size  */
@@ -156,7 +148,6 @@ svg .internal-node circle {
   font-size:initial;
   clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
   margin-bottom: calc(var(--m) - var(--s) * 0.2885);
-  background-color: #111F42;
 }
 
 .tool-container::before {
@@ -166,3 +157,14 @@ svg .internal-node circle {
   height: 120%; 
   shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
+
+.tb-one {
+  display: inline;
+  height: 40px;
+}
+
+.tb-two {
+  display: inline;
+  height: 40px;
+}
+

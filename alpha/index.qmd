@@ -111,8 +111,8 @@ init_toolbox =
   toolbox.map(tool =>
     d3.select("#toolbox-contents").node().append(
       html`
-      <div id="${tool.id}" class="tool" style="text-align:center;padding:70px 0;font-weight:500" >
-          <p>${tool.id}</p>
+        <div id="${tool.id}" class="tool">
+          <img class="tool-icon" src="${tool.icon}" />
         </div>
       `
     )

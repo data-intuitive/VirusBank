@@ -27,3 +27,11 @@ format:
       - tree.newick
       - annotations.json
       - toolbox/toolbox.json
+      - toolbox/img/tb_target-based-assays.png
+      - toolbox/img/tb_animal-infection-models-2.png
+      - toolbox/img/tb_animal-infection-models.png
+      - toolbox/img/tb_cell-based-assays.png
+      - toolbox/img/tb_ex-vivo-models.png
+      - toolbox/img/tb_ex-vivo-models2.png
+      - toolbox/img/tb_recombinant-viruses.png
+      - toolbox/img/tb_target-based-assays.png

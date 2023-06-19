@@ -2,32 +2,38 @@
   name: CPE reducation assay
   description: |
     This antiviral assay measures the ability of a tested compound to protect infected cells from virus-induced cytopathic effects (mostly virus-induced cell death). The cell viability can be determined in a colorimetric assay using MTS/PMS method.
+  icon: /toolbox/img/tb_target-based-assays.png
 - id: yield
   name: Virus yield assay
   description: |
     This antiviral assay measures the ability of a tested compound to inhibit the viral replication in an infected cell culture through quantifying the viral RNA and the infectious virus loads released in the supernatant. This assay can be used for validation of compounds that show efficacy in CPE-reduction assays and to confirm that the compounds have direct effect on viral replication (not only cytoprotective).
+  icon: /toolbox/img/tb_cell-based-assays.png
 - id: delay
   name: Delay of treatment assay
   description: |
     This a test to determine the stage(s) of the viral replication cycle at which the compound exerts its antiviral effect. Briefly, cells are treated with the compound at different time points prior or after the infection with the virus then cells are incubated for example until the end of one or 2 replication cycles. At the end of incubation, the intracellular and extracellular viral RNA loads at each time point are quantified by qRT-PCR to determine at which stage(s) the compound is still effective and when it loses its antiviral efficacy.
+  icon: /toolbox/img/tb_animal-infection-models.png
 - id: plaque
   name: Plaque assay
   description: |
     This assay is a standard method to quantify infectious virus titers in a sample. Briefly, the test sample is serially diluted then aliquot of each dilution is added to a well in a cell culture plate with incubation to allow virus attachment followed by removal of the viral input and adding overlay of agarose or similar viscous material that limit the spread of viral infection. Under this condition, the attached virion will start to replicate producing more virions that will kill surrounding cells to generate a hole or plaque in the cell monolayer. By removal of the overlay and staining the live cells for e.g. by Crystal violet or methylene blue, this will provide a dark background for clear visualization of plaques. By counting the plaques at certain dilution(s), the plaque forming units (PFU)/mL can be calculated.
+  icon: /toolbox/img/tb_recombinant-viruses.png
 - id: pcr
   name: Quantitative reverse-transcriptase PCR
   description: |
     This technique is used for quantification of genome copies for RNA viruses in samples of interest for e.g. virus stock, clinical samples, compound-treated cells or tissues. First, a targeted region of the viral RNA is transcribed into complementary DNA (cDNA) by reverse transcriptase from total RNA. The cDNA is then used as the template for the quantitative PCR reaction where DNA binding fluorescent dye such as SYBR green or a labelled virus specific probe such as TaqMan® probes is used to detect the DNA amplification and hence enable quantification of the genome copies in the original samples (by including serial dilutions of a standard material with known genome copies in the same run).
+  icon: /toolbox/img/tb_ex-vivo-models.png
 - id: reverse
   name: Reverse genetics system
   description: |
     The reverse genetic system is mostly a plasmid-based system that can be used to insert the desired mutations in the viral genome to study the effect of these mutations on viral replication, virulence, sensitivity to antiviral compounds and etc in vitro and in vivo. Such systems can also be used to engineer viruses carrying reporter genes for development of high throughput antiviral assays or easily detection method for in vivo replication.
-- id: reporter
-  name: Reporter viruses
-  description: |
-    <span style="font-size: 30px;"><b>No description is available yet</b></span>.
-    
-    <p>But not to worry, it allows us to illustrate the <b>use</b> of html in description texts.</p>
-- id: model
-  name: Animal models
-  description: No description yet
+  icon: /toolbox/img/tb_animal-infection-models-2.png
+# - id: reporter
+#   name: Reporter viruses
+#   description: |
+#     <span style="font-size: 30px;"><b>No description is available yet</b></span>.
+#     
+#     <p>But not to worry, it allows us to illustrate the <b>use</b> of html in description texts.</p>
+# - id: model
+#   name: Animal models
+#   description: No description yet
