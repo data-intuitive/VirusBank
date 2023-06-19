@@ -78,7 +78,7 @@ svg .internal-node circle {
   color: white;
   opacity:40%;
   text-align:center;
-  padding:50px 0;
+  padding: 40px 0;
   font-weight:500;
   animation: fadeOut 1s linear forwards;
 }
@@ -94,7 +94,7 @@ svg .internal-node circle {
   opacity:100%;
   color: white;
   text-align:center;
-  padding:50px 0;
+  padding: 40px 0;
   font-weight:500;
   animation: fadeIn 1s linear forwards;
 }
@@ -105,7 +105,8 @@ svg .internal-node circle {
 }
 
 .tool-icon {
-  height: 70px;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .tool-header {
@@ -126,6 +127,31 @@ svg .internal-node circle {
 .panel-tabset .panel-tabset {
   background-color: white;
 }
+
+/* Tooltips toolbox */
+.tool-tooltip {
+  position: relative;
+}
+
+.tool-tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tool-tooltip:hover .tool-tooltip-text {
+  visibility: visible;
+}
+
+/* Toolbox */
 
 /* Hexagons nicely layed out in a containing div */
 /* Derived from https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
