@@ -134,8 +134,10 @@ html`
           <div class="tool-container">
             <div class="tool-wrapper">
               <div class="tool-tooltip-text">${tool.name}</div>
-              <div id="${tool.id}" class="tool tool-selected">
-                <img class="tool-icon" src="${tool.icon}"/>
+              <div id="${tool.id}" class="tool">
+                ${tool.icon.map( i =>
+                html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                )}
               </div>
             </div>
           </div>
