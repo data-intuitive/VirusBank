@@ -123,8 +123,12 @@ function tool_table(tool_id) {
 
   return table.element;
 }
+```
 
+```{ojs}
+//| echo: false
 
+// Render overview of the tools
 html`
   ${toolbox.map(tool => 
     html`
