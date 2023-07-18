@@ -1,0 +1,61 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-4}
+
+Although many SINV infections are asymptomatic, SINV can result in a febrile illness associated with maculopapular rash and joint pain.
+
+:::
+
+::: {.g-col-8}
+
+![](SINV disease.png)
+
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-4}
+SINV is transmitted by Culex mosquitoes among different species of birds. Sporadic spillover to humans occurs through bite of infected Culex and occasionally Aedes mosquitoes.
+:::
+
+::: {.g-col-8}
+
+![](SINV transmission.png)
+
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+The virus is widely distributed throughout the world including Europe, Africa, Asia, and Australia. SINV is used as tool to study alphaviruses at lower biosafety level. There are no approved vaccines or antivirals available at the moment for the prevention or treatment of SINV infection. 
+:::
+
+::: {.g-col-6}
+![](SINV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+virus_toolbox("alpha", "SINV")
+
+```
+
+:::

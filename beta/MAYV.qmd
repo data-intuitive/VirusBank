@@ -1,0 +1,7 @@
+---
+title: Mayaro virus
+---
+  
+{{< include _MAYV.qmd >}}
+ 
+{{< include ojs_data.qmd >}}

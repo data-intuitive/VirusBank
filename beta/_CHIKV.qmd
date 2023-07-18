@@ -1,0 +1,63 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-4}
+
+Several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks up to several years after the acute stage. 
+
+Death from chikungunya is rare.
+
+:::
+
+::: {.g-col-8}
+
+![](CHIKV disease.png)
+
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-4}
+CHIKV is maintained in the wild via Slylvatic/rural transmission cycles between an arthropod vector (mainly Aedes mosquitoes ) and animal reservoirs. Human infections can occur by direct spillover from these cycles via the bite of infected mosquitoes. This can be followed by urban cycles of CHIKV transmission i.e. human-mosquito-human transmission.
+:::
+
+::: {.g-col-8}
+
+![](CHIKV transmission.png)
+
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+Millions of CHIKV cases have been reported in the Caribbean region and several countries of Central and South America. Local transmission cases have been also reported in Europe (e.g. Italy and France). Despite being rarely fatal, CHIKV infections have high socioeconomic impact due to the chronic painful incapacitating phase of the disease. There are no approved vaccines or antivirals available for the prevention or treatment of CHIKV infection.
+:::
+
+::: {.g-col-6}
+![<https://www.cdc.gov/chikungunya/geo/index.html>](CHIKV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+virus_toolbox("alpha", "CHIKV")
+
+```
+
+:::

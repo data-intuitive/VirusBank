@@ -1,0 +1,60 @@
+
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-4}
+Similar to [chikungunya virus (CHIKV)](CHIKV.qmd), RRV results in rheumatic disease symptoms with febrile illness and joint pain. Some patients also can suffer from  a chronic long-term disease, characterized by a debilitating arthralgia that can persist for weeks to months.
+:::
+
+::: {.g-col-8}
+
+![](RRV disease.png)
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-4}
+RRV circulates in a sylvatic cycle between animal reservoirs (e.g. kangaroos and wallabies) and various mosquito species, such as those belonging to the genera of Culex, Aedes, Anopheles, and Mansonia. Accidental spillover to humans via the bite of infected mosquitoes occurs leading to outbreaks of infection.
+:::
+
+::: {.g-col-8}
+
+![](RRV transmission.png)
+
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+The virus is endemic in Australia, Papua New Guinea and other islands in the South Pacific. Despite being rarely fatal, RRV infections have high socioeconomic impact due to the chronic painful incapacitating phase of the disease. There are no approved vaccines or antivirals available for the prevention or treatment of RRV infection. 
+:::
+
+::: {.g-col-6}
+![](RRV-map.png)
+:::
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+virus_toolbox("alpha", "RRV")
+
+```
+
+
+:::

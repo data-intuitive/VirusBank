@@ -1,0 +1,63 @@
+[
+  {
+    "id": "EEEV",
+    "name": "The Eastern Equine Encephalitis virus"
+  },
+  {
+    "id": "BFV",
+    "name": "Barmah forest virus"
+  },
+  {
+    "id": "SFV",
+    "name": "Semliki Forest virus",
+    "toolbox": [
+      "cell",
+      "hts",
+      "ex-vivo",
+      "animal"
+    ]
+  },
+  {
+    "id": "CHIKV",
+    "name": "Chikungunya virus",
+    "toolbox": [
+      "hts",
+      "ex-vivo"
+    ]
+  },
+  {
+    "id": "ONNV",
+    "name": "O’nyong’nyong virus"
+  },
+  {
+    "id": "RRV",
+    "name": "Ross River virus",
+    "toolbox": [
+      "ex-vivo",
+      "animal"
+    ]
+  },
+  {
+    "id": "MAYV",
+    "name": "Mayaro virus",
+    "toolbox": [
+      "ex-vivo"
+    ]
+  },
+  {
+    "id": "WEEV",
+    "name": "West Equine Encephalitis virus"
+  },
+  {
+    "id": "SINV",
+    "name": "Sindbis virus",
+    "toolbox": [
+      "animal"
+    ]
+  },
+  {
+    "id": "VEEV",
+    "name": "Venezuelan Equine Encephalitis virus",
+    "show": true
+  }
+]
