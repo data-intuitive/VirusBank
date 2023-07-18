@@ -28,8 +28,10 @@ html`
                   <a href="#${tool.id}-section">
                     <div class="tool-wrapper">
                       <div class="tool-tooltip-text">${tool.name}</div>
-                      <div id="${tool.id}" class="tool tool-selected">
-                        <img class="tool-icon" src="${tool.icon}"/>
+                      <div id="${tool.id}" class="tool">
+                        ${tool.icon.map( i =>
+                        html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                        )}
                       </div>
                     </div>
                   </a>
@@ -56,7 +58,7 @@ denormalized_list =
       return annotations.flatMap(family => {
         return family.info.map( virus => {
           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-          if (this_toolbox.filter(t => t.tool == tool.id).length > 0) {
+          if (this_toolbox.filter(t => t == tool.id).length > 0) {
             return ({
               family: family.family,
               virus: virus.name,

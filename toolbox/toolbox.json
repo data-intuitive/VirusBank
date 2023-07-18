@@ -36,7 +36,8 @@
     "id": "animal",
     "name": "Animal infection models",
     "icon": [
-      "/toolbox/img/tb_animal-infection-models.png"
+      "/toolbox/img/tb_animal-infection-models.png",
+      "/toolbox/img/tb_animal-infection-models-2.png"
     ],
     "description": "\n<h4>Rodent models</h4>\n\nRodent models such as mice, rats and hamsters have been widely used to study viral infections. Such models allow to study host response and pathogenicity for wide variety of viruses. Moreover, these models are beneficial to assess the preclinical efficacy and safety of potential antivirals identified in cell culture assays.\n\n<h4>Zebrafish models</h4>\n\nZebrafish (Danio rerio) are optically-transparent tropical freshwater fish of the family Cyprinidae that are widely used as vertebrate models of disease. They have remarkable genetic, physiologic and pharmacologic similarities to humans. Compared to rodents, the maintenance and husbandry costs are very low. Interestingly, zebrafish larvae have been shown to be susceptible to infection with some human viruses (herpes simplex virus type 1, influenza A virus, and chikungunya virus, human norovirus). Therefore, such a model can be used to study the pathogenesis as well as test antiviral drugs for specific human viruses in higher capacity and less cost compared to rodent models.\n"
   },

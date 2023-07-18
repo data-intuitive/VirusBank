@@ -13,12 +13,12 @@ format:
 //| echo: false
 
 import { d3 } from "./ojs_d3.qmd"
-
+ 
 import { nwk } from "./ojs_data.qmd"
 import { annotationsMap } from "./ojs_data.qmd"
 import { toolbox } from "./ojs_data.qmd"
 import { virus_toolbox } from "./ojs_data.qmd"
-````
+```
  
 ```{ojs}
 //| output: none
@@ -39,7 +39,7 @@ html`
         </div>
       </div>
     </div>
-    <div id="tree-container" class="tree-container g-col-md-7 g-col-sm-12 text-center rounded"></div>
+    <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
     <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
       <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
         <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
@@ -110,7 +110,9 @@ init_toolbox =
           <div class="tool-wrapper">
             <div class="tool-tooltip-text">${tool.name}</div>
             <div id="${tool.id}" class="tool">
-              <img class="tool-icon" src="${tool.icon}"/>
+              ${tool.icon.map( i =>
+              html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+              )}
             </div>
           </div>
         </a>
@@ -128,7 +130,7 @@ clearToolbox = () => {
 // Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
   
-  const this_toolbox = availableTools(d.data.name).map(t => t.tool)
+  const this_toolbox = availableTools(d.data.name)
 
   d3.select("#virus").text(annotationsMap[d.data.name].name)
 
@@ -158,7 +160,7 @@ hide_tabset = {
 
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
-
+ 
 renderedTree = tree                   // class TreeRender
   .render({
     'left-right-spacing': 'fit-to-size',
@@ -173,8 +175,8 @@ renderedTree = tree                   // class TreeRender
     'width':              width,
     'height':             height,
     'zoom':               false,
-    'minimal-per-node-spacing':  4,
-    'minimum-per-level-spacing': 4,
+    'minimal-per-node-spacing':  2,
+    'minimum-per-level-spacing': 2,
     'container':          "#tree-container"
   })
   .style_nodes( (element, data) => {

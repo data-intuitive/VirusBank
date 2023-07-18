@@ -63,6 +63,7 @@
   name: Animal infection models
   icon:
     - /toolbox/img/tb_animal-infection-models.png
+    - /toolbox/img/tb_animal-infection-models-2.png
   description: |
 
     <h4>Rodent models</h4>
