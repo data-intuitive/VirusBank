@@ -40,11 +40,7 @@ MAYV circulates in a sylvatic cycle between non-human primates and forest canopy
 ::: {.grid}
 
 ::: {.g-col-6}
-The first MAYV strains were isolated from the blood of infected humans in Trinidad and Tobago in 1954. The virus is endemic to the tropical forests of the Amazon and was repeatedly detected in humans and mosquitoes in Latin America and the Caribbean. 
-
-Despite being rarely fatal, MAYV infections have high socioeconomic impact due to the chronic painful incapacitating phase of the disease.
-
-There are no approved vaccines or antivirals available at the moment for the prevention or treatment of MAYV infection. 
+The virus is endemic to the tropical forests of the Amazon and was repeatedly detected in humans and mosquitoes in Latin America and the Caribbean.  Despite being rarely fatal, MAYV infections have high socioeconomic impact due to the chronic painful incapacitating phase of the disease. There are no approved vaccines or antivirals available at the moment for the prevention or treatment of MAYV infection.
 :::
 
 ::: {.g-col-6}

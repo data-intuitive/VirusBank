@@ -35,12 +35,7 @@ SFV is transmitted by usually mosquitoes of the Aedes subspecies among small wil
 ::: {.grid}
 
 ::: {.g-col-6}
-SFV was first isolated from in the Semliki Forest in 1942. The virus is found mainly in central, eastern, and southern Africa.
-
-SFV is a useful research tool to study virus-induced encephalitis.
-Due to its broad host range and efficient replication, it has also been developed as a vector for genes encoding vaccines and anti-cancer agents, and as a tool in gene therapy.
-
-There are no approved vaccines or antivirals available at the moment for the prevention or treatment of SFV infection. 
+SFV is transmitted by usually mosquitoes of the Aedes subspecies among small wild animals, birds, and nonhuman primates. Human cases are not common and can occur via spillover (Through bite of infected mosquitoes).
 :::
 
 ::: {.g-col-6}
