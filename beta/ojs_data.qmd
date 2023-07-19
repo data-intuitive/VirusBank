@@ -5,16 +5,14 @@ FA = FileAttachment
 
 nwk = await FA("/beta/para.newick").text()
 
-xls = await FileAttachment("./Paramyxo_info.xlsx").xlsx()
-annotations2 = xls.sheet('Sheet1', { headers: true })
+// Toolbox
+import { encodeTool } from '/_js/functions.js'
 
-annotations = await FileAttachment("/alpha/annotations.json").json()
+xls = await FileAttachment("./family.xlsx").xlsx()
+annotations = xls.sheet(0, { headers: true, range: ":L" })
+toolbox1 = await FileAttachment("/toolbox/toolbox.json").json()
+toolbox = encodeTool(toolbox1)
 
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
-
-toolbox = await FileAttachment("/toolbox/toolbox.json").json()
-
-toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
 
 import { denormalized_list } from "/toolbox/index.qmd"
 
@@ -52,5 +50,4 @@ function virus_toolbox(_family, _virus) {
     )}
   `
 }
-
 ```

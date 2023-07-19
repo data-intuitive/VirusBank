@@ -6,17 +6,16 @@ format:
     page-layout: full
     anchor-sections: true
     section-divs: true
+    include-before-body:
+      text: <link rel=stylesheet href='https://unpkg.com/phylotree@1.1.0/dist/phylotree.css'/> 
 ---
- 
+      
 ```{ojs}
 //| output: none
 //| echo: false
 
-import { d3 } from "./ojs_d3.qmd"
- 
 import { nwk } from "./ojs_data.qmd"
-import { annotationsMap } from "./ojs_data.qmd"
-import { annotations2 } from "./ojs_data.qmd"
+import { annotations } from "./ojs_data.qmd"
 import { toolbox } from "./ojs_data.qmd"
 import { virus_toolbox } from "./ojs_data.qmd"
 ```
@@ -71,7 +70,6 @@ html`
 ```{ojs}
 //| output: none
 //| echo: false
-html`<link rel=stylesheet href='${resolve("phylotree@1.1.0/dist/phylotree.css")}'>`
 
 height = 550
 width = 550
@@ -80,26 +78,41 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 
 ```
 
-<!-- {{< include _ojs_data.qmd >}} -->
-
-
 ```{ojs}
 //| output: none
 //| echo: false
+ 
 
-availableVirusInfo = (virus_id) => annotationsMap[virus_id] != undefined
+// If a virus (virus_id or abbreviation in Excel file) is present in the annotations file,
+// return the object. This returns 'undefined' when not present.
+virusInfoOrUndefined = (virus_id) => annotations.filter(v => v.virus_id == virus_id || v.abbreviation == virus_id)[0]
 
+// Simple true/false 
+availableVirusInfo = (virus_id) => virusInfoOrUndefined(virus_id) ? true : false
+ 
+console.log(toolbox)
+console.log(annotations)
+ 
 availableTools = (virus_id) =>
-    (annotationsMap[virus_id] != undefined)
-    ? ( annotationsMap[virus_id].toolbox != undefined )
-        ? annotationsMap[virus_id].toolbox
-        : []
+    (availableVirusInfo(virus_id))
+    ? toolbox.flatMap(tool => virusInfoOrUndefined(virus_id)[tool.encoded] ? tool.encoded : [] )
     : []
+ 
+// console.log("exists? " + virusInfoOrUndefined("AchPV1")[basic_encode("cell-based_assays")])
+// 
+// console.log(virusInfoOrUndefined("AchPV1"))
+// console.log(virusInfoOrUndefined("tst"))
+// console.log(availableVirusInfo("AchPV1"))
+// console.log(availableVirusInfo("tst"))
+//    console.log("AchPV1: " + availableTools("AchPV1"))
+//    console.log("tst:    " + availableTools("tst").length)
 
-// If not tools are available yet, but the virus is important:
-showAnyway = (virus_id) =>
-    (annotationsMap[virus_id] != undefined)
-    ? annotationsMap[virus_id].show
+console.log("CedV: " + availableTools("CedV"))
+   
+// If no tools are available yet, but the virus is important:
+virusOfInterest = (virus_id) =>
+    (availableVirusInfo(virus_id))
+    ? virusInfoOrUndefined(virus_id).virus_of_interest == "Yes"
     : false
 
 // Initialize the toolbox when the data is loaded
@@ -123,6 +136,9 @@ init_toolbox =
 
 // Reset the tools in the Toolbox
 clearToolbox = () => {
+
+  d3.select("#virus").text("Viral Toolbox")
+
   toolbox.map(tool => {
     d3.select("#" + tool.id).attr("class", "tool")
   })
@@ -130,13 +146,13 @@ clearToolbox = () => {
 
 // Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
-  
-  const this_toolbox = availableTools(d.data.name)
+ 
+  const tools = availableTools(d.data.name)
 
-  d3.select("#virus").text(annotationsMap[d.data.name].name)
+  d3.select("#virus").text(virusInfoOrUndefined(d.data.name).virus_name)
 
   toolbox
-    .filter(tool => this_toolbox.includes(tool.id))
+    .filter(tool => tools.includes(tool.encoded))
     .map(tool =>
       d3.select("#" + tool.id).attr("class", "tool tool-selected")
     )
@@ -144,7 +160,7 @@ updateToolbox = (d) => {
 
 tabsetAnchor = 'tabset-7-1-tab'
 virusToTab = ({
-    CHIKV: "tabset-7-1-tab",
+    CedV: "tabset-7-1-tab",
     RRV: "tabset-7-2-tab",
     MAYV: "tabset-7-3-tab",
     VEEV: "tabset-7-4-tab",
@@ -163,28 +179,22 @@ tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
  
 renderedTree = tree
+  // Transform the tree (translate and prune)
+  // based on the input Excel file for this virus family
   .traverse_and_compute(node => {
+    const virus = node.data.name
     const isLeaf = tree.isLeafNode(node)
-    
     if (isLeaf) {
-      const information = annotations2.filter(obj => obj["Virus ID"] == node.data.name)[0]
-      // console.log(information)
-      // console.log("Leaf node, check if needs to be shown")
-      if (information["Virus of Interest"] == "Yes") {
-        // console.log("Virus of interest")
-        const current_name = node.data.name
-        const new_name = information.Abbreviation
-        // console.log("current: " + current_name)
-        // console.log("new: " + new_name)
-        node.data.name = new_name
+      const information = virusInfoOrUndefined(virus)
+      if (virusOfInterest(node.data.name)) {
+        const currentName = virus
+        const newName = information.abbreviation
+        node.data.name = newName
       } else {
-        // console.log(node)
         node.data.name = "remove_me"
         tree.deleteANode(node)
       }
-    } else {
-      // console.log("no leaf node, remove if necesary")
-    }
+    } 
   })
   .render({
     'left-right-spacing': 'fit-to-size',
@@ -199,37 +209,45 @@ renderedTree = tree
     'width':              width,
     'height':             height,
     'zoom':               false,
+    'brush':              false,
+    'draw-size-bubbles':  false,
     'minimal-per-node-spacing':  2,
     'minimum-per-level-spacing': 2,
   })
   .style_nodes( (element, data) => {
 
-    const inToolbox = (availableTools(data.data.name).length > 0) || showAnyway(data.data.name)
-    const availableInfo = availableVirusInfo(data.data.name) 
+    const virus_id = data.data.name
+
+    // At this stage in the process, every node should have information
+    const information = virusInfoOrUndefined(virus_id)
+    const tools = availableTools(virus_id)
+    const inToolbox = tools.length > 0
 
     // Styling based on available information
     const updtElement1 =
-      availableInfo
+      information 
         ? element.select("text").attr("class", "phylotree-node-text")
         : element.select("text").attr("class", "phylotree-node-text-inactive")
     const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
 
     // Hover functionality - Virus name
-    if (availableInfo)
+    if (information)
       element
-        .on("mouseover", virus_hover_in(data, availableTools(data.data.name).length > 0))
-        .on("mouseout", virus_hover_out)
+        .on("mouseover", virusHoverIn(data, information, availableTools(virus_id).length > 0))
+        .on("mouseout", virusHoverOut)
  
     // Click functionality - Toolbox
     inToolbox
       ? element.on('click', function() {
+          console.log("onclick")
+          console.log(data)
           clearToolbox();
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
           // Now get the proper tab and open it
-          const thisVirusInfo = document.getElementById(virusToTab[data.data.name])
-          thisVirusInfo.click();
+          const thisVirusInfo = document.getElementById(virusToTab[virus_id])
+          //thisVirusInfo.click();
           // Render the toolbox for this virus
           updateToolbox(data);
         })
@@ -241,9 +259,9 @@ renderedTree = tree
   .layout(true)
 
 // Show small virus information box on hover
-virus_hover_in = (data, is_available) => () => {
+virusHoverIn = (data, information, is_available) => () => {
   // First, populate the content
-  d3.select("#name").text(annotationsMap[data.data.name].name)
+  d3.select("#name").text(information.virus_name)
   if (is_available)
     d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
   else
@@ -252,7 +270,7 @@ virus_hover_in = (data, is_available) => () => {
   d3.select("#info-container").attr("style", "visibility:visible;")
 }
 
-virus_hover_out = () => {
+virusHoverOut = () => {
   d3.select("#info-container").attr("style", "visibility:hidden;")
 }
 
