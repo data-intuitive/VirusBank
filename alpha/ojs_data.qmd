@@ -30,11 +30,11 @@ function virus_toolbox(_family, _virus) {
             <a href="/toolbox/index.html#${tool.id}-section">
               <div class="tool-wrapper">
                 <div class="tool-tooltip-text">${tool.name}</div>
-                  <div id="${tool.id}" class="tool">
-                    ${tool.icon.map( i =>
-                    html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
-                    )}
-                  </div>
+                    <div id="${tool.id}" class="tool">
+                      ${tool.icon.map( i =>
+                      html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                      )}
+                    </div>
               </div>
             </a>
           </div>
