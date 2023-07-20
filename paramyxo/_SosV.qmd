@@ -2,55 +2,37 @@
 
 ## Symptoms
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _SosV-symptoms-fig.qmd >}} 
 
- {{< include _SosV-symptoms.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _SosV-symptoms.qmd >}} 
 
 :::
 
 ## Transmission
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _SosV-transmission-fig.qmd >}} 
 
- {{< include _SosV-transmission.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _SosV-transmission.qmd >}} 
 
 :::
 
 ## Medical relevance
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-6}
+{{< include _SosV-relevance-fig.qmd >}} 
 
- {{< include _SosV-relevance.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-6}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _SosV-relevance.qmd >}} 
 
 :::
 

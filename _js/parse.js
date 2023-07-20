@@ -4,8 +4,11 @@ const { Liquid } = require('liquidjs')
 const args = require('minimist')(process.argv.slice(2));
 
 console.log(">> -i argument " + args.i)
+console.log(">> -o argument " + args.o)
 const family = args.i.replace("/", "")
+const overwrite = args.o == "yes"
 console.log(">> Directory/family to process: " + family)
+console.log(">> Overwriting... " + overwrite )
 
 const wb = new Exceljs.Workbook()
 const workbook = wb.xlsx.readFile(family + "/family.xlsx", { header: true })
@@ -92,55 +95,37 @@ workbook.then(ws => {
       '\n' +
       '## Symptoms\n' +
       '\n' +
-      '::: {.grid}\n' +
+      '::: {.text-center}\n' +
       '\n' +
-      '::: {.g-col-4}\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-symptoms-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      '{% raw %} {{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-symptoms.qmd >}} {% endraw %}\n' +
+      '&nbsp;\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
-      '::: {.g-col-8}\n' +
-      '\n' +
-      '![PLACEHOLDER for image](https://placehold.co/600x400)\n' +
-      '\n' +
-      ':::\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-symptoms.qmd >}} {% endraw %}\n' +
       '\n' +
       ':::\n' +
       '\n' +
       '## Transmission\n' +
       '\n' +
-      '::: {.grid}\n' +
+      '::: {.text-center}\n' +
       '\n' +
-      '::: {.g-col-4}\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-transmission-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      '{% raw %} {{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-transmission.qmd >}} {% endraw %}\n' +
+      '&nbsp;\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
-      '::: {.g-col-8}\n' +
-      '\n' +
-      '![PLACEHOLDER for image](https://placehold.co/600x400)\n' +
-      '\n' +
-      ':::\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-transmission.qmd >}} {% endraw %}\n' +
       '\n' +
       ':::\n' +
       '\n' +
       '## Medical relevance\n' +
       '\n' +
-      '::: {.grid}\n' +
+      '::: {.text-center}\n' +
       '\n' +
-      '::: {.g-col-6}\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-relevance-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      '{% raw %} {{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-relevance.qmd >}} {% endraw %}\n' +
+      '&nbsp;\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
-      '::: {.g-col-6}\n' +
-      '\n' +
-      '![PLACEHOLDER for image](https://placehold.co/600x400)\n' +
-      '\n' +
-      ':::\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-relevance.qmd >}} {% endraw %}\n' +
       '\n' +
       ':::\n' +
       '\n' +
@@ -162,24 +147,44 @@ workbook.then(ws => {
     console.log(" >> Writing " + family + "/_" + virus.abbreviation + ".qmd")
     fs.writeFile(family + "/_" + virus.abbreviation + ".qmd", _virusResult, (err) => { if (err) throw err })
    
-    // Write out include files if they don't exist yet
-    // if (!fs.existsSync(family + "/_" + virus.abbreviation + "-symptoms.qmd")) {
-    if (true) {
+    // Write out include files if they don't exist yet, text as well as figs
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-symptoms.qmd") || overwrite ) {
+    // if (true) {
       console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-symptoms.qmd")
-      const text = "Placeholder for symptoms related to " + virus.virus_name
+      const text = "Placeholder __text__ for symptoms related to " + virus.virus_name
       fs.writeFile(family + "/_" + virus.abbreviation + "-symptoms.qmd", text, (err) => { if (err) throw err })
     }
-    // if (!fs.existsSync(family + "/_" + virus.abbreviation + "-transmission.qmd")) {
-    if (true) {
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-transmission.qmd") || overwrite ) {
+    // if (true) {
       console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-transmission.qmd")
-      const text = "Placeholder for transmission related to " + virus.virus_name
+      const text = "" // should be empty for transmission, the figure is enough
       fs.writeFile(family + "/_" + virus.abbreviation + "-transmission.qmd", text, (err) => { if (err) throw err })
     }
-    // if (!fs.existsSync(family + "/_" + virus.abbreviation + "-relevance.qmd")) {
-    if (true) {
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-relevance.qmd") || overwrite ) {
+    // if (true) {
       console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-relevance.qmd")
-      const text = "Placeholder for relevance related to " + virus.virus_name
+      const text = "Placeholder __text__ for relevance related to " + virus.virus_name
       fs.writeFile(family + "/_" + virus.abbreviation + "-relevance.qmd", text, (err) => { if (err) throw err })
+    }
+
+    console.log(" >> Write placeholder figures to be replaced")
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-symptoms-fig.qmd") || overwrite ) {
+    // if (true) {
+      console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-symptoms-fig.qmd")
+      const text = "![Placeholder __caption__ for figure with symptoms related to " + virus.virus_name + "](/img/placeholder.jpg)"
+      fs.writeFile(family + "/_" + virus.abbreviation + "-symptoms-fig.qmd", text, (err) => { if (err) throw err })
+    }
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-transmission-fig.qmd") || overwrite ) {
+    // if (true) {
+      console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-transmission-fig.qmd")
+      const text = "![Placeholder __caption__ for figure with transmission related to " + virus.virus_name + "](/img/placeholder.jpg)"
+      fs.writeFile(family + "/_" + virus.abbreviation + "-transmission-fig.qmd", text, (err) => { if (err) throw err })
+    }
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-relevance-fig.qmd") || overwrite ) {
+    // if (true) {
+      console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-relevance-fig.qmd")
+      const text = "![Placeholder __caption__ for figure with relevance related to " + virus.virus_name + "](/img/placeholder.jpg)"
+      fs.writeFile(family + "/_" + virus.abbreviation + "-relevance-fig.qmd", text, (err) => { if (err) throw err })
     }
     
 

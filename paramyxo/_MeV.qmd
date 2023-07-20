@@ -2,55 +2,37 @@
 
 ## Symptoms
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _MeV-symptoms-fig.qmd >}} 
 
- {{< include _MeV-symptoms.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _MeV-symptoms.qmd >}} 
 
 :::
 
 ## Transmission
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _MeV-transmission-fig.qmd >}} 
 
- {{< include _MeV-transmission.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _MeV-transmission.qmd >}} 
 
 :::
 
 ## Medical relevance
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-6}
+{{< include _MeV-relevance-fig.qmd >}} 
 
- {{< include _MeV-relevance.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-6}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _MeV-relevance.qmd >}} 
 
 :::
 

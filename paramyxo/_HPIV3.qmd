@@ -2,55 +2,37 @@
 
 ## Symptoms
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _HPIV3-symptoms-fig.qmd >}} 
 
- {{< include _HPIV3-symptoms.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _HPIV3-symptoms.qmd >}} 
 
 :::
 
 ## Transmission
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-4}
+{{< include _HPIV3-transmission-fig.qmd >}} 
 
- {{< include _HPIV3-transmission.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-8}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _HPIV3-transmission.qmd >}} 
 
 :::
 
 ## Medical relevance
 
-::: {.grid}
+::: {.text-center}
 
-::: {.g-col-6}
+{{< include _HPIV3-relevance-fig.qmd >}} 
 
- {{< include _HPIV3-relevance.qmd >}} 
+&nbsp;
 
-:::
-
-::: {.g-col-6}
-
-![PLACEHOLDER for image](https://placehold.co/600x400)
-
-:::
+{{< include _HPIV3-relevance.qmd >}} 
 
 :::
 
