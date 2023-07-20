@@ -42,6 +42,20 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 :::
 :::
 
+::: {.card .g-col-4 .p-0 .rounded}
+::: {.card-img-top}
+[![](paramyxo/virus.jpg)](paramyxo/index.qmd)
+:::
+::: {.card-body}
+::: {.card-title }
+### Paramyxo
+:::
+::: {.card-text}
+placeholder
+:::
+:::
+:::
+
 ::: {.card .g-col-4 .g-col-4 .p-2}
 ::: {.card-img-top}
 :::

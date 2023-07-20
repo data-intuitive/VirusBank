@@ -1,0 +1,8 @@
+---
+title: Mumps virus (MuV)
+---
+
+{{< include _MuV.qmd >}}
+
+{{< include ojs_data.qmd >}}
+

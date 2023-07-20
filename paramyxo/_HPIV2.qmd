@@ -1,0 +1,66 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.grid}
+
+::: {.g-col-4}
+
+ {{< include _HPIV2-symptoms.qmd >}} 
+
+:::
+
+::: {.g-col-8}
+
+![PLACEHOLDER for image](https://placehold.co/600x400)
+
+:::
+
+:::
+
+## Transmission
+
+::: {.grid}
+
+::: {.g-col-4}
+
+ {{< include _HPIV2-transmission.qmd >}} 
+
+:::
+
+::: {.g-col-8}
+
+![PLACEHOLDER for image](https://placehold.co/600x400)
+
+:::
+
+:::
+
+## Medical relevance
+
+::: {.grid}
+
+::: {.g-col-6}
+
+ {{< include _HPIV2-relevance.qmd >}} 
+
+:::
+
+::: {.g-col-6}
+
+![PLACEHOLDER for image](https://placehold.co/600x400)
+
+:::
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+virus_toolbox("alpha", "HPIV2")
+
+```
+:::

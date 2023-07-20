@@ -25,7 +25,6 @@ format:
     resources: 
       - virus.png
       - tree.newick
-      - para.newick
       - annotations.json
       - toolbox/toolbox.json
       - toolbox/img/tb_target-based-assays.png

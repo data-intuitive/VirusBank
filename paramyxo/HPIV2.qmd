@@ -1,0 +1,8 @@
+---
+title: Human parainfluenza virus 2 (HPIV2)
+---
+
+{{< include _HPIV2.qmd >}}
+
+{{< include ojs_data.qmd >}}
+

@@ -3,15 +3,16 @@
 
 FA = FileAttachment
 
-nwk = await FA("/alpha/tree.newick").text()
+nwk = await FA("/" + virusFamily + "/tree.newick").text()
 
-annotations = await FileAttachment("/alpha/annotations.json").json()
+// Toolbox
+import { encodeTool } from '/_js/functions.js'
 
-annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
+xls = await FileAttachment("./family.xlsx").xlsx()
+annotations = xls.sheet(0, { headers: true, range: ":L" })
+toolbox1 = await FileAttachment("/toolbox/toolbox.json").json()
+toolbox = encodeTool(toolbox1)
 
-toolbox = await FileAttachment("/toolbox/toolbox.json").json()
-
-toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
 
 import { denormalized_list } from "/toolbox/index.qmd"
 
@@ -30,11 +31,9 @@ function virus_toolbox(_family, _virus) {
             <a href="/toolbox/index.html#${tool.id}-section">
               <div class="tool-wrapper">
                 <div class="tool-tooltip-text">${tool.name}</div>
-                  <div id="${tool.id}" class="tool">
-                    ${tool.icon.map( i =>
-                    html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
-                    )}
-                  </div>
+                <div id="${tool.id}" class="tool tool-selected">
+                  <img class="tool-icon" src="${tool.icon}"/>
+                </div>
               </div>
             </a>
           </div>
@@ -51,5 +50,4 @@ function virus_toolbox(_family, _virus) {
     )}
   `
 }
-
 ```
