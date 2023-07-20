@@ -71,9 +71,15 @@ workbook.then(ws => {
     // <virus>.qmd
     const virusTemplate = '---\n' +
       'title: {{ virus.virus_name }} ({{ virus.abbreviation }})\n' +
+      'params:\n' +
+      '  family: ' + family + '\n' +
       '---\n\n' +
+      '```{r}\n' +
+      '#| echo: false\n' +
+      'ojs_define(virusFamily = params$family)\n' +
+      '```\n\n' + 
       '{% raw %}{{< include{% endraw %} _{{ virus.abbreviation }}{% raw %}.qmd >}}{% endraw %}\n\n' +
-      '{% raw %}{{< include{% endraw %} ojs_data.qmd {% raw %}>}}{% endraw %}\n\n'
+      '{% raw %}{{< include{% endraw %} /_js/ojs_data.qmd {% raw %}>}}{% endraw %}\n\n'
 
     const virusResult = engine
     .parseAndRenderSync(virusTemplate, { virus: virus })
