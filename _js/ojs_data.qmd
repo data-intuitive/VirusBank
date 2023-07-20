@@ -13,47 +13,14 @@ annotations = xls.sheet(0, { headers: true, range: ":L" })
 toolbox1 = await FileAttachment("/toolbox/toolbox.json").json()
 toolbox = encodeTool(toolbox1)
 
-
-// denormalized_list = 
-//   toolbox
-//     .flatMap(tool => {
-//       return annotations.flatMap(virus => {
-//         
-//       })
-//     })
-// 
-// 
-//     .flatMap(tool => {
-//       return annotations.flatMap(family => {
-//         return family.info.map( virus => {
-//           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-//           if (this_toolbox.filter(t => t == tool.id).length > 0) {
-//             return ({
-//               family: family.family,
-//               virus: virus.name,
-//               virus_id: virus.id,
-//               tool: tool.name,
-//               tool_id: tool.id
-//             })
-//           }
-//         })
-//       })
-//     })
-//   .filter(el => el != undefined)
-
 import { availableToolObjsF } from '/_js/functions.js'
 
 function toolsForVirus(_family, _virus) {
-  console.log(_family)
-  console.log(_virus)
-  console.log("tools:")
   const availableTools = availableToolObjsF(annotations, toolbox)
   return availableTools(_virus)
 }
 
 function renderTools(tools) {
-
-  console.log(tools)
 
   if (tools.length > 0) {
     return html`

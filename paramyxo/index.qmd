@@ -141,33 +141,33 @@ updateToolbox = (d) => {
     )
 }
 
+// Handle tabset depending on the number of tabs
 rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
-console.log(rawTabs)
-nrTabs = rawTabs.length
-//tabs = rawTabs.map(tab => )
-
 annotatedViruses = annotations.filter(virus => virus.availability_in_toolbox == "Yes")
+nrTabs = rawTabs.length
 
-console.log(annotatedViruses.map(virus => virus.abbreviation))
-
-
-tabsetAnchor = 'tabset-7-1-tab'
-virusToTab = ({
-    CedV: "tabset-7-1-tab",
-    RRV: "tabset-7-2-tab",
-    MAYV: "tabset-7-3-tab",
-    VEEV: "tabset-7-4-tab",
-    SINV: "tabset-7-5-tab",
-    SFV: "tabset-7-6-tab"
-})
-
+function indexToTab(i, length) {
+  const pre = "tabset-" + (length + 1) + "-"
+  const post = "-tab"
+  return pre + (i+1) + post
+}
+ 
+tabsetAnchor = indexToTab(0, nrTabs)
+virusToTab = new Map(
+  annotatedViruses
+    .map(virus => virus.abbreviation)
+    .map( (virus,i) => [ virus, indexToTab(i, nrTabs)] )
+)
+ 
 // Hide virus information tabset
-// Wrap in closure to keep ojs happy
-hide_tabset = {
+function hideTabset() {
   const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
   virusInfo.style.display = "none"
 }
 
+hide = hideTabset()
+
+// Instantiate tree
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
  
@@ -232,20 +232,19 @@ renderedTree = tree
     // Click functionality - Toolbox
     inToolbox
       ? element.on('click', function() {
-          console.log("onclick")
-          console.log(data)
           clearToolbox();
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
           // Now get the proper tab and open it
-          const thisVirusInfo = document.getElementById(virusToTab[virus_id])
-          //thisVirusInfo.click();
+          const thisVirusInfo = document.getElementById(virusToTab.get(virus_id))
+          thisVirusInfo.click();
           // Render the toolbox for this virus
           updateToolbox(data);
         })
       : element.on('click', function() {
-          clearToolbox();
+          hideTabset()
+          clearToolbox()
         })
 
   })
