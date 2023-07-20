@@ -32,3 +32,10 @@ export function availableToolsF(annotations_, toolbox_) {
       ? toolbox_.flatMap(tool => virusInfoOrUndefinedF(annotations_)(virus_id)[tool.encoded] ? tool.encoded : [] )
       : []
 }
+
+export function availableToolObjsF(annotations_, toolbox_) {
+  return (virus_id) =>
+      (availableVirusInfoF(annotations_)(virus_id))
+      ? toolbox_.flatMap(tool => virusInfoOrUndefinedF(annotations_)(virus_id)[tool.encoded] ? tool : [] )
+      : []
+}

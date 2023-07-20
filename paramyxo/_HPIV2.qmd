@@ -60,7 +60,7 @@
 //| output: none
 //| echo: false
 
-virus_toolbox("alpha", "HPIV2")
+renderTools(toolsForVirus("", "HPIV2"))
 
 ```
 :::

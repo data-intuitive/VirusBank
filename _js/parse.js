@@ -150,7 +150,7 @@ workbook.then(ws => {
       '//| output: none\n' +
       '//| echo: false\n' +
       '\n' +
-      'virus_toolbox("alpha", "{{virus.abbreviation }}")\n' +
+      'renderTools(toolsForVirus("{{ family }}", "{{ virus.abbreviation }}"))\n' +
       '\n' +
       '```' +
       '\n' +
