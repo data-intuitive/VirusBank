@@ -46,10 +46,13 @@ svg .branch {
   stroke-width: 6px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  animation: draw-stroke 6s linear forwards;
+  animation: draw-stroke 12s linear forwards;
 }
 
 @keyframes draw-stroke {
+  0% {
+    stroke-dashoffset: 1;
+  }
   100% {
     stroke-dashoffset: 0;
   }

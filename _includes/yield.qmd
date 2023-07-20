@@ -1,2 +1,0 @@
-This antiviral assay measures the ability of a tested compound to inhibit the viral replication in an infected cell culture through quantifying the viral RNA and the infectious virus loads released in the supernatant. This assay can be used for validation of compounds that show efficacy in CPE-reduction assays and to confirm that the compounds have direct effect on viral replication (not only cytoprotective).
-

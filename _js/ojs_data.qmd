@@ -1,0 +1,60 @@
+```{ojs}
+//| echo: false
+
+FA = FileAttachment
+
+nwk = await FA("/" + virusFamily + "/tree.newick").text()
+
+// Toolbox
+import { encodeTool } from '/_js/functions.js'
+
+xls = await FileAttachment("./family.xlsx").xlsx()
+annotations = xls.sheet(0, { headers: true, range: ":L" })
+toolbox1 = await FileAttachment("/toolbox/toolbox.json").json()
+toolbox = encodeTool(toolbox1)
+
+import { availableToolObjsF } from '/_js/functions.js'
+
+function toolsForVirus(_family, _virus) {
+  const availableTools = availableToolObjsF(annotations, toolbox)
+  return availableTools(_virus)
+}
+
+function renderTools(tools) {
+
+  if (tools.length > 0) {
+    return html`
+      ${tools.map(tool => 
+        html`
+          <h2 id="${tool.id}-section">${tool.name}</h2>
+          <div class="container grid">
+            <div class="g-col-2 toolbox" style="text-align:center;">
+              <div class="tool-container">
+                <div class="tool-wrapper">
+                  <div class="tool-tooltip-text">${tool.name}</div>
+                  <div id="${tool.id}" class="tool">
+                    ${tool.icon.map( i =>
+                    html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="g-col-1"></div>
+            <div class="g-col-7">
+              <p>${tool.description}</p>
+            </div>
+            <div class="g-col-1" style="text-align:center;">
+            </div>
+          </div>
+          <div class="col-xs-12" style="height:30px;"></div>
+        `
+      )}
+    `
+  } else {
+    return html`
+      <p>No tools have been developed for this virus yet.</p>
+    `
+  }
+}
+```

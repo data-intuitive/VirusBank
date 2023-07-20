@@ -25,7 +25,6 @@ format:
     resources: 
       - virus.png
       - tree.newick
-      - para.newick
       - annotations.json
       - toolbox/toolbox.json
       - toolbox/img/tb_target-based-assays.png
@@ -37,3 +36,4 @@ format:
       - toolbox/img/tb_recombinant-viruses.png
       - toolbox/img/tb_high-throughput-screening.png
       - toolbox/img/tb_target-based-assays.png
+      - img/placeholder.jpg

@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _MeV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MeV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _MeV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MeV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _MeV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MeV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "MeV"))
+
+```
+:::

@@ -1,0 +1,59 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Cedar virus
+
+{{< include  _CedV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/CedV.qmd) / [reload family page](/beta/)
+:::
+
+## Human parainfluenza virus 1
+
+{{< include  _HPIV1.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/HPIV1.qmd) / [reload family page](/beta/)
+:::
+
+## Human parainfluenza virus 2
+
+{{< include  _HPIV2.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/HPIV2.qmd) / [reload family page](/beta/)
+:::
+
+## Human parainfluenza virus 3
+
+{{< include  _HPIV3.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/HPIV3.qmd) / [reload family page](/beta/)
+:::
+
+## Measles virus
+
+{{< include  _MeV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/MeV.qmd) / [reload family page](/beta/)
+:::
+
+## Mumps virus
+
+{{< include  _MuV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/MuV.qmd) / [reload family page](/beta/)
+:::
+
+## Sosuga virus
+
+{{< include  _SosV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/beta/SosV.qmd) / [reload family page](/beta/)
+:::
+
+::::

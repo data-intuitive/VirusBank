@@ -1,0 +1,15 @@
+---
+title: Sosuga virus (SosV)
+params:
+  family: paramyxo
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _SosV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

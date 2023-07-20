@@ -4,9 +4,9 @@ format:
     page-layout: full
     anchor-sections: true
     section-divs: true
+    include-before-body:
+      text: <style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
 ---
- 
-<style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
 
 ```{ojs}
 //| echo: false
@@ -123,8 +123,12 @@ function tool_table(tool_id) {
 
   return table.element;
 }
+```
 
+```{ojs}
+//| echo: false
 
+// Render overview of the tools
 html`
   ${toolbox.map(tool => 
     html`
