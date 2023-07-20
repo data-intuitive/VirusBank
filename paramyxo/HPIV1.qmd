@@ -1,8 +1,15 @@
 ---
 title: Human parainfluenza virus 1 (HPIV1)
+params:
+  family: paramyxo
 ---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
 
 {{< include _HPIV1.qmd >}}
 
-{{< include ojs_data.qmd >}}
+{{< include /_js/ojs_data.qmd >}}
 

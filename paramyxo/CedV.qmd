@@ -1,8 +1,15 @@
 ---
 title: Cedar virus (CedV)
+params:
+  family: paramyxo
 ---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
 
 {{< include _CedV.qmd >}}
 
-{{< include ojs_data.qmd >}}
+{{< include /_js/ojs_data.qmd >}}
 

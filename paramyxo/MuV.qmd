@@ -1,8 +1,15 @@
 ---
 title: Mumps virus (MuV)
+params:
+  family: paramyxo
 ---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
 
 {{< include _MuV.qmd >}}
 
-{{< include ojs_data.qmd >}}
+{{< include /_js/ojs_data.qmd >}}
 
