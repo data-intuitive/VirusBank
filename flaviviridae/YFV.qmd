@@ -1,0 +1,15 @@
+---
+title: Yellow fever virus (YFV)
+params:
+  family: flaviviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _YFV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

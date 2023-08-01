@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _HCoV-NL63-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HCoV-NL63-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _HCoV-NL63-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HCoV-NL63-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _HCoV-NL63-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HCoV-NL63-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "HCoV-NL63"))
+
+```
+:::

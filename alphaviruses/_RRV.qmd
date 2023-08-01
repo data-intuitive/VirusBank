@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _RRV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _RRV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _RRV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _RRV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _RRV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _RRV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "RRV"))
+
+```
+:::

@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _HMPV-001-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HMPV-001-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _HMPV-001-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HMPV-001-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _HMPV-001-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _HMPV-001-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "HMPV-001"))
+
+```
+:::

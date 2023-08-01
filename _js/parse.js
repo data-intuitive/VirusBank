@@ -12,7 +12,6 @@ console.log(">> Overwriting... " + overwrite )
 
 const wb = new Exceljs.Workbook()
 const workbook = wb.xlsx.readFile(family + "/family.xlsx", { header: true })
- 
 workbook.then(ws => {
 
   // data
@@ -34,8 +33,8 @@ workbook.then(ws => {
               // create object with the titles and the row values (if any)
               let rowObject = {}
               for (let i = 0; i < titles.length; i++) {
-                  let title = titles[i];
-                  let value = rowValues[i] ? rowValues[i] : '';
+                  let title = titles[i].trim();
+                  let value = rowValues[i] ? rowValues[i].trim() : '';
                   rowObject[title] = value;
               }
               data.push(rowObject);
@@ -61,7 +60,7 @@ workbook.then(ws => {
     '::::'
 
   const result = engine
-      .parseAndRenderSync(template, { data: filteredData, family: "beta" })
+      .parseAndRenderSync(template, { data: filteredData, family: family })
 
   console.log(">> Writing " + family + "/_details.qmd")
   fs.writeFile(family + "/_details.qmd", result, (err) => { if (err) throw err })
@@ -73,7 +72,7 @@ workbook.then(ws => {
 
     // <virus>.qmd
     const virusTemplate = '---\n' +
-      'title: {{ virus.virus_name }} ({{ virus.abbreviation }})\n' +
+      'title: {{ virus.virus_name | replace: "\n", "" }} ({{ virus.abbreviation }})\n' +
       'params:\n' +
       '  family: ' + family + '\n' +
       '---\n\n' +

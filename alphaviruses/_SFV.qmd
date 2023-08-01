@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _SFV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _SFV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _SFV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _SFV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _SFV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _SFV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "SFV"))
+
+```
+:::

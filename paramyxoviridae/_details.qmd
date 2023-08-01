@@ -1,0 +1,27 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Cedar virus
+
+{{< include  _CedV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/paramyxoviridae/CedV.qmd) / [reload family page](/paramyxoviridae/)
+:::
+
+## Human parainfluenza virus 3
+
+{{< include  _HPIV3.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/paramyxoviridae/HPIV3.qmd) / [reload family page](/paramyxoviridae/)
+:::
+
+## Measles virus
+
+{{< include  _MeV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/paramyxoviridae/MeV.qmd) / [reload family page](/paramyxoviridae/)
+:::
+
+::::

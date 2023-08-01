@@ -1,0 +1,15 @@
+---
+title: West Nile virus (WNV)
+params:
+  family: flaviviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _WNV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

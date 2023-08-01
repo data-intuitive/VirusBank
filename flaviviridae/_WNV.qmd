@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _WNV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _WNV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _WNV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _WNV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _WNV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _WNV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "WNV"))
+
+```
+:::

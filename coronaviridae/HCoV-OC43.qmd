@@ -1,0 +1,15 @@
+---
+title: Human coronavirus OC43 (HCoV-OC43)
+params:
+  family: coronaviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HCoV-OC43.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _ZIKV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _ZIKV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _ZIKV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _ZIKV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _ZIKV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _ZIKV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "ZIKV"))
+
+```
+:::

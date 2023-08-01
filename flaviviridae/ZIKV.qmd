@@ -1,0 +1,15 @@
+---
+title: Zika virus (ZIKV)
+params:
+  family: flaviviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _ZIKV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

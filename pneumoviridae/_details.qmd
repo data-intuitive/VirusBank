@@ -1,0 +1,51 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Human metapneumovirus A1
+
+{{< include  _HMPV-001.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HMPV-001.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+## Human metapneumovirus A2
+
+{{< include  _HMPV-A2.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HMPV-A2.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+## Human metapneumovirus B1
+
+{{< include  _HMPV-B1.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HMPV-B1.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+## Human metapneumovirus B2
+
+{{< include  _HMPV-B2.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HMPV-B2.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+## Human respiratory syncytial virus A2
+
+{{< include  _HRSV-A2.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HRSV-A2.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+## Human respiratory syncytial virus B1
+
+{{< include  _HRSV-B1.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviridae/HRSV-B1.qmd) / [reload family page](/pneumoviridae/)
+:::
+
+::::
