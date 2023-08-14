@@ -1,0 +1,15 @@
+---
+title: Human metapneumovirus A1 (HMPV-001)
+params:
+  family: pneumoviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HMPV-001.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

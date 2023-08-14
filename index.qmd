@@ -44,11 +44,11 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 
 ::: {.card .g-col-4 .p-0 .rounded}
 ::: {.card-img-top}
-[![](paramyxo/virus.jpg)](paramyxo/index.qmd)
+[![](paramyxoviridae/virus.jpg)](paramyxoviridae/index.qmd)
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Paramyxo
+### Paramyxoviridae
 :::
 ::: {.card-text}
 placeholder
@@ -58,13 +58,60 @@ placeholder
 
 ::: {.card .g-col-4 .g-col-4 .p-2}
 ::: {.card-img-top}
+[![](alphaviruses/virus.jpg)](alphaviruses/index.qmd)
+
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Other
+### Alphaviruses
 :::
 ::: {.card-text}
-This is some text for the next virus.
+Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae.
+:::
+:::
+:::
+
+::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card-img-top}
+[![](flaviviridae/virus.jpg)](flaviviridae/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Flaviviridae
+:::
+::: {.card-text}
+Flaviviridae
+:::
+:::
+:::
+
+::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card-img-top}
+[![](coronaviridae/virus.jpg)](coronaviridae/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Coronaviridae
+:::
+::: {.card-text}
+Coronaviridae
+:::
+:::
+:::
+
+::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card-img-top}
+[![](pneumoviridae/virus.jpg)](pneumoviridae/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Pneumoviridae
+:::
+::: {.card-text}
+Pneumoviridae
 :::
 :::
 :::

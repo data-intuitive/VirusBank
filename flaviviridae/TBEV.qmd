@@ -1,0 +1,15 @@
+---
+title: Tick borne encephalitis (TBEV)
+params:
+  family: flaviviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _TBEV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

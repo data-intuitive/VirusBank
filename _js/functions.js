@@ -10,7 +10,7 @@ export function encodeTool(arr) {
 // return the object.
 // Returns 'undefined' when not present.
 export function virusInfoOrUndefinedF(annotations_) {
-  return (virus_id) => annotations_.filter(v => v.virus_id == virus_id || v.abbreviation == virus_id)[0]
+  return (virus_id) => annotations_.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)[0]
 }
 
 // Simple true/false 

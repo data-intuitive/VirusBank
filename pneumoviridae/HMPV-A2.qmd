@@ -1,0 +1,15 @@
+---
+title: Human metapneumovirus A2 (HMPV-A2)
+params:
+  family: pneumoviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HMPV-A2.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

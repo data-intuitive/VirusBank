@@ -1,0 +1,61 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Human coronavirus NL63
+
+{{< include  _HCoV-NL63.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/HCoV-NL63.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Human coronavirus 229E
+
+{{< include  _HCoV-229E.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/HCoV-229E.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Human coronavirus HKU1
+
+{{< include  _HCoV-HKU01.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/HCoV-HKU01.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Human coronavirus OC43
+
+{{< include  _HCoV-OC43.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/HCoV-OC43.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Severe acute respiratory
+syndrome–related coronavirus
+
+{{< include  _SARS-CoV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/SARS-CoV.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Severe acute respiratory
+syndrome–related coronavirus 2
+
+{{< include  _SARS-CoV-2.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/SARS-CoV-2.qmd) / [reload family page](/coronaviridae/)
+:::
+
+## Middle East respiratory syndrome–related coronavirus
+
+{{< include  _MERS-CoV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/coronaviridae/MERS-CoV.qmd) / [reload family page](/coronaviridae/)
+:::
+
+::::

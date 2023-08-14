@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _DENV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _DENV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _DENV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _DENV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _DENV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _DENV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "DENV"))
+
+```
+:::

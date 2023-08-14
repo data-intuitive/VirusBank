@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _USUV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _USUV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _USUV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _USUV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _USUV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _USUV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "USUV"))
+
+```
+:::

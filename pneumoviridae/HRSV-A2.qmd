@@ -1,0 +1,15 @@
+---
+title: Human respiratory syncytial virus A2 (HRSV-A2)
+params:
+  family: pneumoviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HRSV-A2.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

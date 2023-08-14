@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _YFV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _YFV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _YFV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _YFV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _YFV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _YFV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "YFV"))
+
+```
+:::

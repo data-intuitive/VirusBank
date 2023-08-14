@@ -1,0 +1,15 @@
+---
+title: Human parainfluenza virus 3 (HPIV3)
+params:
+  family: paramyxoviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HPIV3.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

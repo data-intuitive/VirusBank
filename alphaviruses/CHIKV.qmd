@@ -1,0 +1,15 @@
+---
+title: Chikungunya virus (CHIKV)
+params:
+  family: alphaviruses
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _CHIKV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

@@ -1,0 +1,15 @@
+---
+title: Mayaro virus (MAYV)
+params:
+  family: alphaviruses
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _MAYV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

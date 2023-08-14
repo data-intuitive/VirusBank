@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _VEEV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _VEEV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _VEEV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _VEEV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _VEEV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _VEEV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "VEEV"))
+
+```
+:::

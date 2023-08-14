@@ -1,0 +1,15 @@
+---
+title: Venezuelan equine encephalitis virus (VEEV)
+params:
+  family: alphaviruses
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _VEEV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

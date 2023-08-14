@@ -1,0 +1,15 @@
+---
+title: Dengue virus (DENV)
+params:
+  family: flaviviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _DENV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

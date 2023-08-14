@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _MAYV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MAYV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _MAYV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MAYV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _MAYV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MAYV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "MAYV"))
+
+```
+:::

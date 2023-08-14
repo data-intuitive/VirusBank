@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _MERS-CoV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MERS-CoV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _MERS-CoV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MERS-CoV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _MERS-CoV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _MERS-CoV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "MERS-CoV"))
+
+```
+:::

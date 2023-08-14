@@ -1,0 +1,15 @@
+---
+title: Middle East respiratory syndrome–related coronavirus (MERS-CoV)
+params:
+  family: coronaviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _MERS-CoV.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+

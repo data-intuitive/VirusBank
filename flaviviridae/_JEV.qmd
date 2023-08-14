@@ -1,0 +1,48 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _JEV-symptoms-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _JEV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _JEV-transmission-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _JEV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _JEV-relevance-fig.qmd >}} 
+
+&nbsp;
+
+{{< include _JEV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderTools(toolsForVirus("", "JEV"))
+
+```
+:::

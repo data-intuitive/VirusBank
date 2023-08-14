@@ -1,0 +1,51 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Mayaro virus
+
+{{< include  _MAYV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/MAYV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## Semliki Forest virus
+
+{{< include  _SFV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/SFV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## Chikungunya virus
+
+{{< include  _CHIKV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/CHIKV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## Venezuelan equine encephalitis virus
+
+{{< include  _VEEV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/VEEV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## Sindbis virus
+
+{{< include  _SINV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/SINV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## Ross river virus
+
+{{< include  _RRV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/RRV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+::::

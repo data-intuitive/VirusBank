@@ -1,0 +1,15 @@
+---
+title: Human coronavirus HKU1 (HCoV-HKU01)
+params:
+  family: coronaviridae
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include _HCoV-HKU01.qmd >}}
+
+{{< include /_js/ojs_data.qmd >}}
+
