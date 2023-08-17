@@ -40,18 +40,22 @@ h1 {
   font-size: 20px!important;
 }
 
-svg .branch {
+svg .branch, .branch:hover {
   stroke: #3A7598 !important;
   opacity: 80%;
-  stroke-width: 6px;
+  stroke-width: 5px;
   stroke-linejoin: round;
   stroke-linecap: round;
   animation: draw-stroke 12s linear forwards;
 }
 
+svg .branch:hover {
+  stroke-width: 5px;
+}
+
 @keyframes draw-stroke {
   0% {
-    stroke-dashoffset: 1;
+    stroke-dashoffset: 0;
   }
   100% {
     stroke-dashoffset: 0;
@@ -61,18 +65,15 @@ svg .branch {
 svg .branch-tracer {
   stroke: black !important;
   opacity: 20%;
-  stroke-width: 4px;
+  stroke-width: 2px;
   stroke-linecap: round;
-}
-
-svg .branch:hover {
-  stroke-width: 0px;
 }
 
 
 svg .internal-node circle {
-  fill: black;
-  stroke-width:0px;
+  fill: white;
+  stroke-width:1px;
+  stroke: #3A7598 !important;
 }
 
 /* Toolbox */
