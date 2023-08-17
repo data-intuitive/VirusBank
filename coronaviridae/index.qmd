@@ -171,6 +171,8 @@ hide = hideTabset()
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
  
+import { update_tree } from "/_js/functions.js"
+
 renderedTree = tree
   // Transform the tree (translate and prune)
   // based on the input Excel file for this virus family
@@ -181,7 +183,7 @@ renderedTree = tree
       const information = virusInfoOrUndefined(virus)
       if (virusOfInterest(node.data.name)) {
         const currentName = virus
-        const newName = information.abbreviation
+        const newName = information.abbreviation.trim()
         node.data.name = newName
       } else {
         node.data.name = "remove_me"

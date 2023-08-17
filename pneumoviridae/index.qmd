@@ -182,7 +182,7 @@ renderedTree = tree
       const information = virusInfoOrUndefined(virus)
       if (virusOfInterest(node.data.name)) {
         const currentName = virus
-        const newName = information.abbreviation
+        const newName = information.abbreviation.trim()
         node.data.name = newName
       } else {
         node.data.name = "remove_me"
