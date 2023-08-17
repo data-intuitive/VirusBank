@@ -238,6 +238,7 @@ renderedTree = tree
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
+          virusInfo.scrollIntoView()
           // Now get the proper tab and open it
           const thisVirusInfo = document.getElementById(virusToTab.get(virus_id))
           thisVirusInfo.click();
