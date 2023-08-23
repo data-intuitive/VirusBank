@@ -49,10 +49,6 @@ svg .branch, .branch:hover {
   animation: draw-stroke 12s linear forwards;
 }
 
-svg .branch:hover {
-  stroke-width: 5px;
-}
-
 @keyframes draw-stroke {
   0% {
     stroke-dashoffset: 0;
@@ -62,15 +58,24 @@ svg .branch:hover {
   }
 }
 
+svg .branch:hover {
+  stroke-width: 5px;
+}
+
 svg .branch-tracer {
-  stroke: black !important;
-  opacity: 20%;
+  stroke: #3A7598 !important;
+  opacity: 80%;
   stroke-width: 2px;
   stroke-linecap: round;
 }
 
-
 svg .internal-node circle {
+  fill: white;
+  stroke-width:1px;
+  stroke: #3A7598 !important;
+}
+
+svg .internal-node circle:hover {
   fill: white;
   stroke-width:1px;
   stroke: #3A7598 !important;
