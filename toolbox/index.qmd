@@ -2,14 +2,21 @@
 format:
   html:
     page-layout: full
-    anchor-sections: true
-    section-divs: true
+    anchor-sections: false
+    section-divs: false
     include-before-body:
       text: <style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
 ---
 
 ```{ojs}
 //| echo: false
+
+// Delay scroll to anchor a little bit...
+tmp = window.addEventListener("load", () => {
+  setTimeout( () => {
+     document.getElementById(window.location.hash.substring(1)).scrollIntoView();
+  }, 1000)
+})
 
 html`
   <div class="col-xs-12" style="height:20px;"></div>
@@ -25,12 +32,12 @@ html`
             <div id="toolbox-contents" class="tool-container">
               ${toolbox.map(tool => 
                 html`
-                  <a href="#${tool.id}-section">
+                  <a href="#${tool.id}_section">
                     <div class="tool-wrapper">
                       <div class="tool-tooltip-text">${tool.name}</div>
                       <div id="${tool.id}" class="tool">
                         ${tool.icon.map( i =>
-                        html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                          html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
                         )}
                       </div>
                     </div>
@@ -125,42 +132,17 @@ function tool_table(tool_id) {
 }
 ```
 
-```{ojs}
-//| echo: false
-
-// Render overview of the tools
-html`
-  ${toolbox.map(tool => 
-    html`
-      <h2 id="${tool.id}-section">${tool.name}</h2>
-      <div class="container grid">
-        <div class="g-col-2 toolbox" style="text-align:center;">
-          <div class="tool-container">
-            <div class="tool-wrapper">
-              <div class="tool-tooltip-text">${tool.name}</div>
-              <div id="${tool.id}" class="tool">
-                ${tool.icon.map( i =>
-                html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="g-col-1"></div>
-        <div class="g-col-7">
-          <p>${tool.description}</p>
-          <div class="col-xs-12" style="height:30px;"></div>
-          ${tool_table(tool.id)}
-        </div>
-        <div class="g-col-1" style="text-align:center;">
-        </div>
-      </div>
-      <div class="col-xs-12" style="height:30px;"></div>
-    `
-  )}
-`
-
-```
+{{< include toolbox_content.qmd >}}
 
 {{< include /_js/_ojs_data.qmd >}}
                      
+
+```{ojs}
+//| echo: false
+
+// Render the icons based on the argument
+render_icons = (icon_info) => {
+  return icon_info.icons.map(i => html`<img class="tool-icon" height="${(icon_info.length > 1) ? 150/icon_info.length : 100}%" src="${i}"/>`)
+}
+
+```
