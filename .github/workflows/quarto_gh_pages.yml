@@ -63,7 +63,7 @@ jobs:
       - name: Deploy preview
         id: deploy_preview
         if: github.event_name == 'pull_request'
-        uses: data-intuitive/netlify-deploy-site@v1
+        uses: data-intuitive/netlify-deploy-site@remove_trailing_empty_lines
         with:
           auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site: ${{ env.NETLIFY_SITE_ID }}
