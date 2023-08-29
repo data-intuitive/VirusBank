@@ -2,8 +2,12 @@ export function basicEncode(str) {
   return str.toLowerCase().replace(/\ /g, "_")
 }
 
-export function encodeTool(arr) {
-  return arr.map(tool => ({...tool, encoded: basicEncode(tool.name) }) )
+export function encodeTool(tool) {
+  return ({...tool, encoded: basicEncode(tool.name) })
+}
+
+export function encodeToolbox(arr) {
+  return arr.map(tool => encodeTool(tool) )
 }
 
 // If a virus (virus_id or abbreviation in Excel file) is present in the annotations file,

@@ -4,30 +4,44 @@ format:
     page-layout: full
     anchor-sections: false
     section-divs: false
-    include-before-body:
-      text: <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
+    include-in-header:
+      text: |
+        <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
+        <script>
+          // Delay scroll to anchor a little bit...
+          window.addEventListener("load", () => {
+             setTimeout( () => {
+                document.getElementById(window.location.hash.substring(1)).scrollIntoView();
+             }, 1000)
+          })
+          // Formatters for the table rows
+          function familyFormatter(value, row) {
+            return '<a href="/' + value + '/index.html">' + value + "</a>"
+          };
+          function virusFormatter(value, row) {
+            return '<a href="/' + row.family + '/' + row.abbreviation + '.html">' + value + "</a>"
+          };
+        </script>
     include-after-body:
       text: |
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.js"></script>
 ---
 
+{{< include /_js/_ojs_data.qmd >}}
 
 ```{ojs}
 //| echo: false
 
-// Initialize bootstrap-table
-bootstrap_table = require("bootstrap-table@1.22.1")
+// Populate the tables
+run_ = toolbox.map(tool => {
+    const $t = $("#" + tool.id + "-table")
+    const data = annotations
+      .filter( virus => virus.tools.includes(tool.id))
+    $t.bootstrapTable( { data: data })
+  })
 
-// Delay scroll to anchor a little bit...
-tmp = window.addEventListener("load", () => {
-  setTimeout( () => {
-     document.getElementById(window.location.hash.substring(1)).scrollIntoView();
-  }, 1000)
-})
-
-// d3.selectAll(".table").nodes().map(n => {n.appendChild(tool_table(n.id))})
-
+// Render jumbotron and toolbox
 html`
   <div class="col-xs-12" style="height:20px;"></div>
   <div class="container grid" style="--bs-gap: 0;">
@@ -61,91 +75,8 @@ html`
   </div>
   <div class="col-xs-12" style="height:40px;"></div>
 `
-```
 
-- - -
-
-```{ojs}
-//| echo: false
-
-// Create a denormalized list of tools -> family -> virus
-// denormalized_list = 
-//   toolbox 
-//     .flatMap(tool => {
-//       return annotations.flatMap(family => {
-//         return family.info.map( virus => {
-//           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-//           if (this_toolbox.filter(t => t == tool.id).length > 0) {
-//             return ({
-//               family: family.family,
-//               virus: virus.name,
-//               virus_id: virus.id,
-//               tool: tool.name,
-//               tool_id: tool.id
-//             })
-//           }
-//         })
-//       })
-//     })
-//   .filter(el => el != undefined)
-
-function tool_table(tool_id) {
-
-  const data = denormalized_list.filter( virus => (virus.tool_id == tool_id));
-//   const table = new Tabulator(document.createElement("div"), {
-//     data,
-//     height: 400,
-//     columns: [
-//       {
-//         title: "Virus Family",
-//         field: "family",
-//         sorter: "string",
-//         formatter:"link",
-//         formatterParams: {
-//           url: cell => { 
-//             const family = cell.getRow()._row.data.family
-//             const virus = cell.getRow()._row.data.virus
-//             return "/" + family + "/" + "index.html"
-//           }
-//         }
-//       },
-//       {
-//         title: "Virus",
-//         field: "virus",
-//         sorter: "string",
-//         formatter:"link",
-//         formatterParams: {
-//           url: cell => { 
-//             const family = cell.getRow()._row.data.family
-//             const virus = cell.getRow()._row.data.virus_id
-//             return "/" + family + "/" + virus + ".html"
-//           }
-//         }
-//       }
-//     ],
-//     layout: "fitColumns",
-//     editor: false,
-//     pagination: "local"
-//   });
-// 
-//   table.element.value = data;
-// 
-//   table.on("dataChanged", (data) => {
-//     table.element.value = data;
-//     table.element.dispatchEvent(new CustomEvent("input"));
-//   });
-// 
-//   return table.element;
-}
-
-
-```
-
-
-```{ojs}
-//| echo: false
-
-// Render overview of the tools
+// Overview of the tools
 html`
   ${toolbox.map(tool => 
     html`
@@ -157,39 +88,24 @@ html`
               <div class="tool-tooltip-text">${tool.name}</div>
               <div id="${tool.id}" class="tool">
                 ${tool.icon.map( i =>
-                html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                  html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
                 )}
               </div>
             </div>
           </div>
         </div>
         <div class="g-col-1"></div>
-        <div class="g-col-7">
-          <p>${tool.description}</p>
+        <div class="g-col-9">
+          ${tool.description}
           <div class="col-xs-12" style="height:30px;"></div>
-          <table
-            data-toggle="table"
-            data-pagination="true" >
+          <table id="${tool.id}-table" class="table table-striped table-borderless">
             <thead>
               <tr>
-                <th>Virus Family</th>
-                <th>Virus</th>
-                <th>Virus ID</th>
+                <th data-field="family" data-formatter="familyFormatter">Virus Family</th>
+                <th data-field="virus_name" data-formatter="virusFormatter">Virus</th>
+                <th data-field="abbreviation" data-formatter="virusFormatter" data-align="center">Virus ID</th>
               </tr>
             </thead>
-            <tbody>
-              ${ denormalized_list
-                  .filter( virus => (virus.tool_id == tool.id))
-                  .map( virus => 
-                      html`
-                        <tr>
-                          <td>${virus.family}</td>
-                          <td>${virus.virus}</td>
-                          <td>${virus.virus_id}</td>
-                        </tr>
-                      `
-                    )}
-            </tbody>
           </table>
         </div>
         <div class="g-col-1" style="text-align:center;">
@@ -199,6 +115,8 @@ html`
     `
   )}
 `
-```
 
-{{< include /_js/_ojs_data.qmd >}}
+// Initialize bootstrap-table
+BootstrapTable = require("bootstrap-table@1.22.1")
+
+```

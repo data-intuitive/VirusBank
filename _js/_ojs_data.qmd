@@ -2,56 +2,52 @@
 //| echo: false
 
 // The families to load
-families = [ "alpha" ]
+families = [ "alphaviruses", "flaviviridae" ]
 
+// Utility functions
+import { encodeTool } from '/_js/functions.js'
+import { availableToolObjsF } from '/_js/functions.js'
+
+
+function toolsForVirus(_family, _virus) {
+  const availableTools = availableToolObjsF(annotations, toolbox)
+  return availableTools(_virus)
+}
 
 FA = FileAttachment
 
-// Load all Newick tree file and create a list of objects `family : tree`
+// Load the toolbox
+_toolbox = await FileAttachment("/toolbox/toolbox.json").json()
+toolbox = _toolbox.map( tool => encodeTool(tool) )
+
+// console.log(toolbox)
+
+addEncodedTools = (virus) => {
+  return ({ ... virus, tools: toolbox.flatMap( tool => virus[tool.encoded] ? tool.id : []) }) 
+}
+
+// Load all Newick tree file and create a dictionary `family -> tree`
 nwks = await Promise.all(
   families.map(async (family) => { 
     let tree = await FA("/"+ family + "/tree.newick").text()
-    return ({ [family]: tree });
+    return ({ [family]: tree })
   }))
-
-// Load all annotations as a list of objects
-annotations = await Promise.all(
-  families.map(async (family) => { 
-    const _annotations = await FA("/"+ family + "/annotations.json").json()
-    return ({ family: family, info: _annotations });
-  }))
-
-// Load the toolbox
-toolbox = await FileAttachment("/toolbox/toolbox.json").json()
-
-// Create a denormalized list of tools -> family -> virus
-denormalized_list = 
-  toolbox 
-    .flatMap(tool => {
-      return annotations.flatMap(family => {
-        return family.info.map( virus => {
-          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-          if (this_toolbox.filter(t => t == tool.id).length > 0) {
-            return ({
-              family: family.family,
-              virus: virus.name,
-              virus_id: virus.id,
-              tool: tool.name,
-              tool_id: tool.id
-            })
-          }
-        })
-      })
-    })
-  .filter(el => el != undefined)
 
 // console.log(nwks)
+
+// Load annotations for viruses for each family
+_annotations = await Promise.all(
+  families.map( async (family) => {
+    let xls = await FA("/"+ family + "/family.xlsx").xlsx()
+    let _annotations = xls.sheet(0, { headers: true, range: ":L" })
+
+    return _annotations.map( virus => ({... virus, family: family }) )
+  }))
+
+// Add tools information, just the list of tools ids
+annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
+
 // console.log(annotations)
-console.log(toolbox)
-console.log(denormalized_list)
 
-
-// annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
-
-// toolboxMap = Object.assign({}, ...(toolbox.map(item => ({ [item.id]: { id: item.id, name: item.name, description: item.description } }) )))
 ```
+
