@@ -5,11 +5,19 @@ format:
     anchor-sections: false
     section-divs: false
     include-before-body:
-      text: <style>@import url("https://unpkg.com/tabulator-tables@5/dist/css/tabulator_bootstrap4.min.css")</style>
+      text: <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
+    include-after-body:
+      text: |
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 ---
+
 
 ```{ojs}
 //| echo: false
+
+// Initialize bootstrap-table
+bootstrap_table = require("bootstrap-table@1.22.1")
 
 // Delay scroll to anchor a little bit...
 tmp = window.addEventListener("load", () => {
@@ -17,6 +25,8 @@ tmp = window.addEventListener("load", () => {
      document.getElementById(window.location.hash.substring(1)).scrollIntoView();
   }, 1000)
 })
+
+// d3.selectAll(".table").nodes().map(n => {n.appendChild(tool_table(n.id))})
 
 html`
   <div class="col-xs-12" style="height:20px;"></div>
@@ -32,7 +42,7 @@ html`
             <div id="toolbox-contents" class="tool-container">
               ${toolbox.map(tool => 
                 html`
-                  <a href="#${tool.id}_section">
+                  <a href="#${tool.id}-section">
                     <div class="tool-wrapper">
                       <div class="tool-tooltip-text">${tool.name}</div>
                       <div id="${tool.id}" class="tool">
@@ -59,90 +69,136 @@ html`
 //| echo: false
 
 // Create a denormalized list of tools -> family -> virus
-denormalized_list = 
-  toolbox 
-    .flatMap(tool => {
-      return annotations.flatMap(family => {
-        return family.info.map( virus => {
-          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
-          if (this_toolbox.filter(t => t == tool.id).length > 0) {
-            return ({
-              family: family.family,
-              virus: virus.name,
-              virus_id: virus.id,
-              tool: tool.name,
-              tool_id: tool.id
-            })
-          }
-        })
-      })
-    })
-  .filter(el => el != undefined)
-
-// Use Tabulator for the tables
-Tabulator = require("tabulator-tables@5")
+// denormalized_list = 
+//   toolbox 
+//     .flatMap(tool => {
+//       return annotations.flatMap(family => {
+//         return family.info.map( virus => {
+//           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+//           if (this_toolbox.filter(t => t == tool.id).length > 0) {
+//             return ({
+//               family: family.family,
+//               virus: virus.name,
+//               virus_id: virus.id,
+//               tool: tool.name,
+//               tool_id: tool.id
+//             })
+//           }
+//         })
+//       })
+//     })
+//   .filter(el => el != undefined)
 
 function tool_table(tool_id) {
 
   const data = denormalized_list.filter( virus => (virus.tool_id == tool_id));
-  const table = new Tabulator(document.createElement("div"), {
-    data,
-    height: 400,
-    columns: [
-      {
-        title: "Virus Family",
-        field: "family",
-        sorter: "string",
-        formatter:"link",
-        formatterParams: {
-          url: cell => { 
-            const family = cell.getRow()._row.data.family
-            const virus = cell.getRow()._row.data.virus
-            return "/" + family + "/" + "index.html"
-          }
-        }
-      },
-      {
-        title: "Virus",
-        field: "virus",
-        sorter: "string",
-        formatter:"link",
-        formatterParams: {
-          url: cell => { 
-            const family = cell.getRow()._row.data.family
-            const virus = cell.getRow()._row.data.virus_id
-            return "/" + family + "/" + virus + ".html"
-          }
-        }
-      }
-    ],
-    layout: "fitColumns",
-    editor: false,
-    pagination: "local"
-  });
-
-  table.element.value = data;
-
-  table.on("dataChanged", (data) => {
-    table.element.value = data;
-    table.element.dispatchEvent(new CustomEvent("input"));
-  });
-
-  return table.element;
+//   const table = new Tabulator(document.createElement("div"), {
+//     data,
+//     height: 400,
+//     columns: [
+//       {
+//         title: "Virus Family",
+//         field: "family",
+//         sorter: "string",
+//         formatter:"link",
+//         formatterParams: {
+//           url: cell => { 
+//             const family = cell.getRow()._row.data.family
+//             const virus = cell.getRow()._row.data.virus
+//             return "/" + family + "/" + "index.html"
+//           }
+//         }
+//       },
+//       {
+//         title: "Virus",
+//         field: "virus",
+//         sorter: "string",
+//         formatter:"link",
+//         formatterParams: {
+//           url: cell => { 
+//             const family = cell.getRow()._row.data.family
+//             const virus = cell.getRow()._row.data.virus_id
+//             return "/" + family + "/" + virus + ".html"
+//           }
+//         }
+//       }
+//     ],
+//     layout: "fitColumns",
+//     editor: false,
+//     pagination: "local"
+//   });
+// 
+//   table.element.value = data;
+// 
+//   table.on("dataChanged", (data) => {
+//     table.element.value = data;
+//     table.element.dispatchEvent(new CustomEvent("input"));
+//   });
+// 
+//   return table.element;
 }
+
+
 ```
 
-{{< include toolbox_content.qmd >}}
-
-{{< include /_js/_ojs_data.qmd >}}
-                     
 
 ```{ojs}
 //| echo: false
 
-// Render the icons based on the argument
-render_icons = (icon_info) => {
-  return icon_info.icons.map(i => html`<img class="tool-icon" height="${(icon_info.length > 1) ? 150/icon_info.length : 100}%" src="${i}"/>`)
-}
-
+// Render overview of the tools
+html`
+  ${toolbox.map(tool => 
+    html`
+      <h2 id="${tool.id}-section">${tool.name}</h2>
+      <div class="container grid">
+        <div class="g-col-2 toolbox" style="text-align:center;">
+          <div class="tool-container">
+            <div class="tool-wrapper">
+              <div class="tool-tooltip-text">${tool.name}</div>
+              <div id="${tool.id}" class="tool">
+                ${tool.icon.map( i =>
+                html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-1"></div>
+        <div class="g-col-7">
+          <p>${tool.description}</p>
+          <div class="col-xs-12" style="height:30px;"></div>
+          <table
+            data-toggle="table"
+            data-pagination="true" >
+            <thead>
+              <tr>
+                <th>Virus Family</th>
+                <th>Virus</th>
+                <th>Virus ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${ denormalized_list
+                  .filter( virus => (virus.tool_id == tool.id))
+                  .map( virus => 
+                      html`
+                        <tr>
+                          <td>${virus.family}</td>
+                          <td>${virus.virus}</td>
+                          <td>${virus.virus_id}</td>
+                        </tr>
+                      `
+                    )}
+            </tbody>
+          </table>
+        </div>
+        <div class="g-col-1" style="text-align:center;">
+        </div>
+      </div>
+      <div class="col-xs-12" style="height:30px;"></div>
+    `
+  )}
+`
 ```
+
+{{< include /_js/_ojs_data.qmd >}}

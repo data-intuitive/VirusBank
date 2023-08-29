@@ -1,8 +1,13 @@
+{% for virus in annotations %}
+<p>{{ virus.abbreviation }}</p>
+{% endfor %}
+
 {% for tool in toolbox %}
 
-<h2 id="{{tool.id}}_section">{{tool.name}}</h2>
+<h2 id="{{tool.id}}-section">{{tool.name}}</h2>
+{{ tool.name }}
 <div class="container grid">
-<div class="g-col-2 toolbox" style="text-align:center;">
+<div class="g-col-3 toolbox" style="text-align:center;">
 <div class="tool-container">
 <div class="tool-wrapper">
 <div class="tool-tooltip-text">{{tool.name}}</div>
@@ -20,11 +25,23 @@
 </div>
 </div>
 </div>
-<div class="g-col-1"></div>
-<div class="g-col-7">
+<div class="g-col-9">
 {{tool.description}}
+
+<div id="table-{{tool.id}}" class="table">table-{{tool.id}}</div>
+
+```{ojs}
+//| output: none
+//| echo: false
+
+html`
+<table>
+${ virus_table("test") }
+</table>
+`
+```
+
 <div class="col-xs-12" style="height:30px;"></div>
-<script>tool_table("{{tool.id}}")</script>
 </div>
 <div class="g-col-1" style="text-align:center;">
 </div>

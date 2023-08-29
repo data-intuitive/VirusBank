@@ -1,8 +1,55 @@
 const fs = require('fs')
 const { Liquid } = require('liquidjs')
+// const Exceljs = require('exceljs')
 
 let data = fs.readFileSync('toolbox/toolbox.json')
 let toolbox = JSON.parse(data)
+
+// // ----
+
+// function basicEncode(str) {
+//   return str.toLowerCase().replace(/\ /g, "_")
+// }
+
+// function encodeTool(arr) {
+//   return arr.map(tool => ({...tool, encoded: basicEncode(tool.name) }) )
+// }
+
+// // If a virus (virus_id or abbreviation in Excel file) is present in the annotations file,
+// // return the object.
+// // Returns 'undefined' when not present.
+// function virusInfoOrUndefinedF(annotations_) {
+//   return (virus_id) => annotations_.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)[0]
+// }
+
+// // Simple true/false 
+// function availableVirusInfoF(annotations_) {
+//   return (virus_id) => virusInfoOrUndefinedF(annotations_)(virus_id) ? true : false
+// }
+
+// // If no tools are available yet, but the virus is important:
+// function virusOfInterestF(annotations_) {
+//   return (virus_id) =>
+//       (availableVirusInfoF(annotations_)(virus_id))
+//       ? virusInfoOrUndefinedF(annotations_)(virus_id).virus_of_interest == "Yes"
+//       : false
+// }
+//  
+// function availableToolsF(annotations_, toolbox_) {
+//   return (virus_id) =>
+//       (availableVirusInfoF(annotations_)(virus_id))
+//       ? toolbox_.flatMap(tool => virusInfoOrUndefinedF(annotations_)(virus_id)[tool.encoded] ? tool.encoded : [] )
+//       : []
+// }
+
+// function availableToolObjsF(annotations_, toolbox_) {
+//   return (virus_id) =>
+//       (availableVirusInfoF(annotations_)(virus_id))
+//       ? toolbox_.flatMap(tool => virusInfoOrUndefinedF(annotations_)(virus_id)[tool.encoded] ? tool : [] )
+//       : []
+// }
+
+// ----
 
 // console.log(toolbox)
 
@@ -29,12 +76,91 @@ const engine = new Liquid({
 //   '{{ tool.description }}\n\n' +
 //   '{% endfor %}'
 
-const result = engine
-    .renderFileSync("toolbox", { toolbox: toolbox })
+// const families = [ "alphaviruses" ]
 
-// console.log(result)
-console.log(">> Writing " + "toolbox/toolbox_content.qmd")
-fs.writeFile("toolbox/toolbox_content.qmd", result, (err) => { if (err) throw err })
+// const annotations_ = families.map( async family => {
+
+//   const wb = new Exceljs.Workbook()
+//   const workbook = wb.xlsx.readFile(family + "/family.xlsx", { header: true })
+//   return workbook.then(ws => {
+
+//     // data
+//     let titles = [];
+//     let data = [];
+
+//     // excel to json converter (only the first sheet)
+//     ws.worksheets[0].eachRow((row, rowNumber) => {
+//         // rowNumber 0 is empty
+//         if (rowNumber > 0) {
+//             // get values from row
+//             let rowValues = row.values;
+//             // remove first element (extra without reason)
+//             rowValues.shift();
+//             // titles row
+//             if (rowNumber === 1) titles = rowValues;
+//             // table data
+//             else {
+//                 // create object with the titles and the row values (if any)
+//                 let rowObject = {}
+//                 for (let i = 0; i < titles.length; i++) {
+//                     let title = titles[i].trim();
+//                     let value = rowValues[i] ? rowValues[i].trim() : '';
+//                     rowObject[title] = value;
+//                 }
+//                 data.push(rowObject);
+//             }
+//         }
+//     })
+
+//     const filtered = data.filter(virus => virus.availability_in_toolbox == "Yes")
+//     // console.log(filtered)
+//     return filtered
+//   })
+// })
+
+// annotationsP = Promise.all(annotations_)
+//   .then( annotations => {
+
+//     const all = annotations.flat()
+
+//     // Call the factory functions to get specialized lookups
+//     const virusInfoOrUndefined = virusInfoOrUndefinedF(annotations)
+//     const availableVirusInfo = availableVirusInfoF(annotations)
+//     const availableTools = availableToolsF(annotations, toolbox)
+//     const virusOfInterest = virusOfInterestF(annotations)
+
+//     console.log(tools)
+
+//   })
+
+  const result = engine
+      .renderFileSync("toolbox", { toolbox: toolbox })
+
+  // console.log(result)
+  console.log(">> Writing " + "toolbox/toolbox_content.qmd")
+  fs.writeFile("toolbox/toolbox_content.qmd", result, (err) => { if (err) throw err })
+
+// Create a denormalized list of tools -> family -> virus
+// denormalized_list = 
+//   toolbox 
+//     .flatMap(tool => {
+//       annotations.flatMap(family => {
+//         family.info.map( virus => {
+//           const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+//           if (this_toolbox.filter(t => t == tool.id).length > 0) {
+//             ({
+//               family: family.family,
+//               virus: virus.name,
+//               virus_id: virus.id,
+//               tool: tool.name,
+//               tool_id: tool.id
+//             })
+//           }
+//         })
+//       })
+//     })
+//   .filter(el => el != undefined)
+
 
 //   // Individual <virus>.qmd and _<virus>.qmd files
 //   filteredData.forEach(virus => {

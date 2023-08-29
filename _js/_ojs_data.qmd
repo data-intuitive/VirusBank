@@ -24,10 +24,31 @@ annotations = await Promise.all(
 // Load the toolbox
 toolbox = await FileAttachment("/toolbox/toolbox.json").json()
 
+// Create a denormalized list of tools -> family -> virus
+denormalized_list = 
+  toolbox 
+    .flatMap(tool => {
+      return annotations.flatMap(family => {
+        return family.info.map( virus => {
+          const this_toolbox = (virus.toolbox != undefined) ? virus.toolbox: []
+          if (this_toolbox.filter(t => t == tool.id).length > 0) {
+            return ({
+              family: family.family,
+              virus: virus.name,
+              virus_id: virus.id,
+              tool: tool.name,
+              tool_id: tool.id
+            })
+          }
+        })
+      })
+    })
+  .filter(el => el != undefined)
+
 // console.log(nwks)
 // console.log(annotations)
-// console.log(toolbox)
-
+console.log(toolbox)
+console.log(denormalized_list)
 
 
 // annotationsMap = Object.assign({}, ...(annotations.map(item => ({ [item.id]: { id: item.id, name: item.name, toolbox: item.toolbox, show: !!item.show } }) )))
