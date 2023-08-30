@@ -12,7 +12,7 @@ format:
           window.addEventListener("load", () => {
              setTimeout( () => {
                 document.getElementById(window.location.hash.substring(1)).scrollIntoView();
-             }, 1000)
+             }, 500)
           })
           // Formatters for the table rows
           function familyFormatter(value, row) {
@@ -98,11 +98,11 @@ html`
         <div class="g-col-9">
           ${tool.description}
           <div class="col-xs-12" style="height:30px;"></div>
-          <table id="${tool.id}-table" class="table table-striped table-borderless">
+          <table id="${tool.id}-table" data-pagination="true class="table table-striped table-borderless">
             <thead>
               <tr>
-                <th data-field="family" data-formatter="familyFormatter">Virus Family</th>
-                <th data-field="virus_name" data-formatter="virusFormatter">Virus</th>
+                <th data-field="family" data-sortable="true" data-formatter="familyFormatter">Virus Family</th>
+                <th data-field="virus_name" data-sortable="true" data-formatter="virusFormatter">Virus</th>
                 <th data-field="abbreviation" data-formatter="virusFormatter" data-align="center">Virus ID</th>
               </tr>
             </thead>
