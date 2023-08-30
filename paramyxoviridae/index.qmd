@@ -11,14 +11,13 @@ format:
 params:
   family: paramyxoviridae
 ---
- 
+
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)
 ```
 
-<!-- include the qmd file, that way the virusFamily variable can be taken into account -->
-{{< include /_js/ojs_data.qmd >}}
+{{< include /_js/_ojs_data.qmd >}}
 
 ```{ojs}
 //| output: none
@@ -28,6 +27,7 @@ import { virusInfoOrUndefinedF } from "/_js/functions.js"
 import { availableVirusInfoF } from "/_js/functions.js"
 import { availableToolsF } from "/_js/functions.js"
 import { virusOfInterestF } from "/_js/functions.js"
+
 ```
  
 ```{ojs}
@@ -91,12 +91,14 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 ```{ojs}
 //| output: none
 //| echo: false
- 
+
+familyAnnotations = annotations.filter(virus => virus.family == virusFamily)
+
 // Call the factory functions to get specialized lookups
-virusInfoOrUndefined = virusInfoOrUndefinedF(annotations)
-availableVirusInfo = availableVirusInfoF(annotations)
-availableTools = availableToolsF(annotations, toolbox)
-virusOfInterest = virusOfInterestF(annotations)
+virusInfoOrUndefined = virusInfoOrUndefinedF(familyAnnotations)
+availableVirusInfo = availableVirusInfoF(familyAnnotations)
+availableTools = availableToolsF(familyAnnotations, toolbox)
+virusOfInterest = virusOfInterestF(familyAnnotations)
 
 // Initialize the toolbox when the data is loaded
 init_toolbox =
@@ -143,7 +145,7 @@ updateToolbox = (d) => {
 
 // Handle tabset depending on the number of tabs
 rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
-annotatedViruses = annotations.filter(virus => virus.availability_in_toolbox == "Yes")
+annotatedViruses = familyAnnotations.filter(virus => virus.availability_in_toolbox == "Yes")
 nrTabs = rawTabs.length
 
 function indexToTab(i, length) {
@@ -168,9 +170,12 @@ function hideTabset() {
 hide = hideTabset()
 
 // Instantiate tree
+nwk = nwksAsMap[virusFamily]
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
  
+// import { update_tree } from "/_js/functions.js"
+
 renderedTree = tree
   // Transform the tree (translate and prune)
   // based on the input Excel file for this virus family
@@ -185,13 +190,7 @@ renderedTree = tree
         node.data.name = newName
       } else {
         node.data.name = "remove_me"
-        try {
-          tree.deleteANode(node);
-        } catch (err) {
-          console.error("Could not remove node: %s. Please check that not \
-            all virusses are being removed from the tree and that the virus \
-            IDs in the family excel file match with the newick file.", virus)
-        }
+        tree.deleteANode(node)
       }
     } 
   })
@@ -219,7 +218,7 @@ renderedTree = tree
 
     // At this stage in the process, every node should have information
     const information = virusInfoOrUndefined(virus_id)
-    const tools = availableTools(virus_id)
+    const tools = virusToolbox(virusFamily, virus_id)
     const inToolbox = tools.length > 0
 
     // Styling based on available information
@@ -232,7 +231,7 @@ renderedTree = tree
     // Hover functionality - Virus name
     if (information)
       element
-        .on("mouseover", virusHoverIn(data, information, availableTools(virus_id).length > 0))
+        .on("mouseover", virusHoverIn(data, information, virusToolbox(virus_id).length > 0))
         .on("mouseout", virusHoverOut)
  
     // Click functionality - Toolbox
@@ -281,3 +280,4 @@ tmp = d3.select("#tree-container").node().appendChild(renderedTree)
 &nbsp;
  
 {{< include _details.qmd >}}
+

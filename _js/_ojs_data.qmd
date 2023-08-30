@@ -60,8 +60,9 @@ function virusInfo(_family, _virus) {
 
 function virusToolbox(_family, _virus) {
   const info = virusInfo(_family, _virus)
-  // console.log(info)
-  return info.tools
+//  console.log("info for " + _virus)
+//  console.log(info)
+  return info ? info.tools : []
 }
 
 function renderVirusToolbox(_family, _virus) {

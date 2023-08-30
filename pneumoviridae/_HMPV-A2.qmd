@@ -42,7 +42,7 @@
 //| output: none
 //| echo: false
 
-renderTools(toolsForVirus("", "HMPV-A2"))
+renderVirusToolbox("pneumoviridae", "HMPV-A2")
 
 ```
 :::

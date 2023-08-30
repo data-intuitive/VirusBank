@@ -30,20 +30,6 @@ Click on the family in the table for more information.
 
 ::: {.card .g-col-4 .p-0 .rounded}
 ::: {.card-img-top}
-[![](alpha/virus.jpg)](alpha/index.qmd)
-:::
-::: {.card-body}
-::: {.card-title }
-### Alpha
-:::
-::: {.card-text}
-Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae.
-:::
-:::
-:::
-
-::: {.card .g-col-4 .p-0 .rounded}
-::: {.card-img-top}
 [![](paramyxoviridae/virus.jpg)](paramyxoviridae/index.qmd)
 :::
 ::: {.card-body}

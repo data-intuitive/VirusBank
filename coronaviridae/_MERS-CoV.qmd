@@ -42,7 +42,7 @@
 //| output: none
 //| echo: false
 
-renderTools(toolsForVirus("", "MERS-CoV"))
+renderVirusToolbox("coronaviridae", "MERS-CoV")
 
 ```
 :::

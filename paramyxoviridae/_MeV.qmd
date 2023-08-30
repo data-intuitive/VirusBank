@@ -42,7 +42,7 @@
 //| output: none
 //| echo: false
 
-renderTools(toolsForVirus("", "MeV"))
+renderVirusToolbox("paramyxoviridae", "MeV")
 
 ```
 :::
