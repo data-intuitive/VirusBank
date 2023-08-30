@@ -24,10 +24,7 @@ format:
     toc: false
     resources: 
       - virus.png
-      - tree.newick
-      - annotations.json
       - toolbox/toolbox.json
-      - toolbox/toolbox_content.qmd
       - toolbox/img/tb_target-based-assays.png
       - toolbox/img/tb_animal-infection-models-2.png
       - toolbox/img/tb_animal-infection-models.png
@@ -38,3 +35,12 @@ format:
       - toolbox/img/tb_high-throughput-screening.png
       - toolbox/img/tb_target-based-assays.png
       - img/placeholder.jpg
+      - _js/funtions.js
+      - tree.newick
+      - family.xlsx
+      # - alphaviruses/family.xlsx
+      # - coronaviridae/family.xlsx
+      # - pneumoviridae/family.xlsx
+      # - flaviviridae/family.xlsx
+      # - paramyxoviridae/family.xlsx
+
