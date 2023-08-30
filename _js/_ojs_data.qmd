@@ -2,17 +2,11 @@
 //| echo: false
 
 // The families to load
-families = [ "alphaviruses", "flaviviridae" ]
+families = [ "alphaviruses", "flaviviridae", "paramyxoviridae", "coronaviridae", "pneumoviridae" ]
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
 import { availableToolObjsF } from '/_js/functions.js'
-
-
-function toolsForVirus(_family, _virus) {
-  const availableTools = availableToolObjsF(annotations, toolbox)
-  return availableTools(_virus)
-}
 
 FA = FileAttachment
 
@@ -30,8 +24,9 @@ addEncodedTools = (virus) => {
 nwks = await Promise.all(
   families.map(async (family) => { 
     let tree = await FA("/"+ family + "/tree.newick").text()
-    return ({ [family]: tree })
+    return ({ family: family, nwk: tree })
   }))
+nwksAsMap = Object.fromEntries(nwks.map( el => [el.family, el.nwk] ))
 
 // console.log(nwks)
 
@@ -41,13 +36,73 @@ _annotations = await Promise.all(
     let xls = await FA("/"+ family + "/family.xlsx").xlsx()
     let _annotations = xls.sheet(0, { headers: true, range: ":L" })
 
-    return _annotations.map( virus => ({... virus, family: family }) )
+    let _trimmed = _annotations.map( virus => {
+      let trimmed = {}
+      Object.keys(virus).forEach( key => {
+        trimmed[key] = virus[key].trim()
+      })
+      return trimmed
+    })
+
+    return _trimmed.map( virus => ({... virus, family: family }) )
   }))
 
 // Add tools information, just the list of tools ids
 annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
 
-// console.log(annotations)
+console.log(annotations)
 
+function virusInfo(_family, _virus) {
+  const info = 
+    annotations.filter(row => row.abbreviation == _virus && row.family == _family)
+  return info[0]
+}
+
+function virusToolbox(_family, _virus) {
+  const info = virusInfo(_family, _virus)
+  console.log(info)
+  return info.tools
+}
+
+function renderVirusToolbox(_family, _virus) {
+
+  const tools = virusToolbox(_family, _virus)
+ 
+  if (tools.length > 0) {
+    return html`
+      ${toolbox.filter(tool => tools.includes(tool.id) ).map(tool => 
+        html`
+        <h2 id="${tool.id}-section">${tool.name}</h2>
+        <div class="container grid">
+          <div class="g-col-2 toolbox" style="text-align:center;">
+            <div id="toolbox-contents" class="tool-container">
+              <a href="/toolbox/index.html#${tool.id}-section">
+                <div class="tool-wrapper">
+                  <div class="tool-tooltip-text">${tool.name}</div>
+                      <div id="${tool.id}" class="tool">
+                        ${tool.icon.map( i =>
+                        html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                        )}
+                      </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="g-col-1"></div>
+          <div class="g-col-7">
+            <p>${tool.description}</p>
+          </div>
+          <div class="g-col-1" style="text-align:center;">
+          </div>
+        </div>
+        <div class="col-xs-12" style="height:30px;"></div>
+        `
+      )}
+    `
+  } else {
+    return html`
+      <p>No tools have been developed for this virus yet.</p>
+    `
+  }
+}
 ```
-
