@@ -8,7 +8,7 @@ on:
       - synchronize
       - closed
 
-name: Render and deploy to Netlify
+name: Render and deploy to Netlify and VirusBank
 
 jobs:
   build-deploy:
@@ -74,8 +74,9 @@ jobs:
           server: ftp.virusbankplatformorg.webhosting.be
           username: floor@virusbankplatformorg
           password: ${{ secrets.FTP_AUTH_SECRET }}
-          local_dir: './_site/'
-          log-level: verbose
+          local-dir: './_site/'
+          log-level: standard
+          # dangerous-clean-slate: true
 
       - uses: thollander/actions-comment-pull-request@v2
         if: github.event_name == 'pull_request'
