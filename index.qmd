@@ -26,9 +26,9 @@ Please click here for information about the toolbox: [Toolbox](toolbox/index.qmd
 
 Click on the family in the table for more information.
 
-::: {.grid}
+::: {.grid .p-0 .rounded}
 
-::: {.card .g-col-4 .p-0 .rounded}
+::: {.card .g-col-4}
 ::: {.card-img-top}
 [![](paramyxoviridae/virus.jpg)](paramyxoviridae/index.qmd)
 :::
@@ -42,7 +42,7 @@ placeholder
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
 [![](alphaviruses/virus.jpg)](alphaviruses/index.qmd)
 
@@ -57,7 +57,7 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
 [![](flaviviridae/virus.jpg)](flaviviridae/index.qmd)
 
@@ -72,7 +72,7 @@ Flaviviridae
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
 [![](coronaviridae/virus.jpg)](coronaviridae/index.qmd)
 
@@ -87,7 +87,7 @@ Coronaviridae
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
 [![](pneumoviridae/virus.jpg)](pneumoviridae/index.qmd)
 
