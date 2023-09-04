@@ -64,7 +64,18 @@ jobs:
           site: ${{ env.NETLIFY_SITE_ID }}
           dir: '_site'
           alias: "${{ env.BRANCH_NAME }}"
-          message: 'Deploy prooduction ${{ github.ref }}'
+          message: 'Deploy production ${{ github.ref }}'
+
+      - name: Deploy preview to VirusBank
+        id: deploy_virusbank
+        if: github.event_name == 'pull_request'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.virusbankplatformorg.webhosting.be
+          username: floor@virusbankplatformorg
+          password: ${{ secrets.FTP_AUTH_SECRET }}
+          local_dir: './_site/'
+          log-level: verbose
 
       - uses: thollander/actions-comment-pull-request@v2
         if: github.event_name == 'pull_request'

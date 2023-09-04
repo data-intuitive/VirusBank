@@ -2,8 +2,9 @@
 
 /* General */
 body {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
+  font-family: "Mukta";
 }
 
 a {
