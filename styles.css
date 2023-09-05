@@ -82,8 +82,34 @@ svg .internal-node circle:hover {
   stroke: #3A7598 !important;
 }
 
-/* Toolbox */
+/* Main container and contents */
+.phylo-container {
+  display: flex;
+  padding: 0 0;
+  vertical-align: middle;
+}
 
+#tree-container {
+  height: 500px;
+}
+
+.left {
+  width: calc(100% - 370px);
+  /* background-color: #759ac9; */
+}
+.right {
+  width: 370px;
+  /* background-color: #7cd47b; */
+}
+
+/* Make the toolbox dissapear on small screens */
+/* @media (max-width: 800px) { */
+/*   div#annotation-container { */
+/*     display: none;  */
+/*   }  */
+/* } */
+
+/* Toolbox */
 /* tool-wrapper contains tool and tooltip */
 .tool-wrapper {
   display: inline-block;
@@ -202,3 +228,4 @@ svg .internal-node circle:hover {
   height: 120%; 
   shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
+

@@ -50,7 +50,7 @@ _annotations = await Promise.all(
 // Add tools information, just the list of tools ids
 annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
 
-// console.log(annotations)
+console.log(annotations)
 
 function virusInfo(_family, _virus) {
   const info = 
