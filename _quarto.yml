@@ -35,9 +35,9 @@ format:
       - toolbox/img/tb_target-based-assays.png
       - img/placeholder.jpg
       - _js/funtions.js
+      - _js/family.qmd
       - tree.newick
       - family.xlsx
-      - _js/family.qmd
       # - alphaviruses/family.xlsx
       # - coronaviridae/family.xlsx
       # - pneumoviridae/family.xlsx
