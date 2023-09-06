@@ -76,7 +76,7 @@ function renderVirusToolbox(_family, _virus) {
         html`
         <h2 id="${tool.id}-section">${tool.name}</h2>
         <div class="container grid">
-          <div class="g-col-2 toolbox" style="text-align:center;">
+          <div class="g-col-3 toolbox" style="text-align:center;">
             <div id="toolbox-contents" class="tool-container">
               <a href="/toolbox/index.html#${tool.id}-section">
                 <div class="tool-wrapper">
@@ -90,8 +90,7 @@ function renderVirusToolbox(_family, _virus) {
               </a>
             </div>
           </div>
-          <div class="g-col-1"></div>
-          <div class="g-col-7">
+          <div class="g-col-9">
             <p>${tool.description}</p>
           </div>
           <div class="g-col-1" style="text-align:center;">
