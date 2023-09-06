@@ -6,11 +6,10 @@
 
 {{< include _ZIKV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _ZIKV-symptoms.qmd >}} 
 
-:::
 
 ## Transmission
 
@@ -18,11 +17,9 @@
 
 {{< include _ZIKV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _ZIKV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +27,9 @@
 
 {{< include _ZIKV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _ZIKV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

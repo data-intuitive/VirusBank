@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with symptoms related to Zika virus](/img/placeholder.jpg)
+![ZIKV disease symptoms](img/ZIKV Symptoms.png){width=70%}

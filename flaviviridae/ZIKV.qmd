@@ -1,13 +1,16 @@
 ---
-title: Zika virus (ZIKV)
 params:
   family: flaviviridae
+  virus: Zika virus (ZIKV)
 ---
-
+             
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
 ```
+
+{{< include /_js/virus-breadcrumb.qmd >}}
 
 {{< include _ZIKV.qmd >}}
 

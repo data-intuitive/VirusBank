@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with relevance related to Zika virus](/img/placeholder.jpg)
+![Data reported from 2022 <https://wwwnc.cdc.gov/travel/page/zika-information>](img/ZIKV Medical relevance.jpg){width=70%}
