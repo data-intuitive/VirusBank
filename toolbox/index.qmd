@@ -44,14 +44,19 @@ run_ = toolbox.map(tool => {
 // Render jumbotron and toolbox
 html`
   <div class="col-xs-12" style="height:20px;"></div>
-  <div class="container grid" style="--bs-gap: 0;">
-    <div class="g-col-md-8 jumbotron">
+
+  <div class="left-right-container " style="--bs-gap: 10;">
+
+    <!-- Jumbotron -->
+    <div class="left jumbotron">
       <h1 class="display-4">Viral Toolbox</h1>
       <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
       <p>Please scroll down or click on the tool of interest on the right</p>
     </div>
-    <div class="g-col-md-4">
-      <div class="g-col-12 container">
+
+    <!-- Toolbox -->
+    <div class="right">
+      <div class="container">
         <div class="toolbox">
             <div id="toolbox-contents" class="tool-container">
               ${toolbox.map(tool => 
@@ -73,6 +78,7 @@ html`
       </div>
     </div>
   </div>
+
   <div class="col-xs-12" style="height:40px;"></div>
 `
 
@@ -82,7 +88,7 @@ html`
     html`
       <h2 id="${tool.id}-section">${tool.name}</h2>
       <div class="container grid">
-        <div class="g-col-2 toolbox" style="text-align:center;">
+        <div class="g-col-3 toolbox" style="text-align:center;">
           <div class="tool-container">
             <div class="tool-wrapper">
               <div class="tool-tooltip-text">${tool.name}</div>
@@ -94,7 +100,6 @@ html`
             </div>
           </div>
         </div>
-        <div class="g-col-1"></div>
         <div class="g-col-9">
           ${tool.description}
           <div class="col-xs-12" style="height:30px;"></div>
