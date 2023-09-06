@@ -1,0 +1,13 @@
+```{ojs}
+//| echo: false
+//| output: none
+
+html`
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Overview</a></li>
+    <li class="breadcrumb-item">${virusFamily}</li>
+  </ol>
+</nav>
+`
+```
