@@ -3,7 +3,7 @@ params:
   family: flaviviridae
   virus: Yellow fever virus (YFV)
 ---
-
+ 
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)

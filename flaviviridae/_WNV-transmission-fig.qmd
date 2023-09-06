@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to West Nile virus](/img/placeholder.jpg)
+![](img/WNV Transmission.png)

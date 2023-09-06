@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to Yellow fever virus](/img/placeholder.jpg)
+![](img/YFV transmission.png)

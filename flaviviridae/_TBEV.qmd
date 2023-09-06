@@ -6,11 +6,9 @@
 
 {{< include _TBEV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _TBEV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _TBEV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _TBEV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _TBEV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _TBEV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

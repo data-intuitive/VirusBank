@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to Usutu virus](/img/placeholder.jpg)
+![](img/USUV transmission.png)

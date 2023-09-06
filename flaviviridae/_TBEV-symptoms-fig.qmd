@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with symptoms related to Tick borne encephalitis](/img/placeholder.jpg)
+![](img/TBEV Symptoms.png)

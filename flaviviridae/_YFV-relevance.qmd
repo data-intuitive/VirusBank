@@ -1,1 +1,3 @@
-Placeholder __text__ for relevance related to Yellow fever virus
+- Yellow fever virus is estimated to cause 200,000 cases of disease and 30,000 deaths each year, with 90% occurring in Africa.
+- 40 countries are considered endemic and at high-risk for YF outbreaks
+- The vaccine from Sanofi Pauster ( YF-VAX) is available, the vaccination coverage remains inadequate in endemic areas , especially during outbreaks. There is any antiviral available to support on the treatment. 

@@ -3,7 +3,7 @@ params:
   family: flaviviridae
   virus: West Nile virus (WNV)
 ---
-
+         
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)

@@ -1,1 +1,4 @@
-![Placeholder __caption__ for figure with relevance related to West Nile virus](/img/placeholder.jpg)
+![](img/WNV Medical relevance \(fig1\).jpg)
+
+![Historical distribution of WNV in world: Data reported at Reisen, W. (2013). Ecology of West Nile Virus in North America. Viruses, 5(9), 2079–2105. West Nile transmission in  Humans in Europe 2022, from European centre for disease prevention and Control. ECDC, 2023.](img/WNV Medical relevance \(fig2\).jpg)
+
