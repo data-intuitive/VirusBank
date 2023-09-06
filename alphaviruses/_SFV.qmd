@@ -6,11 +6,9 @@
 
 {{< include _SFV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SFV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _SFV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SFV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _SFV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SFV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

@@ -1,13 +1,16 @@
 ---
-title: Sindbis virus (SINV)
 params:
   family: alphaviruses
+  virus: Sindbis virus (SINV)
 ---
 
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
 ```
+
+{{< include /_js/virus-breadcrumb.qmd >}}
 
 {{< include _SINV.qmd >}}
 

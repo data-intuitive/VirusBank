@@ -6,11 +6,9 @@
 
 {{< include _MAYV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MAYV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _MAYV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MAYV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _MAYV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MAYV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

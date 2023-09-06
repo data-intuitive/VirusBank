@@ -6,11 +6,9 @@
 
 {{< include _VEEV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _VEEV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _VEEV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _VEEV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _VEEV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _VEEV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

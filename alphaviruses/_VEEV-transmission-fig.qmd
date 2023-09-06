@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to Venezuelan equine encephalitis virus](/img/placeholder.jpg)
+![](img/VEEV transmission.png)

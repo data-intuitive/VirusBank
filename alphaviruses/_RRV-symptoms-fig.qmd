@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with symptoms related to Ross river virus](/img/placeholder.jpg)
+![](img/RRV disease.png)

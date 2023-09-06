@@ -199,9 +199,9 @@ renderedTree = tree
     'brush':              false,
     'draw-size-bubbles':  false,
     'maximum-per-node-spacing': 200,
-    'minimum-per-node-spacing': 1,
+    'minimum-per-node-spacing': 20,
     'maximum-per-level-spacing': 200,
-    'minimum-per-level-spacing': 1,
+    'minimum-per-level-spacing': 20,
     'container': "#tree-container"
   })
   .style_nodes( (element, data) => {

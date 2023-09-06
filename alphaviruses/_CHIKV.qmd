@@ -6,11 +6,9 @@
 
 {{< include _CHIKV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _CHIKV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _CHIKV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _CHIKV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _CHIKV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _CHIKV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

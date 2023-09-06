@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to Semliki Forest virus](/img/placeholder.jpg)
+![](img/SFV transmission.png)
