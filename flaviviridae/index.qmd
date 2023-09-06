@@ -26,4 +26,3 @@ ojs_define(virusFamily = params$family)
 &nbsp;
  
 {{< include _details.qmd >}}
-
