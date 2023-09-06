@@ -38,6 +38,7 @@ format:
       - _js/family.qmd
       - tree.newick
       - family.xlsx
+      - _js/virus-breadcrumb.qmd
       # - alphaviruses/family.xlsx
       # - coronaviridae/family.xlsx
       # - pneumoviridae/family.xlsx

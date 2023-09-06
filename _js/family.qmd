@@ -205,7 +205,7 @@ renderedTree = tree
     // At this stage in the process, every node should have information
     const information = virusInfoOrUndefined(virus_id)
     const tools = virusToolbox(virusFamily, virus_id)
-    const inToolbox = tools.length > 0
+    const inToolbox = (tools.length > 0) && (information.availability_in_toolbox == "Yes")
 
     // Styling based on available information
     const updtElement1 =
@@ -217,7 +217,7 @@ renderedTree = tree
     // Hover functionality - Virus name
     if (information)
       element
-        .on("mouseover", virusHoverIn(data, information, virusToolbox(virus_id).length > 0))
+        .on("mouseover", virusHoverIn(data, information, inToolbox))
         .on("mouseout", virusHoverOut)
  
     // Click functionality - Toolbox

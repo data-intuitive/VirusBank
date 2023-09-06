@@ -1,5 +1,6 @@
 ```{ojs}
 //| echo: false
+//| output: false
 
 // The families to load
 families = [ "alphaviruses", "flaviviridae", "paramyxoviridae", "coronaviridae", "pneumoviridae" ]
