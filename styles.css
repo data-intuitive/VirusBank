@@ -97,9 +97,14 @@ svg .internal-node circle:hover {
   width: calc(100% - 370px);
   /* background-color: #759ac9; */
 }
+
 .right {
   width: 370px;
-  /* background-color: #7cd47b; */
+}
+
+.toolbox {
+  height: 500px;
+  /* background-color: blue; */
 }
 
 /* Make the toolbox dissapear on small screens */

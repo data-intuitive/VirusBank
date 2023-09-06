@@ -38,7 +38,9 @@ html`
 
   <!-- Left part -->
   <div class="left">
-    <div id="tree-container" class="tree-container text-center"></div>
+    <div id="tree-container" class="tree-container text-center">
+      <svg id="tree-svg" class="tree-svg"></svg>
+    </div>
     <div id="legend-container" class="text-center mb-2">
       <div class="grid">
         <div class="g-col-md-12 small">
@@ -184,7 +186,8 @@ renderedTree = tree
     } 
   })
   .render({
-    'left-right-spacing': 'fit-to-size',
+    'left-right-spacing':  'fit-to-size',
+    'top-bottom-spacing':  'fit-to-size',
     'is-radial':          true,
     'selectable':         false,
     'collapsible':        false,
@@ -195,8 +198,11 @@ renderedTree = tree
     'zoom':               false,
     'brush':              false,
     'draw-size-bubbles':  false,
-    'minimal-per-node-spacing':  3,
-    'minimum-per-level-spacing': 3,
+    'maximum-per-node-spacing': 200,
+    'minimum-per-node-spacing': 1,
+    'maximum-per-level-spacing': 200,
+    'minimum-per-level-spacing': 1,
+    'container': "#tree-container"
   })
   .style_nodes( (element, data) => {
 
@@ -241,7 +247,10 @@ renderedTree = tree
 
   })
   .layout(true)
-  .svg.node()
+
+showTree = renderedTree
+  .svg
+  .node()
 
 // Show small virus information box on hover
 virusHoverIn = (data, information, is_available) => () => {
@@ -260,7 +269,8 @@ virusHoverOut = () => {
 }
 
 // Add SVG to the DOM
-tmp = d3.select("#tree-container").node().appendChild(renderedTree)
+tmp = d3.select("#tree-container").node().appendChild(showTree)
+tmp1 = renderedTree.set_size([500,500]).update()
 ```
 
 
