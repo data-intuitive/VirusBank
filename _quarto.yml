@@ -3,11 +3,7 @@ project:
 
 website:
   title: "VirusBank"
-  site-url: https://phylotree.data-intuitive.app
   repo-url: https://github.com/data-intuitive/VirusBank
-  sidebar:
-    contents:
-      - index.qmd
 format:
   html:
     title-block-banner: virus.jpg
@@ -22,7 +18,8 @@ format:
     css: styles.css
     toc: false
     resources: 
-      - virus.png
+      - tree.newick
+      - family.xlsx
       - toolbox/toolbox.json
       - toolbox/img/tb_target-based-assays.png
       - toolbox/img/tb_animal-infection-models-2.png
@@ -36,12 +33,4 @@ format:
       - img/placeholder.jpg
       - _js/funtions.js
       - _js/family.qmd
-      - tree.newick
-      - family.xlsx
       - _js/virus-breadcrumb.qmd
-      # - alphaviruses/family.xlsx
-      # - coronaviridae/family.xlsx
-      # - pneumoviridae/family.xlsx
-      # - flaviviridae/family.xlsx
-      # - paramyxoviridae/family.xlsx
-

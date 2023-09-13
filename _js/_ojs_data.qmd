@@ -7,7 +7,6 @@ families = [ "alphaviruses", "flaviviridae", "paramyxoviridae", "coronaviridae",
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
-import { availableToolObjsF } from '/_js/functions.js'
 
 FA = FileAttachment
 
