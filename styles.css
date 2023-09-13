@@ -43,7 +43,7 @@ h1 {
 
 svg .branch, .branch:hover {
   stroke: #3A7598 !important;
-  opacity: 80%;
+  opacity: 100%;
   stroke-width: 5px;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -72,6 +72,7 @@ svg .branch-tracer {
 
 svg .internal-node circle {
   fill: white;
+  r: 0px;
   stroke-width:1px;
   stroke: #3A7598 !important;
 }
