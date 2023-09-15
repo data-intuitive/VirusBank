@@ -6,9 +6,9 @@
 
 {{< include _HCoV-229E-symptoms-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-229E-symptoms.qmd >}} 
+
+:::
 
 ## Transmission
 
@@ -16,9 +16,9 @@
 
 {{< include _HCoV-229E-transmission-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-229E-transmission.qmd >}} 
+
+:::
 
 ## Medical relevance
 
@@ -26,9 +26,9 @@
 
 {{< include _HCoV-229E-relevance-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-229E-relevance.qmd >}} 
+
+:::
 
 ## Toolbox
 

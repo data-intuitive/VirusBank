@@ -6,9 +6,9 @@
 
 {{< include _HCoV-HKU01-symptoms-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-HKU01-symptoms.qmd >}} 
+
+:::
 
 ## Transmission
 
@@ -16,9 +16,9 @@
 
 {{< include _HCoV-HKU01-transmission-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-HKU01-transmission.qmd >}} 
+
+:::
 
 ## Medical relevance
 
@@ -26,9 +26,9 @@
 
 {{< include _HCoV-HKU01-relevance-fig.qmd >}} 
 
-:::
-
 {{< include _HCoV-HKU01-relevance.qmd >}} 
+
+:::
 
 ## Toolbox
 
