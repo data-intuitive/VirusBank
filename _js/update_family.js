@@ -100,9 +100,9 @@ workbook.then(ws => {
       '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-symptoms-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-symptoms.qmd >}} {% endraw %}\n' +
+      '\n' +
+      ':::\n' +
       '\n' +
       '## Transmission\n' +
       '\n' +
@@ -110,9 +110,9 @@ workbook.then(ws => {
       '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-transmission-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-transmission.qmd >}} {% endraw %}\n' +
+      '\n' +
+      ':::\n' +
       '\n' +
       '## Medical relevance\n' +
       '\n' +
@@ -120,9 +120,9 @@ workbook.then(ws => {
       '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-relevance-fig.qmd >}} {% endraw %}\n' +
       '\n' +
-      ':::\n' +
-      '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-relevance.qmd >}} {% endraw %}\n' +
+      '\n' +
+      ':::\n' +
       '\n' +
       '## Toolbox\n' +
       '\n' +
