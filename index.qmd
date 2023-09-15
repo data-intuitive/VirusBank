@@ -59,15 +59,15 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 
 ::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
-[![](flaviviridae/virus.jpg)](flaviviridae/index.qmd)
+[![](flaviviruses/virus.jpg)](flaviviruses/index.qmd)
 
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Flaviviridae
+### Flaviviruses
 :::
 ::: {.card-text}
-Flaviviridae
+Flaviviruses
 :::
 :::
 :::
@@ -82,7 +82,7 @@ Flaviviridae
 ### Coronaviruses
 :::
 ::: {.card-text}
-Coronaviridae
+Coronaviruses
 :::
 :::
 :::

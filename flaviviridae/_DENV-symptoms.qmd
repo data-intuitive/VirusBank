@@ -1,8 +1,0 @@
-- The infections can cause wide of range symptoms. 
-- The incubation time may the disease appear asymptomatic or mild.
-- Dengue fever (DF) is referring the mild acute febrile illness.
-- Critical phase refers the dengue hemorrhagic fever (DHF), characterized with usual vascular permeability and internal bleeding which may leads to hypovolemic shock, known as dengue shock syndrome (DSS). 
-- Infection  can lead to different level of seriousness depending on the virus serotypes and previous exposure with the virus . 
-- The initial phase with no-specific like flu symptoms. 
-- 20-30% of infected patient evolute for neurological complication, such as encephalitis, meningitis or meningoencephalitis and or myelitis.
-- 20% of cases can develop long term neurological and psychological sequalae. 

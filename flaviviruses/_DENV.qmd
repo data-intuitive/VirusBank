@@ -1,0 +1,42 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _DENV-symptoms-fig.qmd >}} 
+
+{{< include _DENV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _DENV-transmission-fig.qmd >}} 
+
+{{< include _DENV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _DENV-relevance-fig.qmd >}} 
+
+{{< include _DENV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("flaviviruses", "DENV")
+
+```
+:::

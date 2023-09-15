@@ -1,0 +1,42 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _YFV-symptoms-fig.qmd >}} 
+
+{{< include _YFV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _YFV-transmission-fig.qmd >}} 
+
+{{< include _YFV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _YFV-relevance-fig.qmd >}} 
+
+{{< include _YFV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("flaviviruses", "YFV")
+
+```
+:::

@@ -1,0 +1,42 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _ZIKV-symptoms-fig.qmd >}} 
+
+{{< include _ZIKV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _ZIKV-transmission-fig.qmd >}} 
+
+{{< include _ZIKV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _ZIKV-relevance-fig.qmd >}} 
+
+{{< include _ZIKV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("flaviviruses", "ZIKV")
+
+```
+:::
