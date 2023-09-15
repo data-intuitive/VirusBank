@@ -1,7 +1,7 @@
 ---
 params:
-  family: coronaviridae
-  virus: Middle East respiratory syndrome–related coronavirus (MERS-CoV)
+  family: coronaviruses
+  virus: Human coronavirus HKU1 (HCoV-HKU01)
 ---
 
 ```{r}
@@ -12,7 +12,7 @@ ojs_define(virus = params$virus)
 
 {{< include /_js/virus-breadcrumb.qmd >}}
 
-{{< include _MERS-CoV.qmd >}}
+{{< include _HCoV-HKU01.qmd >}}
 
 {{< include /_js/_ojs_data.qmd >}}
 

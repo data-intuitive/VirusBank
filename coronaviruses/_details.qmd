@@ -5,7 +5,7 @@
 {{< include  _HCoV-NL63.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/HCoV-NL63.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/HCoV-NL63.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Human coronavirus 229E
@@ -13,7 +13,7 @@
 {{< include  _HCoV-229E.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/HCoV-229E.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/HCoV-229E.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Human coronavirus HKU1
@@ -21,7 +21,7 @@
 {{< include  _HCoV-HKU01.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/HCoV-HKU01.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/HCoV-HKU01.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Human coronavirus OC43
@@ -29,7 +29,7 @@
 {{< include  _HCoV-OC43.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/HCoV-OC43.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/HCoV-OC43.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Severe acute respiratory
@@ -38,7 +38,7 @@ syndrome–related coronavirus
 {{< include  _SARS-CoV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/SARS-CoV.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/SARS-CoV.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Severe acute respiratory
@@ -47,7 +47,7 @@ syndrome–related coronavirus 2
 {{< include  _SARS-CoV-2.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/SARS-CoV-2.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/SARS-CoV-2.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ## Middle East respiratory syndrome–related coronavirus
@@ -55,7 +55,7 @@ syndrome–related coronavirus 2
 {{< include  _MERS-CoV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/coronaviridae/MERS-CoV.qmd) / [reload family page](/coronaviridae/)
+[open virus page](/coronaviruses/MERS-CoV.qmd) / [reload family page](/coronaviruses/)
 :::
 
 ::::

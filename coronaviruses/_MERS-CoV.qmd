@@ -36,7 +36,7 @@
 //| output: none
 //| echo: false
 
-renderVirusToolbox("coronaviridae", "MERS-CoV")
+renderVirusToolbox("coronaviruses", "MERS-CoV")
 
 ```
 :::

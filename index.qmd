@@ -74,12 +74,12 @@ Flaviviridae
 
 ::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
-[![](coronaviridae/virus.jpg)](coronaviridae/index.qmd)
+[![](coronaviruses/virus.jpg)](coronaviruses/index.qmd)
 
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Coronaviridae
+### Coronaviruses
 :::
 ::: {.card-text}
 Coronaviridae

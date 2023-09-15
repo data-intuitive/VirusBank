@@ -1,7 +1,7 @@
 ---
 params:
-  family: coronaviridae
-  virus: Human coronavirus NL63 (HCoV-NL63)
+  family: coronaviruses
+  virus: Severe acute respiratorysyndrome–related coronavirus 2 (SARS-CoV-2)
 ---
 
 ```{r}
@@ -12,7 +12,7 @@ ojs_define(virus = params$virus)
 
 {{< include /_js/virus-breadcrumb.qmd >}}
 
-{{< include _HCoV-NL63.qmd >}}
+{{< include _SARS-CoV-2.qmd >}}
 
 {{< include /_js/_ojs_data.qmd >}}
 

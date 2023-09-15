@@ -36,7 +36,7 @@
 //| output: none
 //| echo: false
 
-renderVirusToolbox("coronaviridae", "HCoV-NL63")
+renderVirusToolbox("coronaviruses", "HCoV-NL63")
 
 ```
 :::

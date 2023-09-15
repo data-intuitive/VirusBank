@@ -3,7 +3,7 @@
 //| output: false
 
 // The families to load
-families = [ "alphaviruses", "flaviviridae", "paramyxoviridae", "coronaviridae", "pneumoviridae" ]
+families = [ "alphaviruses", "flaviviridae", "paramyxoviridae", "coronaviruses", "pneumoviridae" ]
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
