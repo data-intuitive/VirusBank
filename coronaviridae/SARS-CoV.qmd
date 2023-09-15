@@ -3,7 +3,7 @@ title: Severe acute respiratorysyndrome–related coronavirus (SARS-CoV)
 params:
   family: coronaviridae
 ---
-
+      
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)

@@ -1,2 +1,7 @@
-Placeholder __text__ for symptoms related to Severe acute respiratory
-syndrome–related coronavirus 2
+SARS-CoV-2 is the biological agent responsible for the coronavirus disease 2019 (COVID-19)
+
+COVID-19 symptoms vary widely, ranging from mild to severe illness.
+
+Symptoms may appear 2-14 days after exposure to the virus.
+
+Both mild and severe symptoms can affect anyone. But there is higher risk for severe illness in older individuals with underlying medical conditions (Heart disease, lung disease, diabetes)

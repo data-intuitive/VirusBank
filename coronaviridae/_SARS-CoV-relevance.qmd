@@ -1,2 +1,8 @@
-Placeholder __text__ for relevance related to Severe acute respiratory
+SARS-CoV caused a global outbreak in 2002-2003, affecting multiple countries and regions.
+
+SARS was characterized by severe respiratory symptoms, leading to a high rate of hospitalization and intensive care unit admissions.
+
+The outbreak put a strain on healthcare systems in affected areas, requiring extensive resources and rapid response measures.
+
+The experience with SARS-CoV contributed to the establishment of global surveillance systems and preparedness strategies for handling emerging infectious diseases, including the subsequent response to SARS-CoV-2 in 2019-2020.
 syndrome–related coronavirus

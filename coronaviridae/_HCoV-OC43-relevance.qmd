@@ -1,1 +1,7 @@
-Placeholder __text__ for relevance related to Human coronavirus OC43
+Unlike other emerging coronaviruses, Seasonal Coronaviruses are not considered novel or newly discovered; they are well-known respiratory viruses with established global distribution.
+
+Seasonal Coronaviruses exhibit a predictable pattern of seasonality, with higher prevalence during the winter months in various regions worldwide.
+
+While they typically cause mild respiratory infections, their global distribution and recurring nature still pose a significant public health burden due to the large number of infections each year.
+
+Continuous monitoring and research are essential to better understand these viruses and develop strategies to mitigate their impact on vulnerable populations during peak seasons.
