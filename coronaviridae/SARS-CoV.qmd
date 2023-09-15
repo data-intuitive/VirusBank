@@ -1,13 +1,16 @@
 ---
-title: Severe acute respiratorysyndrome–related coronavirus (SARS-CoV)
 params:
   family: coronaviridae
+  virus: Severe acute respiratorysyndrome–related coronavirus (SARS-CoV)
 ---
-      
+
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
 ```
+
+{{< include /_js/virus-breadcrumb.qmd >}}
 
 {{< include _SARS-CoV.qmd >}}
 

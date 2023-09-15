@@ -6,11 +6,9 @@
 
 {{< include _SARS-CoV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SARS-CoV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _SARS-CoV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SARS-CoV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _SARS-CoV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _SARS-CoV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 

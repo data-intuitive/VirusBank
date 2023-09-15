@@ -1,13 +1,16 @@
 ---
-title: Human coronavirus 229E (HCoV-229E)
 params:
   family: coronaviridae
+  virus: Human coronavirus 229E (HCoV-229E)
 ---
 
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
 ```
+
+{{< include /_js/virus-breadcrumb.qmd >}}
 
 {{< include _HCoV-229E.qmd >}}
 

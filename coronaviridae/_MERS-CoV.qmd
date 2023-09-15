@@ -6,11 +6,9 @@
 
 {{< include _MERS-CoV-symptoms-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MERS-CoV-symptoms.qmd >}} 
-
-:::
 
 ## Transmission
 
@@ -18,11 +16,9 @@
 
 {{< include _MERS-CoV-transmission-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MERS-CoV-transmission.qmd >}} 
-
-:::
 
 ## Medical relevance
 
@@ -30,11 +26,9 @@
 
 {{< include _MERS-CoV-relevance-fig.qmd >}} 
 
-&nbsp;
+:::
 
 {{< include _MERS-CoV-relevance.qmd >}} 
-
-:::
 
 ## Toolbox
 
