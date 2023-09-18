@@ -45,8 +45,7 @@ html`
       <div class="grid">
         <div class="g-col-md-12 small">
           <span class="phylotree-node-text" style="font-size:15px !important;">HOVER</span> for more information /
-          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> can be selected /
-          <span class="phylotree-node-text-inactive" style="font-size:15px !important;">INACTIVE NODES</span> are for reference
+          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> can be selected
         </div>
       </div>
     </div>
@@ -122,7 +121,7 @@ clearToolbox = () => {
 
 // Update the tools in the toolbox based on the current virus
 updateToolbox = (d) => {
- 
+
   const tools = availableTools(d.data.name)
 
   d3.select("#virus").text(virusInfoOrUndefined(d.data.name).virus_name)
@@ -151,6 +150,8 @@ virusToTab = new Map(
     .map(virus => virus.abbreviation)
     .map( (virus,i) => [ virus, indexToTab(i, nrTabs)] )
 )
+
+tabToVirus = new Map(Array.from(virusToTab, a => a.reverse()))
  
 // Hide virus information tabset
 function hideTabset() {
@@ -233,7 +234,7 @@ renderedTree = tree
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
           virusInfo.style.display = "block"
-          virusInfo.scrollIntoView()
+          virusInfo.scrollIntoView(true)
           // Now get the proper tab and open it
           const thisVirusInfo = document.getElementById(virusToTab.get(virus_id))
           thisVirusInfo.click();
@@ -268,6 +269,14 @@ virusHoverOut = () => {
   d3.select("#info-container").attr("style", "visibility:hidden;")
 }
 
+// Clicking on the tabs feeds the info back to the toolbox info
+feedbackToolbox = d3.selectAll(".nav-item")
+  .on('click', function(){ 
+    const _id = d3.select(this).select("a").attr('id')
+    clearToolbox();
+    updateToolbox({ data: { name: tabToVirus.get(_id)}})
+  })
+     
 // Add SVG to the DOM
 tmp = d3.select("#tree-container").node().appendChild(showTree)
 tmp1 = renderedTree.set_size([500,500]).update()
