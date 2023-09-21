@@ -10,8 +10,6 @@ format:
         <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.js"></script>
 ---
 
-{{< include /_js/pointers.qmd >}}
-
 {{< include /_js/_ojs_data.qmd >}}
 
 ```{ojs}
