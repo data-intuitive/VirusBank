@@ -4,29 +4,13 @@ format:
     page-layout: full
     anchor-sections: false
     section-divs: false
-    include-in-header:
-      text: |
-        <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
-        <script>
-          // Delay scroll to anchor a little bit...
-          window.addEventListener("load", () => {
-             setTimeout( () => {
-                document.getElementById(window.location.hash.substring(1)).scrollIntoView();
-             }, 500)
-          })
-          // Formatters for the table rows
-          function familyFormatter(value, row) {
-            return '<a href="/' + value + '/index.html">' + value + "</a>"
-          };
-          function virusFormatter(value, row) {
-            return '<a href="/' + row.family + '/' + row.abbreviation + '.html">' + value + "</a>"
-          };
-        </script>
     include-after-body:
       text: |
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.js"></script>
 ---
+
+{{< include /_js/pointers.qmd >}}
 
 {{< include /_js/_ojs_data.qmd >}}
 

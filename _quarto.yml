@@ -10,6 +10,51 @@ format:
     anchor-sections: true
     smooth-scroll: true
     fontcolor: "rgb(35, 70, 106)"
+    include-in-header:
+      text: |
+        <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
+        <script>
+        // functionality for formatting href pointers
+        const main_site = "virusbankplatform"
+        get_link = (section, pointer) => {
+          const in_iframe = window.location.hostname.includes(main_site)
+          console.log("In site? ", in_iframe)
+          let prefix = ""
+          if (in_iframe) {
+            if (section == "families") {
+              prefix = "/virus-families/"
+            }
+            if (section == "toolbox") {
+              prefix = "/toolbox-concept/"
+            }
+          } else {
+            if (section == "families") {
+              prefix = "/"
+            }
+            if (section == "toolbox") {
+              prefix = "/toolbox/"
+            }
+          }
+          return prefix + pointer
+        }
+
+        // Delay scroll to anchor a little bit...
+        window.addEventListener("load", () => {
+           setTimeout( () => {
+              document.getElementById(window.location.hash.substring(1)).scrollIntoView();
+           }, 300)
+        })
+
+        // Formatters for the table rows in toolbox page
+        function familyFormatter(value, row) {
+          return '<a href="' + get_link("families", value) + '">' + value + "</a>"
+        };
+        function virusFormatter(value, row) {
+          return value
+        };
+        
+        </script>
+
     sidebar: false
     page-layout: full
     theme: pulse # sandstone # yeti # spacelab

@@ -12,13 +12,6 @@ import { virusOfInterestF } from "/_js/functions.js"
 //| output: none
 //| echo: false
 
-blck1 = {
-  console.log(window.location.hostname)
-  console.log(window.location.origin)
-  console.log(document)
-  console.log(window)
-}
-
 // Initialize a container to contain the containers for the tree and annotation window
 html`
 
@@ -102,7 +95,7 @@ init_toolbox =
   toolbox.map(tool =>
     d3.select("#toolbox-contents").node().append(
       html`
-        <a href="/toolbox/index.html#${tool.id}-section">
+        <a href=${get_link("toolbox", "#" + tool.id + "-section")}>
           <div class="tool-wrapper">
             <div class="tool-tooltip-text">${tool.name}</div>
             <div id="${tool.id}" class="tool">
@@ -202,7 +195,7 @@ renderedTree = tree
     'transitions' :       true,
     'show-menu':          false,
     'show-scale':         false,
-    'align-tips':         true,
+    'align-tips':         false,
     'zoom':               false,
     'brush':              false,
     'draw-size-bubbles':  false,
