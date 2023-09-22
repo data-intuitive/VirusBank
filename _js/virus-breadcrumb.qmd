@@ -3,11 +3,7 @@
 //| output: none
 
 html`
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/${virusFamily}">${virusFamily}</a></li>
-    <li class="breadcrumb-item active" aria-current="page">${virus}</li>
-  </ol>
-</nav>
+  <h3>${virus}</h3>
+  <p>&nbsp;</p>
 `
 ```
