@@ -3,7 +3,7 @@
 //| output: false
 
 // The families to load
-families = [ "alphaviruses", "flaviviruses", "paramyxoviridae", "coronaviruses", "pneumoviridae" ]
+families = [ "alphaviruses", "flaviviruses", "paramyxoviridae", "coronaviruses", "pneumoviruses" ]
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
@@ -50,7 +50,8 @@ _annotations = await Promise.all(
 // Add tools information, just the list of tools ids
 annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
 
-// console.log(annotations)
+console.log(annotations)
+console.log(annotations.filter(x => x.family.includes("pneumo")))
 
 function virusInfo(_family, _virus) {
   const info = 

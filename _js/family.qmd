@@ -136,7 +136,21 @@ updateToolbox = (d) => {
 // Handle tabset depending on the number of tabs
 rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
 annotatedViruses = familyAnnotations.filter(virus => virus.availability_in_toolbox == "Yes")
+groupedAnnotatedViruses = annotatedViruses
+    .map(virus => {
+      if (typeof virus.group_abbreviation !== "undefined" && virus.group_abbreviation !== "") {
+        console.log(">>> Virus " + virus.abbreviation + " belongs to group " + virus.group_abbreviation)
+        return ({... virus, abbreviation: virus.group_abbreviation, virus_name: virus.group_virus_name })
+      } else {
+        console.log(">>> Virus " + virus.abbreviation)
+        return virus
+      }
+    }).filter((value, index, self) => {
+      return self.findIndex(v => v.abbreviation === value.abbreviation) === index;
+    })
+
 nrTabs = rawTabs.length
+
 
 function indexToTab(i, length) {
   const pre = "tabset-" + (length + 1) + "-"
@@ -146,13 +160,28 @@ function indexToTab(i, length) {
  
 tabsetAnchor = indexToTab(0, nrTabs)
 virusToTab = new Map(
-  annotatedViruses
-    .map(virus => virus.abbreviation)
-    .map( (virus,i) => [ virus, indexToTab(i, nrTabs)] )
+  groupedAnnotatedViruses
+    .map(virus => {
+      if (typeof virus.group_abbreviation !== "undefined" && virus.group_abbreviation !== "") {
+        console.log(">>> Virus " + virus.abbreviation + " belongs to group " + virus.group_abbreviation)
+        return virus.group_abbreviation
+      } else {
+        console.log(">>> Virus " + virus.abbreviation)
+        return virus.abbreviation
+      }
+    })
+    .map( (virus,i) => [ virus, indexToTab(i, nrTabs) ] )
 )
 
 tabToVirus = new Map(Array.from(virusToTab, a => a.reverse()))
- 
+
+log = {
+  console.log(rawTabs)
+  console.log(virusToTab)
+  console.log(tabToVirus)
+  console.log(groupedAnnotatedViruses)
+}
+
 // Hide virus information tabset
 function hideTabset() {
   const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
@@ -195,7 +224,7 @@ renderedTree = tree
     'transitions' :       true,
     'show-menu':          false,
     'show-scale':         false,
-    'align-tips':         false,
+    'align-tips':         true,
     'zoom':               false,
     'brush':              false,
     'draw-size-bubbles':  false,
@@ -207,10 +236,17 @@ renderedTree = tree
   })
   .style_nodes( (element, data) => {
 
-    const virus_id = data.data.name
+    // the virus_id is how the virus is encoded in phylotree newick file
+    const virus_id = data.data.name  
 
     // At this stage in the process, every node should have information
     const information = virusInfoOrUndefined(virus_id)
+
+    // Handle the grouped viruses
+    const isGroup = (typeof information !== "undefined") && (typeof information.group_abbreviation !== "undefined") && (information.group_abbreviation !== "")
+    const virus_pointer = (isGroup) ? information.group_abbreviation : virus_id 
+    console.log(virus_id + " -> " + virus_pointer)
+
     const tools = virusToolbox(virusFamily, virus_id)
     const inToolbox = (typeof information !== "undefined") && (information.availability_in_toolbox == "Yes")
 
@@ -224,7 +260,7 @@ renderedTree = tree
     // Hover functionality - Virus name
     if (information)
       element
-        .on("mouseover", virusHoverIn(data, information, inToolbox))
+        .on("mouseover", virusHoverIn(data, {... information, isGroup: isGroup}, inToolbox))
         .on("mouseout", virusHoverOut)
  
     // Click functionality - Toolbox
@@ -236,7 +272,7 @@ renderedTree = tree
           virusInfo.style.display = "block"
           virusInfo.scrollIntoView(true)
           // Now get the proper tab and open it
-          const thisVirusInfo = document.getElementById(virusToTab.get(virus_id))
+          const thisVirusInfo = document.getElementById(virusToTab.get(virus_pointer))  // either the virus_id or the group abbreviation
           thisVirusInfo.click();
           // Render the toolbox for this virus
           updateToolbox(data);
@@ -256,7 +292,7 @@ showTree = renderedTree
 // Show small virus information box on hover
 virusHoverIn = (data, information, is_available) => () => {
   // First, populate the content
-  d3.select("#name").text(information.virus_name)
+  d3.select("#name").text((information.isGroup) ? information.group_virus_name : information.virus_name)
   if (is_available)
     d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
   else

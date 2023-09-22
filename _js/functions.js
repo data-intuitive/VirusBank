@@ -14,7 +14,15 @@ export function encodeToolbox(arr) {
 // return the object.
 // Returns 'undefined' when not present.
 export function virusInfoOrUndefinedF(annotations_) {
-  return (virus_id) => annotations_.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)[0]
+    return (virus_id) => {
+      if (annotations_.filter(v => v.group_abbreviation == virus_id).length > 0) {
+        // group situation
+        return annotations_.filter(v => v.group_abbreviation == virus_id).map( v => ({...v, abbrevation: v.group_abbrevation, virus_name: v.group_virus_name }))[0]
+      } else {
+        // conventional situation
+        return annotations_.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)[0]
+      }
+  }
 }
 
 // Simple true/false 

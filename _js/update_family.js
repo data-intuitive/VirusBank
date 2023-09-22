@@ -42,8 +42,22 @@ workbook.then(ws => {
       }
   })
 
-  filteredData = data.filter(virus => virus.availability_in_toolbox == "Yes")
-  
+  filteredData = data
+    .filter(virus => virus.availability_in_toolbox == "Yes")
+    // Handle grouping
+    .map(virus => {
+      if (typeof virus.group_abbreviation !== "undefined" && virus.group_abbreviation !== "") {
+        console.log(">>> Virus " + virus.abbreviation + " belongs to group " + virus.group_abbreviation)
+        return ({... virus, abbreviation: virus.group_abbreviation, virus_name: virus.group_virus_name })
+      } else {
+        console.log(">>> Virus " + virus.abbreviation)
+        return virus
+      }
+    }).filter((value, index, self) => {
+      return self.findIndex(v => v.abbreviation === value.abbreviation) === index;
+    })
+
+  // 
   const engine = new Liquid()
 
 
