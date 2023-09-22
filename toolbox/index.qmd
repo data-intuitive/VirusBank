@@ -43,7 +43,7 @@ html`
             <div id="toolbox-contents" class="tool-container">
               ${toolbox.map(tool => 
                 html`
-                  <a href="#${tool.id}-section">
+                  <a href="#${tool.id}-section" target="_top">
                     <div class="tool-wrapper">
                       <div class="tool-tooltip-text">${tool.name}</div>
                       <div id="${tool.id}" class="tool">

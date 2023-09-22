@@ -19,8 +19,10 @@ format:
         get_link = (section, pointer) => {
           const in_iframe = window.location.hostname.includes(main_site)
           console.log("In site? ", in_iframe)
+          let hostname = ""
           let prefix = ""
           if (in_iframe) {
+            hostname = "https://virusbankplatform.be" 
             if (section == "families") {
               prefix = "/virus-families/"
             }
@@ -35,7 +37,7 @@ format:
               prefix = "/toolbox/"
             }
           }
-          return prefix + pointer
+          return hostname + prefix + pointer
         }
 
         // Delay scroll to anchor a little bit...
@@ -47,7 +49,7 @@ format:
 
         // Formatters for the table rows in toolbox page
         function familyFormatter(value, row) {
-          return '<a href="' + get_link("families", value) + '">' + value + "</a>"
+          return '<a href="' + get_link("families", value) + '" target="_top">' + value + "</a>"
         };
         function virusFormatter(value, row) {
           return value

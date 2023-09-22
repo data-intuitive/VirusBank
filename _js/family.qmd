@@ -95,7 +95,7 @@ init_toolbox =
   toolbox.map(tool =>
     d3.select("#toolbox-contents").node().append(
       html`
-        <a href=${get_link("toolbox", "#" + tool.id + "-section")}>
+        <a href=${get_link("toolbox", "#" + tool.id + "-section")} target="_top">
           <div class="tool-wrapper">
             <div class="tool-tooltip-text">${tool.name}</div>
             <div id="${tool.id}" class="tool">
