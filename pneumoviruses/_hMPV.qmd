@@ -1,0 +1,42 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _hMPV-symptoms-fig.qmd >}} 
+
+{{< include _hMPV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _hMPV-transmission-fig.qmd >}} 
+
+{{< include _hMPV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _hMPV-relevance-fig.qmd >}} 
+
+{{< include _hMPV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("pneumoviruses", "hMPV")
+
+```
+:::

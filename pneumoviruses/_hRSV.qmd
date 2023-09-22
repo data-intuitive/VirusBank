@@ -1,0 +1,42 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _hRSV-symptoms-fig.qmd >}} 
+
+{{< include _hRSV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _hRSV-transmission-fig.qmd >}} 
+
+{{< include _hRSV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _hRSV-relevance-fig.qmd >}} 
+
+{{< include _hRSV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("pneumoviruses", "hRSV")
+
+```
+:::

@@ -1,0 +1,19 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Human metapneumovirus
+
+{{< include  _hMPV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviruses/hMPV.qmd) / [reload family page](/pneumoviruses/)
+:::
+
+## Human respiratory syncytial virus
+
+{{< include  _hRSV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/pneumoviruses/hRSV.qmd) / [reload family page](/pneumoviruses/)
+:::
+
+::::
