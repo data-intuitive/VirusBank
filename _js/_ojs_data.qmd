@@ -3,7 +3,7 @@
 //| output: false
 
 // The families to load
-families = [ "alphaviruses", "flaviviruses", "paramyxoviridae", "coronaviruses", "pneumoviruses" ]
+families = [ "alphaviruses", "flaviviruses", "paramyxoviridae", "coronaviruses", "pneumoviruses", "orthomyxoviruses" ]
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
@@ -50,8 +50,7 @@ _annotations = await Promise.all(
 // Add tools information, just the list of tools ids
 annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
 
-console.log(annotations)
-console.log(annotations.filter(x => x.family.includes("pneumo")))
+// console.log(annotations)
 
 function virusInfo(_family, _virus) {
   const info = 
@@ -59,20 +58,67 @@ function virusInfo(_family, _virus) {
   return info[0]
 }
 
-function virusToolbox(_family, _virus) {
-  const info = virusInfo(_family, _virus)
-//  console.log("info for " + _virus)
-//  console.log(info)
-  return info ? info.tools : []
+// Handle grouped viruses by extending the model with isGroup: false/true
+addGrouped = (virus) => {
+  const isGroup = (typeof virus.group_abbreviation !== "undefined") && (virus.group_abbreviation !== "")
+  const virus_pointer = (isGroup) ? virus.group_abbreviation : virus.abbreviation 
+  return (
+    { ... virus,
+      isGroup: isGroup,
+      virusPointer: virus_pointer,
+      resVirusId: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
+      resAbbreviation: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
+      resVirusName: (isGroup) ? virus.group_virus_name : virus.virus_name 
+    }
+  )
 }
 
-function renderVirusToolbox(_family, _virus) {
+// Create a list of all viruses of interest in the Excel file
+// Add group information early on
+annotatedViruses =
+  familyAnnotations
+    .filter(virus => virus.virus_of_interest == "Yes")
+    .map(virus => addGrouped(virus))
 
-  const tools = virusToolbox(_family, _virus)
- 
-  if (tools.length > 0) {
+// Create a sublist of viruses with toolbox
+// Take into account groups by selecting unique entries
+toolboxAnnotatedViruses =
+  annotatedViruses
+    .filter(virus => virus.availability_in_toolbox == "Yes")
+    .filter((value, index, self) => {
+      return self.findIndex(v => v.resAbbreviation === value.resAbbreviation) === index;
+    })
+
+// Derive a virus object from the ID
+// The ID can be either a virus_id (from the ictv tree) or a group_abbreviation
+virusIdToVirus = (virus_id) => {
+  // lookup the virus_id in the full list of viruses
+  const fullList =
+    annotatedViruses
+      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+
+  // lookup the abbreviation for the group
+  const groupList =
+    toolboxAnnotatedViruses
+      .filter(v => v.group_abbreviation == virus_id)
+
+  if (fullList.length > 0) {
+    return fullList[0]
+  }
+  if (groupList.length > 0) {
+    return groupList[0]
+  }
+}
+
+function renderVirusToolbox(family, virus_id) {
+
+  // First extract the virus object from the ID or abbreviation
+  // This takes into account the groups
+  const virus = virusIdToVirus(virus_id)
+
+  if (virus.tools.length > 0) {
     return html`
-      ${toolbox.filter(tool => tools.includes(tool.id) ).map(tool => 
+      ${toolbox.filter(tool => virus.tools.includes(tool.id) ).map(tool => 
         html`
         <h2 id="${tool.id}-section">${tool.name}</h2>
         <div class="container grid">
@@ -106,4 +152,6 @@ function renderVirusToolbox(_family, _virus) {
     `
   }
 }
+
+
 ```

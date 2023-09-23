@@ -134,37 +134,6 @@ updateToolbox = (virus) => {
 rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
 nrTabs = rawTabs.length
 
-// Handle grouped viruses by extending the model with isGroup: false/true
-addGrouped = (virus) => {
-  const isGroup = (typeof virus.group_abbreviation !== "undefined") && (virus.group_abbreviation !== "")
-  const virus_pointer = (isGroup) ? virus.group_abbreviation : virus.abbreviation 
-  return (
-    { ... virus,
-      isGroup: isGroup,
-      virusPointer: virus_pointer,
-      resVirusId: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
-      resAbbreviation: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
-      resVirusName: (isGroup) ? virus.group_virus_name : virus.virus_name 
-    }
-  )
-}
-
-// Create a list of all viruses of interest in the Excel file
-// Add group information early on
-annotatedViruses =
-  familyAnnotations
-    .filter(virus => virus.virus_of_interest == "Yes")
-    .map(virus => addGrouped(virus))
-
-// Create a sublist of viruses with toolbox
-// Take into account groups by selecting unique entries
-toolboxAnnotatedViruses =
-  annotatedViruses
-    .filter(virus => virus.availability_in_toolbox == "Yes")
-    .filter((value, index, self) => {
-      return self.findIndex(v => v.resAbbreviation === value.resAbbreviation) === index;
-    })
-
 function indexToTab(i, length) {
   const pre = "tabset-" + (length + 1) + "-"
   const post = "-tab"
@@ -181,28 +150,6 @@ virusIdToTabMap = new Map(
 tabToVirusIdMap = new Map(
   Array.from(virusIdToTabMap, a => a.reverse())
 )
-
-// Derive a virus object from the ID
-// The ID can be either a virus_id (from the ictv tree) or a group_abbreviation
-virusIdToVirus = (virus_id) => {
-  // lookup the virus_id in the full list of viruses
-  const fullList =
-    annotatedViruses
-      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
-
-  // lookup the abbreviation for the group
-  const groupList =
-    toolboxAnnotatedViruses
-      .filter(v => v.group_abbreviation == virus_id)
-
-  if (fullList.length > 0) {
-    return fullList[0]
-  }
-  if (groupList.length > 0) {
-    return groupList[0]
-  }
-  
-}
 
 // Hide virus information tabset
 function hideTabset() {
@@ -264,7 +211,6 @@ renderedTree = tree
     // At this stage in the process, every node should have information
     const information = virusIdToVirus(virus_id) // virusInfoOrUndefined(virus_id)
 
-    const tools = virusToolbox(virusFamily, virus_id)
     const inToolbox = (typeof information !== "undefined") && (information.availability_in_toolbox == "Yes")
 
     // Styling based on available information
