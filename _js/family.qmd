@@ -119,15 +119,12 @@ clearToolbox = () => {
   })
 }
 
-// Update the tools in the toolbox based on the current virus
-updateToolbox = (d) => {
+// Update the tools in the toolbox based on the provided virus object
+updateToolbox = (virus) => {
 
-  const tools = availableTools(d.data.name)
-
-  d3.select("#virus").text(virusInfoOrUndefined(d.data.name).virus_name)
-
+  d3.select("#virus").text(virus.resVirusName)
   toolbox
-    .filter(tool => tools.includes(tool.encoded))
+    .filter(tool => virus.tools.includes(tool.id))
     .map(tool =>
       d3.select("#" + tool.id).attr("class", "tool tool-selected")
     )
@@ -135,22 +132,38 @@ updateToolbox = (d) => {
 
 // Handle tabset depending on the number of tabs
 rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
-annotatedViruses = familyAnnotations.filter(virus => virus.availability_in_toolbox == "Yes")
-groupedAnnotatedViruses = annotatedViruses
-    .map(virus => {
-      if (typeof virus.group_abbreviation !== "undefined" && virus.group_abbreviation !== "") {
-        console.log(">>> Virus " + virus.abbreviation + " belongs to group " + virus.group_abbreviation)
-        return ({... virus, abbreviation: virus.group_abbreviation, virus_name: virus.group_virus_name })
-      } else {
-        console.log(">>> Virus " + virus.abbreviation)
-        return virus
-      }
-    }).filter((value, index, self) => {
-      return self.findIndex(v => v.abbreviation === value.abbreviation) === index;
-    })
-
 nrTabs = rawTabs.length
 
+// Handle grouped viruses by extending the model with isGroup: false/true
+addGrouped = (virus) => {
+  const isGroup = (typeof virus.group_abbreviation !== "undefined") && (virus.group_abbreviation !== "")
+  const virus_pointer = (isGroup) ? virus.group_abbreviation : virus.abbreviation 
+  return (
+    { ... virus,
+      isGroup: isGroup,
+      virusPointer: virus_pointer,
+      resVirusId: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
+      resAbbreviation: (isGroup) ? virus.group_abbreviation : virus.abbreviation,
+      resVirusName: (isGroup) ? virus.group_virus_name : virus.virus_name 
+    }
+  )
+}
+
+// Create a list of all viruses of interest in the Excel file
+// Add group information early on
+annotatedViruses =
+  familyAnnotations
+    .filter(virus => virus.virus_of_interest == "Yes")
+    .map(virus => addGrouped(virus))
+
+// Create a sublist of viruses with toolbox
+// Take into account groups by selecting unique entries
+toolboxAnnotatedViruses =
+  annotatedViruses
+    .filter(virus => virus.availability_in_toolbox == "Yes")
+    .filter((value, index, self) => {
+      return self.findIndex(v => v.resAbbreviation === value.resAbbreviation) === index;
+    })
 
 function indexToTab(i, length) {
   const pre = "tabset-" + (length + 1) + "-"
@@ -159,27 +172,36 @@ function indexToTab(i, length) {
 }
  
 tabsetAnchor = indexToTab(0, nrTabs)
-virusToTab = new Map(
-  groupedAnnotatedViruses
-    .map(virus => {
-      if (typeof virus.group_abbreviation !== "undefined" && virus.group_abbreviation !== "") {
-        console.log(">>> Virus " + virus.abbreviation + " belongs to group " + virus.group_abbreviation)
-        return virus.group_abbreviation
-      } else {
-        console.log(">>> Virus " + virus.abbreviation)
-        return virus.abbreviation
-      }
-    })
-    .map( (virus,i) => [ virus, indexToTab(i, nrTabs) ] )
+
+virusIdToTabMap = new Map(
+  toolboxAnnotatedViruses
+    .map( (virus,i) => [ virus.resAbbreviation, indexToTab(i, nrTabs) ] )
 )
 
-tabToVirus = new Map(Array.from(virusToTab, a => a.reverse()))
+tabToVirusIdMap = new Map(
+  Array.from(virusIdToTabMap, a => a.reverse())
+)
 
-log = {
-  console.log(rawTabs)
-  console.log(virusToTab)
-  console.log(tabToVirus)
-  console.log(groupedAnnotatedViruses)
+// Derive a virus object from the ID
+// The ID can be either a virus_id (from the ictv tree) or a group_abbreviation
+virusIdToVirus = (virus_id) => {
+  // lookup the virus_id in the full list of viruses
+  const fullList =
+    annotatedViruses
+      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+
+  // lookup the abbreviation for the group
+  const groupList =
+    toolboxAnnotatedViruses
+      .filter(v => v.group_abbreviation == virus_id)
+
+  if (fullList.length > 0) {
+    return fullList[0]
+  }
+  if (groupList.length > 0) {
+    return groupList[0]
+  }
+  
 }
 
 // Hide virus information tabset
@@ -238,14 +260,9 @@ renderedTree = tree
 
     // the virus_id is how the virus is encoded in phylotree newick file
     const virus_id = data.data.name  
-
+    
     // At this stage in the process, every node should have information
-    const information = virusInfoOrUndefined(virus_id)
-
-    // Handle the grouped viruses
-    const isGroup = (typeof information !== "undefined") && (typeof information.group_abbreviation !== "undefined") && (information.group_abbreviation !== "")
-    const virus_pointer = (isGroup) ? information.group_abbreviation : virus_id 
-    console.log(virus_id + " -> " + virus_pointer)
+    const information = virusIdToVirus(virus_id) // virusInfoOrUndefined(virus_id)
 
     const tools = virusToolbox(virusFamily, virus_id)
     const inToolbox = (typeof information !== "undefined") && (information.availability_in_toolbox == "Yes")
@@ -260,7 +277,7 @@ renderedTree = tree
     // Hover functionality - Virus name
     if (information)
       element
-        .on("mouseover", virusHoverIn(data, {... information, isGroup: isGroup}, inToolbox))
+        .on("mouseover", virusHoverIn(data, information, inToolbox))
         .on("mouseout", virusHoverOut)
  
     // Click functionality - Toolbox
@@ -272,10 +289,10 @@ renderedTree = tree
           virusInfo.style.display = "block"
           virusInfo.scrollIntoView(true)
           // Now get the proper tab and open it
-          const thisVirusInfo = document.getElementById(virusToTab.get(virus_pointer))  // either the virus_id or the group abbreviation
+          const thisVirusInfo = document.getElementById(virusIdToTabMap.get(information.virusPointer))  // either the virus_id or the group abbreviation
           thisVirusInfo.click();
           // Render the toolbox for this virus
-          updateToolbox(data);
+          updateToolbox(information);
         })
       : element.on('click', function() {
           hideTabset()
@@ -292,8 +309,9 @@ showTree = renderedTree
 // Show small virus information box on hover
 virusHoverIn = (data, information, is_available) => () => {
   // First, populate the content
-  d3.select("#name").text((information.isGroup) ? information.group_virus_name : information.virus_name)
-  if (is_available)
+  const virusNameToShow = (information.resVirusName) ? information.resVirusName : information.virus_name
+  d3.select("#name").text(virusNameToShow)
+  if (information.tools.length > 0)
     d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
   else
      d3.select("#toolbox").text("No viral tools have been developed yet")
@@ -309,8 +327,10 @@ virusHoverOut = () => {
 feedbackToolbox = d3.selectAll(".nav-item")
   .on('click', function(){ 
     const _id = d3.select(this).select("a").attr('id')
+    const _virus_id = tabToVirusIdMap.get(_id)
+    const _virus = virusIdToVirus(_virus_id)
     clearToolbox();
-    updateToolbox({ data: { name: tabToVirus.get(_id)}})
+    updateToolbox(_virus)
   })
      
 // Add SVG to the DOM
