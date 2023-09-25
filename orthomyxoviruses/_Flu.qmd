@@ -1,0 +1,44 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _Flu-symptoms-fig.qmd >}} 
+
+{{< include _Flu-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _Flu-transmission-fig.qmd >}} 
+
+{{< include _Flu-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _Flu-relevance-fig.qmd >}} 
+
+{{< include _Flu-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+{{< include _Flu-toolbox.qmd >}} 
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("orthomyxoviruses", "Flu")
+
+```
+:::

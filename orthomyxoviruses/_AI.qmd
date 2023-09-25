@@ -1,0 +1,44 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _AI-symptoms-fig.qmd >}} 
+
+{{< include _AI-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _AI-transmission-fig.qmd >}} 
+
+{{< include _AI-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _AI-relevance-fig.qmd >}} 
+
+{{< include _AI-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+{{< include _AI-toolbox.qmd >}} 
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("orthomyxoviruses", "AI")
+
+```
+:::
