@@ -140,6 +140,8 @@ workbook.then(ws => {
       '\n' +
       '## Toolbox\n' +
       '\n' +
+      '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-toolbox.qmd >}} {% endraw %}\n' +
+      '\n' +
       '```{ojs}\n' +
       '//| output: none\n' +
       '//| echo: false\n' +
@@ -194,6 +196,12 @@ workbook.then(ws => {
       console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-relevance-fig.qmd")
       const text = "![Placeholder __caption__ for figure with relevance related to " + virus.virus_name + "](/img/placeholder.jpg)"
       fs.writeFile(family + "/_" + virus.abbreviation + "-relevance-fig.qmd", text, (err) => { if (err) throw err })
+    }
+    if (!fs.existsSync(family + "/_" + virus.abbreviation + "-toolbox.qmd") || overwrite ) {
+    // if (true) {
+      console.log(" >> Writing " + family + "/_" + virus.abbreviation + "-toolbox.qmd")
+      const text = ""
+      fs.writeFile(family + "/_" + virus.abbreviation + "-toolbox.qmd", text, (err) => { if (err) throw err })
     }
     
 
