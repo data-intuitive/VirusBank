@@ -1,1 +1,5 @@
-![Placeholder __caption__ for figure with relevance related to Human respiratory syncytial virus](/img/placeholder.jpg)
+![](img/RSV disease seasonality - per age.png)
+
+![](img/RSV disease seasonality - per year.png)
+
+![](img/RSV hospitalisation.png)

@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with transmission related to Human respiratory syncytial virus](/img/placeholder.jpg)
+![](img/RSV disease transmission.png)

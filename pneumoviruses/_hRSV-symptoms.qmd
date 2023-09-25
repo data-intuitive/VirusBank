@@ -1,1 +1,5 @@
-Placeholder __text__ for symptoms related to Human respiratory syncytial virus
+Respiratory syncytial virus, or RSV, is a common respiratory virus that usually causes mild, cold-like symptoms.
+
+Most people recover in a week or two, but RSV can be serious, especially for infants and older adults. 
+
+RSV is the most common cause of bronchiolitis (inflammation of the small airways in the lung) and pneumonia (infection of the lungs) in children younger than 1 year of age in the United States.
