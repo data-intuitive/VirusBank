@@ -1,1 +1,3 @@
-![Placeholder __caption__ for figure with relevance related to Human parainfluenza virus 3](/img/placeholder.jpg)
+![](img/HPIV seasonality - per year.png)
+
+![](img/HPIVs seasonality - per age.png)

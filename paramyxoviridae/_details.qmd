@@ -24,4 +24,20 @@
 [open virus page](/paramyxoviridae/MeV.qmd) / [reload family page](/paramyxoviridae/)
 :::
 
+## Hendra virus
+
+{{< include  _HeV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/paramyxoviridae/HeV.qmd) / [reload family page](/paramyxoviridae/)
+:::
+
+## Nipah virus
+
+{{< include  _NiV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/paramyxoviridae/NiV.qmd) / [reload family page](/paramyxoviridae/)
+:::
+
 ::::

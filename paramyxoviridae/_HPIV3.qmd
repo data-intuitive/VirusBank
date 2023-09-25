@@ -6,8 +6,6 @@
 
 {{< include _HPIV3-symptoms-fig.qmd >}} 
 
-&nbsp;
-
 {{< include _HPIV3-symptoms.qmd >}} 
 
 :::
@@ -17,8 +15,6 @@
 ::: {.text-center}
 
 {{< include _HPIV3-transmission-fig.qmd >}} 
-
-&nbsp;
 
 {{< include _HPIV3-transmission.qmd >}} 
 
@@ -30,13 +26,13 @@
 
 {{< include _HPIV3-relevance-fig.qmd >}} 
 
-&nbsp;
-
 {{< include _HPIV3-relevance.qmd >}} 
 
 :::
 
 ## Toolbox
+
+{{< include _HPIV3-toolbox.qmd >}} 
 
 ```{ojs}
 //| output: none

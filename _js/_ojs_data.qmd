@@ -8,9 +8,9 @@ families = [
   "flaviviruses",
   "paramyxoviridae",
   "coronaviruses",
-  "pneumoviruses",
-  // "orthomyxoviruses"
+  "pneumoviruses"
 ]
+  // "orthomyxoviruses"
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
@@ -83,7 +83,7 @@ addGrouped = (virus) => {
 // Create a list of all viruses of interest in the Excel file
 // Add group information early on
 annotatedViruses =
-  familyAnnotations
+  annotations
     .filter(virus => virus.virus_of_interest == "Yes")
     .map(virus => addGrouped(virus))
 
@@ -153,11 +153,12 @@ function renderVirusToolbox(family, virus_id) {
         `
       )}
     `
-  } else {
-    return html`
-      <p>No tools have been developed for this virus yet.</p>
-    `
   }
+   else {
+    return html`
+      <p>&nbsp;</p>
+    `
+   }
 }
 
 

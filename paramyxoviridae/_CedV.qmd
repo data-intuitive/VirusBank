@@ -6,8 +6,6 @@
 
 {{< include _CedV-symptoms-fig.qmd >}} 
 
-&nbsp;
-
 {{< include _CedV-symptoms.qmd >}} 
 
 :::
@@ -17,8 +15,6 @@
 ::: {.text-center}
 
 {{< include _CedV-transmission-fig.qmd >}} 
-
-&nbsp;
 
 {{< include _CedV-transmission.qmd >}} 
 
@@ -30,13 +26,13 @@
 
 {{< include _CedV-relevance-fig.qmd >}} 
 
-&nbsp;
-
 {{< include _CedV-relevance.qmd >}} 
 
 :::
 
 ## Toolbox
+
+{{< include _CedV-toolbox.qmd >}} 
 
 ```{ojs}
 //| output: none

@@ -1,0 +1,44 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _HeV-symptoms-fig.qmd >}} 
+
+{{< include _HeV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _HeV-transmission-fig.qmd >}} 
+
+{{< include _HeV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _HeV-relevance-fig.qmd >}} 
+
+{{< include _HeV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+{{< include _HeV-toolbox.qmd >}} 
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("paramyxoviridae", "HeV")
+
+```
+:::

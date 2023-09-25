@@ -1,0 +1,44 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.text-center}
+
+{{< include _NiV-symptoms-fig.qmd >}} 
+
+{{< include _NiV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.text-center}
+
+{{< include _NiV-transmission-fig.qmd >}} 
+
+{{< include _NiV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.text-center}
+
+{{< include _NiV-relevance-fig.qmd >}} 
+
+{{< include _NiV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+{{< include _NiV-toolbox.qmd >}} 
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("paramyxoviridae", "NiV")
+
+```
+:::
