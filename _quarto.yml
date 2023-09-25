@@ -78,7 +78,6 @@ format:
       - toolbox/img/tb_high-throughput-screening.png
       - toolbox/img/tb_target-based-assays.png
       - img/placeholder.jpg
-      - tree.newick
       - _js/funtions.js
       - _js/family.qmd
       - _js/virus-breadcrumb.qmd
