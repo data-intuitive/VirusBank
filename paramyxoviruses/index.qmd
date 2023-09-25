@@ -9,7 +9,7 @@ format:
     include-before-body:
       text: <link rel=stylesheet href='https://unpkg.com/phylotree@1.1.0/dist/phylotree.css'/>
 params:
-  family: paramyxoviridae
+  family: paramyxoviruses
 ---
   
 ```{r}

@@ -6,11 +6,11 @@
 families = [
   "alphaviruses",
   "flaviviruses",
-  "paramyxoviridae",
+  "paramyxoviruses",
   "coronaviruses",
-  "pneumoviruses"
+  "pneumoviruses",
+  "orthomyxoviruses"
 ]
-  // "orthomyxoviruses"
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
