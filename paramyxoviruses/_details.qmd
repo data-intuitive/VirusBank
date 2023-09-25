@@ -5,7 +5,7 @@
 {{< include  _CedV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/paramyxoviridae/CedV.qmd) / [reload family page](/paramyxoviridae/)
+[open virus page](/paramyxoviruses/CedV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
 ## Human parainfluenza virus 3
@@ -13,7 +13,7 @@
 {{< include  _HPIV3.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/paramyxoviridae/HPIV3.qmd) / [reload family page](/paramyxoviridae/)
+[open virus page](/paramyxoviruses/HPIV3.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
 ## Measles virus
@@ -21,7 +21,7 @@
 {{< include  _MeV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/paramyxoviridae/MeV.qmd) / [reload family page](/paramyxoviridae/)
+[open virus page](/paramyxoviruses/MeV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
 ## Hendra virus
@@ -29,7 +29,7 @@
 {{< include  _HeV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/paramyxoviridae/HeV.qmd) / [reload family page](/paramyxoviridae/)
+[open virus page](/paramyxoviruses/HeV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
 ## Nipah virus
@@ -37,7 +37,7 @@
 {{< include  _NiV.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/paramyxoviridae/NiV.qmd) / [reload family page](/paramyxoviridae/)
+[open virus page](/paramyxoviruses/NiV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
 ::::

@@ -11,7 +11,7 @@ format:
 params:
   family: paramyxoviruses
 ---
-  
+ 
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)

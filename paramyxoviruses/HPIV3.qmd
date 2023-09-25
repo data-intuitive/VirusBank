@@ -1,6 +1,6 @@
 ---
 params:
-  family: paramyxoviridae
+  family: paramyxoviruses
   virus: Human parainfluenza virus 3 (HPIV3)
 ---
 

@@ -1,9 +1,9 @@
 ---
 params:
-  family: paramyxoviridae
+  family: paramyxoviruses
   virus: Nipah virus (NiV)
 ---
- 
+
 ```{r}
 #| echo: false
 ojs_define(virusFamily = params$family)

@@ -38,7 +38,7 @@
 //| output: none
 //| echo: false
 
-renderVirusToolbox("paramyxoviridae", "HPIV3")
+renderVirusToolbox("paramyxoviruses", "HPIV3")
 
 ```
 :::

@@ -1,6 +1,6 @@
 ---
 params:
-  family: paramyxoviridae
+  family: paramyxoviruses
   virus: Cedar virus (CedV)
 ---
 
