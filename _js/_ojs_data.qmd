@@ -54,8 +54,13 @@ _annotations = await Promise.all(
     return _trimmed.map( virus => ({... virus, family: family }) )
   }))
 
+// console.log(_annotations)
+
 // Add tools information, just the list of tools ids
-annotations = _annotations.flat().map( virus => addEncodedTools(virus) )
+annotations = _annotations
+  .flat()
+  .filter(virus => virus.family == virusFamily)
+  .map( virus => addEncodedTools(virus) )
 
 // console.log(annotations)
 
