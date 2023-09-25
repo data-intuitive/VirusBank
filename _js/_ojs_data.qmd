@@ -128,7 +128,7 @@ function renderVirusToolbox(family, virus_id) {
   // This takes into account the groups
   const virus = virusIdToVirus(virus_id)
 
-  if (virus.tools.length > 0) {
+  if (typeof virus.tools !== "undefined" && virus.tools.length > 0) {
     return html`
       ${toolbox.filter(tool => virus.tools.includes(tool.id) ).map(tool => 
         html`

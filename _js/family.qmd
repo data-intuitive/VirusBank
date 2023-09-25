@@ -255,7 +255,12 @@ showTree = renderedTree
 // Show small virus information box on hover
 virusHoverIn = (data, information, is_available) => () => {
   // First, populate the content
-  const virusNameToShow = (information.resVirusName) ? information.resVirusName : information.virus_name
+  const virusNameToShow =
+    (information.resVirusName)
+      ? information.resVirusName
+      : (typeof information.virus_name !== "undefined")
+        ? information.virus_name
+        : "/"
   d3.select("#name").text(virusNameToShow)
   if (information.tools.length > 0)
     d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
