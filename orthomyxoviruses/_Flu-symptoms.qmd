@@ -1,1 +1,3 @@
-Placeholder __text__ for symptoms related to Influenza (Flu)
+Influenza, commonly referred to as the flu, has the potential to induce a range of symptoms, spanning from mild discomfort to severe illness, and in some instances, fatality. Typically, flu symptoms manifest abruptly.
+
+_It's worth emphasizing that not all individuals experiencing the flu will necessarily have a fever._

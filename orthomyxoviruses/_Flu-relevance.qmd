@@ -1,1 +1,30 @@
-Placeholder __text__ for relevance related to Influenza (Flu)
+![](img/3 - Seasonal flu.png)
+
+Seasonal flu: Influenza, commonly known as the flu, is a communicable respiratory illness caused by influenza A and B viruses that infect the human respiratory system. Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring on an annual basis
+
+As an example in Belgium:
+
+- 500,000 people on average are affected by influenza-like illness each year in Belgium, i.e. about 2% to 8% of the population.
+
+- A moderate epidemic of influenza affects about 5% of the population (550,000 out of 11 million inhabitants).
+
+- A more serious epidemic of influenza affects about 10% of the population (from 1,100,000 out of 11 million inhabitants).
+
+- On average 1 person in 1000 cases of influenza develops complications requiring hospitalisation.
+
+- More than 90% of deaths concern people of 65 years and over
+
+In the world:
+
+Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world (WHO)( https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
+
+(Reference: The information and graph pertaining to influenza seasonality in Belgium have been sourced from Sciensano.)
+
+![](img/4 - Pandemic flu.png)
+
+Pandemic flu: A flu pandemic is an uncommon worldwide emergence of a novel influenza A virus in humans, one that diverges from the currently circulating seasonal influenza A viruses. Such global health events are infrequent occurrences. Over the last century, we have witnessed the occurrence of four influenza pandemics. Nevertheless, experts concur that the prospect of another pandemic is an inevitability.
+
+Please visit this link for more information about seaonal and pandemic  influenza (flu): https://www.cdc.gov/flu/pdf/freeresources/seasonal-flu-vs-pandemic-flu-update.pdf 
+
+While two influenza B virus lineages have co-circulated, B/Yamagata-lineage circulation has not been confirmed since March 2020 (link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9524051/)
+
