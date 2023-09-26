@@ -144,6 +144,11 @@ table {
 /* tool-wrapper contains tool and tooltip */
 .tool-wrapper {
   display: inline-block;
+  filter: 
+    drop-shadow(-0px -0px 1px #0F1B37)
+    drop-shadow(0px 0px 1px #0F1B37)
+    drop-shadow(0px -0px 1px #0F1B37) 
+    drop-shadow(-0px 0px 1px #0F1B37);
 }
 
 .tool-tooltip-text {
@@ -158,22 +163,22 @@ table {
   font-size:initial;
   color: white;
   z-index: 2;
-
 }
 
 .tool {
-  background: linear-gradient(to right top, #0F1B37, #142552); 
+  background: #9095A8; /*linear-gradient(to right top, #0F1B37, #142552); */
   color: white;
-  opacity:40%;
+  /* opacity:40%; */
   text-align:center;
   padding: 40px 0;
   font-weight:500;
   animation: fadeOut 1s linear forwards;
   vertical-align: middle;
+  z-index: 2;
 }
 
 .tool-wrapper:hover .tool-tooltip-text {
-  display: inline
+  display: inline;
 }
 
 .tool-wrapper:hover .tool-icon {
@@ -191,6 +196,7 @@ table {
 }
 
 .tool-selected {
+  background-color: #0F1B37;
   opacity:100%;
   animation: fadeIn 1s linear forwards;
 }
@@ -235,7 +241,7 @@ table {
   display:flex;
   --s: 140px;  /* size  */
   --m: 4px;    /* margin */
-  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
+  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
 }
 
 .tool-container {
