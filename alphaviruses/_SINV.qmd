@@ -6,9 +6,9 @@
 
 {{< include _SINV-symptoms-fig.qmd >}} 
 
-:::
-
 {{< include _SINV-symptoms.qmd >}} 
+
+:::
 
 ## Transmission
 
@@ -16,9 +16,9 @@
 
 {{< include _SINV-transmission-fig.qmd >}} 
 
-:::
-
 {{< include _SINV-transmission.qmd >}} 
+
+:::
 
 ## Medical relevance
 
@@ -26,11 +26,13 @@
 
 {{< include _SINV-relevance-fig.qmd >}} 
 
-:::
-
 {{< include _SINV-relevance.qmd >}} 
 
+:::
+
 ## Toolbox
+
+{{< include _SINV-toolbox.qmd >}} 
 
 ```{ojs}
 //| output: none

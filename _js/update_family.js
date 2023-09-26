@@ -97,7 +97,8 @@ workbook.then(ws => {
       '```\n\n' + 
       '{% raw %}{{< include{% endraw %} /_js/virus-breadcrumb.qmd {% raw %}>}}{% endraw %}\n\n' +
       '{% raw %}{{< include{% endraw %} _{{ virus.abbreviation }}{% raw %}.qmd >}}{% endraw %}\n\n' +
-      '{% raw %}{{< include{% endraw %} /_js/_ojs_data.qmd {% raw %}>}}{% endraw %}\n\n'
+      '{% raw %}{{< include{% endraw %} /_js/_ojs_data.qmd {% raw %}>}}{% endraw %}\n' +
+      '{% raw %}{{< include{% endraw %} /_js/_ojs_family.qmd {% raw %}>}}{% endraw %}\n\n'
 
     const virusResult = engine
     .parseAndRenderSync(virusTemplate, { virus: virus })

@@ -6,9 +6,9 @@
 
 {{< include _RRV-symptoms-fig.qmd >}} 
 
-:::
-
 {{< include _RRV-symptoms.qmd >}} 
+
+:::
 
 ## Transmission
 
@@ -16,9 +16,9 @@
 
 {{< include _RRV-transmission-fig.qmd >}} 
 
-:::
-
 {{< include _RRV-transmission.qmd >}} 
+
+:::
 
 ## Medical relevance
 
@@ -26,11 +26,13 @@
 
 {{< include _RRV-relevance-fig.qmd >}} 
 
-:::
-
 {{< include _RRV-relevance.qmd >}} 
 
+:::
+
 ## Toolbox
+
+{{< include _RRV-toolbox.qmd >}} 
 
 ```{ojs}
 //| output: none

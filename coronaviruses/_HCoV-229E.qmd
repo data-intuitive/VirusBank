@@ -32,6 +32,8 @@
 
 ## Toolbox
 
+{{< include _HCoV-229E-toolbox.qmd >}} 
+
 ```{ojs}
 //| output: none
 //| echo: false

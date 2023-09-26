@@ -12,7 +12,7 @@ a {
 }
 
 h1 {
-  color: steelblue !important;
+  color: #3A7598 !important; /* steelblue !important; */
   font-size: 3em;
   font-weight: 400 !important;
 }
