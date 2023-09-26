@@ -9,6 +9,25 @@ body {
 
 a {
   text-decoration: none;
+  color: rgba(8, 41, 76, 0.71);
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(8, 41, 76, 0.71);
+  opacity: 70%;
+}
+
+/* a element in tabset navigation */
+.nav-link {
+  color: rgba(8, 41, 76, 0.71) !important;
+}
+
+.page-link {
+  background-color: rgba(8, 41, 76, 0.71) !important;
+  color: white !important;
+  opacity: 60%;
 }
 
 h1 {
@@ -109,6 +128,10 @@ svg .internal-node circle:hover {
   width: 370px;
 }
 
+/* Tables in toolbox page require extra styling */
+table {
+  color: var(--bs-body-color) !important;
+}
 
 /* Make the toolbox dissapear on small screens */
 /* @media (max-width: 800px) { */
