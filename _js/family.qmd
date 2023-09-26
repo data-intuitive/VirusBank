@@ -82,8 +82,6 @@ phylotree = await require("phylotree@1.1/dist/phylotree.js");
 //| output: none
 //| echo: false
 
-familyAnnotations = annotations.filter(virus => virus.family == virusFamily)
-
 // Call the factory functions to get specialized lookups
 virusInfoOrUndefined = virusInfoOrUndefinedF(familyAnnotations)
 availableVirusInfo = availableVirusInfoF(familyAnnotations)
