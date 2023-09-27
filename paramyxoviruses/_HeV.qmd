@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HeV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HeV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HeV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HeV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HeV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HeV-relevance.qmd >}} 
 

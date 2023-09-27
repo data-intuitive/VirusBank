@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _SARS-CoV-2-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _SARS-CoV-2-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _SARS-CoV-2-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _SARS-CoV-2-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _SARS-CoV-2-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _SARS-CoV-2-relevance.qmd >}} 
 

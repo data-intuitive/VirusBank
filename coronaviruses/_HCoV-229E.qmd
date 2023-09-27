@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-229E-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-229E-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-229E-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-229E-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-229E-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-229E-relevance.qmd >}} 
 

@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _CedV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _CedV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _CedV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _CedV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _CedV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _CedV-relevance.qmd >}} 
 

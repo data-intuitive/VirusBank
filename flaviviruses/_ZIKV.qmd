@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _ZIKV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _ZIKV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _ZIKV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _ZIKV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _ZIKV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _ZIKV-relevance.qmd >}} 
 

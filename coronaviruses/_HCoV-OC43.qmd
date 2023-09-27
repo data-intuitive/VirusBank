@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-OC43-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-OC43-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-OC43-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-OC43-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _HCoV-OC43-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _HCoV-OC43-relevance.qmd >}} 
 

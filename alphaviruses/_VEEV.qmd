@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _VEEV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _VEEV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _VEEV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _VEEV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _VEEV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _VEEV-relevance.qmd >}} 
 

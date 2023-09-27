@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _USUV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _USUV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _USUV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _USUV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _USUV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _USUV-relevance.qmd >}} 
 

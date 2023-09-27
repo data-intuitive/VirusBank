@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _hRSV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _hRSV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _hRSV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _hRSV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _hRSV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _hRSV-relevance.qmd >}} 
 

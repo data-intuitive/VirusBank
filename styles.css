@@ -341,3 +341,22 @@ table {
   shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
 
+/* Virus pages */
+.virus-figure {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #9095A8;
+}
+
+.virus-text {
+  font-weight: 500;
+  font-size: 1.2em;
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  border-left: 4px solid #9095A8;
+  border-right: 4px solid #9095A8;
+  border-bottom: 4px solid #9095A8;
+  padding: 10px;
+}

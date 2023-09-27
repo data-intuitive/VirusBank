@@ -1,7 +1,7 @@
 ---
 params:
   family: coronaviruses
-  virus: Severe acute respiratorysyndrome–related coronavirus (SARS-CoV)
+  virus: Severe acute respiratory syndrome–related coronavirus (SARS-CoV)
 ---
 
 ```{r}

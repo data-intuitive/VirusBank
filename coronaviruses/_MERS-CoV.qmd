@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _MERS-CoV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _MERS-CoV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _MERS-CoV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _MERS-CoV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _MERS-CoV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _MERS-CoV-relevance.qmd >}} 
 

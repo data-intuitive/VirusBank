@@ -2,9 +2,13 @@
 
 ## Symptoms
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _YFV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _YFV-symptoms.qmd >}} 
 
@@ -12,9 +16,13 @@
 
 ## Transmission
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _YFV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _YFV-transmission.qmd >}} 
 
@@ -22,9 +30,13 @@
 
 ## Medical relevance
 
-::: {.text-center}
+::: {.virus-figure}
 
 {{< include _YFV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
 
 {{< include _YFV-relevance.qmd >}} 
 

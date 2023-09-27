@@ -32,8 +32,7 @@
 [open virus page](/coronaviruses/HCoV-OC43.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Severe acute respiratory
-syndrome–related coronavirus
+## Severe acute respiratory syndrome–related coronavirus
 
 {{< include  _SARS-CoV.qmd >}}
 
@@ -41,8 +40,7 @@ syndrome–related coronavirus
 [open virus page](/coronaviruses/SARS-CoV.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Severe acute respiratory
-syndrome–related coronavirus 2
+## Severe acute respiratory syndrome–related coronavirus 2
 
 {{< include  _SARS-CoV-2.qmd >}}
 
