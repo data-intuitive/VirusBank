@@ -27,7 +27,7 @@ format:
               prefix = "/virus-families/"
             }
             if (section == "toolbox") {
-              prefix = "/toolbox-concept/"
+              prefix = "/toolbox/"
             }
           } else {
             if (section == "families") {
