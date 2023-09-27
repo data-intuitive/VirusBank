@@ -89,7 +89,7 @@ Coronaviruses
 
 ::: {.card .g-col-4 .g-col-4}
 ::: {.card-img-top}
-[![](/img/virus.jpg)](orthomyxoviruses/index.qmd)
+[![](/img/virus.jpg)](pneumoviruses/index.qmd)
 
 :::
 ::: {.card-body}
