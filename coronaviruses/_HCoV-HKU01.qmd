@@ -44,7 +44,11 @@
 
 ## Toolbox
 
+::: {.virus-toolbox}
+
 {{< include _HCoV-HKU01-toolbox.qmd >}} 
+
+:::
 
 ```{ojs}
 //| output: none

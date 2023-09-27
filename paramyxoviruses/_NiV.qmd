@@ -44,7 +44,11 @@
 
 ## Toolbox
 
+::: {.virus-toolbox}
+
 {{< include _NiV-toolbox.qmd >}} 
+
+:::
 
 ```{ojs}
 //| output: none

@@ -349,6 +349,15 @@ table {
   border: 1px solid #9095A8;
 }
 
+.virus-toolbox {
+  font-weight: 500;
+  font-size: 1.2em;
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  padding: 50px 10px 10px 10px;
+}
+
 .virus-text {
   font-weight: 500;
   font-size: 1.2em;

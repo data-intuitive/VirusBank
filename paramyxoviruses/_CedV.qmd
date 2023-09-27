@@ -44,7 +44,11 @@
 
 ## Toolbox
 
+::: {.virus-toolbox}
+
 {{< include _CedV-toolbox.qmd >}} 
+
+:::
 
 ```{ojs}
 //| output: none

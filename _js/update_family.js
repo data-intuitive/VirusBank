@@ -153,7 +153,11 @@ workbook.then(ws => {
       '\n' +
       '## Toolbox\n' +
       '\n' +
+      '::: {.virus-toolbox}\n' +
+      '\n' +
       '{% raw %}{{< include _{% endraw %}{{ virus.abbreviation }}{% raw %}-toolbox.qmd >}} {% endraw %}\n' +
+      '\n' +
+      ':::\n' +
       '\n' +
       '```{ojs}\n' +
       '//| output: none\n' +
