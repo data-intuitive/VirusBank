@@ -33,55 +33,55 @@ a:hover {
 /* Trick from http://kostas.krevatas.net/css-style-based-on-the-number-of-children-or-siblings/ */
 
 /* one item */
-li:first-child:nth-last-child(1) {
+li.nav-item:first-child:nth-last-child(1) {
 	width: 100%;
 }
  
 /* two items */
-li:first-child:nth-last-child(2),
-li:first-child:nth-last-child(2) ~ li {
+li.nav-item:first-child:nth-last-child(2),
+li.nav-item:first-child:nth-last-child(2) ~ li.nav-item {
 	width: 50%;
 }
  
 /* three items */
-li:first-child:nth-last-child(3),
-li:first-child:nth-last-child(3) ~ li {
+li.nav-item:first-child:nth-last-child(3),
+li.nav-item:first-child:nth-last-child(3) ~ li.nav-item {
 	width: 33.3333%;
 }
  
 /* four items */
-li:first-child:nth-last-child(4),
-li:first-child:nth-last-child(4) ~ li {
+li.nav-item:first-child:nth-last-child(4),
+li.nav-item:first-child:nth-last-child(4) ~ li.nav-item {
 	width: 25%;
 }
 
 /* five items */
-li:first-child:nth-last-child(5),
-li:first-child:nth-last-child(5) ~ li {
+li.nav-item:first-child:nth-last-child(5),
+li.nav-item:first-child:nth-last-child(5) ~ li.nav-item {
 	width: 20%;
 }
 
 /* six items */
-li:first-child:nth-last-child(6),
-li:first-child:nth-last-child(6) ~ li {
+li.nav-item:first-child:nth-last-child(6),
+li.nav-item:first-child:nth-last-child(6) ~ li.nav-item {
 	width: 16.66%;
 }
 
 /* seven items */
-li:first-child:nth-last-child(7),
-li:first-child:nth-last-child(7) ~ li {
+li.nav-item:first-child:nth-last-child(7),
+li.nav-item:first-child:nth-last-child(7) ~ li.nav-item {
 	width: 14.28%;
 }
 
 /* eight items */
-li:first-child:nth-last-child(8),
-li:first-child:nth-last-child(8) ~ li {
+li.nav-item:first-child:nth-last-child(8),
+li.nav-item:first-child:nth-last-child(8) ~ li.nav-item {
 	width: 12.5%;
 }
 
 /* eight items */
-li:first-child:nth-last-child(9),
-li:first-child:nth-last-child(9) ~ li {
+li.nav-item:first-child:nth-last-child(9),
+li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
 	width: 11.11%;
 }
 
