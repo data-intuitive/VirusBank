@@ -30,8 +30,73 @@ a:hover {
   color: rgba(8, 41, 76, 0.71) !important;
 }
 
+/* Trick from http://kostas.krevatas.net/css-style-based-on-the-number-of-children-or-siblings/ */
+
+/* one item */
+li:first-child:nth-last-child(1) {
+	width: 100%;
+}
+ 
+/* two items */
+li:first-child:nth-last-child(2),
+li:first-child:nth-last-child(2) ~ li {
+	width: 50%;
+}
+ 
+/* three items */
+li:first-child:nth-last-child(3),
+li:first-child:nth-last-child(3) ~ li {
+	width: 33.3333%;
+}
+ 
+/* four items */
+li:first-child:nth-last-child(4),
+li:first-child:nth-last-child(4) ~ li {
+	width: 25%;
+}
+
+/* five items */
+li:first-child:nth-last-child(5),
+li:first-child:nth-last-child(5) ~ li {
+	width: 20%;
+}
+
+/* six items */
+li:first-child:nth-last-child(6),
+li:first-child:nth-last-child(6) ~ li {
+	width: 16.66%;
+}
+
+/* seven items */
+li:first-child:nth-last-child(7),
+li:first-child:nth-last-child(7) ~ li {
+	width: 14.28%;
+}
+
+/* eight items */
+li:first-child:nth-last-child(8),
+li:first-child:nth-last-child(8) ~ li {
+	width: 12.5%;
+}
+
+/* eight items */
+li:first-child:nth-last-child(9),
+li:first-child:nth-last-child(9) ~ li {
+	width: 11.11%;
+}
+
+/* default settings for tabs */
 .nav-item {
-  width: 12%;
+  max-width: 33%;
+  overflow: scroll;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px groove white;
+}
+
+/* Make sure no additional scroll bars appear */
+.cell-output {
+  overflow: hidden;
 }
 
 .page-link {
