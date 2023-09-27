@@ -360,3 +360,14 @@ table {
   border-bottom: 4px solid #9095A8;
   padding: 10px;
 }
+
+.virus-figure::before {
+  font-weight: 300;
+  font-size: 1em;
+  float: right;
+  vertical-align: top;
+  color: #9095A8;
+  font-style: italic;
+  content: "text under figure(s)";
+}
+
