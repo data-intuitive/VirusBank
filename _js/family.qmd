@@ -120,6 +120,8 @@ clearToolbox = () => {
 // Update the tools in the toolbox based on the provided virus object
 updateToolbox = (virus) => {
 
+  console.log(virus)
+
   d3.select("#virus").text(virus.resVirusName)
   toolbox
     .filter(tool => virus.tools.includes(tool.id))
@@ -274,12 +276,16 @@ virusHoverOut = () => {
 
 // Clicking on the tabs feeds the info back to the toolbox info
 feedbackToolbox = d3.selectAll(".nav-item")
-  .on('click', function(){ 
+  .on('click', function(){
     const _id = d3.select(this).select("a").attr('id')
     const _virus_id = tabToVirusIdMap.get(_id)
-    const _virus = virusIdToVirus(_virus_id)
-    clearToolbox();
-    updateToolbox(_virus)
+    // We should only update the toolbox if an actual virus is selected
+    // not if for instance the 'toolbox' tab is selected
+    if (typeof _virus_id !== "undefined") {
+      const _virus = virusIdToVirus(_virus_id)
+      clearToolbox();
+      updateToolbox(_virus)
+    }
   })
      
 // Add SVG to the DOM
