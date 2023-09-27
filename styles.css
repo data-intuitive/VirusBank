@@ -19,9 +19,19 @@ a:hover {
   opacity: 70%;
 }
 
+/* Give the name of the virus a fixed box size to avoid flickering */
+#info-container #name {
+  height: 1.5em;
+  overflow: hidden;
+}
+
 /* a element in tabset navigation */
 .nav-link {
   color: rgba(8, 41, 76, 0.71) !important;
+}
+
+.nav-item {
+  width: 12%;
 }
 
 .page-link {
