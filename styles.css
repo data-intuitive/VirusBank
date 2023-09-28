@@ -342,11 +342,35 @@ table {
 }
 
 /* Virus pages */
+/* .temp:empty { */
+/*   width: 90%; */
+/*   margin: auto; */
+/*   padding: 10px; */
+/*   border: 1px solid #9095A8; */
+/*   background: yellow !important; */
+/* } */
+
+/* Virus pages */
+.blank {
+  display: none;
+}
+
 .virus-figure {
   width: 90%;
   margin: auto;
   padding: 10px;
   border: 1px solid #9095A8;
+}
+
+/* Add an indicator that text can be found below the figure */
+.virus-figure::before {
+  font-weight: 300;
+  font-size: 1em;
+  float: right;
+  vertical-align: top;
+  color: #9095A8;
+  font-style: italic;
+  content: "text under figure(s)";
 }
 
 .virus-toolbox {
@@ -364,19 +388,9 @@ table {
   width: 80%;
   margin: auto;
   text-align: left;
+  border-top: 4px solid #9095A8;
   border-left: 4px solid #9095A8;
   border-right: 4px solid #9095A8;
   border-bottom: 4px solid #9095A8;
   padding: 10px;
 }
-
-.virus-figure::before {
-  font-weight: 300;
-  font-size: 1em;
-  float: right;
-  vertical-align: top;
-  color: #9095A8;
-  font-style: italic;
-  content: "text under figure(s)";
-}
-

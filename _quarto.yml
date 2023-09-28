@@ -54,6 +54,20 @@ format:
         function virusFormatter(value, row) {
           return value
         };
+
+        // Rewrite the DOM by adding a .blank class to all 'empty' div elements
+        // The :empty CSS attribute does not work on DIV elements containing a newline
+        // The below checks if a node contains only whitespace AND has no children
+        function cleanUpMyDOM(){
+            var nodes = document.querySelectorAll("div");
+            for(var i = 0; i < nodes.length; i++) {
+                const content = nodes[i].innerHTML.replace(/^[\s\n]+|[\s\n]+$/, '');
+                if(!content && ( nodes[i].children.length == 0) ) {
+                    nodes[i].className += " blank";
+                }
+            }
+        }
+        window.addEventListener("load", cleanUpMyDOM);
         
         </script>
 
