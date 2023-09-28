@@ -88,7 +88,8 @@ li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
 /* default settings for tabs */
 .nav-item {
   max-width: 33%;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: clip;
   white-space: nowrap;
   text-align: center;
   border: 1px groove white;
