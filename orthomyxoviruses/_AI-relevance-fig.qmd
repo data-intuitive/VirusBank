@@ -1,1 +1,7 @@
 ![](img/6 - Avian Influenza Medical Relevance.png)
+
+[Interactive map available via Sciensano](https://moriskin.sciensano.be/shiny/avianinfluenza/)
+
+<!--
+<iframe src="https://moriskin.sciensano.be/shiny/avianinfluenza/" width="100%" height="600px"></iframe>
+-->

@@ -1,6 +1,8 @@
+### Seasonal flu
+
 ![](img/3 - Seasonal flu.png)
 
-Seasonal flu: Influenza, commonly known as the flu, is a communicable respiratory illness caused by influenza A and B viruses that infect the human respiratory system. Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring on an annual basis
+Influenza, commonly known as the flu, is a communicable respiratory illness caused by influenza A and B viruses that infect the human respiratory system. Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring on an annual basis
 
 As an example in Belgium:
 
@@ -16,15 +18,19 @@ As an example in Belgium:
 
 In the world:
 
-Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world (WHO)( https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
+Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world ([WHO link](https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal))).
+
+The H1N1 flu, also called swine flu, capable of infecting pigs, birds, and humans. The virus underwent genetic changes in 2009, leading to a new strain that spread rapidly among humans. The World Health Organization (WHO) declared the H1N1 outbreak a pandemic in 2009 due to its ability to transmit easily between humans and cause severe illness. 2009-10 H1N1 pandemic resulted in approximately 284,400 deaths worldwide, highlighting its global significance. In August 2010, the WHO officially declared the pandemic over. However, the H1N1 strain continues to circulate as part of seasonal flu infections.
+
+While two influenza B virus lineages emerged in the 1970s, and have co-circulated since 2001, B/Yamagata-lineage circulation has not been confirmed since March 2020.
 
 (Reference: The information and graph pertaining to influenza seasonality in Belgium have been sourced from Sciensano.)
 
+### Pandemic flu
+
 ![](img/4 - Pandemic flu.png)
 
-Pandemic flu: A flu pandemic is an uncommon worldwide emergence of a novel influenza A virus in humans, one that diverges from the currently circulating seasonal influenza A viruses. Such global health events are infrequent occurrences. Over the last century, we have witnessed the occurrence of four influenza pandemics. Nevertheless, experts concur that the prospect of another pandemic is an inevitability.
+A flu pandemic is a worldwide emergence of a novel influenza viruses in humans. Over the last century, we have witnessed the occurrence of four influenza pandemics. Therefore, the occurrence of another pandemic is inevitable.
 
-Please visit this link for more information about seaonal and pandemic  influenza (flu): https://www.cdc.gov/flu/pdf/freeresources/seasonal-flu-vs-pandemic-flu-update.pdf 
-
-While two influenza B virus lineages have co-circulated, B/Yamagata-lineage circulation has not been confirmed since March 2020 (link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9524051/)
+Please visit [this link](https://www.cdc.gov/flu/pdf/freeresources/seasonal-flu-vs-pandemic-flu-update.pdf) for more information about seaonal and pandemic influenza (flu). 
 
