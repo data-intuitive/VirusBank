@@ -356,10 +356,10 @@ table {
 }
 
 .virus-figure {
-  width: 90%;
+  width: 80%;
   margin: auto;
-  padding: 10px;
-  border: 1px solid #9095A8;
+  padding: 20px;
+  /* border: 1px solid #9095A8; */
 }
 
 /* Add an indicator that text can be found below the figure */
@@ -383,14 +383,14 @@ table {
 }
 
 .virus-text {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.2em;
   width: 80%;
   margin: auto;
   text-align: left;
-  border-top: 4px solid #9095A8;
-  border-left: 4px solid #9095A8;
-  border-right: 4px solid #9095A8;
-  border-bottom: 4px solid #9095A8;
-  padding: 10px;
+  border-top: 2px solid #9095A8;
+  /* border-left: 1px solid #9095A8; */
+  /* border-right: 1px solid #9095A8; */
+  border-bottom: 2px solid #9095A8;
+  padding: 20px;
 }
