@@ -88,8 +88,9 @@ li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
 /* default settings for tabs */
 .nav-item {
   max-width: 33%;
-  overflow-x: scroll;
-  overflow-y: clip;
+  overflow: auto;
+  /* overflow-x: scroll; */
+  /* overflow-y: clip; */
   white-space: nowrap;
   text-align: center;
   border: 1px groove white;
@@ -126,6 +127,13 @@ h1 {
   opacity: 20%;
   font-family: "Mukta";
   font-weight: 300;
+  font-size: 20px!important;
+}
+
+.phylotree-node-text-selected {
+  fill: red;
+  font-family: "Mukta";
+  font-weight: 500;
   font-size: 20px!important;
 }
 
