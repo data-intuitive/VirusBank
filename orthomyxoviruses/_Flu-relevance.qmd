@@ -1,30 +1,16 @@
 ### Seasonal flu
 
-![](img/3 - Seasonal flu.png)
+![](img/Seasonal influenza medical relevance.png)
 
-Influenza, commonly known as the flu, is a communicable respiratory illness caused by influenza A and B viruses that infect the human respiratory system. Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring on an annual basis
+Above, influenza virus detection within Europe was shown using the data obtained from the World Health Organisation (WHO) and Global Influenza Surveillance & Response System (GIRS). For more information about the global virus circulation, please visit [this link](https://app.powerbi.com/view?r=eyJrIjoiZTkyODcyOTEtZjA5YS00ZmI0LWFkZGUtODIxNGI5OTE3YjM0IiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9).
 
-As an example in Belgium:
+- Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring annually. An exception was seen during the 2021 season due to the infection control measurements during the COVID-19 pandemic.
 
-- 500,000 people on average are affected by influenza-like illness each year in Belgium, i.e. about 2% to 8% of the population.
+- Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world (WHO)( https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
 
-- A moderate epidemic of influenza affects about 5% of the population (550,000 out of 11 million inhabitants).
+- H1N1 flu, also known as swine flu, caused a 2009-2010 pandemic with approximately 284,400 global deaths. Although the pandemic officially ended in 2010, the H1N1pdm09 strain remains part of seasonal flu infections.
 
-- A more serious epidemic of influenza affects about 10% of the population (from 1,100,000 out of 11 million inhabitants).
-
-- On average 1 person in 1000 cases of influenza develops complications requiring hospitalisation.
-
-- More than 90% of deaths concern people of 65 years and over
-
-In the world:
-
-Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world ([WHO link](https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal))).
-
-The H1N1 flu, also called swine flu, capable of infecting pigs, birds, and humans. The virus underwent genetic changes in 2009, leading to a new strain that spread rapidly among humans. The World Health Organization (WHO) declared the H1N1 outbreak a pandemic in 2009 due to its ability to transmit easily between humans and cause severe illness. 2009-10 H1N1 pandemic resulted in approximately 284,400 deaths worldwide, highlighting its global significance. In August 2010, the WHO officially declared the pandemic over. However, the H1N1 strain continues to circulate as part of seasonal flu infections.
-
-While two influenza B virus lineages emerged in the 1970s, and have co-circulated since 2001, B/Yamagata-lineage circulation has not been confirmed since March 2020.
-
-(Reference: The information and graph pertaining to influenza seasonality in Belgium have been sourced from Sciensano.)
+- While two influenza B virus lineages emerged in the 1970s and have been co-circulated since 2001, B/Yamagata-lineage circulation has not been confirmed since March 2020.
 
 ### Pandemic flu
 
