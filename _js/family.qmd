@@ -120,8 +120,6 @@ clearToolbox = () => {
 // Update the tools in the toolbox based on the provided virus object
 updateToolbox = (virus) => {
 
-  console.log(virus)
-
   d3.select("#virus").text(virus.resVirusName)
   toolbox
     .filter(tool => virus.tools.includes(tool.id))
@@ -228,7 +226,7 @@ renderedTree = tree
  
     // Click functionality - Toolbox
     inToolbox
-      ? element.on('click', function() {
+      ? element.on('click', function(el) {
           clearToolbox();
           // Select the first tab in order to get to the root of the tabset
           const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
@@ -237,6 +235,11 @@ renderedTree = tree
           // Now get the proper tab and open it
           const thisVirusInfo = document.getElementById(virusIdToTabMap.get(information.virusPointer))  // either the virus_id or the group abbreviation
           thisVirusInfo.click();
+
+          // Experiments
+          clearNodes()
+          highlightNodes(virus_id)
+
           // Render the toolbox for this virus
           updateToolbox(information);
         })
@@ -247,6 +250,32 @@ renderedTree = tree
 
   })
   .layout(true)
+
+// Based on a virus ID (abbreviation), highlight the virus or the whole group it belongs to
+highlightNodes = (virus_id) => {
+  const abbreviations = virusIdToViruses(virus_id).map(v => v.abbreviation)
+
+  d3.selectAll("g")
+    .filter(function (d) { return (typeof d.data !== "undefined") ? abbreviations.includes(d.data.name) : false})
+    .select("text").attr("class", "phylotree-node-text-selected")
+
+}
+
+// Initialize all viruses in the tree
+clearNodes = () => {
+  const inLst = annotatedViruses.map(v => v.abbreviation)
+  const inToolboxLst = annotatedViruses.filter(v => v.availability_in_toolbox == "Yes").map(v => v.abbreviation)
+
+  // Initialize all text
+  d3.selectAll("g")
+    .filter(function (d) { return (typeof d.data !== "undefined") })
+    .select("text").attr("class", "phylotree-node-text")
+
+  // Update toolbox entries
+  d3.selectAll("g")
+    .filter(function (d) { return (typeof d.data !== "undefined") ? inToolboxLst.includes(d.data.name) : false})
+    .select("text").attr("class", "phylotree-node-text-hl")
+}
 
 showTree = renderedTree
   .svg

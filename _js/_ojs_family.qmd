@@ -66,6 +66,22 @@ virusIdToVirus = (virus_id) => {
   }
 }
 
+// Return all matches for a virus ID
+virusIdToViruses = (virus_id) => {
+  // lookup the virus_id in the full list of viruses
+  const single_virus =
+    annotatedViruses
+      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+      [0]
+
+  if (single_virus.isGroup) {
+    return annotatedViruses
+      .filter(v => v.group_abbreviation == single_virus.group_abbreviation)
+  } else {
+    return [ single_virus ]
+  }
+}
+
 function renderVirusToolbox(family, virus_id) {
 
   // First extract the virus object from the ID or abbreviation

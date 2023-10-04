@@ -18,7 +18,7 @@ format:
         const main_site = "virusbankplatform"
         get_link = (section, pointer) => {
           const in_iframe = window.location.hostname.includes(main_site)
-          console.log("In site? ", in_iframe)
+          console.log("Run in iFrame? ", in_iframe)
           let hostname = ""
           let prefix = ""
           if (in_iframe) {

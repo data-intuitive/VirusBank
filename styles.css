@@ -88,7 +88,7 @@ li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
 /* default settings for tabs */
 .nav-item {
   max-width: 33%;
-  overflow: auto;
+  overflow: hidden;
   /* overflow-x: scroll; */
   /* overflow-y: clip; */
   white-space: nowrap;
@@ -115,7 +115,7 @@ h1 {
 
 /* Styling of phylogenetic tree */
 .phylotree-node-text {
-  fill: black;
+  fill: #0F1B37;
   opacity: 60%;
   font-family: "Mukta";
   font-weight: 300;
@@ -123,7 +123,7 @@ h1 {
 }
 
 .phylotree-node-text-inactive {
-  fill: black;
+  fill: #0F1B37;
   opacity: 20%;
   font-family: "Mukta";
   font-weight: 300;
@@ -131,14 +131,13 @@ h1 {
 }
 
 .phylotree-node-text-selected {
-  fill: red;
   font-family: "Mukta";
-  font-weight: 500;
+  font-weight: 800;
   font-size: 20px!important;
 }
 
 .phylotree-node-text-hl {
-  fill: black;
+  fill: #0F1B37;
   font-family: "Mukta";
   font-weight: 500;
   font-size: 20px!important;
