@@ -202,6 +202,11 @@ svg .internal-node circle:hover {
   height: 500px;
 }
 
+#jumbotron-container {
+  height: 450px;
+  padding: 30px;
+}
+
 .left {
   width: calc(100% - 370px);
   /* background-color: #759ac9; */

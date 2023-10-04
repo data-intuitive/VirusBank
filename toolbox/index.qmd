@@ -27,10 +27,10 @@ run_ = toolbox.map(tool => {
 html`
   <div class="col-xs-12" style="height:20px;"></div>
 
-  <div class="left-right-container " style="--bs-gap: 10;">
+  <div class="left-right-container" style="--bs-gap: 10;">
 
     <!-- Jumbotron -->
-    <div class="left jumbotron">
+    <div class="left jumbotron" id="jumbotron-container">
       <h1 class="display-4">Viral Toolbox</h1>
       <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
       <p>Please scroll down or click on the tool of interest on the right</p>
