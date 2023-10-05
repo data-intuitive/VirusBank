@@ -132,8 +132,9 @@ h1 {
 
 .phylotree-node-text-selected {
   font-family: "Mukta";
-  font-weight: 800;
+  font-weight: 500;
   font-size: 20px!important;
+  filter: drop-shadow(yellow 0.5rem 0.5rem 1rem); 
 }
 
 .phylotree-node-text-hl {
