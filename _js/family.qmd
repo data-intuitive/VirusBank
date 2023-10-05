@@ -314,6 +314,8 @@ feedbackToolbox = d3.selectAll(".nav-item")
       const _virus = virusIdToVirus(_virus_id)
       clearToolbox();
       updateToolbox(_virus)
+      clearNodes()
+      highlightNodes(_virus_id)
     }
   })
      
