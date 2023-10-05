@@ -58,16 +58,20 @@ format:
         // Rewrite the DOM by adding a .blank class to all 'empty' div elements
         // The :empty CSS attribute does not work on DIV elements containing a newline
         // The below checks if a node contains only whitespace AND has no children
-        function cleanUpMyDOM(){
-            var nodes = document.querySelectorAll("div");
-            for(var i = 0; i < nodes.length; i++) {
-                const content = nodes[i].innerHTML.replace(/^[\s\n]+|[\s\n]+$/, '');
-                if(!content && ( nodes[i].children.length == 0) ) {
-                    nodes[i].className += " blank";
-                }
+        function cleanUpDOM(){
+          var nodes = document.querySelectorAll("div");
+          nodes.forEach(node => {
+            const content = node.innerHTML.replace(/^[\s\n]+|[\s\n]+$/, '');
+            // In principle, all empty DIVs can be hidden
+            if (!content && node.children.length == 0) {
+              // generated content should be shown though, especially the toolbox
+              if (!node.className.includes("observable")) {
+                node.className += " blank";
+              }
             }
+          })
         }
-        window.addEventListener("load", cleanUpMyDOM);
+        window.addEventListener("load", cleanUpDOM);
         
         </script>
 
