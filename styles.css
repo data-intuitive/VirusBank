@@ -382,8 +382,7 @@ table {
   float: right;
   vertical-align: top;
   color: #9095A8;
-  font-style: italic;
-  content: "text under figure(s)";
+  content: "▼";
 }
 
 .virus-toolbox {
