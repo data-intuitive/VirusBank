@@ -377,14 +377,14 @@ table {
 }
 
 /* Add an indicator that text can be found below the figure */
-.virus-figure::before {
-  font-weight: 300;
-  font-size: 1em;
-  float: right;
-  vertical-align: top;
-  color: #9095A8;
-  content: "▼";
-}
+/* .virus-figure::before { */
+/*   font-weight: 300; */
+/*   font-size: 1em; */
+/*   float: right; */
+/*   vertical-align: top; */
+/*   color: #9095A8; */
+/*   content: "▼"; */
+/* } */
 
 .virus-toolbox {
   font-weight: 500;
