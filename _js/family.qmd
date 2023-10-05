@@ -45,7 +45,7 @@ html`
       <div class="grid">
         <div class="g-col-md-12 small">
           <span class="phylotree-node-text" style="font-size:15px !important;">HOVER</span> for more information /
-          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> can be selected
+          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> are present in collection and can be selected 
         </div>
       </div>
     </div>
