@@ -6,6 +6,7 @@
 familyAnnotations = annotations
   .filter(virus => virus.family == virusFamily)
 
+// console.log("family: ")
 // console.log(familyAnnotations)
 
 function virusInfo(_family, _virus) {
@@ -36,6 +37,8 @@ annotatedViruses =
     .filter(virus => virus.virus_of_interest == "Yes")
     .map(virus => addGrouped(virus))
 
+// console.log(annotatedViruses)
+
 // Create a sublist of viruses with toolbox
 // Take into account groups by selecting unique entries
 toolboxAnnotatedViruses =
@@ -51,7 +54,8 @@ virusIdToVirus = (virus_id) => {
   // lookup the virus_id in the full list of viruses
   const fullList =
     annotatedViruses
-      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+      .filter(v => v.virus_id == virus_id || v.abbreviation == virus_id)
+      //.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
 
   // lookup the abbreviation for the group
   const groupList =

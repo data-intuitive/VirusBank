@@ -117,4 +117,34 @@ Orthomyxoviruses
 :::
 :::
 
+::: {.card .g-col-4 .g-col-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](filoviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Filoviruses
+:::
+::: {.card-text}
+Filoviruses
+:::
+:::
+:::
+
+::: {.card .g-col-4 .g-col-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](bunyaviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Bunyaviruses
+:::
+::: {.card-text}
+Bunyaviruses
+:::
+:::
+:::
+
 :::

@@ -1,0 +1,29 @@
+---
+format:
+  html:
+    page-layout: full
+    anchor-sections: true
+    section-divs: true
+    title-block-banner: false
+    title-block-style: plain
+    include-before-body:
+      text: <link rel=stylesheet href='https://unpkg.com/phylotree@1.1.0/dist/phylotree.css'/>
+params:
+  family: bunyaviruses
+---
+   
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{< include /_js/_ojs_data.qmd >}}
+{{< include /_js/_ojs_family.qmd >}}
+
+{{< include /_js/family-breadcrumb.qmd >}}
+
+{{< include /_js/family.qmd >}}
+
+&nbsp;
+ 
+{{< include _details.qmd >}}

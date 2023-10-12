@@ -161,20 +161,21 @@ hide = hideTabset()
 nwk = nwksAsMap[virusFamily]
 tree = new phylotree.phylotree(nwk)   // class Phylotree
                                       // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
- 
+
 // import { update_tree } from "/_js/functions.js"
 
 renderedTree = tree
   // Transform the tree (translate and prune)
   // based on the input Excel file for this virus family
   .traverse_and_compute(node => {
-    const virus = node.data.name
+    const virus_id = node.data.name
     const isLeaf = tree.isLeafNode(node)
     if (isLeaf) {
-      const information = virusInfoOrUndefined(virus)
-      if (virusOfInterest(node.data.name)) {
-        const currentName = virus
-        const newName = information.abbreviation.trim()
+      const virus = virusIdToVirus(virus_id)
+      const isVirusOfInterest = (typeof virus !== "undefined") ? (virus.virus_of_interest == "Yes") : false
+      if (isVirusOfInterest) {
+        const currentName = virus_id
+        const newName = virus.abbreviation.trim()
         node.data.name = newName
       } else {
         node.data.name = "remove_me"
@@ -195,9 +196,9 @@ renderedTree = tree
     'zoom':               false,
     'brush':              false,
     'draw-size-bubbles':  false,
-    'maximum-per-node-spacing': 200,
+    'maximum-per-node-spacing': 400,
     'minimum-per-node-spacing': 20,
-    'maximum-per-level-spacing': 200,
+    'maximum-per-level-spacing': 400,
     'minimum-per-level-spacing': 20,
     'container': "#tree-container"
   })

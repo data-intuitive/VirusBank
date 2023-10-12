@@ -9,7 +9,9 @@ families = [
   "paramyxoviruses",
   "coronaviruses",
   "pneumoviruses",
-  "orthomyxoviruses"
+  "orthomyxoviruses",
+  "bunyaviruses",
+  "filoviruses"
 ]
 
 // Utility functions
@@ -60,5 +62,13 @@ _annotations = await Promise.all(
 annotations = _annotations
   .flat()
   .map( virus => addEncodedTools(virus) )
+
+//console.log(
+//  annotations
+//    .filter(v => v.availability_in_toolbox == "Yes")
+//    .filter(v => v.tools.length == 0)
+//    .map(v => "Family: " + v.family + " / virus: " + v.abbreviation)
+//    .join("\n")
+//)
 
 ```
