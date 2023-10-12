@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Cedar virus
+## CedV
 
 {{< include  _CedV.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/paramyxoviruses/CedV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
-## Human parainfluenza virus 3
+## HPIV3
 
 {{< include  _HPIV3.qmd >}}
 
@@ -16,7 +16,7 @@
 [open virus page](/paramyxoviruses/HPIV3.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
-## Measles virus
+## MeV
 
 {{< include  _MeV.qmd >}}
 
@@ -24,7 +24,7 @@
 [open virus page](/paramyxoviruses/MeV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
-## Hendra virus
+## HeV
 
 {{< include  _HeV.qmd >}}
 
@@ -32,7 +32,7 @@
 [open virus page](/paramyxoviruses/HeV.qmd) / [reload family page](/paramyxoviruses/)
 :::
 
-## Nipah virus
+## NiV
 
 {{< include  _NiV.qmd >}}
 

@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Marburg virus
+## MARV
 
 {{< include  _MARV.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/filoviruses/MARV.qmd) / [reload family page](/filoviruses/)
 :::
 
-## Ebola virus
+## EBOV
 
 {{< include  _EBOV.qmd >}}
 

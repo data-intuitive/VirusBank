@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Crimean-Congo hemorrhagic fever
+## CCHFV
 
 {{< include  _CCHFV.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/bunyaviruses/CCHFV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Bunyamwera virus
+## BUNV
 
 {{< include  _BUNV.qmd >}}
 
@@ -16,7 +16,7 @@
 [open virus page](/bunyaviruses/BUNV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## La Crosse virus
+## LACV
 
 {{< include  _LACV.qmd >}}
 
@@ -24,7 +24,7 @@
 [open virus page](/bunyaviruses/LACV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Oropouche virus
+## OROV
 
 {{< include  _OROV.qmd >}}
 
@@ -32,7 +32,7 @@
 [open virus page](/bunyaviruses/OROV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Hantaan virus
+## HTNV
 
 {{< include  _HTNV.qmd >}}
 
@@ -40,7 +40,7 @@
 [open virus page](/bunyaviruses/HTNV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Andes virus
+## ANDV
 
 {{< include  _ANDV.qmd >}}
 
@@ -48,7 +48,7 @@
 [open virus page](/bunyaviruses/ANDV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Heartland virus
+## HRTV
 
 {{< include  _HRTV.qmd >}}
 
@@ -56,7 +56,7 @@
 [open virus page](/bunyaviruses/HRTV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Severe Fever with Thrombocytopenia Syndrome virus
+## SFTSV
 
 {{< include  _SFTSV.qmd >}}
 
@@ -64,7 +64,7 @@
 [open virus page](/bunyaviruses/SFTSV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Toscana virus
+## TOSV
 
 {{< include  _TOSV.qmd >}}
 
@@ -72,7 +72,7 @@
 [open virus page](/bunyaviruses/TOSV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Rift Valley fever virus
+## RVFV
 
 {{< include  _RVFV.qmd >}}
 
@@ -80,7 +80,7 @@
 [open virus page](/bunyaviruses/RVFV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Lymphocytic choriomeningitis virus
+## LCMV
 
 {{< include  _LCMV.qmd >}}
 
@@ -88,7 +88,7 @@
 [open virus page](/bunyaviruses/LCMV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Lassa virus
+## LASV
 
 {{< include  _LASV.qmd >}}
 
@@ -96,7 +96,7 @@
 [open virus page](/bunyaviruses/LASV.qmd) / [reload family page](/bunyaviruses/)
 :::
 
-## Junin virus
+## JUNV
 
 {{< include  _JUNV.qmd >}}
 

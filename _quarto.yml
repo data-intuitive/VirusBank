@@ -83,6 +83,7 @@ format:
     css: styles.css
     toc: false
     resources: 
+      - families.json
       - tree.newick
       - family.xlsx
       - toolbox/toolbox.json

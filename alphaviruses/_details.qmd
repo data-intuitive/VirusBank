@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Mayaro virus
+## MAYV
 
 {{< include  _MAYV.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/alphaviruses/MAYV.qmd) / [reload family page](/alphaviruses/)
 :::
 
-## Semliki Forest virus
+## SFV
 
 {{< include  _SFV.qmd >}}
 
@@ -16,7 +16,7 @@
 [open virus page](/alphaviruses/SFV.qmd) / [reload family page](/alphaviruses/)
 :::
 
-## Chikungunya virus
+## CHIKV
 
 {{< include  _CHIKV.qmd >}}
 
@@ -24,7 +24,7 @@
 [open virus page](/alphaviruses/CHIKV.qmd) / [reload family page](/alphaviruses/)
 :::
 
-## Venezuelan equine encephalitis virus
+## VEEV
 
 {{< include  _VEEV.qmd >}}
 
@@ -32,7 +32,7 @@
 [open virus page](/alphaviruses/VEEV.qmd) / [reload family page](/alphaviruses/)
 :::
 
-## Sindbis virus
+## SINV
 
 {{< include  _SINV.qmd >}}
 
@@ -40,7 +40,7 @@
 [open virus page](/alphaviruses/SINV.qmd) / [reload family page](/alphaviruses/)
 :::
 
-## Ross river virus
+## RRV
 
 {{< include  _RRV.qmd >}}
 

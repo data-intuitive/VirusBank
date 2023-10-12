@@ -1,7 +1,7 @@
 ---
 params:
   family: orthomyxoviruses
-  virus: Influenza (Flu) (Flu)
+  virus: Influenza (Flu)
 ---
 
 ```{r}

@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Influenza (Flu)
+## Flu
 
 {{< include  _Flu.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/orthomyxoviruses/Flu.qmd) / [reload family page](/orthomyxoviruses/)
 :::
 
-## Avian influenza (Bird Flu)
+## AI
 
 {{< include  _AI.qmd >}}
 

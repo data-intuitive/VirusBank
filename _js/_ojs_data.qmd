@@ -2,17 +2,9 @@
 //| echo: false
 //| output: false
 
-// The families to load
-families = [
-  "alphaviruses",
-  "flaviviruses",
-  "paramyxoviruses",
-  "coronaviruses",
-  "pneumoviruses",
-  "orthomyxoviruses",
-  "bunyaviruses",
-  "filoviruses"
-]
+// import { families } from '../families.js'
+require('../families.js')
+console.log(families)
 
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
@@ -20,6 +12,7 @@ import { encodeTool } from '/_js/functions.js'
 FA = FileAttachment
 
 // Load the toolbox
+families = await FA("/families.json").json()
 _toolbox = await FileAttachment("/toolbox/toolbox.json").json()
 toolbox = _toolbox.map( tool => encodeTool(tool) )
 

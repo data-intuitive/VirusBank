@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Human metapneumovirus
+## hMPV
 
 {{< include  _hMPV.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/pneumoviruses/hMPV.qmd) / [reload family page](/pneumoviruses/)
 :::
 
-## Human respiratory syncytial virus
+## hRSV
 
 {{< include  _hRSV.qmd >}}
 

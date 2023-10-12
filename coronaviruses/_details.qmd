@@ -1,6 +1,6 @@
 :::: {.panel-tabset #vb-tabset}
 
-## Human coronavirus NL63
+## HCoV-NL63
 
 {{< include  _HCoV-NL63.qmd >}}
 
@@ -8,7 +8,7 @@
 [open virus page](/coronaviruses/HCoV-NL63.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Human coronavirus 229E
+## HCoV-229E
 
 {{< include  _HCoV-229E.qmd >}}
 
@@ -16,7 +16,7 @@
 [open virus page](/coronaviruses/HCoV-229E.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Human coronavirus HKU1
+## HCoV-HKU01
 
 {{< include  _HCoV-HKU01.qmd >}}
 
@@ -24,7 +24,7 @@
 [open virus page](/coronaviruses/HCoV-HKU01.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Human coronavirus OC43
+## HCoV-OC43
 
 {{< include  _HCoV-OC43.qmd >}}
 
@@ -32,7 +32,7 @@
 [open virus page](/coronaviruses/HCoV-OC43.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Severe acute respiratory syndrome–related coronavirus
+## SARS-CoV
 
 {{< include  _SARS-CoV.qmd >}}
 
@@ -40,7 +40,7 @@
 [open virus page](/coronaviruses/SARS-CoV.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Severe acute respiratory syndrome–related coronavirus 2
+## SARS-CoV-2
 
 {{< include  _SARS-CoV-2.qmd >}}
 
@@ -48,7 +48,7 @@
 [open virus page](/coronaviruses/SARS-CoV-2.qmd) / [reload family page](/coronaviruses/)
 :::
 
-## Middle East respiratory syndrome–related coronavirus
+## MERS-CoV
 
 {{< include  _MERS-CoV.qmd >}}
 
