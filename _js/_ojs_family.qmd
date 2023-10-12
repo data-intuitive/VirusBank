@@ -54,8 +54,8 @@ virusIdToVirus = (virus_id) => {
   // lookup the virus_id in the full list of viruses
   const fullList =
     annotatedViruses
-      .filter(v => v.virus_id == virus_id || v.abbreviation == virus_id)
-      //.filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+      .filter(v => v.virus_id.replace(/^'+|'+$/g, '') == virus_id || v.abbreviation == virus_id)
+      //.filter(v => v.virus_id == virus_id || v.abbreviation == virus_id)
 
   // lookup the abbreviation for the group
   const groupList =
