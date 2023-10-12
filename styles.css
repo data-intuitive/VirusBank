@@ -79,10 +79,34 @@ li.nav-item:first-child:nth-last-child(8) ~ li.nav-item {
 	width: 12.5%;
 }
 
-/* eight items */
+/* nine items */
 li.nav-item:first-child:nth-last-child(9),
 li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
 	width: 11.11%;
+}
+
+/* ten items */
+li.nav-item:first-child:nth-last-child(10),
+li.nav-item:first-child:nth-last-child(10) ~ li.nav-item {
+	width: 10%;
+}
+
+/* eleven items */
+li.nav-item:first-child:nth-last-child(11),
+li.nav-item:first-child:nth-last-child(11) ~ li.nav-item {
+	width: 9%;
+}
+
+/* twelve items */
+li.nav-item:first-child:nth-last-child(12),
+li.nav-item:first-child:nth-last-child(12) ~ li.nav-item {
+	width: 8.3%;
+}
+
+/* thirteen items */
+li.nav-item:first-child:nth-last-child(13),
+li.nav-item:first-child:nth-last-child(13) ~ li.nav-item {
+	width: 7.69%;
 }
 
 /* default settings for tabs */

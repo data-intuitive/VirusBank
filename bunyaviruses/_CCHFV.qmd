@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _CCHFV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CCHFV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _CCHFV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CCHFV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _CCHFV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CCHFV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _CCHFV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("bunyaviruses", "CCHFV")
+
+```
+:::

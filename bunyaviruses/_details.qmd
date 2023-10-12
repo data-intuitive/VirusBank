@@ -1,5 +1,13 @@
 :::: {.panel-tabset #vb-tabset}
 
+## Crimean-Congo hemorrhagic fever
+
+{{< include  _CCHFV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/bunyaviruses/CCHFV.qmd) / [reload family page](/bunyaviruses/)
+:::
+
 ## Bunyamwera virus
 
 {{< include  _BUNV.qmd >}}
