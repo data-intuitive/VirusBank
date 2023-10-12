@@ -28,6 +28,8 @@ a:hover {
 /* a element in tabset navigation */
 .nav-link {
   color: rgba(8, 41, 76, 0.71) !important;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 /* Trick from http://kostas.krevatas.net/css-style-based-on-the-number-of-children-or-siblings/ */
@@ -36,7 +38,9 @@ a:hover {
 li.nav-item:first-child:nth-last-child(1) {
 	width: 100%;
 }
- 
+
+
+
 /* two items */
 li.nav-item:first-child:nth-last-child(2),
 li.nav-item:first-child:nth-last-child(2) ~ li.nav-item {
