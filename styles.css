@@ -178,7 +178,6 @@ svg .branch, .branch:hover {
   stroke-width: 5px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  animation: draw-stroke 12s linear forwards;
 }
 
 @keyframes draw-stroke {
@@ -223,12 +222,18 @@ svg .internal-node circle:hover {
 
 .phylo-container {
   display: flex;
-  padding: 0 0;
   vertical-align: middle;
 }
 
 #tree-container {
-  height: 500px;
+  height: 520px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Fixing the wwidth also fixes the location and avoid sliding in */
+svg {
+  width: 510px;
 }
 
 #jumbotron-container {
@@ -238,7 +243,6 @@ svg .internal-node circle:hover {
 
 .left {
   width: calc(100% - 370px);
-  /* background-color: #759ac9; */
 }
 
 .right {
@@ -289,7 +293,7 @@ table {
   text-align:center;
   padding: 40px 0;
   font-weight:500;
-  animation: fadeOut 1s linear forwards;
+  /* animation: fadeOut 1s linear forwards; */
   vertical-align: middle;
   z-index: 2;
 }
@@ -315,7 +319,7 @@ table {
 .tool-selected {
   background-color: #0F1B37;
   opacity:100%;
-  animation: fadeIn 1s linear forwards;
+  /* animation: fadeIn 1s linear forwards; */
 }
 
 .tool-wrapper:hover .tool-tooltip-text {

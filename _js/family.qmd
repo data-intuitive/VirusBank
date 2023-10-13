@@ -38,7 +38,7 @@ html`
 
   <!-- Left part -->
   <div class="left">
-    <div id="tree-container" class="tree-container text-center">
+    <div id="tree-container" class="tree-container">
       <svg id="tree-svg" class="tree-svg"></svg>
     </div>
     <div id="legend-container" class="text-center mb-2">
@@ -184,22 +184,24 @@ renderedTree = tree
     } 
   })
   .render({
+    'width': 500,
+    'height': 500,
     'left-right-spacing':  'fit-to-size',
     'top-bottom-spacing':  'fit-to-size',
     'is-radial':          true,
     'selectable':         false,
     'collapsible':        false,
-    'transitions' :       true,
+    'transitions' :       false,
     'show-menu':          false,
     'show-scale':         false,
     'align-tips':         true,
     'zoom':               false,
     'brush':              false,
     'draw-size-bubbles':  false,
-    'maximum-per-node-spacing': 400,
-    'minimum-per-node-spacing': 20,
-    'maximum-per-level-spacing': 400,
-    'minimum-per-level-spacing': 20,
+    'maximum-per-node-spacing': 500,
+    'minimum-per-node-spacing': 100,
+    'maximum-per-level-spacing': 500,
+    'minimum-per-level-spacing': 100,
     'container': "#tree-container"
   })
   .style_nodes( (element, data) => {
@@ -322,7 +324,18 @@ feedbackToolbox = d3.selectAll(".nav-item")
      
 // Add SVG to the DOM
 tmp = d3.select("#tree-container").node().appendChild(showTree)
-tmp1 = renderedTree.set_size([500,500]).update()
+
+// If the size of the SVG is smaller than the allocated 500px
+// then resize it relatively to the fraction
+// Allow for a bit of padding, hence the .95 factor.
+newSizeF = (curSize) => {
+    if (curSize < 500) {
+      return 500 * (0.95 * 500 / curSize)
+    } else {
+        return curSize
+    }
+  }
+
+newSize = newSizeF(renderedTree.size[0])
+updateSize = renderedTree.set_size([newSize,newSize]).update()
 ```
-
-
