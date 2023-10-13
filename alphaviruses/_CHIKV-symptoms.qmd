@@ -1,2 +1,3 @@
-- Several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks up to several years after the acute stage. 
-- Death from chikungunya is rare.
+Several patients suffer from a chronic polyarthritis that can severely incapacitate the patient for weeks up to several years after the acute stage. 
+
+Death from chikungunya is rare.

@@ -6,7 +6,7 @@ Above, influenza virus detection within Europe was shown using the data obtained
 
 - Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring annually. An exception was seen during the 2021 season due to the infection control measurements during the COVID-19 pandemic.
 
-- Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year in the world (WHO)( https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
+- Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year [in the world (WHO)](https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
 
 - H1N1 flu, also known as swine flu, caused a 2009-2010 pandemic with approximately 284,400 global deaths. Although the pandemic officially ended in 2010, the H1N1pdm09 strain remains part of seasonal flu infections.
 
