@@ -2,10 +2,6 @@
 //| echo: false
 //| output: false
 
-// import { families } from '../families.js'
-require('../families.js')
-console.log(families)
-
 // Utility functions
 import { encodeTool } from '/_js/functions.js'
 
