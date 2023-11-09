@@ -98,27 +98,27 @@ function renderVirusToolbox(family, virus_id) {
         html`
         <h2 id="${tool.id}-section">${tool.name}</h2>
         <div class="container grid">
-          <div class="g-col-3 toolbox" style="text-align:center;">
+          <div class="g-col-12 g-col-md-3 toolbox one-tool" style="text-align:center;">
             <div id="toolbox-contents" class="tool-container">
               <a href="/toolbox/index.html#${tool.id}-section">
                 <div class="tool-wrapper">
-                  <div class="tool-tooltip-text">${tool.name}</div>
-                      <div id="${tool.id}" class="tool">
-                        ${tool.icon.map( i =>
-                        html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
-                        )}
-                      </div>
+                  <div id="${tool.id}" class="tool">
+                    <div class="tool-tooltip-text">${tool.name}</div>
+                    ${tool.icon.map( i =>
+                    html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                    )}
+                  </div>
                 </div>
               </a>
             </div>
           </div>
-          <div class="g-col-9">
+          <div class="g-col-12 g-col-md-9">
             <p>${tool.description}</p>
           </div>
           <div class="g-col-1" style="text-align:center;">
           </div>
         </div>
-        <div class="col-xs-12" style="height:30px;"></div>
+        <div class="col-xs-12" style="height:20px;"></div>
         `
       )}
     `

@@ -28,7 +28,7 @@ Click on the family in the table for more information.
 
 ::: {.grid .p-0 .rounded}
 
-::: {.card .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](paramyxoviruses/index.qmd)
 :::
@@ -42,7 +42,7 @@ placeholder
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](alphaviruses/index.qmd)
 
@@ -57,7 +57,7 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img//virus.jpg)](flaviviruses/index.qmd)
 
@@ -72,7 +72,7 @@ Flaviviruses
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](coronaviruses/index.qmd)
 
@@ -87,7 +87,7 @@ Coronaviruses
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](pneumoviruses/index.qmd)
 
@@ -102,7 +102,7 @@ Pneumoviruses
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](orthomyxoviruses/index.qmd)
 
@@ -117,7 +117,7 @@ Orthomyxoviruses
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](filoviruses/index.qmd)
 
@@ -132,7 +132,7 @@ Filoviruses
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
 [![](/img/virus.jpg)](bunyaviruses/index.qmd)
 

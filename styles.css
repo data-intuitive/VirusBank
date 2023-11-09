@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*
+=========================================================
+General
+=========================================================
+*/
+
 /* General */
 body {
+  --scale: 1.0;
   font-weight: 400;
   font-size: 16px;
   font-family: "Mukta";
@@ -31,15 +38,31 @@ a:hover {
   padding-left: 4px;
   padding-right: 4px;
 }
+.page-link {
+  background-color: rgba(8, 41, 76, 0.71) !important;
+  color: white !important;
+  opacity: 60%;
+}
 
+h1 {
+  color: #3A7598 !important; /* steelblue !important; */
+  font-size: 3em;
+  font-weight: 400 !important;
+}
+
+/*
+=========================================================
+Tabsets
+=========================================================
+*/
+
+/* Make sure tabs do not wrap */
 /* Trick from http://kostas.krevatas.net/css-style-based-on-the-number-of-children-or-siblings/ */
 
 /* one item */
 li.nav-item:first-child:nth-last-child(1) {
 	width: 100%;
 }
-
-
 
 /* two items */
 li.nav-item:first-child:nth-last-child(2),
@@ -113,6 +136,11 @@ li.nav-item:first-child:nth-last-child(13) ~ li.nav-item {
 	width: 7.69%;
 }
 
+/* li.nav-item:first-child:nth-last-child(13), li.nav-item:first-child:nth-last-child(13) ~ li.nav-item,li.nav-item:first-child:nth-last-child(7), li.nav-item:first-child:nth-last-child(7) ~ li.nav-item { */
+/*   width: 33.334%; */
+/*   max-width: inherit; */
+/* } */
+
 /* default settings for tabs */
 .nav-item {
   max-width: 33%;
@@ -124,22 +152,22 @@ li.nav-item:first-child:nth-last-child(13) ~ li.nav-item {
   border: 1px groove white;
 }
 
+/*
+=========================================================
+Hidden content
+=========================================================
+*/
+
 /* Make sure no additional scroll bars appear */
 .cell-output {
   overflow: hidden;
 }
 
-.page-link {
-  background-color: rgba(8, 41, 76, 0.71) !important;
-  color: white !important;
-  opacity: 60%;
-}
-
-h1 {
-  color: #3A7598 !important; /* steelblue !important; */
-  font-size: 3em;
-  font-weight: 400 !important;
-}
+/*
+=========================================================
+Phylotree styling
+=========================================================
+*/
 
 /* Styling of phylogenetic tree */
 .phylotree-node-text {
@@ -213,56 +241,119 @@ svg .internal-node circle:hover {
   stroke: #3A7598 !important;
 }
 
-/* Main container and contents */
+/*
+=========================================================
+Content, containers, ...
+=========================================================
+*/
+
+/* Main container for the toolbox page */
 .left-right-container {
   display: flex;
-  padding: 0 0;
+  flex-wrap: wrap;
   vertical-align: middle;
+  /* Fix the width of the toolbox */
+  --right-width: calc(410px * var(--scale));
 }
 
+/* Main container for the family page */
 .phylo-container {
   display: flex;
+  flex-wrap: wrap;
   vertical-align: middle;
+  /* Fix the width of the toolbox */
+  --right-width: calc(410px * var(--scale));
+}
+
+#toolbox-contents {
+  max-width: 410px;
 }
 
 #tree-container {
-  height: 520px;
   text-align: center;
-  padding: 20px;
+  height: auto;
+  padding: 0;
+  zoom: var(--scale);
 }
 
 /* Fixing the wwidth also fixes the location and avoid sliding in */
 svg {
-  width: 510px;
+  width: 510;
 }
 
-#jumbotron-container {
-  height: 450px;
-  padding: 30px;
-}
-
+/* left and right container, based on variable */
 .left {
-  width: calc(100% - 370px);
+  width: calc(100% - var(--right-width));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .right {
-  width: 370px;
+  width: var(--right-width);
 }
+
+#jumbotron-container {
+  height: auto;
+  padding: 40px;
+  padding-left: 0;
+  padding-top: 0px;
+  justify-content: left;
+  align-items: center;
+}
+
+/* Remark: total width minimum is 410+510 = 920 with a bit of buffer is 940 */
 
 /* Tables in toolbox page require extra styling */
 table {
   color: var(--bs-body-color) !important;
 }
 
-/* Make the toolbox dissapear on small screens */
-/* @media (max-width: 800px) { */
-/*   div#annotation-container { */
-/*     display: none;  */
-/*   }  */
-/* } */
+/*
+=========================================================
+Toolbox layout
+=========================================================
+*/
 
-/* Toolbox */
-/* tool-wrapper contains tool and tooltip */
+/* Hexagons nicely layed out in a containing div */
+/* Derived from https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
+.toolbox {
+  display:flex;
+  --s: calc(140px * var(--scale));  /* size  */
+  --m: 4px;    /* margin */
+  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
+  height: 440px;
+  justify-content: center;
+}
+
+.one-tool {
+  height: auto;
+}
+
+.tool-container {
+  font-size: 0; /* disable white space between inline block element */
+}
+
+.tool-container div .tool {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  display: inline-block;
+  font-size: initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+}
+
+.tool-container::before {
+  content: "";
+  width: calc(var(--s) / 2 + var(--m));
+  float: left;
+  height: 120%; 
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+}
+
+/* tool-wrapper contains 1 tool and tooltip */
 .tool-wrapper {
   display: inline-block;
   filter: 
@@ -273,47 +364,32 @@ table {
 }
 
 .tool-tooltip-text {
-  display: none;
+  display: none; 
   position: absolute;
-  text-align: center;
   font-weight: 500;
-  padding: 70px 10px;
-  width: var(--s);
-  margin: var(--m);
-  height: calc(var(--s) * 1.1547);
-  font-size:initial;
+  height: 100%;
+  width: calc(100%*0.90);
+  padding: 0.8em 0px 0px 4px;
   color: white;
   z-index: 2;
+  font-size: calc(1em * var(--scale));
 }
 
 .tool {
   background: #9095A8; /*linear-gradient(to right top, #0F1B37, #142552); */
   color: white;
-  /* opacity:40%; */
-  text-align:center;
+  text-align: center;
+  margin: auto;
   padding: 40px 0;
-  font-weight:500;
+  font-weight: 500;
   /* animation: fadeOut 1s linear forwards; */
   vertical-align: middle;
   z-index: 2;
 }
 
-.tool-wrapper:hover .tool-tooltip-text {
-  display: inline;
-}
-
-.tool-wrapper:hover .tool-icon {
-  opacity: 20%;
-}
-
-.tool .tool-icon {
+.tool-icon {
   max-height: 100%;
   vertical-align: middle;
-}
-
-@keyframes fadeOut {
-  0% { opacity: 100%; }
-  100% { visibility: 40%; }
 }
 
 .tool-selected {
@@ -322,12 +398,18 @@ table {
   /* animation: fadeIn 1s linear forwards; */
 }
 
-.tool-wrapper:hover .tool-tooltip-text {
-  display: inline
-}
-
+/* tool hover */
 .tool-wrapper:hover .tool-icon {
   opacity: 20%;
+}
+
+.tool-wrapper:hover .tool-tooltip-text {
+  display: block;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 100%; }
+  100% { visibility: 40%; }
 }
 
 @keyframes fadeIn {
@@ -353,50 +435,16 @@ table {
 .panel-tabset .panel-tabset {
   background-color: white;
 }
-
-/* Toolbox */
-
-/* Hexagons nicely layed out in a containing div */
-/* Derived from https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
-.toolbox {
-  display:flex;
-  --s: 140px;  /* size  */
-  --m: 4px;    /* margin */
-  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
+.panel-tabset .panel-tabset .nav-tabs {
+  background-color: aliceblue;
 }
 
-.tool-container {
-  font-size: 0; /* disable white space between inline block element */
-}
+/*
+=========================================================
+Virus pages
+=========================================================
+*/
 
-.tool-container div .tool {
-  width: var(--s);
-  margin: var(--m);
-  height: calc(var(--s) * 1.1547);
-  display: inline-block;
-  font-size: initial;
-  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
-}
-
-.tool-container::before {
-  content: "";
-  width: calc(var(--s) / 2 + var(--m));
-  float: left;
-  height: 120%; 
-  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
-}
-
-/* Virus pages */
-/* .temp:empty { */
-/*   width: 90%; */
-/*   margin: auto; */
-/*   padding: 10px; */
-/*   border: 1px solid #9095A8; */
-/*   background: yellow !important; */
-/* } */
-
-/* Virus pages */
 .blank {
   display: none;
 }
@@ -406,18 +454,7 @@ table {
   margin: auto;
   padding: 20px;
   text-align: center;
-  /* border: 1px solid #9095A8; */
 }
-
-/* Add an indicator that text can be found below the figure */
-/* .virus-figure::before { */
-/*   font-weight: 300; */
-/*   font-size: 1em; */
-/*   float: right; */
-/*   vertical-align: top; */
-/*   color: #9095A8; */
-/*   content: "▼"; */
-/* } */
 
 .virus-toolbox {
   font-weight: 500;
@@ -439,4 +476,81 @@ table {
   /* border-right: 1px solid #9095A8; */
   border-bottom: 2px solid #9095A8;
   padding: 20px;
+}
+
+.virus-figure {
+  width: 100%;
+  padding: 0;
+}
+
+.virus-text {
+  width: 100%;
+}
+
+/*
+=========================================================
+Responsiveness
+=========================================================
+*/
+
+/* 
+* The tree becomes too big for the left panel
+*  so we scale it down in steps.
+*  We use the --scale variable for this
+*/
+@media(max-width:950px) {
+  body {
+    --scale: 0.95;
+  }
+}
+
+@media(max-width:900px) {
+  body {
+    --scale: 0.9;
+  }
+}
+
+@media(max-width:850px) {
+  body {
+    --scale: 0.85;
+  }
+}
+
+@media(max-width:800px) {
+  body {
+    --scale: 0.80;
+  }
+}
+
+/* Smartphone size - vertical alignment */
+@media(max-width:767.98px) {
+  body {
+    --scale: 1.0;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  h2 {
+    text-align: center;
+  }
+}
+
+/*
+=========================================================
+Various
+=========================================================
+*/
+
+/* Legends */
+#legend-container .grid,#annotation-container .grid {
+  grid-template-columns: auto;
+  width: 90%;
+}
+
+/* bootstrap max-width for grids is set too small */
+.grid {
+    max-width: 1400px; 
 }
