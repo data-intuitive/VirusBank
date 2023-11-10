@@ -278,7 +278,7 @@ Content, containers, ...
   text-align: center;
   height: auto;
   padding: 0;
-  zoom: var(--scale);
+  zoom: calc(var(--scale) * 0.85);
 }
 
 /* Fixing the wwidth also fixes the location and avoid sliding in */
