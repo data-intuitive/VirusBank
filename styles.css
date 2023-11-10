@@ -46,7 +46,7 @@ a:hover {
 
 h1 {
   color: #3A7598 !important; /* steelblue !important; */
-  font-size: 3em;
+  font-size: calc(3em * var(--scale));
   font-weight: 400 !important;
 }
 
@@ -150,6 +150,10 @@ li.nav-item:first-child:nth-last-child(13) ~ li.nav-item {
   white-space: nowrap;
   text-align: center;
   border: 1px groove white;
+}
+
+.tab-content {
+  padding: 10px;
 }
 
 /*
@@ -323,7 +327,8 @@ Toolbox layout
   --s: calc(140px * var(--scale));  /* size  */
   --m: 4px;    /* margin */
   --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
-  height: 440px;
+  height: calc(440px * var(--scale));
+  /* width: calc(380px * var(--scale)); */
   justify-content: center;
 }
 
@@ -456,18 +461,18 @@ Virus pages
   text-align: center;
 }
 
-.virus-toolbox {
-  font-weight: 500;
-  font-size: 1.2em;
-  width: 80%;
-  margin: auto;
-  text-align: left;
-  padding: 30px 10px 10px 10px;
-}
+/* .virus-toolbox { */
+/*   font-weight: 500; */
+/*   font-size: 1.2em; */
+/*   width: 80%; */
+/*   margin: auto; */
+/*   text-align: left; */
+/*   padding: 30px 10px 10px 10px; */
+/* } */
 
 .virus-text {
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: calc(1.2em * var(--scale));
   width: 80%;
   margin: auto;
   text-align: left;
@@ -485,6 +490,23 @@ Virus pages
 
 .virus-text {
   width: 100%;
+}
+
+/*
+=========================================================
+Various
+=========================================================
+*/
+
+/* Legends */
+#legend-container .grid,#annotation-container .grid {
+  grid-template-columns: auto;
+  width: 90%;
+}
+
+/* bootstrap max-width for grids is set too small */
+.grid {
+    max-width: 1400px; 
 }
 
 /*
@@ -522,8 +544,8 @@ Responsiveness
   }
 }
 
-/* Smartphone size - vertical alignment */
-@media(max-width:767.98px) {
+/* Smartphone sizes - vertical alignment */
+@media(max-width:750px) {
   body {
     --scale: 1.0;
   }
@@ -538,19 +560,26 @@ Responsiveness
   }
 }
 
-/*
-=========================================================
-Various
-=========================================================
-*/
-
-/* Legends */
-#legend-container .grid,#annotation-container .grid {
-  grid-template-columns: auto;
-  width: 90%;
+@media(max-width:650px) {
+  body {
+    --scale: 0.9;
+  }
 }
 
-/* bootstrap max-width for grids is set too small */
-.grid {
-    max-width: 1400px; 
+@media(max-width:550px) {
+  body {
+    --scale: 0.8;
+  }
+}
+
+@media(max-width:450px) {
+  body {
+    --scale: 0.7;
+  }
+}
+
+@media(max-width:350px) {
+  body {
+    --scale: 0.6;
+  }
 }

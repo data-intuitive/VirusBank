@@ -33,29 +33,28 @@ html`
     <div class="left jumbotron" id="jumbotron-container">
       <h1 class="display-4">Viral Toolbox</h1>
       <p class="lead">This page provides an overview of the different tools or assays in the viral toolbox.</p>
-      <p>Please scroll down or click on the tool of interest on the right</p>
+      <p>Please scroll down or click on the tool of interest</p>
     </div>
 
     <!-- Toolbox -->
     <div class="right">
-      <div class="container">
         <div class="toolbox">
-            <div id="toolbox-contents" class="tool-container">
-              ${toolbox.map(tool => 
-                html`
-                  <a href="#${tool.id}-section" target="_top">
-                    <div class="tool-wrapper">
-                      <div id="${tool.id}" class="tool">
-                        <div class="tool-tooltip-text">${tool.name}</div>
-                        ${tool.icon.map( i =>
-                          html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
-                        )}
-                      </div>
+          <div id="toolbox-contents" class="tool-container">
+            ${toolbox.map(tool => 
+              html`
+                <a href="#${tool.id}-section" target="_top">
+                  <div class="tool-wrapper">
+                    <div id="${tool.id}" class="tool">
+                      <div class="tool-tooltip-text">${tool.name}</div>
+                      ${tool.icon.map( i =>
+                        html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+                      )}
                     </div>
-                  </a>
-                `
-              )}
-            </div>
+                  </div>
+                </a>
+              `
+            )}
+          </div>
         </div>
       </div>
     </div>
