@@ -7,6 +7,7 @@ General
 */
 
 /* General */
+
 body {
   --scale: 1.0;
   font-weight: 400;
@@ -394,6 +395,7 @@ Toolbox layout
 
 .tool-icon {
   max-height: 100%;
+  /* height: 130%; */
   vertical-align: middle;
 }
 
@@ -410,6 +412,17 @@ Toolbox layout
 
 .tool-wrapper:hover .tool-tooltip-text {
   display: block;
+}
+
+/* Deal with devices that do not support hover */
+@media(hover:none) {
+  .tool-icon {
+    opacity: 40%;
+  }
+
+  .tool-tooltip-text {
+    display: block;
+  }
 }
 
 @keyframes fadeOut {
