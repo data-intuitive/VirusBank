@@ -184,8 +184,8 @@ renderedTree = tree
     } 
   })
   .render({
-    'width': 500,
-    'height': 500,
+    'width': 600,
+    'height': 600,
     'left-right-spacing':  'fit-to-size',
     'top-bottom-spacing':  'fit-to-size',
     'is-radial':          true,
@@ -329,8 +329,8 @@ tmp = d3.select("#tree-container").node().appendChild(showTree)
 // then resize it relatively to the fraction
 // Allow for a bit of padding, hence the .95 factor.
 newSizeF = (curSize) => {
-    if (curSize < 500) {
-      return 500 * (0.95 * 500 / curSize)
+    if (curSize < 600) {
+      return 600 * (0.95 * 600 / curSize)
     } else {
         return curSize
     }
