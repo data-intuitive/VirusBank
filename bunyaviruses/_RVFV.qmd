@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _RVFV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _RVFV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _RVFV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _RVFV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _RVFV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _RVFV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _RVFV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("bunyaviruses", "RVFV")
+
+```
+:::

@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _SFTSV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SFTSV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _SFTSV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SFTSV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _SFTSV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SFTSV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _SFTSV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("bunyaviruses", "SFTSV")
+
+```
+:::

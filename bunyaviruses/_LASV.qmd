@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _LASV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LASV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _LASV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LASV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _LASV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LASV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _LASV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("bunyaviruses", "LASV")
+
+```
+:::

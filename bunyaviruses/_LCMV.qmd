@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _LCMV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LCMV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _LCMV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LCMV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _LCMV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _LCMV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _LCMV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("bunyaviruses", "LCMV")
+
+```
+:::

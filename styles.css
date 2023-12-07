@@ -1,40 +1,598 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+=========================================================
+General
+=========================================================
+*/
+
+/* General */
+
+body {
+  --scale: 1.0;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Mukta";
+}
 
 a {
   text-decoration: none;
+  color: rgba(8, 41, 76, 0.71);
+  font-weight: 600;
 }
 
+a:hover {
+  text-decoration: none;
+  color: rgba(8, 41, 76, 0.71);
+  opacity: 70%;
+}
+
+/* Give the name of the virus a fixed box size to avoid flickering */
+#info-container #name {
+  height: 1.5em;
+  overflow: hidden;
+}
+
+/* a element in tabset navigation */
+.nav-link {
+  color: rgba(8, 41, 76, 0.71) !important;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.page-link {
+  background-color: rgba(8, 41, 76, 0.71) !important;
+  color: white !important;
+  opacity: 60%;
+}
+
+h1 {
+  color: #3A7598 !important; /* steelblue !important; */
+  font-size: calc(3em * var(--scale));
+  font-weight: 400 !important;
+}
+
+/*
+=========================================================
+Tabsets
+=========================================================
+*/
+
+/* Make sure tabs do not wrap */
+/* Trick from http://kostas.krevatas.net/css-style-based-on-the-number-of-children-or-siblings/ */
+
+/* one item */
+li.nav-item:first-child:nth-last-child(1) {
+	width: 100%;
+}
+
+/* two items */
+li.nav-item:first-child:nth-last-child(2),
+li.nav-item:first-child:nth-last-child(2) ~ li.nav-item {
+	width: 50%;
+}
+ 
+/* three items */
+li.nav-item:first-child:nth-last-child(3),
+li.nav-item:first-child:nth-last-child(3) ~ li.nav-item {
+	width: 33.3333%;
+}
+ 
+/* four items */
+li.nav-item:first-child:nth-last-child(4),
+li.nav-item:first-child:nth-last-child(4) ~ li.nav-item {
+	width: 25%;
+}
+
+/* five items */
+li.nav-item:first-child:nth-last-child(5),
+li.nav-item:first-child:nth-last-child(5) ~ li.nav-item {
+	width: 20%;
+}
+
+/* six items */
+li.nav-item:first-child:nth-last-child(6),
+li.nav-item:first-child:nth-last-child(6) ~ li.nav-item {
+	width: 16.66%;
+}
+
+/* seven items */
+li.nav-item:first-child:nth-last-child(7),
+li.nav-item:first-child:nth-last-child(7) ~ li.nav-item {
+	width: 14.28%;
+}
+
+/* eight items */
+li.nav-item:first-child:nth-last-child(8),
+li.nav-item:first-child:nth-last-child(8) ~ li.nav-item {
+	width: 12.5%;
+}
+
+/* nine items */
+li.nav-item:first-child:nth-last-child(9),
+li.nav-item:first-child:nth-last-child(9) ~ li.nav-item {
+	width: 11.11%;
+}
+
+/* ten items */
+li.nav-item:first-child:nth-last-child(10),
+li.nav-item:first-child:nth-last-child(10) ~ li.nav-item {
+	width: 10%;
+}
+
+/* eleven items */
+li.nav-item:first-child:nth-last-child(11),
+li.nav-item:first-child:nth-last-child(11) ~ li.nav-item {
+	width: 9%;
+}
+
+/* twelve items */
+li.nav-item:first-child:nth-last-child(12),
+li.nav-item:first-child:nth-last-child(12) ~ li.nav-item {
+	width: 8.3%;
+}
+
+/* thirteen items */
+li.nav-item:first-child:nth-last-child(13),
+li.nav-item:first-child:nth-last-child(13) ~ li.nav-item {
+	width: 7.69%;
+}
+
+/* li.nav-item:first-child:nth-last-child(13), li.nav-item:first-child:nth-last-child(13) ~ li.nav-item,li.nav-item:first-child:nth-last-child(7), li.nav-item:first-child:nth-last-child(7) ~ li.nav-item { */
+/*   width: 33.334%; */
+/*   max-width: inherit; */
+/* } */
+
+/* default settings for tabs */
+.nav-item {
+  max-width: 33%;
+  overflow: hidden;
+  /* overflow-x: scroll; */
+  /* overflow-y: clip; */
+  white-space: nowrap;
+  text-align: center;
+  border: 1px groove white;
+}
+
+.tab-content {
+  padding: 10px;
+}
+
+/*
+=========================================================
+Hidden content
+=========================================================
+*/
+
+/* Make sure no additional scroll bars appear */
+.cell-output {
+  overflow: hidden;
+}
+
+/*
+=========================================================
+Phylotree styling
+=========================================================
+*/
+
+/* Styling of phylogenetic tree */
 .phylotree-node-text {
-  fill: grey;
-  font-family: "Montserrat";
-  font-weight: 300;
-  font-size: 20px!important;
-}
-
-.phylotree-node-text-selected {
-  fill: blue;
-  font-family: "Montserrat";
+  fill: #0F1B37;
+  opacity: 60%;
+  font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
 }
 
 .phylotree-node-text-inactive {
-  fill: black;
-  font-family: "Montserrat";
+  fill: #0F1B37;
+  opacity: 20%;
+  font-family: "Mukta";
   font-weight: 300;
   font-size: 20px!important;
 }
 
+.phylotree-node-text-selected {
+  font-family: "Mukta";
+  font-weight: 500;
+  font-size: 20px!important;
+  filter: drop-shadow(yellow 0.5rem 0.5rem 1rem); 
+}
+
 .phylotree-node-text-hl {
-  fill: white;
-  font-family: "Montserrat";
-  font-weight: "bold";
+  fill: #0F1B37;
+  font-family: "Mukta";
+  font-weight: 500;
   font-size: 20px!important;
 }
 
-.phylotree-node-text-info {
-  fill: black;
-  font-family: "Montserrat";
-  font-weight: 700;
-  font-size: 20px!important;
+svg .branch, .branch:hover {
+  stroke: #3A7598 !important;
+  opacity: 100%;
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+@keyframes draw-stroke {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+svg .branch:hover {
+  stroke-width: 5px;
+}
+
+svg .branch-tracer {
+  stroke: #3A7598 !important;
+  opacity: 80%;
+  stroke-width: 2px;
+  stroke-linecap: round;
+}
+
+svg .internal-node circle {
+  fill: white;
+  r: 0px;
+  stroke-width:1px;
+  stroke: #3A7598 !important;
+}
+
+svg .internal-node circle:hover {
+  fill: white;
+  stroke-width:1px;
+  stroke: #3A7598 !important;
+}
+
+/*
+=========================================================
+Content, containers, ...
+=========================================================
+*/
+
+/* Main container for the toolbox page */
+.left-right-container {
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  /* Fix the width of the toolbox */
+  --right-width: calc(410px * var(--scale));
+}
+
+/* Main container for the family page */
+.phylo-container {
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  /* Fix the width of the toolbox */
+  --right-width: calc(410px * var(--scale));
+}
+
+#toolbox-contents {
+  max-width: 410px;
+}
+
+#tree-container {
+  text-align: center;
+  height: auto;
+  padding: 0;
+  zoom: calc(var(--scale) * 0.85);
+}
+
+/* Fixing the wwidth also fixes the location and avoid sliding in */
+svg {
+  width: 510;
+}
+
+/* left and right container, based on variable */
+.left {
+  width: calc(100% - var(--right-width));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  width: var(--right-width);
+}
+
+#jumbotron-container {
+  height: auto;
+  padding: 40px;
+  padding-left: 0;
+  padding-top: 0px;
+  justify-content: left;
+  align-items: center;
+}
+
+/* Remark: total width minimum is 410+510 = 920 with a bit of buffer is 940 */
+
+/* Tables in toolbox page require extra styling */
+table {
+  color: var(--bs-body-color) !important;
+}
+
+/*
+=========================================================
+Toolbox layout
+=========================================================
+*/
+
+/* Hexagons nicely layed out in a containing div */
+/* Derived from https://css-tricks.com/hexagons-and-beyond-flexible-responsive-grid-patterns-sans-media-queries/ */
+.toolbox {
+  display:flex;
+  --s: calc(140px * var(--scale));  /* size  */
+  --m: 4px;    /* margin */
+  --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
+  height: calc(440px * var(--scale));
+  /* width: calc(380px * var(--scale)); */
+  justify-content: center;
+}
+
+.one-tool {
+  height: auto;
+}
+
+.tool-container {
+  font-size: 0; /* disable white space between inline block element */
+}
+
+.tool-container div .tool {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s) * 1.1547);
+  display: inline-block;
+  font-size: initial;
+  clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
+}
+
+.tool-container::before {
+  content: "";
+  width: calc(var(--s) / 2 + var(--m));
+  float: left;
+  height: 120%; 
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+}
+
+/* tool-wrapper contains 1 tool and tooltip */
+.tool-wrapper {
+  display: inline-block;
+  filter: 
+    drop-shadow(-0px -0px 1px #0F1B37)
+    drop-shadow(0px 0px 1px #0F1B37)
+    drop-shadow(0px -0px 1px #0F1B37) 
+    drop-shadow(-0px 0px 1px #0F1B37);
+}
+
+.tool-tooltip-text {
+  display: none; 
+  position: absolute;
+  font-weight: 500;
+  height: 100%;
+  width: calc(100%*0.90);
+  padding: 0.8em 0px 0px 4px;
+  color: white;
+  z-index: 2;
+  font-size: calc(1em * var(--scale));
+}
+
+.tool {
+  background: #9095A8; /*linear-gradient(to right top, #0F1B37, #142552); */
+  color: white;
+  text-align: center;
+  margin: auto;
+  padding: 40px 0;
+  font-weight: 500;
+  /* animation: fadeOut 1s linear forwards; */
+  vertical-align: middle;
+  z-index: 2;
+}
+
+.tool-icon {
+  max-height: 100%;
+  /* height: 130%; */
+  vertical-align: middle;
+}
+
+.tool-selected {
+  background-color: #0F1B37;
+  opacity:100%;
+  /* animation: fadeIn 1s linear forwards; */
+}
+
+/* tool hover */
+.tool-wrapper:hover .tool-icon {
+  opacity: 20%;
+}
+
+.tool-wrapper:hover .tool-tooltip-text {
+  display: block;
+}
+
+/* Deal with devices that do not support hover */
+@media(hover:none) {
+  .tool-icon {
+    opacity: 40%;
+  }
+
+  .tool-tooltip-text {
+    display: block;
+  }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 100%; }
+  100% { visibility: 40%; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 40%; }
+  100% { visibility: 100%; }
+}
+
+.tool-header {
+  border: none;
+  font-size: 1.7em;
+}
+
+/* Virus information */
+#name {
+  font-weight: 500;
+  font-size: 20pt;
+}
+
+/* Tabset styling, nested */
+.panel-tabset {
+  background-color: rgb(241, 243, 245);
+}
+.panel-tabset .panel-tabset {
+  background-color: white;
+}
+.panel-tabset .panel-tabset .nav-tabs {
+  background-color: aliceblue;
+}
+
+/*
+=========================================================
+Virus pages
+=========================================================
+*/
+
+.blank {
+  display: none;
+}
+
+.virus-figure {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* .virus-toolbox { */
+/*   font-weight: 500; */
+/*   font-size: 1.2em; */
+/*   width: 80%; */
+/*   margin: auto; */
+/*   text-align: left; */
+/*   padding: 30px 10px 10px 10px; */
+/* } */
+
+.virus-text {
+  font-weight: 400;
+  font-size: calc(1.2em * var(--scale));
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  border-top: 2px solid #9095A8;
+  /* border-left: 1px solid #9095A8; */
+  /* border-right: 1px solid #9095A8; */
+  border-bottom: 2px solid #9095A8;
+  padding: 20px;
+}
+
+.virus-figure {
+  width: 100%;
+  padding: 0;
+}
+
+.virus-text {
+  width: 100%;
+}
+
+/*
+=========================================================
+Various
+=========================================================
+*/
+
+/* Legends */
+#legend-container .grid,#annotation-container .grid {
+  grid-template-columns: auto;
+  width: 90%;
+}
+
+/* bootstrap max-width for grids is set too small */
+.grid {
+    max-width: 1400px; 
+}
+
+/*
+=========================================================
+Responsiveness
+=========================================================
+*/
+
+/* 
+* The tree becomes too big for the left panel
+*  so we scale it down in steps.
+*  We use the --scale variable for this
+*/
+@media(max-width:950px) {
+  body {
+    --scale: 0.95;
+  }
+}
+
+@media(max-width:900px) {
+  body {
+    --scale: 0.9;
+  }
+}
+
+@media(max-width:850px) {
+  body {
+    --scale: 0.85;
+  }
+}
+
+@media(max-width:800px) {
+  body {
+    --scale: 0.80;
+  }
+}
+
+/* Smartphone sizes - vertical alignment */
+@media(max-width:750px) {
+  body {
+    --scale: 1.0;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  h2 {
+    text-align: center;
+  }
+}
+
+@media(max-width:650px) {
+  body {
+    --scale: 0.9;
+  }
+}
+
+@media(max-width:550px) {
+  body {
+    --scale: 0.8;
+  }
+}
+
+@media(max-width:450px) {
+  body {
+    --scale: 0.70;
+  }
+}
+
+@media(max-width:350px) {
+  body {
+    --scale: 0.6;
+  }
 }

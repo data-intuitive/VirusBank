@@ -1,0 +1,19 @@
+---
+params:
+  family: bunyaviruses
+  virus: Lassa virus (LASV)
+---
+
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
+```
+
+{{< include /_js/virus-breadcrumb.qmd >}}
+
+{{< include _LASV.qmd >}}
+
+{{< include /_js/_ojs_data.qmd >}}
+{{< include /_js/_ojs_family.qmd >}}
+

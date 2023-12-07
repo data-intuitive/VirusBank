@@ -1,0 +1,9 @@
+Bird flu, also known as avian influenza or AI, is a highly contagious viral disease that affects a variety of bird species used in food production, as well as ornamental and wild birds. Avian influenza viruses induce two distinct forms of illness:
+
+1. Highly Pathogenic Avian Influenza (HPAI): This results from extremely virulent viruses and leads to a . high mortality rate among affected birds.
+
+2. Low Pathogenic Avian Influenza (LPAI): This is caused by viruses associated with milder respiratory symptoms, reduced egg production, and a moderate increase in mortality.
+
+The presence of avian flu poses a significant threat to the poultry industry, resulting in substantial economic consequences. Notably, only viruses of subtypes H5 and H7 have the potential to evolve into highly pathogenic forms.
+
+Additionally, certain avian influenza viruses are __zoonotic__, meaning they can infect humans. 

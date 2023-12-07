@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _SARS-CoV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SARS-CoV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _SARS-CoV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SARS-CoV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _SARS-CoV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _SARS-CoV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _SARS-CoV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("coronaviruses", "SARS-CoV")
+
+```
+:::

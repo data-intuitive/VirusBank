@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _HCoV-HKU01-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-HKU01-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _HCoV-HKU01-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-HKU01-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _HCoV-HKU01-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-HKU01-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _HCoV-HKU01-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("coronaviruses", "HCoV-HKU01")
+
+```
+:::

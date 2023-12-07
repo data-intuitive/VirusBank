@@ -1,0 +1,22 @@
+### Seasonal flu
+
+![](img/Seasonal influenza medical relevance.png)
+
+Above, influenza virus detection within Europe was shown using the data obtained from the World Health Organisation (WHO) and Global Influenza Surveillance & Response System (GIRS). For more information about the global virus circulation, please visit [this link](https://app.powerbi.com/view?r=eyJrIjoiZTkyODcyOTEtZjA5YS00ZmI0LWFkZGUtODIxNGI5OTE3YjM0IiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9).
+
+- Each year, global populations experience annual flu outbreaks, with seasonal flu epidemics recurring annually. An exception was seen during the 2021 season due to the infection control measurements during the COVID-19 pandemic.
+
+- Influenza results in between 3 and 5 million serious cases and 250,000 to 500,000 deaths per year [in the world (WHO)](https://www.who.int/en/news-room/fact-sheets/detail/influenza-(seasonal)).
+
+- H1N1 flu, also known as swine flu, caused a 2009-2010 pandemic with approximately 284,400 global deaths. Although the pandemic officially ended in 2010, the H1N1pdm09 strain remains part of seasonal flu infections.
+
+- While two influenza B virus lineages emerged in the 1970s and have been co-circulated since 2001, B/Yamagata-lineage circulation has not been confirmed since March 2020.
+
+### Pandemic flu
+
+![](img/4 - Pandemic flu.png)
+
+A flu pandemic is a worldwide emergence of a novel influenza viruses in humans. Over the last century, we have witnessed the occurrence of four influenza pandemics. Therefore, the occurrence of another pandemic is inevitable.
+
+Please visit [this link](https://www.cdc.gov/flu/pdf/freeresources/seasonal-flu-vs-pandemic-flu-update.pdf) for more information about seaonal and pandemic influenza (flu). 
+

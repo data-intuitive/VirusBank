@@ -1,19 +1,55 @@
 ---
-title: VirusBank
+format:
+  html:
+    title-block-style: none
 sidebar: false
 ---
 
-&nbsp;
+<!-- - - - -->
 
-::: {.grid}
+<!-- :::{ .g-col-md-8 .jumbotron } -->
+<!-- ::::{ .display-1} -->
+<!-- VirusBank -->
+<!-- :::: -->
+<!-- ::::{ .display-4} -->
+<!-- Toolbox and virus info -->
+<!-- :::: -->
+<!-- ::: -->
 
-::: {.card .g-col-4 .p-2}
+<!-- - - - -->
+
+## Toolbox
+
+Please click here for information about the toolbox: [Toolbox](toolbox/index.qmd)
+
+## Virus info
+
+Click on the family in the table for more information.
+
+::: {.grid .p-0 .rounded}
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
-[![](alpha/virus.png)](alpha/index.qmd)
+[![](/img/virus.jpg)](paramyxoviruses/index.qmd)
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Alpha
+### Paramyxoviruses
+:::
+::: {.card-text}
+placeholder
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](alphaviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Alphaviruses
 :::
 ::: {.card-text}
 Alphaviruses are a group of human and animal viruses that belong to the family Togaviridae.
@@ -21,15 +57,92 @@ Alphaviruses are a group of human and animal viruses that belong to the family T
 :::
 :::
 
-::: {.card .g-col-4 .g-col-4 .p-2}
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.card-img-top}
+[![](/img//virus.jpg)](flaviviruses/index.qmd)
+
 :::
 ::: {.card-body}
 ::: {.card-title }
-### Other
+### Flaviviruses
 :::
 ::: {.card-text}
-This is some text for the next virus.
+Flaviviruses
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](coronaviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Coronaviruses
+:::
+::: {.card-text}
+Coronaviruses
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](pneumoviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Pneumoviruses
+:::
+::: {.card-text}
+Pneumoviruses
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](orthomyxoviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Orthomyxoviruses
+:::
+::: {.card-text}
+Orthomyxoviruses
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](filoviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Filoviruses
+:::
+::: {.card-text}
+Filoviruses
+:::
+:::
+:::
+
+::: {.card .g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.card-img-top}
+[![](/img/virus.jpg)](bunyaviruses/index.qmd)
+
+:::
+::: {.card-body}
+::: {.card-title }
+### Bunyaviruses
+:::
+::: {.card-text}
+Bunyaviruses
 :::
 :::
 :::

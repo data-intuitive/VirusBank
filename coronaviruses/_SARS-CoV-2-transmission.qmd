@@ -1,0 +1,9 @@
+Primarily spreads through respiratory droplets produced when an infected person coughs, sneezes, talks, or breathes.
+
+Close contact with infected individuals within a distance of less than 1 meter (direct droplet transmission).
+
+Can also spread via aerosols (small respiratory particles) in the air, especially in poorly ventilated indoor spaces, even at distances greater than 1 meter (airborne transmission).
+
+Indirect contact transmission possible through touching contaminated surfaces or objects and then touching the face (e.g., eyes, nose, mouth).
+
+Proper hand hygiene and surface disinfection are essential to reduce indirect transmission risk.

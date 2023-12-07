@@ -1,0 +1,277 @@
+---
+title: Para viruses
+title-block-banner: virus-banner.jpg
+format:
+  html:
+    page-layout: full
+    anchor-sections: true
+    section-divs: true
+    include-before-body:
+      text: <link rel=stylesheet href='https://unpkg.com/phylotree@1.1.0/dist/phylotree.css'/>
+params:
+  family: paramyxo
+---
+ 
+```{r}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+<!-- include the qmd file, that way the virusFamily variable can be taken into account -->
+{{< include /_js/ojs_data.qmd >}}
+
+```{ojs}
+//| output: none
+//| echo: false
+
+import { virusInfoOrUndefinedF } from "/_js/functions.js"
+import { availableVirusInfoF } from "/_js/functions.js"
+import { availableToolsF } from "/_js/functions.js"
+import { virusOfInterestF } from "/_js/functions.js"
+```
+ 
+```{ojs}
+//| output: none
+//| echo: false
+
+// Initialize a container to contain the containers for the tree and annotation window
+html`
+
+<div class="container">
+  <div class="grid" style="--bs-gap: 0;">
+    <div id="info-container" class="g-col-md-8 g-col-sm-12 text-center mb-2" style="visibility:hidden;">
+      <div class="grid">
+        <div id="name" class="g-col-md-12 bold">
+          name
+        </div>
+        <div id="toolbox" class="g-col-md-12">
+          no tools yet for this virus
+        </div>
+      </div>
+    </div>
+    <div id="tree-container" class="tree-container g-col-md-8 g-col-sm-12 text-center rounded"></div>
+    <div id="annotation-container" class="g-col-md-4 g-col-sm-12 no-gutter">
+      <div class="container grid small" align="center" style="--bs-gap: 1.0rem;font-weight:500;">
+        <div class="g-col-md-12 g-col-sm-12 card card-body tool-header opacity-100" id="virus">
+          Viral Toolbox
+        </div>
+      </div>
+      <div class="g-col-12 container">
+        <div class="toolbox">
+            <div id="toolbox-contents" class="tool-container">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div id="legend-container" class="g-col-md-9 g-col-sm-12 text-center mb-2">
+      <div class="grid p-2">
+        <div class="g-col-md-12 small">
+          <span class="phylotree-node-text" style="font-size:15px !important;">HOVER</span> for more information /
+          <span class="phylotree-node-text-hl" style="font-size:15px !important;">BOLD NODES</span> can be selected /
+          <span class="phylotree-node-text-inactive" style="font-size:15px !important;">INACTIVE NODES</span> are for reference
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`
+```
+ 
+```{ojs}
+//| output: none
+//| echo: false
+
+height = 550
+width = 550
+
+phylotree = await require("phylotree@1.1/dist/phylotree.js");
+
+```
+
+```{ojs}
+//| output: none
+//| echo: false
+ 
+// Call the factory functions to get specialized lookups
+virusInfoOrUndefined = virusInfoOrUndefinedF(annotations)
+availableVirusInfo = availableVirusInfoF(annotations)
+availableTools = availableToolsF(annotations, toolbox)
+virusOfInterest = virusOfInterestF(annotations)
+
+// Initialize the toolbox when the data is loaded
+init_toolbox =
+  toolbox.map(tool =>
+    d3.select("#toolbox-contents").node().append(
+      html`
+        <a href="/toolbox/index.html#${tool.id}-section">
+          <div class="tool-wrapper">
+            <div class="tool-tooltip-text">${tool.name}</div>
+            <div id="${tool.id}" class="tool">
+              ${tool.icon.map( i =>
+              html`<img class="tool-icon" height="${(tool.icon.length > 1) ? 150/tool.icon.length : 100}%" src="${i}"/>`
+              )}
+            </div>
+          </div>
+        </a>
+      `
+    )
+  )
+
+// Reset the tools in the Toolbox
+clearToolbox = () => {
+
+  d3.select("#virus").text("Viral Toolbox")
+
+  toolbox.map(tool => {
+    d3.select("#" + tool.id).attr("class", "tool")
+  })
+}
+
+// Update the tools in the toolbox based on the current virus
+updateToolbox = (d) => {
+ 
+  const tools = availableTools(d.data.name)
+
+  d3.select("#virus").text(virusInfoOrUndefined(d.data.name).virus_name)
+
+  toolbox
+    .filter(tool => tools.includes(tool.encoded))
+    .map(tool =>
+      d3.select("#" + tool.id).attr("class", "tool tool-selected")
+    )
+}
+
+// Handle tabset depending on the number of tabs
+rawTabs = d3.select("#vb-tabset").select("ul").selectAll("li").select("a").nodes()
+annotatedViruses = annotations.filter(virus => virus.availability_in_toolbox == "Yes")
+nrTabs = rawTabs.length
+
+function indexToTab(i, length) {
+  const pre = "tabset-" + (length + 1) + "-"
+  const post = "-tab"
+  return pre + (i+1) + post
+}
+ 
+tabsetAnchor = indexToTab(0, nrTabs)
+virusToTab = new Map(
+  annotatedViruses
+    .map(virus => virus.abbreviation)
+    .map( (virus,i) => [ virus, indexToTab(i, nrTabs)] )
+)
+ 
+// Hide virus information tabset
+function hideTabset() {
+  const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
+  virusInfo.style.display = "none"
+}
+
+hide = hideTabset()
+
+// Instantiate tree
+tree = new phylotree.phylotree(nwk)   // class Phylotree
+                                      // https://github.com/veg/phylotree.js/blob/master/src/main.js#L90
+ 
+renderedTree = tree
+  // Transform the tree (translate and prune)
+  // based on the input Excel file for this virus family
+  .traverse_and_compute(node => {
+    const virus = node.data.name
+    const isLeaf = tree.isLeafNode(node)
+    if (isLeaf) {
+      const information = virusInfoOrUndefined(virus)
+      if (virusOfInterest(node.data.name)) {
+        const currentName = virus
+        const newName = information.abbreviation.trim()
+        node.data.name = newName
+      } else {
+        node.data.name = "remove_me"
+        tree.deleteANode(node)
+      }
+    } 
+  })
+  .render({
+    'left-right-spacing': 'fit-to-size',
+    'top-bottom-spacing': 'fit-to-size',
+    'is-radial':          true,
+    'selectable':         false,
+    'collapsible':        false,
+    'transitions' :       true,
+    'show-menu':          false,
+    'show-scale':         false,
+    'align-tips':         true,
+    'width':              width,
+    'height':             height,
+    'zoom':               false,
+    'brush':              false,
+    'draw-size-bubbles':  false,
+    'minimal-per-node-spacing':  2,
+    'minimum-per-level-spacing': 2,
+  })
+  .style_nodes( (element, data) => {
+
+    const virus_id = data.data.name
+
+    // At this stage in the process, every node should have information
+    const information = virusInfoOrUndefined(virus_id)
+    const tools = availableTools(virus_id)
+    const inToolbox = tools.length > 0
+
+    // Styling based on available information
+    const updtElement1 =
+      information 
+        ? element.select("text").attr("class", "phylotree-node-text")
+        : element.select("text").attr("class", "phylotree-node-text-inactive")
+    const updtElement = inToolbox ? element.select("text").attr("class", "phylotree-node-text-hl") : element
+
+    // Hover functionality - Virus name
+    if (information)
+      element
+        .on("mouseover", virusHoverIn(data, information, availableTools(virus_id).length > 0))
+        .on("mouseout", virusHoverOut)
+ 
+    // Click functionality - Toolbox
+    inToolbox
+      ? element.on('click', function() {
+          clearToolbox();
+          // Select the first tab in order to get to the root of the tabset
+          const virusInfo = document.getElementById(tabsetAnchor).parentNode.parentNode.parentNode
+          virusInfo.style.display = "block"
+          virusInfo.scrollIntoView()
+          // Now get the proper tab and open it
+          const thisVirusInfo = document.getElementById(virusToTab.get(virus_id))
+          thisVirusInfo.click();
+          // Render the toolbox for this virus
+          updateToolbox(data);
+        })
+      : element.on('click', function() {
+          hideTabset()
+          clearToolbox()
+        })
+
+  })
+  .layout(true)
+  .svg.node()
+
+// Show small virus information box on hover
+virusHoverIn = (data, information, is_available) => () => {
+  // First, populate the content
+  d3.select("#name").text(information.virus_name)
+  if (is_available)
+    d3.select("#toolbox").text("Viral tools are available, please select the virus for more information")
+  else
+     d3.select("#toolbox").text("No viral tools have been developed yet")
+  // ... then show the content
+  d3.select("#info-container").attr("style", "visibility:visible;")
+}
+
+virusHoverOut = () => {
+  d3.select("#info-container").attr("style", "visibility:hidden;")
+}
+
+// Add SVG to the DOM
+tmp = d3.select("#tree-container").node().appendChild(renderedTree)
+```
+
+&nbsp;
+ 
+{{< include _details.qmd >}}

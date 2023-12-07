@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _HPIV3-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HPIV3-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _HPIV3-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HPIV3-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _HPIV3-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HPIV3-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _HPIV3-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("paramyxoviruses", "HPIV3")
+
+```
+:::

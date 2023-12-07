@@ -1,0 +1,63 @@
+```{ojs}
+//| echo: false
+//| output: false
+
+// Utility functions
+import { encodeTool } from '/_js/functions.js'
+
+FA = FileAttachment
+
+// Load the toolbox
+families = await FA("/families.json").json()
+_toolbox = await FileAttachment("/toolbox/toolbox.json").json()
+toolbox = _toolbox.map( tool => encodeTool(tool) )
+
+// console.log(toolbox)
+
+addEncodedTools = (virus) => {
+  return ({ ... virus, tools: toolbox.flatMap( tool => virus[tool.encoded] ? tool.id : []) }) 
+}
+
+// Load all Newick tree file and create a dictionary `family -> tree`
+nwks = await Promise.all(
+  families.map(async (family) => { 
+    let tree = await FA("/"+ family + "/tree.newick").text()
+    return ({ family: family, nwk: tree })
+  }))
+nwksAsMap = Object.fromEntries(nwks.map( el => [el.family, el.nwk] ))
+
+// console.log(nwks)
+
+// Load annotations for viruses for each family
+_annotations = await Promise.all(
+  families.map( async (family) => {
+    let xls = await FA("/"+ family + "/family.xlsx").xlsx()
+    let _annotations = xls.sheet(0, { headers: true, range: ":L" })
+
+    let _trimmed = _annotations.map( virus => {
+      let trimmed = {}
+      Object.keys(virus).forEach( key => {
+        trimmed[key] = virus[key].trim()
+      })
+      return trimmed
+    })
+
+    return _trimmed.map( virus => ({... virus, family: family }) )
+  }))
+
+// console.log(_annotations)
+
+// Add tools information, just the list of tools ids
+annotations = _annotations
+  .flat()
+  .map( virus => addEncodedTools(virus) )
+
+//console.log(
+//  annotations
+//    .filter(v => v.availability_in_toolbox == "Yes")
+//    .filter(v => v.tools.length == 0)
+//    .map(v => "Family: " + v.family + " / virus: " + v.abbreviation)
+//    .join("\n")
+//)
+
+```

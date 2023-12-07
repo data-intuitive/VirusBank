@@ -8,7 +8,7 @@ on:
       - synchronize
       - closed
 
-name: Render and deploy to Netlify
+name: Render and deploy to Netlify and VirusBank
 
 jobs:
   build-deploy:
@@ -24,12 +24,16 @@ jobs:
       - name: Assemble alpha/toolbox.json 
         uses: mikefarah/yq@master
         with:
-          cmd: yq -M -o=json '. *d load("alpha/src/toolbox.yaml")' _includes/toolbox.yaml > alpha/toolbox.json
+          cmd: yq -M -o=json src/toolbox.yaml > toolbox/toolbox.json
 
-      - name: Assemble alpha/annotations.json
-        uses: mikefarah/yq@master
+      - uses: r-lib/actions/setup-r@v2
         with:
-          cmd: yq -M -o=json alpha/src/annotations.yaml > alpha/annotations.json
+          r-version: "4.2"
+          use-public-rspm: true
+
+      - name: Install rmarkdown
+        run: |
+          Rscript -e 'install.packages("rmarkdown")'
 
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -60,7 +64,19 @@ jobs:
           site: ${{ env.NETLIFY_SITE_ID }}
           dir: '_site'
           alias: "${{ env.BRANCH_NAME }}"
-          message: 'Deploy prooduction ${{ github.ref }}'
+          message: 'Deploy production ${{ github.ref }}'
+
+      # - name: Deploy preview to VirusBank
+      #   id: deploy_virusbank
+      #   if: github.event_name == 'pull_request'
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      #   with:
+      #     server: ftp.virusbankplatformorg.webhosting.be
+      #     username: floor@virusbankplatformorg
+      #     password: ${{ secrets.FTP_AUTH_SECRET }}
+      #     local-dir: './_site/'
+      #     log-level: standard
+          # dangerous-clean-slate: true
 
       - uses: thollander/actions-comment-pull-request@v2
         if: github.event_name == 'pull_request'

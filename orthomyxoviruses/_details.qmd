@@ -1,0 +1,19 @@
+:::: {.panel-tabset #vb-tabset}
+
+## Flu
+
+{{< include  _Flu.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/orthomyxoviruses/Flu.qmd) / [reload family page](/orthomyxoviruses/)
+:::
+
+## AI
+
+{{< include  _AI.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/orthomyxoviruses/AI.qmd) / [reload family page](/orthomyxoviruses/)
+:::
+
+::::

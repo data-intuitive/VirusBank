@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _HCoV-OC43-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-OC43-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _HCoV-OC43-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-OC43-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _HCoV-OC43-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _HCoV-OC43-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _HCoV-OC43-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("coronaviruses", "HCoV-OC43")
+
+```
+:::

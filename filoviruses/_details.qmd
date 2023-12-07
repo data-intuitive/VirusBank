@@ -1,0 +1,19 @@
+:::: {.panel-tabset #vb-tabset}
+
+## MARV
+
+{{< include  _MARV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/filoviruses/MARV.qmd) / [reload family page](/filoviruses/)
+:::
+
+## EBOV
+
+{{< include  _EBOV.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/filoviruses/EBOV.qmd) / [reload family page](/filoviruses/)
+:::
+
+::::

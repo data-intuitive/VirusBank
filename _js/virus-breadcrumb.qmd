@@ -1,0 +1,9 @@
+```{ojs}
+//| echo: false
+//| output: none
+
+html`
+  <h3>${virus}</h3>
+  <p>&nbsp;</p>
+`
+```

@@ -1,0 +1,3 @@
+![](img/HPIV seasonality - per year.png)
+
+![](img/HPIVs seasonality - per age.png)

@@ -3,22 +3,101 @@ project:
 
 website:
   title: "VirusBank"
-  site-url: https://phylotree.data-intuitive.app
   repo-url: https://github.com/data-intuitive/VirusBank
-  page-footer: "Copyright 2023, Data Intuitive"
-  repo-actions: [edit, issue] 
-  sidebar:
-    contents:
-      - index.qmd
-      - auto: generic
 format:
   html:
+    title-block-banner: virus.jpg
     anchor-sections: true
     smooth-scroll: true
+    fontcolor: "rgb(35, 70, 106)"
+    include-in-header:
+      text: |
+        <style>@import url("https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css")</style>
+        <script>
+        // functionality for formatting href pointers
+        const main_site = "virusbankplatform"
+        get_link = (section, pointer) => {
+          const in_iframe = window.location.hostname.includes(main_site)
+          console.log("Run in iFrame? ", in_iframe)
+          let hostname = ""
+          let prefix = ""
+          if (in_iframe) {
+            hostname = "https://virusbankplatform.be" 
+            if (section == "families") {
+              prefix = "/virus-families/"
+            }
+            if (section == "toolbox") {
+              prefix = "/toolbox/"
+            }
+          } else {
+            if (section == "families") {
+              prefix = "/"
+            }
+            if (section == "toolbox") {
+              prefix = "/toolbox/"
+            }
+          }
+          return hostname + prefix + pointer
+        }
+
+        // Delay scroll to anchor a little bit...
+        window.addEventListener("load", () => {
+           setTimeout( () => {
+              document.getElementById(window.location.hash.substring(1)).scrollIntoView();
+           }, 300)
+        })
+
+        // Formatters for the table rows in toolbox page
+        function familyFormatter(value, row) {
+          return '<a href="' + get_link("families", value) + '" target="_top">' + value + "</a>"
+        };
+        function virusFormatter(value, row) {
+          return value
+        };
+
+        // Rewrite the DOM by adding a .blank class to all 'empty' div elements
+        // The :empty CSS attribute does not work on DIV elements containing a newline
+        // The below checks if a node contains only whitespace AND has no children
+        function cleanUpDOM(){
+          var nodes = document.querySelectorAll("div");
+          nodes.forEach(node => {
+            const content = node.innerHTML.replace(/^[\s\n]+|[\s\n]+$/, '');
+            // In principle, all empty DIVs can be hidden
+            if (!content && node.children.length == 0) {
+              // generated content should be shown though, especially the toolbox
+              if (!node.className.includes("observable")) {
+                node.className += " blank";
+              }
+            }
+          })
+        }
+        window.addEventListener("load", cleanUpDOM);
+        
+        </script>
+
     sidebar: false
-    theme: superhero
-    mainfont: "Montserrat"
+    page-layout: full
+    theme: pulse # sandstone # yeti # spacelab
+    mainfont: "Mukta"
     font-size: 16em
     css: styles.css
     toc: false
-    resources: [ 'virus.png', 'tree.newick', 'annotations.json', 'toolbox.json' ]
+    resources: 
+      - families.json
+      - tree.newick
+      - family.xlsx
+      - toolbox/toolbox.json
+      - toolbox/img/tb_target-based-assays.png
+      - toolbox/img/tb_animal-infection-models-2.png
+      - toolbox/img/tb_animal-infection-models.png
+      - toolbox/img/tb_cell-based-assays.png
+      - toolbox/img/tb_ex-vivo-models.png
+      - toolbox/img/tb_ex-vivo-models2.png
+      - toolbox/img/tb_recombinant-viruses.png
+      - toolbox/img/tb_high-throughput-screening.png
+      - toolbox/img/tb_target-based-assays.png
+      - img/placeholder.jpg
+      - img/virus.jpg
+      - _js/funtions.js
+      - _js/family.qmd
+      - _js/virus-breadcrumb.qmd

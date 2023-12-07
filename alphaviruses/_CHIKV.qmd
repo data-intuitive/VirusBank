@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _CHIKV-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CHIKV-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _CHIKV-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CHIKV-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _CHIKV-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _CHIKV-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _CHIKV-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("alphaviruses", "CHIKV")
+
+```
+:::
