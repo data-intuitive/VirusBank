@@ -325,7 +325,7 @@ feedbackToolbox = d3.selectAll(".nav-item")
 // Add SVG to the DOM
 tmp = d3.select("#tree-container").node().appendChild(showTree)
 
-// If the size of the SVG is smaller than the allocated 500px
+// If the size of the SVG is smaller than the allocated 600px
 // then resize it relatively to the fraction
 // Allow for a bit of padding, hence the .95 factor.
 newSizeF = (curSize) => {
