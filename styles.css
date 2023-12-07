@@ -283,7 +283,7 @@ Content, containers, ...
 
 /* Fixing the wwidth also fixes the location and avoid sliding in */
 svg {
-  width: 510;
+  width: 600;
 }
 
 /* left and right container, based on variable */
