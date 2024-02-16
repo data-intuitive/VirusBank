@@ -10,6 +10,9 @@ format:
 Table of contents:
 
 1. [Introduction](/docs/introduction.qmd)
+2. [Information on how it ties together](/docs/internals.qmd)
+3. [Some information on specific components and styling](/docs/ui-ux.qmd)
+4. [Some scenarios in detail](/docs/scenarios.qmd)
 
 
 A rendered version of the repository [`README` file](/docs/readme.qmd).

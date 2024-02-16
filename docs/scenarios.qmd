@@ -1,0 +1,86 @@
+---
+title: Scenarios
+order: 40
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+## Introduction
+In this page we explain how to perform different tasks related to the phyloviz and toolbox rendering.
+
+## Update specific virus information
+
+Virus information is stored in 2 locations, depending on the type of information:
+
+1. The acronym and full 'name' of the virus, whether the virus is 'of interest' and to which family the virus strain belongs is encoded in the virus family Excel file: `<family>/family.xlsx`. We will call this virus annotations in what follows.
+
+2. The information that appears when clicking on a virus (Symptoms, transmission, etc.) as well as all figures that are shown in these tabs/panes are stored in files that are included in the respective pages (see [for more information here](/docs/internals.qmd)).
+
+### Virus annotations
+This information is fetched from the virus family's Excel file. This is an example for alphaviruses:
+
+![](/docs/excel.png)
+
+This Excel file is parsed as follows:
+
+- All lines that do not contain an abbreviation are skipped
+- The first colum (`_virus_id`) is the one that is used to match this entry in the Excel file to the tree as encoded in `tree.newick` for every family.
+- The `abbreviation` is the id used when drawing the tree. It is also used internally as a short identifier
+- The `virus_name` is used as a human-readable name.
+- `genus_name` is not really used because we use the entry in the `family.yaml|json` file.
+- `virus_of_interest` is used to distinguish between viruses for which we want to show more information (in the detail panes). A virus can be of interest, but without any tools available for it.
+- `availability_in_toolbox` is used togehter with the different tools next to it to encode if a tool is available for this specific virus.
+
+If we want to update anything, it's important to not change the column headers, because the parsing is heavily based on those.
+
+
+### Virus information
+Virus information is encoded in separate `.qmd` files for every aspect. For instance, for the River Ross Virus, the following files are present:
+
+```markdown
+_RRV-relevance.qmd
+_RRV-relevance-fig.qmd
+_RRV-symptoms.qmd
+_RRV-symptoms-fig.qmd
+_RRV-toolbox.qmd
+_RRV-transmission.qmd
+_RRV-transmission-fig.qmd
+```
+
+These correspond to the tabs: Medical relevance, Symptoms and Transmission. The tab Toolbox is generated automatically based on the information in the toolbox and the annotations in the Excel file (see above).
+
+![](virus-tab.png){width=80% .border}
+
+The above files can simply be adapted using any editor or online (see [Use Github](/docs/use-github.qmd)).
+
+The files itself are generated with placeholder content by means of the `_js/update_family.js` script based on the family Excel file.
+
+### Updates
+
+Next, if we want to _add_ information, the situation depends a bit on what information needs to be added:
+
+1. Adding a tool to the toolbox: In this case, it's as simple as adding the appropriate `x`'s to the respective columns in the Excel file and rerender the site.
+
+2. Adding a virus to the list of viruses: TODO: TEST THIS OUT
+
+TODO: Do this under separate headers instead of in a bullet list
+
+
+## Add a virus family
+
+Adding a virus family requires a few steps:
+
+1. Create the tree file in Newick format.
+2. Create (from a template) the family Excel file and make sure to use the proper IDs like in the tree file.
+3. Generated the necessary files using `_js/update_family.js`.
+4. Fill in all placeholder content for the specific viruses.
+
+
+
+
+## Update a tool
+
+Sometimes a description for a tool will have to be changed, this is quite easily done by updating the `src/toolbox.yaml` file.
