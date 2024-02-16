@@ -5,19 +5,6 @@ format:
 sidebar: false
 ---
 
-<!-- - - - -->
-
-<!-- :::{ .g-col-md-8 .jumbotron } -->
-<!-- ::::{ .display-1} -->
-<!-- VirusBank -->
-<!-- :::: -->
-<!-- ::::{ .display-4} -->
-<!-- Toolbox and virus info -->
-<!-- :::: -->
-<!-- ::: -->
-
-<!-- - - - -->
-
 ## Toolbox
 
 Please click here for information about the toolbox: [Toolbox](toolbox/index.qmd)
