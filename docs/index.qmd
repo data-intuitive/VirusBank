@@ -1,0 +1,16 @@
+---
+title: VirusBank documentation
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+Table of contents:
+
+1. [Introduction](/docs/introduction.qmd)
+
+
+A rendered version of the repository [`README` file](/docs/readme.qmd).
+ 

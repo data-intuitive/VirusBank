@@ -1,0 +1,11 @@
+---
+title: Repository README
+order: 100
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+{{< include ../README.qmd >}}

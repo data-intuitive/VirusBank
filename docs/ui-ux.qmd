@@ -1,0 +1,42 @@
+---
+title: UI/UX
+order: 30
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+## Introduction
+On this page, we discuss some of the design choices and how they are implemented.
+
+## Phylotree
+In order to render the phylotree, we use a [well-known phylogenetic tree library for JS](https://github.com/veg/phylotree.js). This plugin provides a lot of functionality that we explicitly disabled.
+
+We customize the tree in a number of ways:
+
+- Radial rendering, not as a typical tree structure from left to right.
+- Labels correspond to viruses that appear in the Excel annotation file.
+- Viruses for which we have information (virus of interest) are highlighted.
+- All viruses in the Excel file should have at least an acronym and a human-readable identifier
+- Viruses of interest can be clicked to reveal a pane with more information about that virus.
+- When a virus is selected (either through the phylotree or from the virus-information pane), it gets subtly highlighted in the tree.
+
+![](ui-tree.png){width=40% .border}
+
+All this functionality is coded in `_js/family.qmd`.
+
+The colors and style of the phylotree are customized in `styles.css`.
+
+## Toolbox
+
+The toolbox rendition is done using Javascript (in `_js/family.qmd`) and is based on the the `toolbox.json` file (itself generated from the `tooblbox.yaml` file). The tools are looped over and for every tool:
+
+- The title is loaded and rendered
+- the icon is loaded and rendered
+- When a virus is selected, a lookup is done to check which tools are available for this virus. Those tools are highlighed
+- In order to make the UI consistent, the currently selected virus is presented above the toolbox as well.
+
+![](ui-toolbox.png){width=40% .border}
+

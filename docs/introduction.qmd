@@ -1,0 +1,64 @@
+---
+title: Introduction
+order: 1
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+# Introduction
+
+The phylotree part of the virusBank platform website is developed and used as a standalone web application. This webapplication included as an [iFrame](https://www.w3schools.com/tags/tag_iframe.ASP). There are two 'sections' in the VirusBank website that point to the phylotree viz: __Viruses__ and __Toolbox__.
+
+In what follows, we will describe how the phylotree part is setup and how it can be updated.
+
+We start by introducing a few tools and technologies that are used:
+
+## Markdown
+
+[Markdown] is a text format that is readable for humans while remaining sufficiently well formatted for a machine to parse it and convert to other formats. There are a few things one should know before starting to read of write markdown files:
+
+- Headers are denoted with `#` for H1, `##` for H2, etc.
+- Links can be added using the notation `[link text](URL)`.
+- Figures can be included using `[caption](figure file)`.
+
+For a complete cheat sheet for markdown, please [refer here](https://www.markdownguide.org/cheat-sheet/).
+
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+
+## Quarto
+
+[Quarto] is a _static site generator_ tool like many others. The nice thing about Quarto is that is a package that wraps a number of other convenience tools and interpreters. In its most basic form, Quarto is able to convert [Markdown] content into (in our case) web pages. With Markdown, we can include text or figures (see the section about virus information). But Quarto also allows to include (Javascript) code. This code is what makes the web pages interactive.
+
+To be precise: the phylotree component is drawn using Javascript and so is the toolbox right to it. The text and figures that goes with every individual virus is plain Markdown.
+
+In order to render the effective site from the Markdown and Javascript source one uses Quarto like this:
+
+```sh
+quarto render
+```
+
+All configuration and customization necessary is available in the `_quarto.yml` file in the root of the repository.
+
+Some things to know before opening/editing Quarto files:
+
+1. Quarto allows to include other documents, a feature that we heavily depend on.
+2. With Quarto (and its predecessor rmarkdown/knitr) it's possible to add _code blocks_: a chunk of code that is not just shown in the document but actually _run_. The output of the code block can then be rendered in the document directly, As such, this approach lends itself perfectly to documents (and web pages) that should contain dynamic content.
+
+[Quarto]: https://quarto.org/
+
+## Git and Github
+
+The website and the phylotree sections are visible on the web. What we _have_ to avoid is to push an update only to find out something went wrong. Additionally, different people may be involved in updating different virusfamilies or viruses.
+
+In order to streamline this process, we use a versioning control system ([Git]) and a platform that supports collaboration using Git ([Github]).
+
+The general idea is that rather than keeping the source for the website as a collection of files, we will keep track of the differences between different versions. That's what git does for us. In the end, we work with the files but git makes sure the differences between different versions are managed.
+
+The code for the phyloviz part is currently at <https://github.com/data-intuitive/VirusBank>.
+
+This allows us to create different _branches_ as well, while still keeping track of how they differ exactly.
+
+We will come back to how we use Git and Github in the section about how to manage updates and additions.

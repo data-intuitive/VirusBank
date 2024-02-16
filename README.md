@@ -1,4 +1,4 @@
-# VirusBank Phylotree project
+
 
 # Introduction
 
@@ -174,9 +174,10 @@ let the CI run these steps.
 
 In order to *render* this site/app locally, the following are required:
 
-0.  `wget`
+0.  `wget`: install using the package manager available for your
+    platform.
 
-1.  Quarto
+1.  [Quarto](https://quarto.org/docs/get-started/)
 
 2.  `yq`:
 
@@ -185,7 +186,31 @@ In order to *render* this site/app locally, the following are required:
     sudo chmod a+x /usr/local/bin/yq
     ```
 
-## Rendering
+Rendering the site locally is as simple as running:
+
+``` sh
+quarto render
+```
+
+While working on the text/code, the following may come in handy:
+
+``` sh
+quarto preview
+```
+
+## Automation
+
+Github Actions is configured as follows:
+
+- For every PR: the site is built and deployed to
+  [Netlify](https://www.netlify.com/). The correct URL to point to is
+  mentioned in the PR.
+- When a PR to `main` is merged, the site is not only rendered to
+  Netflify but also the VirusPlatform itself.
+
+**Caveat**: We don’t currently have a test environment for the VirusBank
+main website. As a consequence we can not test how the site will render
+in an iFrame.
 
 ## Setup
 

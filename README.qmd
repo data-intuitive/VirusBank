@@ -140,9 +140,9 @@ __TODO__: Add a script to build _all_ families that are available and let the CI
 
 In order to _render_ this site/app locally, the following are required:
 
-0. `wget`
+0. `wget`: install using the package manager available for your platform.
 
-1. Quarto
+1. [Quarto](https://quarto.org/docs/get-started/)
 
 2. `yq`:
 
@@ -151,7 +151,27 @@ In order to _render_ this site/app locally, the following are required:
     sudo chmod a+x /usr/local/bin/yq
     ```
 
-## Rendering
+Rendering the site locally is as simple as running:
+
+```sh
+quarto render
+```
+
+While working on the text/code, the following may come in handy:
+
+```sh
+quarto preview
+```
+
+## Automation
+
+Github Actions is configured as follows:
+
+- For every PR: the site is built and deployed to [Netlify](https://www.netlify.com/). The correct URL to point to is mentioned in the PR.
+- When a PR to `main` is merged, the site is not only rendered to Netflify but also the VirusPlatform itself.
+
+__Caveat__: We don't currently have a test environment for the VirusBank main website. As a consequence we can not test how the site will render in an iFrame.
+
 
 ## Setup
 
@@ -169,12 +189,3 @@ Every virus family is contained in a _folder_ of its own. Inside this folder, ev
 ## Various remarks
 
 - `d3` is loaded by Quarto already, there is not need to load it again
-
-
-## Things to add
-
-- What is _including_ what and why
-- How to update _existing_ info
-- How to add new info
-
-
