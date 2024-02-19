@@ -25,13 +25,12 @@ At the basis are a number of data files. The primary ones are:
 - `src/families.yaml`: This file contains the different families that are represented in the app. This is just a simple list.
 - `src/toolbox.yaml`: The content of the toolbox, including meta information.
 
-We use YAML format here because it's easy for humans to write and interpret. Internally, we use the JSON representation and thus we need to convert them to the JSON format. That's what we use `yq` for:
+We use YAML format here because it's easy for humans to write and interpret. Internally, we use the JSON representation and thus we neekkkkkkd to convert them to the JSON format. That's what we use `yq` for:
 
 ```sh
 yq -M -o=json src/toolbox.yaml > toolbox/toolbox.json
 yq -M -o=json src/families.yaml > families.json
 ```
-
 
 These files provide general information about the toolbox and the different families that are suppored. Once they are parsed and read, the per-familiy Excel annotation files are read.
 
