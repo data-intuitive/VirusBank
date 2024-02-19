@@ -37,8 +37,74 @@ It all starts by creating an account on Github and providing that account access
 
 ### Create a branch from `develop`
 
+1. Open the [repository](https://github.com/data-intuitive/VirusBank) in a browser. You see the code behind the app and docs.
+2. On the left top, you should see that the current _branch_ is `main`:
+
+    ![](img/gh-main.png){width=50%}
+
+3. By clicking the down arrow a list of branches can be shown:
+
+    ![](img/gh-main_branches.png){width=50%}
+
+4. A new branch can be created by clicking the 'New branch' button in the top right:
+
+    ![](img/gh-branch_new.png){width=50%}
+
+5. You should select to create a branch from `develop`:
+
+    ![](img/gh-branch_create.png){width=50%}
+
+6. The branch is created and will automatically be selected as the current branch:
+
+    ![](img/gh-branch_created.png){width="50%"}
+
+
 ### Open a PR to `develop`
+
+Now that we have the branch, we can create a PR to `develop` to track the changes and updates:
+
+1. Open the 'Pull requests' pane:
+
+    ![](img/gh-pr.png){width=50%}
+
+2. Select 'New pull request':
+
+    ![](img/gh-pr_new.png){width=50%}
+
+3. Select the branch you currently work on on the right and `develop` on the left
+
+    ![](img/gh-pr_new_branches.png){width=50%}
+
+4. The PR is created and can be opened. The site will automatically be rendered at a url specific to that PR:
+
+    ![](img/gh-pr_created.png){width=50%}
 
 ### Edit the branch/PR in Codespaces
 
+When it's time to make edits to the branch we are working on, the following procedure can be followed to do this online:
+
+1. In the PR, lock on the down arrow in the top right corner next to 'Code':
+
+    ![](img/gh-codespaces_1.png){width=50%}
+
+2. Select the 2nd tab: 'Codespaces':
+
+    ![](img/gh-codespaces_2.png){width=50%}
+
+3. Click on 'Create codespaces on <your branch>':
+
+    ![](img/gh-codespaces_3.png){width=50%}
+
+4. A new browser window should open with an online editor and the code from the project, something like this:
+
+    ![](img/gh-codespaces_created.png){width=80%}
+
+On the left of this page, you find a list of files in the repository. The right has tabs to display different files simultaneously. Below there is a terminal which we will probably not use that often.
+
+### Make changes
+
+TODO: expand
+
 ### Commit changes
+
+TODO: expand
