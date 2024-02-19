@@ -8,4 +8,37 @@ format:
     page-layout: article
 ---
 
+## Introduction
 
+Github and the tools it provides should be sufficient for 90% of the tasks related to updating the content.
+
+As mentioned in the [introduction](docs/introduction.qmd), we rely heavily on Git and Github:
+
+- Every update to the app is done by means of a _package_ of change, a _commit_.
+- We usually work on the `develop` branch and add commits there
+- It's possible to create another  _branch_ in order to add commits that are not shared with the other work in `develop`
+- Those branches can then be rendered as websites and _merged_ when correct.
+- The best way to merge branches is by creating a 'pull request' (PR for short).
+- The PR provides a link to the rendered page and also explains if this branch can be merged with the main branch.
+
+When happy with the changes in `develop`, we can then again create PR, but this time to update `main`. When this PR is merged, the website is rendered and deployed as part of the VirusBank website itself.
+
+Let's go over process in detail.
+
+## Prerequisites
+
+It all starts by creating an account on Github and providing that account access to the project on Github[^existing][^noneed].
+
+[^existing]: If you already have an account, that's fine as well. It can easily be added to the list of collaborators on the project.
+
+[^noneed]: It's not really necessary to have access rights to the project itself, it's possible to _fork_ the project and create a _pull request_ from elsewhere.
+
+## Steps
+
+### Create a branch from `develop`
+
+### Open a PR to `develop`
+
+### Edit the branch/PR in Codespaces
+
+### Commit changes

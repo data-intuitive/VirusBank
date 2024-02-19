@@ -250,3 +250,9 @@ The toolbox is a little bit different in nature, it is complete rendered dynamic
 Some Javascript libraries are used to make this work, but all in all it's not a difficult page to create.
 
 [node.js]: https://nodejs.org/en
+
+## Grouping
+
+We included a feature to group viruses.
+
+TODO: Extend
