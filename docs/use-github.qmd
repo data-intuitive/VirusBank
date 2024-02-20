@@ -35,6 +35,26 @@ It all starts by creating an account on Github and providing that account access
 
 ## Steps
 
+
+```{mermaid}
+graph TD
+  A["`Create a branch docs from develop`"]
+  B["`Open a PR for that branch`"]
+  C["`Open Codespaces session for the PR`"]
+  D["`... make edits... `"]
+  E["`Sync with the branch/PR`"]
+  F["`Merge with develop`"]
+  G["`Merge with main`"]
+
+  A --> B --> C --> D --> E --> F --> G
+  E --> C
+  F --> A
+  G --> A
+
+
+
+```
+
 ### Create a branch from `develop`
 
 1. Open the [repository](https://github.com/data-intuitive/VirusBank) in a browser. You see the code behind the app and docs.
@@ -197,7 +217,6 @@ graph LR
   B --> C
 
   C --> D
-
 ```
 
 The only thing we need to do is open a Pull request again, this time from `develop` to `main`. It will list all commits that are new in `develop`. Just as before, we can then close the PR by merging the changes into main.
@@ -215,3 +234,9 @@ It's easy to track progress of the automated processes. Just open the 'Actions' 
 ![](img/gh-actions.png){width=50%}
 
 A green checkmark means the build was succesful, orange is running and red is failed.
+
+## Coming back to Codespaces
+A codespaces session will be kept available for a number of days if you don't explicitly close it. This means you can pick up work where you left it by going back to the Code drop-down in the PR:
+
+![](img/gh-pr_cs-again.png){width=50%}
+
