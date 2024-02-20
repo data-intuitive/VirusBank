@@ -19,8 +19,10 @@ Virus information is stored in 2 locations, depending on the type of information
 
 2. The information that appears when clicking on a virus (Symptoms, transmission, etc.) as well as all figures that are shown in these tabs/panes are stored in files that are included in the respective pages (see [for more information here](/docs/internals.qmd)).
 
+The files discussed here can simply be adapted using any editor or online in Codespaces (see [Use Github](/docs/use-github.qmd)).
+
 ### Virus annotations
-This information is fetched from the virus family's Excel file. This is an example for alphaviruses:
+This information is fetched from the virus family's Excel file. This is an example for alphaviruses (`alphaviruses/family.xlsx`):
 
 ![](/docs/excel.png)
 
@@ -36,6 +38,61 @@ This Excel file is parsed as follows:
 
 If we want to update anything, it's important to not change the column headers, because the parsing is heavily based on those.
 
+Updating can be done in two ways:
+
+#### Update online
+
+1. Open a Codespaces session as described [in this page](docs/use-github.qmd).
+
+2. Install the Excel extension by searching for Excel and installing the following extension:
+
+    ![](img/xlsx_1.png){width=50%}
+
+    The following should appear:
+
+    ![](img/xlsx_2.png){width=50%}
+
+3. Open the `family.xlsx` you want to update:
+
+    ![](img/xlsx_3.png){width=50%}
+
+4. Edit the entries you want to update and save
+
+    ![](img/xlsx_4.png){width=50%}    
+
+The rest of the procedure is the same as described in the [github page](docs/use-github.qmd).
+
+#### Update offline
+
+A second option is to not use codespaces:
+
+1. It's possible to download the Excel file of interest from Github. First open the Code tab and select the branch you are working on, in my case this is `docs`:
+
+    ![](img/offline_1.png){width=50%}
+
+2. Browse to the file you want to update and in the right top clock the download buttong:
+
+    ![](img/offline_2.png){width=50%}
+
+3. Make your updates to the file locally.
+
+4. In the Github page, open the folder that contains the Excel file you want to overwrite:
+
+    ![](img/offline_3.png){width=50%}
+
+5. In the top right, open the 'Add file' dropdown and select 'Upload files':
+
+    ![](img/offline_4.png){width=50%}
+
+6. Select the files locally that you want to upload the screen should look something like this:
+
+    ![](img/offline_6.png){width=80%}
+
+7. It's ok to commit to the branch directly, but you should write a commit message:
+
+    ![](img/offline_7.png){width=80%}
+
+    Now, press the commit button and your file is updated.
 
 ### Virus information
 Virus information is encoded in separate `.qmd` files for every aspect. For instance, for the River Ross Virus, the following files are present:
@@ -54,7 +111,6 @@ These correspond to the tabs: Medical relevance, Symptoms and Transmission. The 
 
 ![](virus-tab.png){width=80% .border}
 
-The above files can simply be adapted using any editor or online (see [Use Github](/docs/use-github.qmd)).
 
 The files itself are generated with placeholder content by means of the `_js/update_family.js` script based on the family Excel file.
 
@@ -78,8 +134,7 @@ Adding a virus family requires a few steps:
 3. Generated the necessary files using `_js/update_family.js`.
 4. Fill in all placeholder content for the specific viruses.
 
-
-
+TODO: extend
 
 ## Update a tool
 
