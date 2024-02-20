@@ -101,10 +101,117 @@ When it's time to make edits to the branch we are working on, the following proc
 
 On the left of this page, you find a list of files in the repository. The right has tabs to display different files simultaneously. Below there is a terminal which we will probably not use that often.
 
+### Configure Codespaces
+
+Installing the Quarto extension will make our lives easier further on:
+
+1. Open the extensions, the 5th icon in the row on the left and search for `quarto`:
+
+    ![](img/gh-cs_extension_0.png){width=50%}
+
+2. Click the 'Install' button to install the extension.
+
+3. The `.qmd` documents you open should now be layed out better with color-coding.
+
+
 ### Make changes
 
-TODO: expand
+What you see in Github codespaces is practically a [VSCode] instance running in the browser. It allows you to make changes to any file in the repository as well as the ability to upload files:
 
-### Commit changes
+![](img/gh-cs_commit_7.png){width=50%}
 
-TODO: expand
+Just right click on a folder or file on in the tree overview for the available options.
+
+:::{.callout-note}
+Please try to avoid spaces in filenames.
+:::
+
+[VSCode]: https://code.visualstudio.com/
+
+
+### Commit and Sync changes
+
+Git is fully integrated with the Codespaces editor. For instance, on the left there's an icon that takes you to an overview of the current PR you're contributing to:
+
+![](img/gh-cs_pr.png){width=50%}
+
+When you made any changes, for instance updating files, adding files you need to _commit_ and _push_ those changes:
+
+1. Click the third icon on the left:
+
+    ![](img/gh-cs_commit_1.png){width=50%}
+
+2. Git works with a 2-step process for committing changes: first changes need to be _staged_ and then they can be committed. So first, clock on the `+`
+
+    ![](img/gh-cs_commit_2.png){width=50%}
+
+    and then your screen should look something like this:
+
+    ![](img/gh-cs_commit_3.png){width=50%}
+
+
+    Please note that if there are changes you do not want to apply, you should remove them from the staging area.
+
+3. Provide a description of the update (in this example 'Minor updates') and press 'Commit'.
+
+    ![](img/gh-cs_commit_3.png){width=50%}
+
+4. These change are now locally committed but should be 'sent' back to Github. In order to do that, press the 'Sync Changes' button. You don't need to do that all the time, it's possible to accumulate different commits and sync them once.
+
+    ![](img/gh-cs_commit_4.png){width=50%}
+
+    Press 'OK' in order to perform the sync:
+
+    ![](img/gh-cs_commit_5.png){width=50%}
+
+    The result should be visible in the PR on the Github page:
+
+    ![](img/gh-cs_commit_6.png){width=50%}
+
+Now that the changes are pushed/synced with the PR, this update is picked up automatically and the site should be rerendered after a few minutes.
+
+## Merge with `develop`
+
+When the updates in the PR are rendered properly and they are satisfactory, we can take a step further and update the `develop` branch. This can be done in the PR window. In most cases the bottom of the PR page will look something like this:
+
+~[](img/gh-pr_merge_1.png){width=50%}
+
+And updating `develop` is as simple as pressing the button 'Merge pull request'.
+
+It may occur that there is a merge conflict, for instance when someone else has already updated the `develop` branch and so prior information would be overwritten. This case can sometimes be resolved easily but usually requires one to manually resolve the merge conflicts.
+
+## Merge with `main`
+
+When the merge with `develop` is done we can check if our changes are correct once more. Please note that we need this step because multiple people might have updated multiple parts of the app in their own branch and merged this with `develop`. We have to change if those changes are compatible and make sense.
+
+This is a graphical representation: we have two branches (`docs` discussed above and `other_updates`). We merge both by means of a PR to `develop`. But then we need to merge `develop` into `main` in order to effectively publish the app.
+
+```{mermaid}
+graph LR
+  A[docs]
+  B[other_updates]
+  C[develop]
+  D[main]
+
+  A --> C
+  B --> C
+
+  C --> D
+
+```
+
+The only thing we need to do is open a Pull request again, this time from `develop` to `main`. It will list all commits that are new in `develop`. Just as before, we can then close the PR by merging the changes into main.
+
+At that point, the site will be rendered automatically once more but this time it will also be published on the VirusBank website automatcically.
+
+:::{.callout-note}
+Make sure to properly check the `develop` version of the app because once it's pushed to `main` and published onthe VirusBank website, it becomes nearly impossible to revert the changes without downtime.
+:::
+
+## Track progress
+
+It's easy to track progress of the automated processes. Just open the 'Actions' tab on top:
+
+![](img/gh-actions.png){width=50%}
+
+A green checkmark means the build was succesful, orange is running and red is failed.
