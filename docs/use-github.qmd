@@ -192,11 +192,15 @@ Now that the changes are pushed/synced with the PR, this update is picked up aut
 
 When the updates in the PR are rendered properly and they are satisfactory, we can take a step further and update the `develop` branch. This can be done in the PR window. In most cases the bottom of the PR page will look something like this:
 
-~[](img/gh-pr_merge_1.png){width=50%}
+![](img/gh-pr_merge_1.png){width=70%}
 
 And updating `develop` is as simple as pressing the button 'Merge pull request'.
 
 It may occur that there is a merge conflict, for instance when someone else has already updated the `develop` branch and so prior information would be overwritten. This case can sometimes be resolved easily but usually requires one to manually resolve the merge conflicts.
+
+The following indicates that conflicts occur:
+
+![](img/gh-pr_conflict.png){width=70%}
 
 ## Merge with `main`
 
