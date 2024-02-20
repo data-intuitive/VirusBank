@@ -1,6 +1,6 @@
 on:
-  push:
-    branches-ignore: [ main ]
+  # push:
+  #   branches-ignore: [ main ]
   pull_request:
     types:
       - opened
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Assemble alpha/toolbox.json 
+      - name: Assemble alpha/toolbox.json
         uses: mikefarah/yq@master
         with:
           cmd: yq -M -o=json src/toolbox.yaml > toolbox/toolbox.json
@@ -44,7 +44,7 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
-  
+
       - name: Deploy preview 🚀
         id: deploy_preview
         if: github.event_name == 'pull_request'
@@ -52,9 +52,9 @@ jobs:
         with:
           auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site: ${{ env.NETLIFY_SITE_ID }}
-          dir: '_site'
+          dir: "_site"
           alias: "${{ env.BRANCH_NAME }}"
-          message: 'Deploy production ${{ github.ref }}'
+          message: "Deploy production ${{ github.ref }}"
 
       - uses: thollander/actions-comment-pull-request@v2
         if: github.event_name == 'pull_request'
