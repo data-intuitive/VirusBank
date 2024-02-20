@@ -40,7 +40,7 @@ It all starts by creating an account on Github and providing that account access
 graph TD
   A["`Create a branch docs from develop`"]
   B["`Open a PR for that branch`"]
-  C["`Open Codespaces session for the PR`"]
+  C["`Open Codespaces session for branch/PR`"]
   D["`... make edits... `"]
   E["`Sync with the branch/PR`"]
   F["`Merge with develop`"]
@@ -50,8 +50,6 @@ graph TD
   E --> C
   F --> A
   G --> A
-
-
 
 ```
 
