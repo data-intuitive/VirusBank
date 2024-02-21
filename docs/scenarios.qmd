@@ -111,19 +111,41 @@ These correspond to the tabs: Medical relevance, Symptoms and Transmission. The 
 
 ![](virus-tab.png){width=80% .border}
 
-
 The files itself are generated with placeholder content by means of the `_js/update_family.js` script based on the family Excel file.
 
-### Updates
+## Update a tool
 
-Next, if we want to _add_ information, the situation depends a bit on what information needs to be added:
+Sometimes a description for a tool will have to be changed, this is quite easily done by updating the `src/toolbox.yaml` file. The next time the site is rendered, it will pick up the changes and update accordingly.
 
-1. Adding a tool to the toolbox: In this case, it's as simple as adding the appropriate `x`'s to the respective columns in the Excel file and rerender the site.
+## Add a virus to a family
 
-2. Adding a virus to the list of viruses: TODO: TEST THIS OUT
+Which viruses belong to what family is configured through the `family.xlsx` file for that family. This means that adding a virus comes down to adding an entry in that file.
 
-TODO: Do this under separate headers instead of in a bullet list
+:::{.calllout-note}
+One important remark is in place here: The `virus_id` column in the Excel file should match a node in the `tree.newick` file. Rows with information that do not have a matching `virus_id` will not be shown in the app. It may be necessary to update the `tree.newick` file, but then the corresponding `family.xlsx` should be updated as well.
+:::
 
+1. Open the `family.xlsx` file in Github itself (as described [here](#update-online))
+
+2. Look for the line that matches the `virus_id` as present in the `tree.newick` file or add this line manually yourself:
+
+    ![](img/add_virus_1.png)
+
+    and
+
+    ![](img/add_virus_2.png){width=50%}
+
+3. Enter all necessary fields and add `x`'s for the tools.
+
+4. Run the `_js/update_family.js` script:
+
+    ```sh
+    node _js/update_family.js -i coronaviruses
+    ```
+
+5. The additional information for this virus will be filled with placeholder content.
+
+In order to run the above `.js` script, [this procedure can be used on Codespaces]((use-github.qmd#bininstall_nodejs.sh).
 
 ## Add a virus family
 
@@ -134,8 +156,37 @@ Adding a virus family requires a few steps:
 3. Generated the necessary files using `_js/update_family.js`.
 4. Fill in all placeholder content for the specific viruses.
 
-TODO: extend
+Remember that we start off with `family.xlsx` and `tree.newick` for every family. That's all we need. The bootstrap step generates all the other files mentioned above based on the information in `family.xlsx`:
 
-## Update a tool
+- The `index.qmd` file as well as the `_details.qmd` for the family
+- Per virus, it generates the different `_VIR-...` files.
 
-Sometimes a description for a tool will have to be changed, this is quite easily done by updating the `src/toolbox.yaml` file.
+Please note that this step also generates the content files itself, even though we do not have content yet. Instead, placeholder text and figures are inserted to be replaced later.
+
+1. Prerequisites: In order to build this step, one needs NodeJS installed and the `npm` package manager. The package manager can be used to install two packages:
+
+    ```sh
+    npm install xlsx liquidjs exceljs
+    ```
+
+    This has to be done just once.
+
+    For convenience on Codespaces, there is script `bin/install_nodejs.sh` that can simply be run in the Codespaces terminal. Please find [the instructions for this here](use-github.qmd#bininstall_nodejs.sh).
+
+2. Next, we create a directory for the virus family, say `virusbankviridae`:
+
+    ```sh
+    mkdir virusbankviridae
+    ```
+
+    and store the correct `family.xlsx` and `tree.newick` in this directory.
+
+3. We can now run the bootstrap script:
+
+    ```sh
+    node _js/update_family.js -i virusbankviridae
+    ```
+
+4. It's possible that errors occur in the Excel file, the output of the script provides feedback on what viruses and additional information have been picked up.
+
+

@@ -242,3 +242,41 @@ A codespaces session will be kept available for a number of days if you don't ex
 
 ![](img/gh-pr_cs-again.png){width=50%}
 
+## Helper scripts
+
+In order to facilitate running necessary code in Codespaces, two scripts have been added:
+
+### `bin/install_nodejs.sh`
+
+This scripts installs the necessary requirements for running the `_js/update_family.js` and `_js/update_families.js` scripts. It's as simple as opening the terminal in Codespaces and running:
+
+```sh
+bin/install_nodejs.sh
+```
+
+
+### `bin/install_quarto.sh`
+
+This script installs Quarto inside the Codespaces environment. This can be handy if you don't want to wait until the site is rendered after committing the code. You can simply do the installation by running the following script:
+
+```sh
+bin/install_quarto.sh
+```
+
+Please note that this requires some time to complete because it needs to install some R dependencies as well.
+
+Once this is done, the following is possible in combination with the Quarto extension described earlier:
+
+1. Open the `index.qmd` file in the root of the repository
+
+2. Click the 'Preview' button on the top right of the screen.
+
+3. A website render will be shown inside the Codespaces window.
+
+This approach may be handy to assess the impact of your changes prior to effectively committing to the PR.
+
+## Rendering failures
+
+Sometimes 
+
+TODO: extend
