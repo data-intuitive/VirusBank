@@ -163,13 +163,7 @@ Remember that we start off with `family.xlsx` and `tree.newick` for every family
 
 Please note that this step also generates the content files itself, even though we do not have content yet. Instead, placeholder text and figures are inserted to be replaced later.
 
-1. Prerequisites: In order to build this step, one needs NodeJS installed and the `npm` package manager. The package manager can be used to install two packages:
-
-    ```sh
-    npm install xlsx liquidjs exceljs
-    ```
-
-    This has to be done just once.
+1. Prerequisites: In order to build this step, one needs NodeJS installed together with some `npm` packages.
 
     For convenience on Codespaces, there is script `bin/install_nodejs.sh` that can simply be run in the Codespaces terminal. Please find [the instructions for this here](use-github.qmd#bininstall_nodejs.sh).
 
