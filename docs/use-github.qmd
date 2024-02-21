@@ -277,6 +277,16 @@ This approach may be handy to assess the impact of your changes prior to effecti
 
 ## Rendering failures
 
-Sometimes 
+Sometimes rendering the branch/PR does not work and something like the following is visible:
 
-TODO: extend
+![](img/failure_1.png){width=80%}
+
+That means something went wrong in setting up the rendering or the rendering itself. In order to understand what happened, one should click the 'details':
+
+![](img/failure_2.png){width=80%}
+
+This opens the rendering log output, on or close to the place where the error occurred:
+
+![](img/failure_3.png){width=80%}
+
+In this case, the error was the consequence of copy/paste and easily fixed.
