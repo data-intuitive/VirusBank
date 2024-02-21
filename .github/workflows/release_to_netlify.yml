@@ -42,7 +42,7 @@ jobs:
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.4.449
+          version: 1.4.549
           tinytex: true
 
       - name: Render Quarto Project
