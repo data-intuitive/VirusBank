@@ -9,6 +9,7 @@ format:
 ---
 
 ## Introduction
+
 In this page we explain how to perform different tasks related to the phyloviz and toolbox rendering.
 
 ## Update specific virus information
@@ -22,6 +23,7 @@ Virus information is stored in 2 locations, depending on the type of information
 The files discussed here can simply be adapted using any editor or online in Codespaces (see [Use Github](/docs/use-github.qmd)).
 
 ### Virus annotations
+
 This information is fetched from the virus family's Excel file. This is an example for alphaviruses (`alphaviruses/family.xlsx`):
 
 ![](/docs/excel.png)
@@ -95,6 +97,7 @@ A second option is to not use codespaces:
     Now, press the commit button and your file is updated.
 
 ### Virus information
+
 Virus information is encoded in separate `.qmd` files for every aspect. For instance, for the River Ross Virus, the following files are present:
 
 ```markdown
@@ -183,4 +186,6 @@ Please note that this step also generates the content files itself, even though 
 
 4. It's possible that errors occur in the Excel file, the output of the script provides feedback on what viruses and additional information have been picked up.
 
+## Revert changes
 
+Sometimes you will have to revert changes to one or more files. This can easily be done in Codespaces by just clicking the 'back' arrow next to the file or on the top of the list the same icon applies to all files in the list.
