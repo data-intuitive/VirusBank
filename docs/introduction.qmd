@@ -12,6 +12,10 @@ format:
 
 The phylotree part of the virusBank platform website is developed and used as a standalone web application. This webapplication included as an [iFrame](https://www.w3schools.com/tags/tag_iframe.ASP). There are two 'sections' in the VirusBank website that point to the phylotree viz: __Viruses__ and __Toolbox__.
 
+:::{.callout-note}
+Please note that because of the app running in an iFrame, some additional configuration is required on the level of the main VirusBank website. All virus families, for instance, have to be registered there in order for the external links to function properly.
+:::
+
 In what follows, we will describe how the phylotree part is setup and how it can be updated.
 
 ## Tools

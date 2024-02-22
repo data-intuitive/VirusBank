@@ -1,6 +1,7 @@
 ---
 title: Scenarios
 order: 40
+engine: knitr
 format:
   html:
     toc: true
@@ -114,7 +115,45 @@ These correspond to the tabs: Medical relevance, Symptoms and Transmission. The 
 
 ![](virus-tab.png){width=80% .border}
 
-The files itself are generated with placeholder content by means of the `_js/update_family.js` script based on the family Excel file.
+The files itself are generated with placeholder content by means of the `_js/update_family.js` script based on the family Excel file. Running the `update_family.js` again will (by default) not overwrite those files once they are created.
+
+Let's quickly take a look at what kind of content can be found in the virus information files:
+
+- `_RRV-symptoms.qmd`:
+
+    ```{embed, lang="markdown"}
+    ../alphaviruses/_RRV-symptoms.qmd
+    ```
+
+- `_RRV-symptoms-fig.qmd`:
+
+  ```{embed, lang="markdown"}
+  ../alphaviruses/_RRV-symptoms-fig.qmd
+  ```
+
+- `_RRV-transmission.qmd`: We do not use text to describe transmission, only a figure.
+
+- `_RRV-transmission-fig.qmd`:
+
+    ```{embed, lang="markdown"}
+    ../alphaviruses/_RRV-transmission-fig.qmd
+    ```
+
+- `_RRV-relevance.qmd`:
+
+    ```{embed, lang="markdown"}
+    ../alphaviruses/_RRV-relevance.qmd
+    ```
+
+- `_RRV-relevance-fig.qmd`:
+
+    ```{embed, lang="markdown"}
+    ../alphaviruses/_RRV-relevance-fig.qmd
+    ```
+
+- `_RRV-toolbox.qmd`: This file should not be edited, it is dynamically populated based on the family Excel file.
+
+Some of the text files are a bit more complicated and contain additional Markdown formatting to make it readable. There are examples of viruses where figures have been integrated with the text as well. That's also possible: leave the `-fig`-file empty and add the figures to the text `.qmd` file using the proper Markdown syntax. 
 
 ## Update a tool
 
