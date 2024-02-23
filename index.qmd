@@ -5,6 +5,10 @@ format:
 sidebar: false
 ---
 
+## Documentation
+
+The documentation for this site/app can be [found here](/docs).
+
 ## Toolbox
 
 Please click here for information about the toolbox: [Toolbox](toolbox/index.qmd)
