@@ -1,1 +1,2 @@
 The virus is widely distributed throughout the world including Europe, Africa, Asia, and Australia. SINV is used as tool to study alphaviruses at lower biosafety level. There are no approved vaccines or antivirals available at the moment for the prevention or treatment of SINV infection. 
+GFP SINV is a recombinant virus recently introduced in our toolbox
