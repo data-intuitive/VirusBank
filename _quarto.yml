@@ -4,6 +4,8 @@ project:
 website:
   title: "VirusBank"
   repo-url: https://github.com/data-intuitive/VirusBank
+  sidebar:
+    contents: docs/*
 format:
   html:
     title-block-banner: virus.jpg
@@ -72,7 +74,7 @@ format:
           })
         }
         window.addEventListener("load", cleanUpDOM);
-        
+
         </script>
 
     sidebar: false
@@ -81,8 +83,9 @@ format:
     mainfont: "Mukta"
     font-size: 16em
     css: styles.css
+    scss: pimp.scss
     toc: false
-    resources: 
+    resources:
       - families.json
       - tree.newick
       - family.xlsx

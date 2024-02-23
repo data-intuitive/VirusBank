@@ -1,0 +1,292 @@
+---
+title: Use Github
+order: 50
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+## Introduction
+
+Github and the tools it provides should be sufficient for 90% of the tasks related to updating the content.
+
+As mentioned in the [introduction](docs/introduction.qmd), we rely heavily on Git and Github:
+
+- Every update to the app is done by means of a _package_ of change, a _commit_.
+- We usually work on the `develop` branch and add commits there
+- It's possible to create another  _branch_ in order to add commits that are not shared with the other work in `develop`
+- Those branches can then be rendered as websites and _merged_ when correct.
+- The best way to merge branches is by creating a 'pull request' (PR for short).
+- The PR provides a link to the rendered page and also explains if this branch can be merged with the main branch.
+
+When happy with the changes in `develop`, we can then again create PR, but this time to update `main`. When this PR is merged, the website is rendered and deployed as part of the VirusBank website itself.
+
+Let's go over process in detail.
+
+## Prerequisites
+
+It all starts by creating an account on Github and providing that account access to the project on Github[^existing][^noneed].
+
+[^existing]: If you already have an account, that's fine as well. It can easily be added to the list of collaborators on the project.
+
+[^noneed]: It's not really necessary to have access rights to the project itself, it's possible to _fork_ the project and create a _pull request_ from elsewhere.
+
+## Steps
+
+
+```{mermaid}
+graph TD
+  A["`Create a branch docs from develop`"]
+  B["`Open a PR for that branch`"]
+  C["`Open Codespaces session for branch/PR`"]
+  D["`... make edits... `"]
+  E["`Sync with the branch/PR`"]
+  F["`Merge with develop`"]
+  G["`Merge with main`"]
+
+  A --> B --> C --> D --> E --> F --> G
+  E --> C
+  F --> A
+  G --> A
+
+```
+
+### Create a branch from `develop`
+
+1. Open the [repository](https://github.com/data-intuitive/VirusBank) in a browser. You see the code behind the app and docs.
+2. On the left top, you should see that the current _branch_ is `main`:
+
+    ![](img/gh-main.png){width=50%}
+
+3. By clicking the down arrow a list of branches can be shown:
+
+    ![](img/gh-main_branches.png){width=50%}
+
+4. A new branch can be created by clicking the 'New branch' button in the top right:
+
+    ![](img/gh-branch_new.png){width=50%}
+
+5. You should select to create a branch from `develop`:
+
+    ![](img/gh-branch_create.png){width=50%}
+
+6. The branch is created and will automatically be selected as the current branch:
+
+    ![](img/gh-branch_created.png){width="50%"}
+
+
+### Open a PR to `develop`
+
+Now that we have the branch, we can create a PR to `develop` to track the changes and updates:
+
+1. Open the 'Pull requests' pane:
+
+    ![](img/gh-pr.png){width=50%}
+
+2. Select 'New pull request':
+
+    ![](img/gh-pr_new.png){width=50%}
+
+3. Select the branch you currently work on on the right and `develop` on the left
+
+    ![](img/gh-pr_new_branches.png){width=50%}
+
+4. The PR is created and can be opened. The site will automatically be rendered at a url specific to that PR:
+
+    ![](img/gh-pr_created.png){width=50%}
+
+### Edit the branch/PR in Codespaces
+
+When it's time to make edits to the branch we are working on, the following procedure can be followed to do this online:
+
+1. In the PR, lock on the down arrow in the top right corner next to 'Code':
+
+    ![](img/gh-codespaces_1.png){width=50%}
+
+2. Select the 2nd tab: 'Codespaces':
+
+    ![](img/gh-codespaces_2.png){width=50%}
+
+3. Click on 'Create codespaces on <your branch>':
+
+    ![](img/gh-codespaces_3.png){width=50%}
+
+4. A new browser window should open with an online editor and the code from the project, something like this:
+
+    ![](img/gh-codespaces_created.png){width=80%}
+
+On the left of this page, you find a list of files in the repository. The right has tabs to display different files simultaneously. Below there is a terminal which we will probably not use that often.
+
+### Configure Codespaces
+
+Installing the Quarto extension will make our lives easier further on:
+
+1. Open the extensions, the 5th icon in the row on the left and search for `quarto`:
+
+    ![](img/gh-cs_extension_0.png){width=50%}
+
+2. Click the 'Install' button to install the extension.
+
+3. The `.qmd` documents you open should now be layed out better with color-coding.
+
+
+### Make changes
+
+What you see in Github codespaces is practically a [VSCode] instance running in the browser. It allows you to make changes to any file in the repository as well as the ability to upload files:
+
+![](img/gh-cs_commit_7.png){width=50%}
+
+Just right click on a folder or file on in the tree overview for the available options.
+
+:::{.callout-note}
+Please try to avoid spaces in filenames.
+:::
+
+[VSCode]: https://code.visualstudio.com/
+
+
+### Commit and Sync changes
+
+Git is fully integrated with the Codespaces editor. For instance, on the left there's an icon that takes you to an overview of the current PR you're contributing to:
+
+![](img/gh-cs_pr.png){width=50%}
+
+When you made any changes, for instance updating files, adding files you need to _commit_ and _push_ those changes:
+
+1. Click the third icon on the left:
+
+    ![](img/gh-cs_commit_1.png){width=50%}
+
+2. Git works with a 2-step process for committing changes: first changes need to be _staged_ and then they can be committed. So first, clock on the `+`
+
+    ![](img/gh-cs_commit_2.png){width=50%}
+
+    and then your screen should look something like this:
+
+    ![](img/gh-cs_commit_3.png){width=50%}
+
+
+    Please note that if there are changes you do not want to apply, you should remove them from the staging area.
+
+3. Provide a description of the update (in this example 'Minor updates') and press 'Commit'.
+
+    ![](img/gh-cs_commit_3.png){width=50%}
+
+4. These change are now locally committed but should be 'sent' back to Github. In order to do that, press the 'Sync Changes' button. You don't need to do that all the time, it's possible to accumulate different commits and sync them once.
+
+    ![](img/gh-cs_commit_4.png){width=50%}
+
+    Press 'OK' in order to perform the sync:
+
+    ![](img/gh-cs_commit_5.png){width=50%}
+
+    The result should be visible in the PR on the Github page:
+
+    ![](img/gh-cs_commit_6.png){width=50%}
+
+Now that the changes are pushed/synced with the PR, this update is picked up automatically and the site should be rerendered after a few minutes.
+
+## Merge with `develop`
+
+When the updates in the PR are rendered properly and they are satisfactory, we can take a step further and update the `develop` branch. This can be done in the PR window. In most cases the bottom of the PR page will look something like this:
+
+![](img/gh-pr_merge_1.png){width=70%}
+
+And updating `develop` is as simple as pressing the button 'Merge pull request'.
+
+It may occur that there is a merge conflict, for instance when someone else has already updated the `develop` branch and so prior information would be overwritten. This case can sometimes be resolved easily but usually requires one to manually resolve the merge conflicts.
+
+The following indicates that conflicts occur:
+
+![](img/gh-pr_conflict.png){width=70%}
+
+## Merge with `main`
+
+When the merge with `develop` is done we can check if our changes are correct once more. Please note that we need this step because multiple people might have updated multiple parts of the app in their own branch and merged this with `develop`. We have to change if those changes are compatible and make sense.
+
+This is a graphical representation: we have two branches (`docs` discussed above and `other_updates`). We merge both by means of a PR to `develop`. But then we need to merge `develop` into `main` in order to effectively publish the app.
+
+```{mermaid}
+graph LR
+  A[docs]
+  B[other_updates]
+  C[develop]
+  D[main]
+
+  A --> C
+  B --> C
+
+  C --> D
+```
+
+The only thing we need to do is open a Pull request again, this time from `develop` to `main`. It will list all commits that are new in `develop`. Just as before, we can then close the PR by merging the changes into main.
+
+At that point, the site will be rendered automatically once more but this time it will also be published on the VirusBank website automatcically.
+
+:::{.callout-note}
+Make sure to properly check the `develop` version of the app because once it's pushed to `main` and published onthe VirusBank website, it becomes nearly impossible to revert the changes without downtime.
+:::
+
+## Track progress
+
+It's easy to track progress of the automated processes. Just open the 'Actions' tab on top:
+
+![](img/gh-actions.png){width=50%}
+
+A green checkmark means the build was succesful, orange is running and red is failed.
+
+## Coming back to Codespaces
+A codespaces session will be kept available for a number of days if you don't explicitly close it. This means you can pick up work where you left it by going back to the Code drop-down in the PR:
+
+![](img/gh-pr_cs-again.png){width=50%}
+
+## Helper scripts
+
+In order to facilitate running necessary code in Codespaces, two scripts have been added:
+
+### `bin/install_nodejs.sh`
+
+This scripts installs the necessary requirements for running the `_js/update_family.js` and `_js/update_families.js` scripts. It's as simple as opening the terminal in Codespaces and running:
+
+```sh
+bin/install_nodejs.sh
+```
+
+
+### `bin/install_quarto.sh`
+
+This script installs Quarto inside the Codespaces environment. This can be handy if you don't want to wait until the site is rendered after committing the code. You can simply do the installation by running the following script:
+
+```sh
+bin/install_quarto.sh
+```
+
+Please note that this requires some time to complete because it needs to install some R dependencies as well.
+
+Once this is done, the following is possible in combination with the Quarto extension described earlier:
+
+1. Open the `index.qmd` file in the root of the repository
+
+2. Click the 'Preview' button on the top right of the screen.
+
+3. A website render will be shown inside the Codespaces window.
+
+This approach may be handy to assess the impact of your changes prior to effectively committing to the PR.
+
+## Rendering failures
+
+Sometimes rendering the branch/PR does not work and something like the following is visible:
+
+![](img/failure_1.png){width=80%}
+
+That means something went wrong in setting up the rendering or the rendering itself. In order to understand what happened, one should click the 'details':
+
+![](img/failure_2.png){width=80%}
+
+This opens the rendering log output, on or close to the place where the error occurred:
+
+![](img/failure_3.png){width=80%}
+
+In this case, the error was the consequence of copy/paste and easily fixed.

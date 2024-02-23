@@ -1,0 +1,189 @@
+---
+title: Introduction
+order: 1
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+## Introduction
+
+The phylotree part of the virusBank platform website is developed and used as a standalone web application. This webapplication included as an [iFrame](https://www.w3schools.com/tags/tag_iframe.ASP). There are two 'sections' in the VirusBank website that point to the phylotree viz: __Viruses__ and __Toolbox__.
+
+:::{.callout-note}
+Please note that because of the app running in an iFrame, some additional configuration is required on the level of the main VirusBank website. All virus families, for instance, have to be registered there in order for the external links to function properly.
+:::
+
+In what follows, we will describe how the phylotree part is setup and how it can be updated.
+
+## Tools
+
+We start by introducing a few tools and technologies that are used:
+
+### Markdown
+
+[Markdown] is a text format that is readable for humans while remaining sufficiently well formatted for a machine to parse it and convert to other formats. There are a few things one should know before starting to read of write markdown files:
+
+- Headers are denoted with `#` for H1, `##` for H2, etc.
+- Links can be added using the notation `[link text](URL)`.
+- Figures can be included using `[caption](figure file)`.
+
+For a complete cheat sheet for markdown, please [refer here](https://www.markdownguide.org/cheat-sheet/).
+
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+
+### Quarto
+
+[Quarto] is a _static site generator_ tool like many others. The nice thing about Quarto is that is a package that wraps a number of other convenience tools and interpreters. In its most basic form, Quarto is able to convert [Markdown] content into (in our case) web pages. With Markdown, we can include text or figures (see the section about virus information). But Quarto also allows to include (Javascript) code. This code is what makes the web pages interactive.
+
+To be precise: the phylotree component is drawn using Javascript and so is the toolbox right to it. The text and figures that goes with every individual virus is plain Markdown.
+
+In order to render the effective site from the Markdown and Javascript source one uses Quarto like this:
+
+```sh
+quarto render
+```
+
+All configuration and customization necessary is available in the `_quarto.yml` file in the root of the repository.
+
+Some things to know before opening/editing Quarto files:
+
+1. Quarto allows to include other documents, a feature that we heavily depend on.
+2. With Quarto (and its predecessor rmarkdown/knitr) it's possible to add _code blocks_: a chunk of code that is not just shown in the document but actually _run_. The output of the code block can then be rendered in the document directly, As such, this approach lends itself perfectly to documents (and web pages) that should contain dynamic content.
+
+[Quarto]: https://quarto.org/
+
+### Git and Github
+
+The website and the phylotree sections are visible on the web. What we _have_ to avoid is to push an update only to find out something went wrong. Additionally, different people may be involved in updating different virusfamilies or viruses.
+
+In order to streamline this process, we use a versioning control system ([Git]) and a platform that supports collaboration using Git ([Github]).
+
+The general idea is that rather than keeping the source for the website as a collection of files, we will keep track of the differences between different versions. That's what git does for us. In the end, we work with the files but git makes sure the differences between different versions are managed.
+
+The code for the phyloviz part is currently at <https://github.com/data-intuitive/VirusBank>.
+
+This allows us to create different _branches_ as well, while still keeping track of how they differ exactly.
+
+We will come back to how we use Git and Github in the section about how to manage updates and additions.
+
+## Structure
+
+Each virus family is stored in a _directory_ or _folder_, for instance: `flaviviridae/`. Inside this folder, there are a couple of files that are required to bootstrap the family page:
+
+- `tree.newick`: The newick-format tree file downloaded from the ICTV website
+- `family.xlsx`: The Excel file containing annotations for the viruses of interest. The IDs should match those in the `tree.newick` file.
+
+Based on these two files, the following files are generated using `_js/update_family.js`:
+
+- `index.qmd`: This will become the main family overview page. This page in turn _includes_ all the virus page content
+- `_details.qmd`: The part of the page where individual virus information is shown in tabs. This file is included in `index.qmd`
+- For every virus in the family (say `VIR`), multiple files are generated:
+    - `VIR.qmd`: the main virus page, basically a number of _includes_ of the files below
+    - `_VIR.qmd`: The content for the Virus page, also included in the virus family `_details.qmd` and displayed as tabs
+    - `_VIR-symptoms.qmd`: The text description of the symptoms for `VIR`
+    - `_VIR-symptoms.qmd`: A pointer to the symptoms figure, usually stored under `img/`
+    - `_VIR-transmission.qmd`: A text description of the transmission of `VIR`. This is kept empty for now because the figure is self-explanatory.
+    - `_VIR-transmission-fig.qmd`: A figure explaining the transmission of `VIR`. The image itself is usually stored under `img/`
+    - `_VIR-relevance.qmd`: A text description of the medical relevance of `VIR`
+    - `_VIR-relevance-fig.qmd`: A pointer to a figure for the medical relevance (and optionally a caption)
+
+Graphically, the includes can be depicted as follows:
+
+
+```{mermaid}
+graph LR
+  
+  subgraph _js/
+    _js/_ojs_data.qmd
+    _js/virus-breadcrumb.qmd
+    _js/family-breadcrumb.qmd
+  end
+
+  _details.qmd --> index.qmd
+  _js/_ojs_data.qmd --> index.qmd
+  _js/_ojs_data.qmd --> VIR.qmd
+  _js/virus-breadcrumb.qmd --> VIR.qmd
+  _js/family-breadcrumb.qmd --> index.qmd
+  
+  _VIR.qmd --> _details.qmd
+  _VIR.qmd --> VIR.qmd
+
+  _VIR-symptoms.qmd --> _VIR.qmd
+  _VIR-symptoms.qmd --> _VIR.qmd
+  _VIR-transmission.qmd --> _VIR.qmd
+  _VIR-transmission-fig.qmd --> _VIR.qmd
+  _VIR-relevance.qmd --> _VIR.qmd
+  _VIR-relevance-fig.qmd --> _VIR.qmd
+```
+
+The includes themselves are not parametrized, but the YAML header `VIR.qmd` is, for example `alphaviruses/CHIKV.qmd` contains the following header:
+
+```yaml
+---
+params:
+  family: alphaviruses
+  virus: Chikungunya virus (CHIKV)
+---
+```
+
+Based on this the correct toolbox entries are shown, for instance.
+
+# Development
+
+## Requirements and setup
+
+In order to _render_ this site/app locally, the following are required:
+
+0. `wget`: install using the package manager available for your platform.
+
+1. [Quarto](https://quarto.org/docs/get-started/)
+
+2. `yq`:
+
+    ```sh
+    sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+    sudo chmod a+x /usr/local/bin/yq
+    ```
+
+Rendering the site locally is as simple as running:
+
+```sh
+quarto render
+```
+
+While working on the text/code, the following may come in handy:
+
+```sh
+quarto preview
+```
+
+## Automation
+
+Github Actions is configured as follows:
+
+- For every PR: the site is built and deployed to [Netlify](https://www.netlify.com/). The correct URL to point to is mentioned in the PR.
+- When a PR to `main` is merged, the site is not only rendered to Netflify but also the VirusPlatform itself.
+
+__Caveat__: We don't currently have a test environment for the VirusBank main website. As a consequence we can not test how the site will render in an iFrame.
+
+
+## Setup
+
+### Toolbox page
+
+The toolbox page is based on a YAML file.
+
+### Virus family pages
+
+Every virus family is contained in a _folder_ of its own. Inside this folder, everything related to this specific family can be found.
+
+### Virus pages
+
+
+## Various remarks
+
+- `d3` is loaded by Quarto already, there is not need to load it again
+
