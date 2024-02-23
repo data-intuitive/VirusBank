@@ -1,7 +1,7 @@
 ---
 params:
   family: alphaviruses
-  virus: Ross river virus (RRV)
+  virus: Ross River virus (RRV)
 ---
 
 ```{r}
