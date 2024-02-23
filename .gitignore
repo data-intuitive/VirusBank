@@ -1,4 +1,13 @@
-alpha/index.html
-alpha/index_files/
+.Rhistory
+_material
+
+# node
+node_modules
+package.json
+package-lock.json
+
+# quarto
 /.quarto/
 _site
+index_files
+_extensions

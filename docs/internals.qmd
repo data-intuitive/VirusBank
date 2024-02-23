@@ -1,0 +1,258 @@
+---
+title: Internals
+order: 10
+format:
+  html:
+    toc: true
+    sidebar: true
+    page-layout: article
+---
+
+## Introduction
+
+The phyloviz app contains 3 types of pages:
+
+1. The virus Family pages
+2. Individual virus pages
+3. The toolbox page
+
+Depending on the type of page, the content is collected and shown differently.
+
+## Data loading
+
+At the basis are a number of data files. The primary ones are:
+
+- `src/families.yaml`: This file contains the different families that are represented in the app. This is just a simple list.
+- `src/toolbox.yaml`: The content of the toolbox, including meta information.
+
+We use YAML format here because it's easy for humans to write and interpret. Internally, we use the JSON representation and thus we neekkkkkkd to convert them to the JSON format. That's what we use `yq` for:
+
+```sh
+yq -M -o=json src/toolbox.yaml > toolbox/toolbox.json
+yq -M -o=json src/families.yaml > families.json
+```
+
+These files provide general information about the toolbox and the different families that are suppored. Once they are parsed and read, the per-familiy Excel annotation files are read.
+
+Next, per-family information is read in. For every family (say `virfam`) in `families.json`, the following data files are loaded and parsed:
+
+1. `virfam/tree.newick`: this contains the phylogenetic tree information.
+
+2. `virfam/family.xlsx` contains the annotations for the different virus strains of interest.
+
+While parsing the different data sources, a translation is performed so that tools in the tooblox can be referred to by means of a short identifier rather than their longer names.
+These data files are loaded for _every_ page within the app. This is done in the `_js/_ojs_data.qmd`.
+
+
+
+## Virus family page
+
+![](family-page.png){width=80% .border}
+
+As an illustration, this is the `alphaviruses/index.qmd` file:
+
+```` markdown
+---
+...
+params:
+  family: alphaviruses
+---
+  
+```{{r}}
+#| echo: false
+ojs_define(virusFamily = params$family)
+```
+
+{{{< include /_js/_ojs_data.qmd >}}}
+{{{< include /_js/_ojs_family.qmd >}}}
+
+{{{< include /_js/family-breadcrumb.qmd >}}}
+
+{{{< include /_js/family.qmd >}}}
+
+&nbsp;
+ 
+{{{< include _details.qmd >}}}
+
+````
+
+A virus family first loads all the data for all families (via the `_js/_ojs_data.qmd` file discussed earlier).
+As a second step, this data is filtered for the virus at hand, say `virfam`. This is done by means of a parameter that is set in the family page `.qmd` file as can be seen above.
+
+So based on the `family` parameter, the data is filtered and the appropriate phylotree data and virus strain annotations are extracted[^1].
+
+[^1]: Please note that the only difference between `alphaviruses/index.qmd` and `filoviruses/index.qmd` is this parameter. The rest of the file is generic.
+
+The utility file `_js/_ojs_family.qmd` contains a number of helper functions and transformations that deal with the filtering and parsing of the data structures for one family.
+
+### Tree and toolbox rendering
+
+The effective rendering of the tree and the toolbox is done in `_js/family.qmd` and that file is included in every virus family `index.qmd` file as can be seen as well.
+
+The code should be self-explanatory, so we're not going to discuss it in detail here.
+
+### Details
+
+The last include in the virus family page is `_details.qmd`. Please note that this is not a _shared_ file as it resides in the same directory as the family information itself.
+
+This is a sample from `alphaviruses/_details.qmd`:
+
+```` markdown
+:::: {.panel-tabset #vb-tabset}
+
+## MAYV
+
+{{{< include  _MAYV.qmd >}}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/MAYV.qmd) / [reload family page](/alphaviruses/)
+:::
+
+## SFV
+
+{{{< include  _SFV.qmd >}}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/alphaviruses/SFV.qmd) / [reload family page](/alphaviruses/)
+:::
+````
+
+Clearly, this is not a generic file in that it contains explicit references to the viruses for the alphavirus family[^underscore].
+
+[^underscore]: The fact that some files start with an underscore `_MAYV.qmd` for instance is this tells Quarto to not render these as standalone web pages. Generally speaking, we use those files to include in other (rendered) `.qmd` files.
+
+The last we want to do is type such a virus list ourselves. The probability of errors is huge and it's the most boring task there is.
+
+We generate the `<family>/_details.qmd` files based on the annotations present in the family XLSX file using a script: `_js/update_family.js`. This script is run using [node.js]:
+
+```sh
+node _js/update_family.js -i alphaviruses
+```
+
+This will read all the necessary data files and generate the `_details.qmd` file (as well as a bunch of other files we will come back to later).
+
+A convenience function has been created that generates all these files for ALL virus families: `_js/update_families.js`.
+
+__Please note__:
+
+1. these tools will _not_ overwrite anything that is already present. This is a failsafe. In ordert to explicitly overwrite the existing files, one can either first remove them or use the `-o` argument to the tools.
+
+2. The virus-specific content that is loaded from the `_details.qmd` _page_ are in itself files that start with `_` and so are not rendered.
+
+Let us take a loook at for instance `_MAYV.qmd`:
+
+```` markdown
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{{< include _MAYV-symptoms-fig.qmd >}}} 
+
+:::
+
+::: {.virus-text}
+
+{{{< include _MAYV-symptoms.qmd >}}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{{< include _MAYV-transmission-fig.qmd >}}} 
+
+:::
+
+::: {.virus-text}
+
+{{{< include _MAYV-transmission.qmd >}}} 
+
+:::
+
+## Medical relevance
+
+...
+
+## Toolbox
+
+...
+
+:::
+
+````
+
+We notice a pattern, this file, although auto-generated by the `update_family.js` script in itself only refers to other files in turn. For example, `_MAYV-symptoms.qmd`:
+
+``` markdown
+More than 50% of the infected patients develop a chronic, long-term disease, characterized by a debilitating arthralgia that can persist for weeks to months.
+
+Death from MAYV is rare.
+```
+
+or `_MAYV-symptoms-fig`:
+
+``` markdown
+![](img/MAYV disease.png)
+```
+
+These are (for the most part) all simple (markdown) text files. They provide the content for the virus details panes.
+
+Please note that all this content is loaded in the tabs below the phylotree and toolbox visualization.
+
+## Virus page
+![](virus-page.png){width=80% .border}
+
+When we click on a specific virus, we are taken to the virus page. Let's consider the example of `alphaviruses/MAYV.qmd` again:
+
+```` markdown
+---
+params:
+  family: alphaviruses
+  virus: Mayaro virus (MAYV)
+---
+
+```{{r}}
+#| echo: false
+ojs_define(virusFamily = params$family)
+ojs_define(virus = params$virus)
+```
+
+{{{< include /_js/virus-breadcrumb.qmd >}}}
+
+{{{< include _MAYV.qmd >}}}
+
+{{{< include /_js/_ojs_data.qmd >}}}
+{{{< include /_js/_ojs_family.qmd >}}}
+
+````
+
+This _page_ is rendered by Quarto (no `_` in front of it). We see the same ingredients as for the family pages:
+
+- the current virus family but also the current virus is set based on the `params` in the header
+- the two data parsing libraries are included: `_ojs_data.qmd` and `_ojs_family.qmd`.
+
+The line in the middle inlcude the `_MAYV.qmd` file which is the file we discussed earlier. The same content is loaded when selecting a virus in the family page as the one we show here in the virus-specific page.
+
+These virus pages are automatically generated using the `update_family.js` script.
+
+## Toolbox
+
+![](toolbox-page.png){width=80% .border}
+
+The toolbox is a little bit different in nature, it is complete rendered dynamically based on code. The main page is `tooblox/index.qmd` and this page performs a few steps:
+
+- load the `_ojs_data.qmd` file in order to load all information for all viruses and the toolbox
+- Loop over the tools and render them one by one. For every tool, render a table of viruses for which this tool is available.
+
+Some Javascript libraries are used to make this work, but all in all it's not a difficult page to create.
+
+[node.js]: https://nodejs.org/en
+
+## Grouping
+
+We included a feature to group viruses.
+
+TODO: Extend
