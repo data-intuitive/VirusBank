@@ -1,0 +1,60 @@
+::: {.panel-tabset}
+
+## Symptoms
+
+::: {.virus-figure}
+
+{{< include _EV-A71-symptoms-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _EV-A71-symptoms.qmd >}} 
+
+:::
+
+## Transmission
+
+::: {.virus-figure}
+
+{{< include _EV-A71-transmission-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _EV-A71-transmission.qmd >}} 
+
+:::
+
+## Medical relevance
+
+::: {.virus-figure}
+
+{{< include _EV-A71-relevance-fig.qmd >}} 
+
+:::
+
+::: {.virus-text}
+
+{{< include _EV-A71-relevance.qmd >}} 
+
+:::
+
+## Toolbox
+
+::: {.virus-toolbox}
+
+{{< include _EV-A71-toolbox.qmd >}} 
+
+:::
+
+```{ojs}
+//| output: none
+//| echo: false
+
+renderVirusToolbox("enteroviruses", "EV-A71")
+
+```
+:::
