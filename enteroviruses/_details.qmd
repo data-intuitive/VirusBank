@@ -8,12 +8,12 @@
 [open virus page](/enteroviruses/EV-A71.qmd) / [reload family page](/enteroviruses/)
 :::
 
-## HRVC15
+## EV-D68
 
-{{< include  _HRVC15.qmd >}}
+{{< include  _EV-D68.qmd >}}
 
 :::{ style="text-align:center;font-weight:500" }
-[open virus page](/enteroviruses/HRVC15.qmd) / [reload family page](/enteroviruses/)
+[open virus page](/enteroviruses/EV-D68.qmd) / [reload family page](/enteroviruses/)
 :::
 
 ::::

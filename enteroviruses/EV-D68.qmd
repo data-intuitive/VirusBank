@@ -1,7 +1,7 @@
 ---
 params:
   family: enteroviruses
-  virus: rhinovirus C15 (HRVC15)
+  virus: Enterovirus-D68 (EV-D68)
 ---
 
 ```{r}
@@ -12,7 +12,7 @@ ojs_define(virus = params$virus)
 
 {{< include /_js/virus-breadcrumb.qmd >}}
 
-{{< include _HRVC15.qmd >}}
+{{< include _EV-D68.qmd >}}
 
 {{< include /_js/_ojs_data.qmd >}}
 {{< include /_js/_ojs_family.qmd >}}
