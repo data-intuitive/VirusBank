@@ -1,1 +1,1 @@
-![Placeholder __caption__ for figure with symptoms related to Enterovirus-A71](/img/placeholder.jpg)
+![](img/EV-A71_symptoms.png)
