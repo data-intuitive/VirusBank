@@ -168,8 +168,10 @@ renderedTree = tree
   // Transform the tree (translate and prune)
   // based on the input Excel file for this virus family
   .traverse_and_compute(node => {
+
     const virus_id = node.data.name
     const isLeaf = tree.isLeafNode(node)
+
     if (isLeaf) {
       const virus = virusIdToVirus(virus_id)
       const isVirusOfInterest = (typeof virus !== "undefined") ? (virus.virus_of_interest == "Yes") : false
@@ -205,7 +207,6 @@ renderedTree = tree
     'container': "#tree-container"
   })
   .style_nodes( (element, data) => {
-
     // the virus_id is how the virus is encoded in phylotree newick file
     const virus_id = data.data.name  
     
@@ -279,6 +280,8 @@ clearNodes = () => {
     .filter(function (d) { return (typeof d.data !== "undefined") ? inToolboxLst.includes(d.data.name) : false})
     .select("text").attr("class", "phylotree-node-text-hl")
 }
+
+// console.log(renderedTree)
 
 showTree = renderedTree
   .svg

@@ -1,0 +1,19 @@
+:::: {.panel-tabset #vb-tabset}
+
+## EV-A71
+
+{{< include  _EV-A71.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/enteroviruses/EV-A71.qmd) / [reload family page](/enteroviruses/)
+:::
+
+## EV-D68
+
+{{< include  _EV-D68.qmd >}}
+
+:::{ style="text-align:center;font-weight:500" }
+[open virus page](/enteroviruses/EV-D68.qmd) / [reload family page](/enteroviruses/)
+:::
+
+::::
